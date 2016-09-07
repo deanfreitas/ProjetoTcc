@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+body {
+	background-image: url(../Imagens/home.jpg);
+	width: 800px;
+}
+
+div#pagina {
+	width: 800px;
+	height: 550px;
+	position: relative;
+	left: 50%;
+	top: 5%;
+	box-shadow: 1px 1px 15px blue;
+	padding: 40px;
+	background: rgba(0, 0, 0, 0.4);
+	font-family: Arial;
+	font-size: 14px;
+}
+
+p {
+	font-weight: bold;
+	font-size: 14px;
+	font-family: Calibri;
+}
+
+fieldset {
+	font-weight: bold;
+	font-size: 18px;
+	font-family: Calibri;
+	border-radius: 15px 50px;
+	border: 2px dashed black;
+	margin-right: 50px;
+}
+
+fieldset#acesso {
+	margin-right: 350px;
+}
+
+figure.logo {
+	position: absolute;
+	top: 20px;
+	left: -10px;
+	box-shadow: 2px 2px 3px green;
+}
+
+figure.botao {
+	opacity: 1;
+	transition: opacity;
+	position: absolute;
+	top: 460px;
+	left: 550px;
+}
+
+figure.botao:hover {
+	opacity: 0.5;
+}
+
+figure.botao2 {
+	opacity: 1;
+	transition: opacity;
+	position: absolute;
+	top: 400px;
+	left: 520px;
+}
+
+figure.botao2:hover {
+	opacity: 0.5;
+}
+
+.validarCampoDigitado {
+	border-color: #FF0000;
+}
+
+.tooltip {
+	position: absolute;
+	z-index: 1070;
+	display: block;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: left;
+	text-align: start;
+	text-decoration: none;
+	text-shadow: none;
+	text-transform: none;
+	letter-spacing: normal;
+	word-break: normal;
+	word-spacing: normal;
+	word-wrap: normal;
+	white-space: normal;
+	filter: alpha(opacity = 0);
+	opacity: 0;
+	line-break: auto
+}
+
+.tooltip.in {
+	filter: alpha(opacity = 90);
+	opacity: .9
+}
+
+.tooltip.top {
+	padding: 5px 0;
+	margin-top: -3px
+}
+
+.tooltip.right {
+	padding: 0 5px;
+	margin-left: 3px
+}
+
+.tooltip.bottom {
+	padding: 5px 0;
+	margin-top: 3px
+}
+
+.tooltip.left {
+	padding: 0 5px;
+	margin-left: -3px
+}
+
+.tooltip-inner {
+	max-width: 200px;
+	padding: 3px 8px;
+	color: #fff;
+	text-align: center;
+	background-color: #000;
+	border-radius: 4px
+}
+
+.tooltip-arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid
+}
+
+.tooltip.top .tooltip-arrow {
+	bottom: 0;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px 5px 0;
+	border-top-color: #000
+}
+
+.tooltip.top-left .tooltip-arrow {
+	right: 5px;
+	bottom: 0;
+	margin-bottom: -5px;
+	border-width: 5px 5px 0;
+	border-top-color: #000
+}
+
+.tooltip.top-right .tooltip-arrow {
+	bottom: 0;
+	left: 5px;
+	margin-bottom: -5px;
+	border-width: 5px 5px 0;
+	border-top-color: #000
+}
+
+.tooltip.right .tooltip-arrow {
+	top: 50%;
+	left: 0;
+	margin-top: -5px;
+	border-width: 5px 5px 5px 0;
+	border-right-color: #000
+}
+
+.tooltip.left .tooltip-arrow {
+	top: 50%;
+	right: 0;
+	margin-top: -5px;
+	border-width: 5px 0 5px 5px;
+	border-left-color: #000
+}
+
+.tooltip.bottom .tooltip-arrow {
+	top: 0;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 0 5px 5px;
+	border-bottom-color: #000
+}
+
+.tooltip.bottom-left .tooltip-arrow {
+	top: 0;
+	right: 5px;
+	margin-top: -5px;
+	border-width: 0 5px 5px;
+	border-bottom-color: #000
+}
+
+.tooltip.bottom-right .tooltip-arrow {
+	top: 0;
+	left: 5px;
+	margin-top: -5px;
+	border-width: 0 5px 5px;
+	border-bottom-color: #000
+}
