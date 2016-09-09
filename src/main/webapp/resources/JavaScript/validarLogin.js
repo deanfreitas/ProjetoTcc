@@ -1,12 +1,9 @@
-$(document).ready(function() {
-
 	function validarCampo(field) {
 
 		$(field).click(function() {
 
 			var usuario = $('#usuario').val();
 			var senha = $('#senha').val();
-			var tipoPessoa = $('input[id=tipoPessoa]:checked').val();
 			var display = false;
 
 			if (usuario == null || usuario == "") {
@@ -28,7 +25,6 @@ $(document).ready(function() {
 	}
 
 	validarCampo($('input[id="btnEntrar"]'));
-});
 
 $(document).ready(function() {
 
@@ -49,34 +45,61 @@ $(document).ready(function() {
 	validarCamposDigitados($('input[id="senha"]'));
 });
 
-var validarLoginApp = angular.module("validarLoginApp", []);
+$(document).ready(function() {
 
-validarLoginApp.controller("validarLogin", function($scope, $window, $http) {
+	$('#btnEntrar').click(function() {
 
-	$scope.usuario = null;
-	$scope.senha = null;
-
-	$scope.btnEntrar = function() {
-		
-		var login =  new Object();
-		login.usuario  = $scope.usuario,
-		login.senha = $scope.senha;
-		
-		var response = $http.post("EntrarTelaPrincipal", login);
-
-		response.success(function(data, status, headers, config) {
-			if (data.codigo == 2) {
-				$window.alert(data.mensagem);
-				return false;
-			} else {
-				return true;
+		var usuarioLogin = $('#usuario').val();
+		var senhaLogin = $('#senha').val();
+		var object = {usuario : usuarioLogin, senha : senhaLogin};
+		$.ajax({
+			url: "/ProjetoTcc/EntrarTelaPrincipal",
+			type: 'POST',
+			data: JSON.stringify(object),
+			contentType: "application/json",
+		    dataType: 'json',
+			success: function(data, status) {
+				if (data.codigo == 2) {
+					alert(data.mensagem);
+					return false;
+				} else {
+					window.location.href = '/ProjetoTcc/TelaQualquer';
+					return true;
+				}
 			}
-		});
+		}); 
 
-		response.error(function(data, status, headers, config) {
-			$window.alert(data);
-			return false;
-		});
-
-	};
+	});
 });
+
+//var validarLoginApp = angular.module("validarLoginApp", []);
+//
+//validarLoginApp.controller("validarLogin", function($scope, $window, $http) {
+//
+//	$scope.usuario = null;
+//	$scope.senha = null;
+//
+//	$scope.btnEntrar = function() {
+//
+//		var login = new Object();
+//		login.usuario = $scope.usuario, login.senha = $scope.senha;
+//
+//		var response = $http.post("EntrarTelaPrincipal", login);
+//
+//		response.success(function(data, status, headers, config) {
+//			if (data.codigo == 2) {
+//				$window.alert(data.mensagem);
+//				return false;
+//			} else {
+//				$window.location.href = '/ProjetoTcc/TelaQualquer';
+//				return true;
+//			}
+//		});
+//
+//		response.error(function(data, status, headers, config) {
+//			$window.alert(data);
+//			return false;
+//		});
+//
+//	};
+//});

@@ -7,7 +7,6 @@ public class ResultadoMensagem {
 
 	private long codigo;
 	private String mensagem;
-	private String redirecionarPagina;
 	
 	public ResultadoMensagem(long codigo, String mensagem) {
 		super();
@@ -33,13 +32,5 @@ public class ResultadoMensagem {
 	
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
-	}
-
-	public String getRedirecionarPagina() {
-		return redirecionarPagina;
-	}
-
-	public void setRedirecionarPagina(String redirecionarPagina) {
-		this.redirecionarPagina = redirecionarPagina;
 	}
 }

@@ -6,7 +6,7 @@
 <html ng-app="validarLoginApp">
 <head>
 <meta charset="UTF-8">
-<script src="<c:url value ='/resources/JavaScript/angular.min.js' />" /></script>
+<!-- <script src="<c:url value ='/resources/JavaScript/angular.min.js' />" /></script> -->
 <script src="<c:url value ='/resources/JavaScript/jquery-2.1.4.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/validarLogin.js' />" /></script>
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelaLogin.css' />" />
@@ -17,7 +17,7 @@
 	<div id="pagina">
 		<img src="<c:url value = '/resources/Imagens/logotransp.png' />" />
 
-		<form  id="entrarTelaPrincipal" name="entrarTelaPrincipal" action="TelaQualquer" method="post" ng-controller="validarLogin">
+		<!-- <form  id="entrarTelaPrincipal" name="entrarTelaPrincipal" method="post" ng-controller="validarLogin"> -->
 			<table>
 				<tr>
 					<td>Usuário:</td>
@@ -39,12 +39,12 @@
 				<input type="image" id="btnEntrar" name="btnEntrar" src="<c:url value = '/resources/Imagens/button.png' />" value="entrar" ng-click="btnEntrar()"/>
 			</figure>
 			
-		</form>
-		<form method="post" action="TelaCadastro" id="entrarTelaCadastro" name="entrarTelaCadastro">
+		<!-- </form> -->
+		<!-- <form method="post" action="TelaCadastro" id="entrarTelaCadastro" name="entrarTelaCadastro"> -->
 			<figure class="botao">
 				<input type="image" id="btnCadastrar" name="btnCadastrar" src="<c:url value = '/resources/Imagens/button (1).png' />" value="cadastrar"/>
 			</figure>
-		</form>
+		<!-- </form> -->
 		
 	</div>
 </body>

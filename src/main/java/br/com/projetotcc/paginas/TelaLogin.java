@@ -28,17 +28,13 @@ public class TelaLogin {
 	
 	@RequestMapping(value = "/EntrarTelaPrincipal", method = RequestMethod.POST)
 	public @ResponseBody ResultadoMensagem logarUsuario(@RequestBody Login login) {
-		
-		String nomePagina = null;
 		String mensagem = null;
 		
 		if(login.getUsuario() == null || login.getUsuario().equals("")) {
-			nomePagina = "redirect:TelaLogin";
 			mensagem = "Digite um usuario";
 			
 		} else
 			if(login.getUsuario() == null || login.getSenha().equals("")) {
-				nomePagina = "redirect:TelaLogin";
 				mensagem = "Digite uma senha";
 				
 			} else {
@@ -46,17 +42,13 @@ public class TelaLogin {
 					Login usuariosCadastrados = bancoDadosService.encontrarUsuario(login.getUsuario());
 					
 					if(usuariosCadastrados.getSenha().equals(login.getSenha())) {
-						nomePagina = "TelaQualquer";
 					} else {
-						nomePagina = "redirect:TelaLogin";
 						mensagem = "Usuario ou senha inválido";
 					}
 					
 				} catch(ClassCastException classCastException) {
-					nomePagina = "redirect:TelaLogin";
 					mensagem = "Esse usuario não existe";
 				} catch (IndexOutOfBoundsException indexOutOfBoundsException) {
-					nomePagina = "redirect:TelaLogin";
 					mensagem = "Esse usuario não existe";
 				}
 			}
@@ -68,7 +60,6 @@ public class TelaLogin {
 		}
 		
 		resultadoMensagem.setMensagem(mensagem);
-		resultadoMensagem.setRedirecionarPagina(nomePagina);
 		
 		return resultadoMensagem;
 	}
