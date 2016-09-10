@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap.min.css'/> " />
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloIndex.css'/> " />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelaLogin.css'/> " />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap-material-design.min.css'/> " />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/ripples.min.css'/> " />
 <script src="<c:url value ='/resources/JavaScript/jquery-2.1.4.js' />" /></script>
@@ -40,7 +40,7 @@
 			</div>
 			<div class="row" id="botoes">
 				<a type="button" class="btn btn-raised btn-primary btn-lg" id="btnEntrar" name="btnEntrar" ng-click="btnEntrar()">Entrar</a>
-				<a type="button" class="btn btn-raised btn-primary btn-lg" id="btnCadastrar" name="btnCadastrar">Cadastrar-se</a>
+				<a type="button"  class="btn btn-raised btn-primary btn-lg" id="btnCadastrar" name="btnCadastrar">Cadastrar-se</a>
 			</div>
 		</form>
 	</div>

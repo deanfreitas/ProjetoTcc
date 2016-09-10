@@ -1,53 +1,63 @@
 @charset "UTF-8";
 
-body {
-	background-image: url(../Imagens/home.jpg);
-	width: 800px;
+body{
+	padding-top:40px;
+	padding-bottom:40px;
+	background-image:url(../Imagens/home.jpg);
+	
 }
 
-div#pagina {
-	width: 350px;
-	height: 490px;
-	position: absolute;
-	left: 30%;
-	top: 5%;
-	box-shadow: 0px 0px 10px blue;
-	padding: 40px;
-	background: rgba(0, 0, 0, 0.3);
-	font-family: Arial;
-	font-size: 20px;
-	text-align: center;
+.form-login {
+	max-width:350px;
+	padding:10px;
+	margin: 0 auto;
+	margin-top:40px;
+	
 }
 
-td {
-	font-family: Arial;
-	font-size: px;
+.form-login .form-login-heading {
+	margin-bottom:10px;
 }
 
-figure.botao1 {
-	opacity: 1;
-	transition: opacity;
-	position: absolute;
-	top: 450px;
-	left: 30px;
+.form-login .form-control{
+	position:relative;
+	height:auto;
+	padding:10px;
+	font-size:18px;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	
+}
+.form-login .form-control:focus{
+	z-index:2;
+	
+	
+}
+.form-login input[type="text"]{
+	margin-bottom:4px;
+	
 }
 
-figure.botao1:hover {
-	opacity: 0.5;
+.form-login input[type="password"]{
+	margin-bottom:10px;
+	
 }
-
-figure.botao {
-	opacity: 1;
-	transition: opacity;
-	position: absolute;
-	top: 450px;
-	left: 150px;
+	
+.container-fluid{
+	
+	margin-bottom:60px;
+	margin-top:10px;
+	
 }
-
-figure.botao:hover {
-	opacity: 0.5;
+div#logo{
+	
+	margin-top:30px;
+	margin-bottom:-40px;
+	
+	
 }
-
-.validarCampoDigitado {
-	border-color: #FF0000;
-}
+div#botoes{
+	margin-left:10px;
+	
+	}

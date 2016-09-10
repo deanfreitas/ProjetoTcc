@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TelaCadastro {
 
-	@RequestMapping(value = "/TelaCadastro", method = RequestMethod.POST)
+	@RequestMapping(value = "/TelaCadastro", method = RequestMethod.GET)
 	public ModelAndView aparecerTelaCadastro() {
 		return new ModelAndView("TelaCadastro");
 	}

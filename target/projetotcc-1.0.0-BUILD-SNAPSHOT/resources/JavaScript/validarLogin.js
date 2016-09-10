@@ -1,52 +1,52 @@
-	function validarCampo(field) {
-
-		$(field).click(function() {
-
-			var usuario = $('#usuario').val();
-			var senha = $('#senha').val();
-			var display = false;
-
-			if (usuario == null || usuario == "") {
-				$('#usuario').css("border-color", "#FF0000");
-				display = true;
-			}
-
-			if (senha == null || senha == "") {
-				$('#senha').css("border-color", "#FF0000");
-				display = true;
-			}
-
-			if (display) {
-				return false;
-			}
-
-			return true;
-		});
-	}
-
-	validarCampo($('input[id="btnEntrar"]'));
-
 $(document).ready(function() {
+	
+	$('input[id="senha"]').unbind('keyup').bind('keyup', function(e) {
+		var thisVal = $(this).val();
+		var tempVal = "";
 
-	function validarCamposDigitados(fields) {
-		$(fields).unbind('keyup').bind('keyup', function(e) {
-			var thisVal = $(this).val();
-			var tempVal = "";
+		if (thisVal == null || thisVal == "") {
+			$(this).css("border-color", "#FF0000");
+		} else {
+			$(this).css("border-color", "#FFFFFF");
+		}
+	});
+	
+	$('input[id="usuario"]').unbind('keyup').bind('keyup', function(e) {
+		var thisVal = $(this).val();
+		var tempVal = "";
 
-			if (thisVal == null || thisVal == "") {
-				$(this).css("border-color", "#FF0000");
-			} else {
-				$(this).css("border-color", "#FFFFFF");
-			}
-		});
-	}
+		if (thisVal == null || thisVal == "") {
+			$(this).css("border-color", "#FF0000");
+		} else {
+			$(this).css("border-color", "#FFFFFF");
+		}
+	});
+	
+	$('input[id="btnEntrar"]').click(function() {
 
-	validarCamposDigitados($('input[id="usuario"]'));
-	validarCamposDigitados($('input[id="senha"]'));
-});
+		var usuario = $('#usuario').val();
+		var senha = $('#senha').val();
+		var display = false;
 
-$(document).ready(function() {
+		if (usuario == null || usuario == "") {
+			$('#usuario').css("border-color", "#FF0000");
+			display = true;
+		}
 
+		if (senha == null || senha == "") {
+			$('#senha').css("border-color", "#FF0000");
+			display = true;
+		}
+
+		if (display) {
+			return false;
+		}
+
+		return true;
+	});
+	
+	$.material.init();
+	
 	$('#btnEntrar').click(function() {
 
 		var usuarioLogin = $('#usuario').val();

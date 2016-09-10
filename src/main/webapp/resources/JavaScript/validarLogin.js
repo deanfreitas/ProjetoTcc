@@ -70,6 +70,10 @@ $(document).ready(function() {
 		}); 
 
 	});
+	
+	$('#btnCadastrar').click(function() {
+		window.location.href = '/ProjetoTcc/TelaCadastro';
+	});
 });
 
 //var validarLoginApp = angular.module("validarLoginApp", []);

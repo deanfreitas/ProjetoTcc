@@ -1,51 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<!DOCTYPE html>
 
-<html ng-app="validarLoginApp">
+
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="validarLoginApp">
 <head>
-<meta charset="UTF-8">
-<!-- <script src="<c:url value ='/resources/JavaScript/angular.min.js' />" /></script> -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login</title>
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap.min.css'/> " />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelaLogin.css'/> " />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap-material-design.min.css'/> " />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/ripples.min.css'/> " />
 <script src="<c:url value ='/resources/JavaScript/jquery-2.1.4.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/material.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/ripples.min.js' />" /></script>
+<!-- <script src="<c:url value ='/resources/JavaScript/angular.min.js' />" /></script> -->
 <script src="<c:url value ='/resources/JavaScript/validarLogin.js' />" /></script>
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelaLogin.css' />" />
-<title>Nutri-Prato</title>
 </head>
 
 <body>
-	<div id="pagina">
-		<img src="<c:url value = '/resources/Imagens/logotransp.png' />" />
-
-		<!-- <form  id="entrarTelaPrincipal" name="entrarTelaPrincipal" method="post" ng-controller="validarLogin"> -->
-			<table>
-				<tr>
-					<td>Usuário:</td>
-					<td>
-						<input class="validarCampoDigitado" type="text" id="usuario" name="usuario" size="30" ng-model="usuario" required />
-						<br />
-					</td>
-				</tr>
-				<tr>
-					<td>Senha:</td>
-					<td>
-						<input class="validarCampoDigitado" type="password" id="senha" name="senha" size="30" ng-model="senha" required />
-						<br />
-					</td>
-				</tr>
-			</table>
-			<br> 
-			<figure class="botao1">
-				<input type="image" id="btnEntrar" name="btnEntrar" src="<c:url value = '/resources/Imagens/button.png' />" value="entrar" ng-click="btnEntrar()"/>
-			</figure>
-			
-		<!-- </form> -->
-		<!-- <form method="post" action="TelaCadastro" id="entrarTelaCadastro" name="entrarTelaCadastro"> -->
-			<figure class="botao">
-				<input type="image" id="btnCadastrar" name="btnCadastrar" src="<c:url value = '/resources/Imagens/button (1).png' />" value="cadastrar"/>
-			</figure>
-		<!-- </form> -->
-		
+	<div class="container-fluid col-md-12" id="pagina">
+		<div id="logo">
+			<img src="<c:url value = '/resources/Imagens/novologotransp.png'  />" 
+			class="img-responsive center-block" />
+		</div>
+		<form class="form-login" ng-controller="validarLogin">
+			<h2 class="form-login-heading"></h2>
+			<div class="form-group label-floating">
+				<label class="control-label" for="focusedInput1">Usuário</label> 
+				<input class="form-control" id="usuario" name="usuario" type="text" ng-model="usuario" required>
+			</div>
+			<div class="form-group label-floating">
+				<label class="control-label" for="focusedInput1">Senha</label> 
+				<input class="form-control" id="senha" name="senha" type="password" ng-model="senha" required>
+			</div>
+			<div class="row" id="botoes">
+				<a type="button" class="btn btn-raised btn-primary btn-lg" id="btnEntrar" name="btnEntrar" ng-click="btnEntrar()">Entrar</a>
+				<a type="button" class="btn btn-raised btn-primary btn-lg" id="btnCadastrar" name="btnCadastrar">Cadastrar-se</a>
+			</div>
+		</form>
 	</div>
 </body>
 

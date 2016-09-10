@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+body {
+	background-image: url(../Imagens/home.jpg);
+	width: 800px;
+}
+
+div#pagina {
+	width: 350px;
+	height: 490px;
+	position: absolute;
+	left: 30%;
+	top: 5%;
+	box-shadow: 0px 0px 10px blue;
+	padding: 40px;
+	background: rgba(0, 0, 0, 0.3);
+	font-family: Arial;
+	font-size: 20px;
+	text-align: center;
+}
+
+td {
+	font-family: Arial;
+	font-size: px;
+}
+
+figure.botao1 {
+	opacity: 1;
+	transition: opacity;
+	position: absolute;
+	top: 450px;
+	left: 30px;
+}
+
+figure.botao1:hover {
+	opacity: 0.5;
+}
+
+figure.botao {
+	opacity: 1;
+	transition: opacity;
+	position: absolute;
+	top: 450px;
+	left: 150px;
+}
+
+figure.botao:hover {
+	opacity: 0.5;
+}
+
+.validarCampoDigitado {
+	border-color: #FF0000;
+}
