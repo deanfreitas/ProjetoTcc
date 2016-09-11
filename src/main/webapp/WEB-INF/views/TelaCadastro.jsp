@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
@@ -21,6 +20,7 @@
 <script src="<c:url value ='/resources/JavaScript/validarCadastro.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap.min.js' />" /></script>
 </head>
+
 <body>
 	<header>
 		<figure>

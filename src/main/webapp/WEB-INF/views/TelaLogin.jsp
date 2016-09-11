@@ -40,7 +40,7 @@
 			</div>
 			<div class="row" id="botoes">
 				<a type="button" class="btn btn-raised btn-primary btn-lg" id="btnEntrar" name="btnEntrar" ng-click="btnEntrar()">Entrar</a>
-				<a type="button"  class="btn btn-raised btn-primary btn-lg" id="btnCadastrar" name="btnCadastrar">Cadastrar-se</a>
+				<a type="button" class="btn btn-raised btn-primary btn-lg" id="btnCadastrar" name="btnCadastrar">Cadastrar-se</a>
 			</div>
 		</form>
 	</div>

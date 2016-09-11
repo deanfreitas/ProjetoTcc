@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	$.material.init();
 	
 	$('input[id="senha"]').unbind('keyup').bind('keyup', function(e) {
 		var thisVal = $(this).val();
@@ -45,8 +46,6 @@ $(document).ready(function() {
 		return true;
 	});
 	
-	$.material.init();
-	
 	$('#btnEntrar').click(function() {
 
 		var usuarioLogin = $('#usuario').val();
@@ -63,7 +62,7 @@ $(document).ready(function() {
 					alert(data.mensagem);
 					return false;
 				} else {
-					window.location.href = '/ProjetoTcc/TelaQualquer';
+					window.location.href = '/ProjetoTcc/TelaPrincipal';
 					return true;
 				}
 			}
@@ -95,7 +94,7 @@ $(document).ready(function() {
 //				$window.alert(data.mensagem);
 //				return false;
 //			} else {
-//				$window.location.href = '/ProjetoTcc/TelaQualquer';
+//				$window.location.href = '/ProjetoTcc/TelaPrincipal';
 //				return true;
 //			}
 //		});
