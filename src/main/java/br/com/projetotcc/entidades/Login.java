@@ -12,6 +12,8 @@ import javax.persistence.Table;
 @Table(name = "login")
 public class Login implements Serializable {
 
+	private static final long serialVersionUID = 7405967516600314828L;
+
 	@Id
 	@GeneratedValue
 	@Column(name = "id_form")

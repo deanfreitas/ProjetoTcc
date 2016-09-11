@@ -31,14 +31,14 @@
 						<span class="icon-bar"> </span> <span class="icon-bar"> </span> 
 						<span class="icon-bar"> </span>
 					</button>
-					<a class="navbar-brand" href="tela1.html">Início</a>
+					<a type="button" class="navbar-brand" id="btnTelaPrincipal">Início</a>
 				</div>
 				<div class="navbar-collapse collapse navbar-responsive-collapse">
 					<ul class="nav navbar-nav">
 						<!-- Varios botoes -->
 						<li class="active"><a href="javascript:void(0)">Perfil</a></li>
 						<li><a type="button" href="javascript:void(0)">Cardápio</a></li>
-						<li><a type="button" id="btnAlimentos">Alimentos</a></li>
+						<li><a type="button" id="btnAlimentos" href="/ProjetoTcc/TelaAlimentos">Alimentos</a></li>
 						<li><a type="button" href="">Vitaminas</a></li>
 						<li><a type="button" href="javascript:void(0)">Resultados</a></li>
 						<li><a type="button" href="javascript:void(0)">Avaliação</a></li>

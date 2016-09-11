@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.entidades.Login;
 import br.com.projetotcc.mensagem.ResultadoMensagem;
+import br.com.projetotcc.seguranca.SegurancaSistema;
 
 @Controller
 public class TelaLogin {
@@ -20,6 +21,9 @@ public class TelaLogin {
 	
 	@Autowired
 	private ResultadoMensagem resultadoMensagem;
+	
+	@Autowired
+	private SegurancaSistema segurancaSistema;
 	
 	@RequestMapping(value = "/TelaLogin", method = RequestMethod.GET)
 	public ModelAndView aparecerTelaLogin() {
@@ -40,6 +44,7 @@ public class TelaLogin {
 			} else {
 				try {
 					Login usuariosCadastrados = bancoDadosService.encontrarUsuario(login.getUsuario());
+					segurancaSistema.autologin(usuariosCadastrados);
 					
 					if(usuariosCadastrados.getSenha().equals(login.getSenha())) {
 					} else {

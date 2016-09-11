@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
@@ -9,62 +8,57 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>Alimentos</title>
-
-<!-- Bootstrap -->
-<link rel="stylesheet" type="text/css"
-	href="<c:url value ='/resources/Css/bootstrap.min.css' />" />
-<link rel="stylesheet" type="text/css"
-	href="<c:url value ='/resources/Css/bootstrap-material-design.min.css' />" />
-<link rel="stylesheet" type="text/css"
-	href="<c:url value ='/resources/Css/ripples.min.css' />" />
-<link rel="stylesheet" type="text/css"
-	href="<c:url value ='/resources/Css/estiloTelaAlimentos' />" />
-<link rel="stylesheet" type="text/css"
-	href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />" />
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap.min.css' />" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap-material-design.min.css' />" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/ripples.min.css' />" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelaAlimentos' />" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />" />
+<script src="<c:url value ='/resources/JavaScript/angular.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/jquery-2.1.4.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/material.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/ripples.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/validarAlimentos.js' />" /></script>
 </head>
+
 <body>
 	<div class="container-fluid col-md-12">
 		<div class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target=".navbar-responsive-collapse">
-						<span class="icon-bar"> </span> <span class="icon-bar"> </span> <span
-							class="icon-bar"> </span>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+						<span class="icon-bar"> </span> 
+						<span class="icon-bar"> </span> 
+						<span class="icon-bar"> </span>
 					</button>
-					<a class="navbar-brand" href="tela1.html">Início</a>
+					<a type="button" class="navbar-brand" id="btnTelaPrincipal" href="/ProjetoTcc/TelaPrincipal">Início</a>
 				</div>
 				<div class="navbar-collapse collapse navbar-responsive-collapse">
 					<ul class="nav navbar-nav">
+						<!-- Varios Botoes -->
 						<li class="active"><a href="javascript:void(0)">Perfil</a></li>
-						<li><a href="javascript:void(0)">Cardápio</a></li>
-						<li><a href="alimentos.html">Alimentos</a></li>
-						<li><a href="javascript:void(0)">Vitaminas</a></li>
-						<li><a href="javascript:void(0)">Resultados</a></li>
-						<li><a href="javascript:void(0)">Avaliação</a></li>
+						<li><a type="button" href="javascript:void(0)">Cardápio</a></li>
+						<li><a type="button" id="btnAlimentos">Alimentos</a></li>
+						<li><a type="button" href="javascript:void(0)">Vitaminas</a></li>
+						<li><a type="button" href="javascript:void(0)">Resultados</a></li>
+						<li><a type="button" href="javascript:void(0)">Avaliação</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-
-						<li class="dropdown"><a href="bootstrap-elements.html"
-							data-target="#" class="dropdown-toggle" data-toggle="dropdown">Ajustes
+						<li class="dropdown">
+							<a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Ajustes
 								<b class="caret"></b>
-						</a>
+							</a>
 							<ul class="dropdown-menu">
-								<li><a href="javascript:void(0)">Alterar Dados</a></li>
-
+								<li>
+								<!-- Ir para a tela de cadastro com os dados preechidos -->
+									<a type="button" href="javascript:void(0)">Alterar Dados</a>
+								</li>
 								<li class="divider"></li>
-								<li><a data-toggle="modal" href="#mymodal">Sair</a></li>
-
-							</ul></li>
+								<li>
+									<a data-toggle="modal" href="#mymodal">Sair</a>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</div>
@@ -74,8 +68,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true">×</button>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 						<h4 class="modal-title">Sair</h4>
 					</div>
 					<div class="modal-body">
@@ -83,20 +76,19 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-						<a href="index.html"><button type="button"
-								class="btn btn-primary">Sim</button></a>
+						<!-- Voltar para tela de Login -->
+						<a href="index.html">
+							<button type="button" class="btn btn-primary">Sim</button>
+						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<div class="container-fluid col-md-12">
 		<div class="jumbotron">
 			<h1>Alimentos</h1>
-
 			<p>Tabela de Calorias dos alimentos mais consumidos:</p>
-
 			<table class="table table-striped table-hover ">
 				<thead>
 					<tr>
@@ -152,21 +144,6 @@
 				</tbody>
 			</table>
 		</div>
-
 	</div>
-
-
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-
-	<script src="<c:url value ='/resources/JavaScript/bootstrap.min.js' />" /></script>
-	<script src="<c:url value ='/resources/JavaScript/material.min.js' />" /></script>
-	<script src="<c:url value ='/resources/JavaScript/ripples.min.js' />" /></script>
-
-	<script>
-		$.material.init();
-	</script>
 </body>
 </html>
