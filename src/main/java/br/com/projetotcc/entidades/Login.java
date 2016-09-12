@@ -1,11 +1,15 @@
 package br.com.projetotcc.entidades;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +20,7 @@ public class Login implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id_form")
+	@Column(name = "id_login")
 	private Long id;
 	
 	@Column(name = "usuario")
@@ -24,6 +28,10 @@ public class Login implements Serializable {
 	
 	@Column(name = "senha")
 	private String senha;
+	
+	@ManyToMany
+	@JoinTable(name = "login_role", joinColumns = @JoinColumn(name = "login_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles;
 
 	public Login(Long id, String usuario, String senha) {
 		super();
@@ -64,5 +72,13 @@ public class Login implements Serializable {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 }

@@ -6,19 +6,17 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.entidades.Login;
-import br.com.projetotcc.entidades.Permissao;
+import br.com.projetotcc.entidades.Role;
 
 public class AutenticacaoLogin implements UserDetailsService {
 	
@@ -28,14 +26,8 @@ public class AutenticacaoLogin implements UserDetailsService {
 	@Override
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String nomeUsuario) throws UsernameNotFoundException {
-		Permissao permissao = new Permissao();
-		permissao.setNomeUsuario("administrador");
-		permissao.setPermissoesUsuario("ROLE_administrador");
-		
 		Login login = bancoDadosService.encontrarUsuario(nomeUsuario);
-		List<Permissao> permissoes = new ArrayList<Permissao>();
-		permissoes.add(permissao);
-		List<GrantedAuthority> autoridades = construirAutoridade(permissoes);
+		List<GrantedAuthority> autoridades = construirAutoridade(login);
 		
 		return construirUsuarioAutenticacao(login, autoridades);
 	}
@@ -44,23 +36,11 @@ public class AutenticacaoLogin implements UserDetailsService {
         return new User(login.getUsuario(), login.getSenha(), true, true, true, true, autoridades);
     }
 	
-	private List<GrantedAuthority> construirAutoridade(Set<Permissao> permissoes) {
+	private List<GrantedAuthority> construirAutoridade(Login login) {
 		Set<GrantedAuthority> setAutoridades = new HashSet<GrantedAuthority>();
 
-		for(Permissao permissao : permissoes){
-			setAutoridades.add(new SimpleGrantedAuthority(permissao.getPermissoesUsuario()));
-		}
-
-		List<GrantedAuthority> resultado = new ArrayList<GrantedAuthority>(setAutoridades);
-
-		return resultado;
-	}
-
-	private List<GrantedAuthority> construirAutoridade(List<Permissao> permissoes) {
-		Set<GrantedAuthority> setAutoridades = new HashSet<GrantedAuthority>();
-
-		for(Permissao permissao : permissoes){
-			setAutoridades.add(new SimpleGrantedAuthority(permissao.getPermissoesUsuario()));
+		for(Role role : login.getRoles()){
+			setAutoridades.add(new SimpleGrantedAuthority(role.getNameRole()));
 		}
 
 		List<GrantedAuthority> resultado = new ArrayList<GrantedAuthority>(setAutoridades);

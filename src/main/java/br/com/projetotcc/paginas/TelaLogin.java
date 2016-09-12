@@ -44,7 +44,7 @@ public class TelaLogin {
 			} else {
 				try {
 					Login usuariosCadastrados = bancoDadosService.encontrarUsuario(login.getUsuario());
-					segurancaSistema.autologin(usuariosCadastrados);
+					segurancaSistema.autenticarlogin(usuariosCadastrados);
 					
 					if(usuariosCadastrados.getSenha().equals(login.getSenha())) {
 					} else {

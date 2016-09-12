@@ -23,7 +23,7 @@ public class SegurancaSistema {
 	@Autowired 
 	private UserDetailsService userDetailsService;
 	
-	public void autologin(Login login) {
+	public void autenticarlogin(Login login) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(login.getUsuario());
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, login.getSenha(), userDetails.getAuthorities());
 
