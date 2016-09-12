@@ -5,15 +5,15 @@
 	<persistence-unit name="ProjetoTcc" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>br.com.projetotcc.entidades.Login</class>
-		<shared-cache-mode>UNSPECIFIED</shared-cache-mode>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/*" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.user" value="*"/>
+			<property name="javax.persistence.jdbc.password" value="*"/>
 		</properties>
 	</persistence-unit>
 </persistence>

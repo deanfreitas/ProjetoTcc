@@ -78,14 +78,14 @@
 		
 	<security:http auto-config="true">
         <security:intercept-url pattern="/" access="hasRole('ROLE_administrador')"/>
-        <security:intercept-url pattern="/TelaPrincipal" access="hasRole('ROLE_administrador')"/>
-        <security:intercept-url pattern="/TelaAlimentos" access="hasRole('ROLE_administrador')"/>
+        <security:intercept-url pattern="/TelaPrincipal" access="hasAnyRole('ROLE_administrador')"/>
+        <security:intercept-url pattern="/TelaAlimentos" access="hasAnyRole('ROLE_administrador')"/>
         <security:form-login login-page="/TelaLogin"
         	default-target-url="/TelaPrincipal"
         	authentication-failure-url="/TelaLogin"
         	username-parameter="usuario" password-parameter="senha" />
-        <security:logout logout-success-url="/TelaLogin" />
-        <security:access-denied-handler error-page="/" />
+        <security:logout logout-url="" logout-success-url="/TelaLogin" />
+        <security:access-denied-handler error-page="/home" />
         <security:csrf disabled="true" />
     </security:http>
 
