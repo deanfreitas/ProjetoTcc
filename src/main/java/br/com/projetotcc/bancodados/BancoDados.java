@@ -12,6 +12,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import br.com.projetotcc.entidades.Login;
+import br.com.projetotcc.entidades.Pessoa;
 
 @Repository
 public class BancoDados {
@@ -25,6 +26,10 @@ public class BancoDados {
 	
 	public void adiciona(Login login) {
 		entityManager.persist(login);
+	}
+	
+	public void adiciona(Pessoa pessoa) {
+		entityManager.persist(pessoa);
 	}
 	
 	public void remove(Login login) {

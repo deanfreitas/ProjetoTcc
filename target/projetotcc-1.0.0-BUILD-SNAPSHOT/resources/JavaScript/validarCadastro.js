@@ -302,23 +302,17 @@ $(document)
 										}
 
 										if (dataCerta == false) {
-											$(this).css("border-color",
-													"#FF0000");
+											$(this).css("border-color", "#FFFFFF");
 											$(this).tooltip("enable");
-											data = data.replace(/(\d{2})(\d)/,
-													"$1/$2");
-											data = data.replace(/(\d{2})(\d)/,
-													"$1/$2");
+											data = data.replace(/(\d{2})(\d)/, "$1/$2");
+											data = data.replace(/(\d{2})(\d)/, "$1/$2");
 											$(this).val(data);
 											return false;
 										} else {
-											$(this).css("border-color",
-													"#FFFFFF");
+											$(this).css("border-color", "#FF0000");
 											$(this).tooltip("disable");
-											data = data.replace(/(\d{2})(\d)/,
-													"$1/$2");
-											data = data.replace(/(\d{2})(\d)/,
-													"$1/$2");
+											data = data.replace(/(\d{2})(\d)/, "$1/$2");
+											data = data.replace(/(\d{2})(\d)/, "$1/$2");
 											$(this).val(data);
 											return true;
 										}
@@ -352,14 +346,10 @@ $(document)
 									telefoneComercial = telefoneComercial
 											.replace(/\W/g, "");
 
-									telefoneComercial = telefoneComercial
-											.replace(/(\d{2})(\d)/, "$1 $2");
-									telefoneComercial = telefoneComercial
-											.replace(/(\d{0})(\d)/, "$1($2");
-									telefoneComercial = telefoneComercial
-											.replace(/(\d{2})(\D)/, "$1)$2");
-									telefoneComercial = telefoneComercial
-											.replace(/(\d{4})(\d)/, "$1-$2");
+									telefoneComercial = telefoneComercial.replace(/(\d{2})(\d)/, "$1 $2");
+									telefoneComercial = telefoneComercial.replace(/(\d{0})(\d)/, "$1($2");
+									telefoneComercial = telefoneComercial.replace(/(\d{2})(\D)/, "$1)$2");
+									telefoneComercial = telefoneComercial.replace(/(\d{4})(\d)/, "$1-$2");
 									
 									$(this).val(telefoneComercial);
 								});
@@ -375,14 +365,10 @@ $(document)
 									telefoneResidencial = telefoneResidencial
 											.replace(/\W/g, "");
 
-									telefoneResidencial = telefoneResidencial
-											.replace(/(\d{2})(\d)/, "$1 $2");
-									telefoneResidencial = telefoneResidencial
-											.replace(/(\d{0})(\d)/, "$1($2");
-									telefoneResidencial = telefoneResidencial
-											.replace(/(\d{2})(\D)/, "$1)$2");
-									telefoneResidencial = telefoneResidencial
-											.replace(/(\d{4})(\d)/, "$1-$2");
+									telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\d)/, "$1 $2");
+									telefoneResidencial = telefoneResidencial.replace(/(\d{0})(\d)/, "$1($2");
+									telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\D)/, "$1)$2");
+									telefoneResidencial = telefoneResidencial.replace(/(\d{4})(\d)/, "$1-$2");
 									
 									$(this).val(telefoneResidencial);
 								});
@@ -391,42 +377,110 @@ $(document)
 					function validarEmail(emailField) {
 						$(emailField).blur(function() {
 							var email = $(this).val();
-							var nome1 = false;
+							var emailInvalido = false;
 							var i;
 
 							for (i = 0; i < email.length; i++) {
 								if (email.charAt(i) != "@") {
-									nome1 = true;
+									emailInvalido = true;
 								}
 
 								if (email.charAt(i) == "@" && email.charAt(i) != " ") {
-									nome1 = false;
+									emailInvalido = false;
 
 									i = email.length + 1;
 
 									for (i = 0; i < email.length; i++) {
 										if (email.charAt(i) == " ") {
-											nome1 = true;
+											emailInvalido = true;
 										}
 									}
 
 								}
 							}
 
-							if (nome1 == true) {
+							if (emailInvalido == true) {
 								$(this).css("border-color", "#FF0000");
 								$(this).tooltip("enable");
 								return false;
 							} else {
-								$(this).css("border-color",
-								"#FFFFFF");
+								$(this).css("border-color", "#FFFFFF");
 								$(this).tooltip("disable");
 								return true;
 							}
 						});
 					}
 					
-					validarEmail($('input[id="cEmail"]'));
+					$('#btnLimparFormulario').click(function() {
+						$('#cNome').val('');
+						$('#cData').val('');
+						$('#selectEcivil').val('');
+						$('#selectRaca').val('');
+						$('#cTel').val('');
+						$('#cCel').val('');
+						$('#cCom').val('');
+						$('#cEnd').val('');
+						$('#cNum').val('');
+						$('#cCompl').val('');
+						$('#cBairro').val('');
+						$('#cCity').val('');
+						$('#cUf').val('');
+						$('#cResp').val('');
+						$('#cCrn').val('');
+						$('#cEmail').val('');
+						$('#cSenha').val('');
+						
+						alert("Formulario Apagado");
+					});
+					
+					$('#btnSalvarUsuario').click(function() {
+						var nomeCompletoPessoa = $('#cNome').val();
+						var sexoPessoa = $("input:radio[id='radioSexo']:checked").val();
+						var dataNascimentoPessoa = $('#cData').val();
+						var estadoCivilPessoa = $('#selectEcivil').val();
+						var corPessoa = $('#selectRaca').val();
+						var telefonePessoa = $('#cTel').val();
+						var celularPessoa = $('#cCel').val();
+						var telefoneComercialPessoa = $('#cCom').val();
+						var cepPessoa = null;
+						var enderecoPessoa = $('#cEnd').val();
+						var numeroPessoa = $('#cNum').val();
+						var complementoPessoa = $('#cCompl').val();
+						var bairroPessoa = $('#cBairro').val();
+						var cidadePessoa = $('#cCity').val();
+						var estadoPessoa = $('#cUf').val();
+						var responsavelPessoa = $('#cResp').val();
+						var crnPessoa = $('#cCrn').val();
+						var usuarioPessoa = $('#cEmail').val();
+						var senhaPessoa = $('#cSenha').val();
+						
+						var object = {nomeCompleto : nomeCompletoPessoa, sexo : sexoPessoa, dataNascimento : dataNascimentoPessoa, estadoCivil : estadoCivilPessoa, 
+								responsavel : responsavelPessoa, crn : crnPessoa, cor : corPessoa, 
+								contato : {telefone : telefonePessoa, celular : celularPessoa, telefoneComercial : telefoneComercialPessoa}, 
+								endereco : {endereco : enderecoPessoa, numero : numeroPessoa, complemento : complementoPessoa, bairro : bairroPessoa,
+								cidade : cidadePessoa, estado : estadoPessoa},  
+								login : {usuario : usuarioPessoa, senha : senhaPessoa}
+						};
+						
+						$.ajax({
+							url: "/ProjetoTcc/SalvarUsuario",
+							type: 'POST',
+							data: JSON.stringify(object),
+							contentType: "application/json",
+						    dataType: 'json',
+							success: function(data, status) {
+								if (data.codigo == 2) {
+									alert(data.mensagem);
+									return false;
+								} else {
+									alert(data.mensagem);
+									window.location.href = '/ProjetoTcc/TelaLogin';
+									return true;
+								}
+							}
+						});
+					});
+						
 					colocarMascaraTelefoneResidencial($('input[id="cTel"]'));
 					colocarMascaraTelefoneComercial($('input[id="cCom"]'));
 					colocarMascaraCelular($('input[id="cCel"]'));
@@ -446,5 +500,7 @@ $(document)
 					$('[data-toggle="tooltip"]').tooltip();
 					$('input[id="cCpf"]').tooltip("disable");
 					$('input[id="cRg"]').tooltip("disable");
-					$('input[id="cNasc"]').tooltip("disable");
+					$('input[id="cData"]').tooltip("disable");
+					$('input[id="cEmail"]').tooltip("disable");
+					validarEmail($('input[id="cEmail"]'));
 				});

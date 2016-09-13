@@ -78,8 +78,8 @@
 		
 	<security:http auto-config="true">
         <security:intercept-url pattern="/" access="hasRole('ROLE_administrador')"/>
-        <security:intercept-url pattern="/TelaPrincipal" access="hasAnyRole('ROLE_administrador')"/>
-        <security:intercept-url pattern="/TelaAlimentos" access="hasAnyRole('ROLE_administrador')"/>
+        <security:intercept-url pattern="/TelaPrincipal" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario')"/>
+        <security:intercept-url pattern="/TelaAlimentos" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario')"/>
         <security:form-login login-page="/TelaLogin"
         	default-target-url="/TelaPrincipal"
         	authentication-failure-url="/TelaLogin"

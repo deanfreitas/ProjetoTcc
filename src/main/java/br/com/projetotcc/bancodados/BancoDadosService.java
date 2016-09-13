@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.projetotcc.entidades.Login;
+import br.com.projetotcc.entidades.Pessoa;
 
 @Component
 public class BancoDadosService {
@@ -17,6 +18,11 @@ public class BancoDadosService {
 	@Transactional
     public void adicionarUsuario(Login login) {
         bancoDados.adiciona(login);
+    }
+	
+	@Transactional
+    public void adicionarUsuario(Pessoa pessoa) {
+        bancoDados.adiciona(pessoa);
     }
 	
 	@Transactional

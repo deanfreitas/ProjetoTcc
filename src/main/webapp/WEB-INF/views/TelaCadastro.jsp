@@ -41,10 +41,10 @@
 						</div>
 						<div class="form-group col-md-6">
 							<label class="radio-inline"> 
-								<input type="radio" name="optradio" id="cMasc"> Masculino
+								<input type="radio" name="optradio" id="radioSexo" value="Masculino"> Masculino
 							</label> 
 							<label class="radio-inline"> 
-								<input type="radio" name="optradio" id="cFemi"> Feminino 
+								<input type="radio" name="optradio" id="radioSexo" value="Feminino"> Feminino 
 							</label>
 						</div>
 					</div>
@@ -54,7 +54,7 @@
 				<div class="form-group col-md-4">
 					<label for="inputDate" class="col-md-2 control-label"> Data de Nascimento </label>
 					<div class="col-md-10">
-						<input type="date" class="form-control" id="cData" placeholder="dd/mm/aaaa">
+						<input type="date" class="form-control" id="cData" placeholder="dd/mm/aaaa" maxlength="8" data-toggle="tooltip" title="Digite uma data correta">
 					</div>
 				</div>
 				<div class="container col-md-8">
@@ -103,17 +103,17 @@
 			<div class="row">
 				<div class="form-group col-md-6">
 					<form class="form-inline">
-						<input type="text" class="form-control" name="tEnd" id="cEnd" size="40" placeholder="Endereço" />
+						<input type="text" class="form-control" name="tEnd" id="cEnd" size="40" placeholder="Endere�o" />
 					</form>
 				</div>
 				<div class="form-group col-md-2">
 					<form class="form-inline">
-						<input type="text" class="form-control" name="tNum" id="cNum" size="5" placeholder="Nº" />
+						<input type="text" class="form-control" name="tNum" id="cNum" size="5" placeholder="Numero" />
 					</form>
 				</div>
 				<div class="form-group col-md-4">
 					<form class="form-inline">
-						<input type="text" class="form-control" name="tCompl" id="cCompl" size="20" placeholder="Compl" />
+						<input type="text" class="form-control" name="tCompl" id="cCompl" size="20" placeholder="Complemento" />
 					</form>
 				</div>
 			</div>
@@ -130,8 +130,7 @@
 				</div>
 				<div class="form-group col-md-4">
 					<form class="form-inline">
-						<label for="tUf"> Estado </label> <select class="form-control"
-							id="cUf" name="tUf" class="col-md-10">
+						<label for="tUf"> Estado </label> <select class="form-control" id="cUf" name="tUf" class="col-md-10">
 							<option></option>
 							<option>AC</option>
 							<option>AL</option>
@@ -168,7 +167,7 @@
 			<div class="row">
 				<div class="form-group col-md-6">
 					<form class="form-inline">
-						<input type="text" class="form-control" name="tResp" id="cResp" size="20" placeholder="Responsável" />
+						<input type="text" class="form-control" name="tResp" id="cResp" size="20" placeholder="Responsavel" />
 					</form>
 				</div>
 				<div class="form-group col-md-6">
@@ -193,9 +192,9 @@
 				<div class="form-group col-md-6" id="salvar">
 					<form class="form-inline">
 						<!-- Transferir para tela de Login -->
-						<a type="button" href="index.html" class="btn btn-raised btn-success">Salvar</a>
+						<a type="button" id="btnSalvarUsuario" class="btn btn-raised btn-success">Salvar</a>
 						<!-- Apagar dados -->
-						<a type="button" href="javascript:void(0)" class="btn btn-raised btn-danger">Apagar</a>
+						<a type="button" id="btnLimparFormulario" class="btn btn-raised btn-danger">Apagar</a>
 					</form>
 				</div>
 			</div>
