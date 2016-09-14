@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,14 +21,17 @@ public class Login implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id_login")
+	@Column(name = "id_login", nullable = false)
 	private Long id;
 	
 	@Column(name = "usuario")
 	private String usuario;
-	
+
 	@Column(name = "senha")
 	private String senha;
+	
+	@OneToOne(mappedBy = "login")
+	private Pessoa pessoa;
 	
 	@ManyToMany
 	@JoinTable(name = "login_role", joinColumns = @JoinColumn(name = "login_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -72,6 +76,14 @@ public class Login implements Serializable {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 	
 	public Set<Role> getRoles() {

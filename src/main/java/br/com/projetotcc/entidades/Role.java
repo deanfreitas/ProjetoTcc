@@ -18,7 +18,7 @@ public class Role implements Serializable {
 	
 	@Id
 	@GeneratedValue
-	@Column(name = "id_role")
+	@Column(name = "id_role", nullable = false)
 	private Long id;
 	
 	@Column(name = "name_role")

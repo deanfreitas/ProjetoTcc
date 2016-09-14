@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +17,7 @@ public class Contato implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id_contato")
+	@Column(name = "id_contato", nullable = false)
 	private Long id;
 	
 	@Column(name = "telefone")
@@ -28,10 +29,13 @@ public class Contato implements Serializable {
 	@Column(name = "telefone_comercial")
 	private String telefoneComercial;
 	
+	@OneToOne(mappedBy = "contato")
+	private Pessoa pessoa;
+	
 	public Contato() {
 		super();
 	}
-	
+
 	public Contato(String telefone, String celular, String telefoneComercial) {
 		super();
 		this.telefone = telefone;
@@ -39,6 +43,14 @@ public class Contato implements Serializable {
 		this.telefoneComercial = telefoneComercial;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	public String getTelefone() {
 		return telefone;
 	}
@@ -61,5 +73,13 @@ public class Contato implements Serializable {
 
 	public void setTelefoneComercial(String telefoneComercial) {
 		this.telefoneComercial = telefoneComercial;
+	}
+	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 }
