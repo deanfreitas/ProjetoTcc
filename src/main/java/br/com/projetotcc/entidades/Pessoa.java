@@ -2,19 +2,51 @@ package br.com.projetotcc.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "pessoa")
 public class Pessoa implements Serializable {
 	
 	private static final long serialVersionUID = 114982141333938194L;
 	
+	@Id
+	@GeneratedValue
+	@Column(name = "id_pessoa")
+	private Long id;
+	
+	@Column(name = "nome_completo")
 	private String nomeCompleto;
+	
+	@Column(name = "sexo")
 	private String sexo;
+	
+	@Column(name = "data_nascimento")
 	private String dataNascimento;
+	
+	@Column(name = "estado_civil")
 	private String estadoCivil;
+	
+	@Column(name = "cor")
 	private String cor;
+	
+	
 	private Contato contato;
+	
+	
 	private Endereco endereco;
+	
+	@Column(name = "responsavel")
 	private String responsavel;
+	
+	@Column(name = "crn")
 	private String crn;
+	
+	
 	private Login login;
 	
 	public Pessoa() {

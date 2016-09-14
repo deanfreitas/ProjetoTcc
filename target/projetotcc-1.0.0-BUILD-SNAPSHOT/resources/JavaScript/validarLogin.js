@@ -59,7 +59,15 @@ $(document).ready(function() {
 		    dataType: 'json',
 			success: function(data, status) {
 				if (data.codigo == 2) {
+					/*
+					 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
+					 */
+					
 					alert(data.mensagem);
+					
+					/*
+					 *  Dar um jeito de aparecer a mensagem antes do "return false"
+					 */
 					return false;
 				} else {
 					window.location.href = '/ProjetoTcc/TelaPrincipal';

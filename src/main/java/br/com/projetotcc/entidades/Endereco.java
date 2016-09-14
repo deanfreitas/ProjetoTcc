@@ -2,16 +2,42 @@ package br.com.projetotcc.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "endereco")
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = -8781264239717345388L;
 	
+	@Id
+	@GeneratedValue
+	@Column(name = "id_endereco")
+	private Long id;
+	
+	@Column(name = "cep")
 	private String cep;
+	
+	@Column(name = "endereco")
 	private String endereco;
+	
+	@Column(name = "numero")
 	private Long numero;
+	
+	@Column(name = "complemento")
 	private String complemento;
+	
+	@Column(name = "bairro")
 	private String bairro;
+	
+	@Column(name = "cidade")
 	private String cidade;
+	
+	@Column(name = "estado")
 	private String estado;
 	
 	public Endereco() {
