@@ -1,5 +1,7 @@
 package br.com.projetotcc.paginas;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.entidades.InterfaceEntidade;
+import br.com.projetotcc.entidades.Login;
 import br.com.projetotcc.entidades.Pessoa;
 import br.com.projetotcc.mensagem.ResultadoMensagem;
 
@@ -30,6 +34,19 @@ public class TelaCadastro {
 	public @ResponseBody ResultadoMensagem logarUsuario(@RequestBody Pessoa pessoa) {
 		String mensagem = null;
 		
-		return null;
+		if(pessoa.getNomeCompleto() == null || pessoa.getNomeCompleto().equals("")) {
+			mensagem = "Digite um nome";
+		} else {
+			List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarUsuario(pessoa.getLogin().getUsuario(), pessoa.getLogin());
+			if(listaUsuariosCadastrados.size() == 0) {
+				
+			} else {
+				mensagem = "Já tem um login Igual a esse";
+			}
+		}
+		
+		
+		
+		return resultadoMensagem;
 	}
 }

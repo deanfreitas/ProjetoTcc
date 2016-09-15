@@ -1,19 +1,18 @@
 package br.com.projetotcc.entidades;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "pessoa")
-public class Pessoa implements Serializable {
+public class Pessoa implements InterfaceEntidade {
 	
 	private static final long serialVersionUID = 114982141333938194L;
 	
@@ -37,14 +36,14 @@ public class Pessoa implements Serializable {
 	@Column(name = "cor")
 	private String cor;
 	
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(optional = false, fetch = FetchType.EAGER)
 	@PrimaryKeyJoinColumn
-	@Column(name = "codigo_contato")
+	@JoinColumn(name = "codigo_contato")
 	private Contato contato;
 	
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(optional = false, fetch = FetchType.EAGER)
 	@PrimaryKeyJoinColumn
-	@Column(name = "codigo_endereco")
+	@JoinColumn(name = "codigo_endereco")
 	private Endereco endereco;
 	
 	@Column(name = "responsavel")
@@ -53,9 +52,9 @@ public class Pessoa implements Serializable {
 	@Column(name = "crn")
 	private String crn;
 	
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(optional = false, fetch = FetchType.EAGER)
 	@PrimaryKeyJoinColumn
-	@Column(name = "codigo_login")
+	@JoinColumn(name = "codigo_login")
 	private Login login;
 	
 	public Pessoa() {
@@ -74,6 +73,14 @@ public class Pessoa implements Serializable {
 		this.responsavel = responsavel;
 		this.crn = crn;
 		this.login = login;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNomeCompleto() {

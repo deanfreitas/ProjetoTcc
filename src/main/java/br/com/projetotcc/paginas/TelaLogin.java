@@ -1,5 +1,7 @@
 package br.com.projetotcc.paginas;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.entidades.InterfaceEntidade;
 import br.com.projetotcc.entidades.Login;
 import br.com.projetotcc.mensagem.ResultadoMensagem;
 import br.com.projetotcc.seguranca.SegurancaSistema;
@@ -33,28 +36,41 @@ public class TelaLogin {
 	@RequestMapping(value = "/EntrarTelaPrincipal", method = RequestMethod.POST)
 	public @ResponseBody ResultadoMensagem logarUsuario(@RequestBody Login login) {
 		String mensagem = null;
-		
+
 		if(login.getUsuario() == null || login.getUsuario().equals("")) {
 			mensagem = "Digite um usuario";
-			
+
 		} else
 			if(login.getUsuario() == null || login.getSenha().equals("")) {
 				mensagem = "Digite uma senha";
-				
+
 			} else {
 				try {
-					Login usuariosCadastrados = bancoDadosService.encontrarUsuario(login.getUsuario());
-					segurancaSistema.autenticarlogin(usuariosCadastrados);
-					
-					if(usuariosCadastrados.getSenha().equals(login.getSenha())) {
+					List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarUsuario(login.getUsuario(), login);
+
+					if(listaUsuariosCadastrados.size() > 0) {
+						for(InterfaceEntidade usuarioCadastrado : listaUsuariosCadastrados) {
+							if(usuarioCadastrado instanceof Login) {
+								Login loginUsuarioCadastrado = (Login) usuarioCadastrado;
+								if(loginUsuarioCadastrado.getSenha().equals(login.getSenha())) {
+									segurancaSistema.autenticarlogin(loginUsuarioCadastrado);
+									break;
+								} else {
+									mensagem = "Usuario ou senha inválido";
+								}
+							} else {
+								mensagem = "instância Errada";
+							}
+						}
 					} else {
-						mensagem = "Usuario ou senha inválido";
+						mensagem = "Esse usuario não existe";
 					}
-					
+				} catch(NullPointerException nullPointerException) {
+					mensagem = "Erro no Sistema";
 				} catch(ClassCastException classCastException) {
-					mensagem = "Esse usuario não existe";
-				} catch (IndexOutOfBoundsException indexOutOfBoundsException) {
-					mensagem = "Esse usuario não existe";
+					mensagem = "Erro no Sistema";
+				} catch(IndexOutOfBoundsException indexOutOfBoundsException) {
+					mensagem = "Erro no Sistema";
 				}
 			}
 
@@ -63,9 +79,9 @@ public class TelaLogin {
 		} else {
 			resultadoMensagem.setCodigo(2);
 		}
-		
+
 		resultadoMensagem.setMensagem(mensagem);
-		
+
 		return resultadoMensagem;
 	}
 }

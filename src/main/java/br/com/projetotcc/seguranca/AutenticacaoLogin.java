@@ -11,10 +11,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.entidades.InterfaceEntidade;
 import br.com.projetotcc.entidades.Login;
 import br.com.projetotcc.entidades.Role;
 
@@ -25,11 +25,19 @@ public class AutenticacaoLogin implements UserDetailsService {
 	
 	@Override
 	@Transactional(readOnly = true)
-	public UserDetails loadUserByUsername(String nomeUsuario) throws UsernameNotFoundException {
-		Login login = bancoDadosService.encontrarUsuario(nomeUsuario);
-		List<GrantedAuthority> autoridades = construirAutoridade(login);
-		
-		return construirUsuarioAutenticacao(login, autoridades);
+	public UserDetails loadUserByUsername(String nomeUsuario) {
+		InterfaceEntidade interfaceEntidade = new Login();
+		List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarUsuario(nomeUsuario, interfaceEntidade);
+		if(listaUsuariosCadastrados.size() > 0) {
+			for(InterfaceEntidade usuarioCadastrado : listaUsuariosCadastrados) {
+				if(usuarioCadastrado instanceof Login) {
+					Login loginUsuarioCadastrado = (Login) usuarioCadastrado;
+					List<GrantedAuthority> autoridades = construirAutoridade(loginUsuarioCadastrado);
+					return construirUsuarioAutenticacao(loginUsuarioCadastrado, autoridades);
+				}
+			}
+		}
+		return null;
 	}
 	
 	private UserDetails construirUsuarioAutenticacao(Login login, List<GrantedAuthority> autoridades) {

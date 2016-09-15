@@ -1,6 +1,5 @@
 package br.com.projetotcc.entidades;
 
-import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -15,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "login")
-public class Login implements Serializable {
+public class Login implements InterfaceEntidade {
 
 	private static final long serialVersionUID = 7405967516600314828L;
 

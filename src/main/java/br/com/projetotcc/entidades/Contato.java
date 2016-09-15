@@ -1,7 +1,5 @@
 package br.com.projetotcc.entidades;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +9,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "contato")
-public class Contato implements Serializable {
+public class Contato implements InterfaceEntidade {
 
-	private static final long serialVersionUID = 2841571621171533382L;
+	private static final long serialVersionUID = 5475588560011889605L;
 
 	@Id
 	@GeneratedValue

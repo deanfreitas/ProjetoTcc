@@ -5,6 +5,10 @@
 	<persistence-unit name="ProjetoTcc" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>br.com.projetotcc.entidades.Login</class>
+		<class>br.com.projetotcc.entidades.Role</class>
+		<class>br.com.projetotcc.entidades.Endereco</class>
+		<class>br.com.projetotcc.entidades.Contato</class>
+		<class>br.com.projetotcc.entidades.Pessoa</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/*" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

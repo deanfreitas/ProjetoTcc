@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.projetotcc.entidades.Login;
-import br.com.projetotcc.entidades.Pessoa;
+import br.com.projetotcc.entidades.InterfaceEntidade;
 
 @Component
 public class BancoDadosService {
@@ -16,27 +15,22 @@ public class BancoDadosService {
     private BancoDados bancoDados;
 	
 	@Transactional
-    public void adicionarUsuario(Login login) {
-        bancoDados.adiciona(login);
+    public void adicionarUsuario(InterfaceEntidade entidadeGererica) {
+        bancoDados.adiciona(entidadeGererica);
     }
 	
 	@Transactional
-    public void adicionarUsuario(Pessoa pessoa) {
-        bancoDados.adiciona(pessoa);
-    }
-	
-	@Transactional
-	public Login encontrarUsuario(String nomeUsuario) {
-		return bancoDados.buscaPorNome(nomeUsuario);
+	public List<InterfaceEntidade> encontrarUsuario(String nomeUsuario, InterfaceEntidade interfaceEntidade) {
+		return bancoDados.buscaPorNome(nomeUsuario, interfaceEntidade);
 	}
 	
 	@Transactional
-	public void encontrarId(Long id) {
-		bancoDados.buscaPorId(id);
+	public void encontrarId(InterfaceEntidade interfaceEntidade, Long id) {
+		bancoDados.buscaPorId(interfaceEntidade, id);
 	}
 	
 	@Transactional(readOnly = true)
-    public List<Login> listaUsuariosCadastros() {
-        return bancoDados.listaUsuariosCadastros();
+    public List<InterfaceEntidade> listaUsuariosCadastros(InterfaceEntidade interfaceEntidade) {
+        return bancoDados.listaUsuariosCadastros(interfaceEntidade);
     }
 }

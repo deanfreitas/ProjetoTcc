@@ -1,6 +1,5 @@
 package br.com.projetotcc.bancodados;
 
-
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -11,8 +10,8 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import br.com.projetotcc.entidades.InterfaceEntidade;
 import br.com.projetotcc.entidades.Login;
-import br.com.projetotcc.entidades.Pessoa;
 
 @Repository
 public class BancoDados {
@@ -20,43 +19,48 @@ public class BancoDados {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public List<Login> listaUsuariosCadastros() {
-		return entityManager.createQuery("select l from Login l", Login.class).getResultList();
+	public List<InterfaceEntidade> listaUsuariosCadastros(InterfaceEntidade interfaceEntidade) {
+		if(interfaceEntidade instanceof Login) {
+			return entityManager.createQuery("select l from Login l", InterfaceEntidade.class).getResultList();
+		}
+		return null;
 	}
 	
-	public void adiciona(Login login) {
-		entityManager.persist(login);
+	public void adiciona(InterfaceEntidade entidadeGererica) {
+		entityManager.persist(entidadeGererica);
 	}
 	
-	public void adiciona(Pessoa pessoa) {
-		entityManager.persist(pessoa);
-	}
-	
-	public void remove(Login login) {
-		Login loginRemover = buscaPorId(login.getId());
+	public void remove(InterfaceEntidade interfaceEntidade) {
+		InterfaceEntidade removerLinhaTabela = buscaPorId(interfaceEntidade, interfaceEntidade.getId());
 		
-		if (loginRemover != null) {
-			entityManager.remove(loginRemover);
+		if (removerLinhaTabela != null) {
+			entityManager.remove(removerLinhaTabela);
 		}
 	}
 
-	public void altera(Login login) {
-		entityManager.merge(login);
+	public void altera(InterfaceEntidade interfaceEntidade) {
+		entityManager.merge(interfaceEntidade);
 	}
 	
-	public Login buscaPorId(Long id) {
-		return entityManager.find(Login.class, id);
+	public InterfaceEntidade buscaPorId(InterfaceEntidade interfaceEntidade, Long id) {
+		return entityManager.find(interfaceEntidade.getClass(), id);
 	}
 	
-	public Login buscaPorNome(String nomeUsuario) {
+	@SuppressWarnings("unchecked")
+	public List<InterfaceEntidade> buscaPorNome(String nomeUsuario, InterfaceEntidade interfaceEntidade) {
 		Session session = (Session) entityManager.getDelegate();
-		Criteria criteria = session.createCriteria(Login.class);
-		criteria.add(Restrictions.eq("usuario", nomeUsuario));
-		return (Login) criteria.list().get(0);
+		Criteria criteria = session.createCriteria(interfaceEntidade.getClass());
+		
+		if(interfaceEntidade instanceof Login) {
+			criteria.add(Restrictions.eq("usuario", nomeUsuario));
+		}
+		
+		List<InterfaceEntidade> listaInterfaceEntidades = criteria.list();
+		return listaInterfaceEntidades;
 	}
 
-	public void finaliza(Long id) {
-		Login login = buscaPorId(id);
-		entityManager.merge(login);
+	public void finaliza(InterfaceEntidade interfaceEntidade) {
+		InterfaceEntidade entidadeClassMerge = buscaPorId(interfaceEntidade, interfaceEntidade.getId());
+		entityManager.merge(entidadeClassMerge);
 	}
 }

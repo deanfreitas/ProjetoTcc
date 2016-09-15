@@ -1,6 +1,5 @@
 package br.com.projetotcc.entidades;
 
-import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "role")
-public class Role implements Serializable {
+public class Role implements InterfaceEntidade {
 
 	private static final long serialVersionUID = 1089552982627127898L;
 	
