@@ -1,5 +1,6 @@
 package br.com.projetotcc.mensagem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -57,6 +58,7 @@ public class ResultadoServico {
 	}
 	
 	public void setInterfaceEntidade(InterfaceEntidade interfaceEntidade) {
+		listaEntidades = new ArrayList<InterfaceEntidade>();
 		this.listaEntidades.add(interfaceEntidade);
 	}
 

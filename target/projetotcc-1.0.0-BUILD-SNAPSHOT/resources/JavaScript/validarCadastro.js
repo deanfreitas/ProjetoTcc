@@ -412,31 +412,29 @@ $(document)
 					}
 					
 					$('#btnLimparFormulario').click(function() {
-						$('#cNome').val('');
-						$('#cData').val('');
-						$('#selectEcivil').val('');
-						$('#selectRaca').val('');
-						$('#cTel').val('');
-						$('#cCel').val('');
-						$('#cCom').val('');
-						$('#cEnd').val('');
-						$('#cNum').val('');
-						$('#cCompl').val('');
-						$('#cBairro').val('');
-						$('#cCity').val('');
-						$('#cUf').val('');
-						$('#cResp').val('');
-						$('#cCrn').val('');
-						$('#cEmail').val('');
-						$('#cSenha').val('');
+						var nomeCompletoPessoa = $('#cNome').val('');
+						var dataNascimentoPessoa = $('#cData').val('');
+						var estadoCivilPessoa = $('#selectEcivil').val('');
+						var corPessoa = $('#selectRaca').val('');
+						var telefonePessoa = $('#cTel').val('');
+						var celularPessoa = $('#cCel').val('');
+						var telefoneComercialPessoa = $('#cCom').val('');
+						var enderecoPessoa = $('#cEnd').val('');
+						var numeroPessoa = $('#cNum').val('');
+						var complementoPessoa = $('#cCompl').val('');
+						var bairroPessoa = $('#cBairro').val('');
+						var cidadePessoa = $('#cCity').val('');
+						var estadoPessoa = $('#cUf').val('');
+						var responsavelPessoa = $('#cResp').val('');
+						var crnPessoa = $('#cCrn').val('');
+						var usuarioPessoa = $('#cEmail').val('');
+						var senhaPessoa = $('#cSenha').val('');
 						
 						alert("Formulario Apagado");
 					});
 					
 					function validarUsuarioExistente(emailField) {
-						var usuarioLogin = $('#usuario').val();
-						
-						var object = {usuario : usuarioLogin};
+						var object = {};
 						
 						$.ajax({
 							url: "/ProjetoTcc/validarLoginExiste",
@@ -446,16 +444,23 @@ $(document)
 						    dataType: 'json',
 							success: function(data, status) {
 								$(emailField).blur(function() {
-									/*
-									 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
-									 */
-									
-									alert(data.mensagem);
-									
-									/*
-									 *  Dar um jeito de aparecer a mensagem antes do "return false"
-									 */
-									return false;
+									var usuarioLogin = $(emailField).val();
+									for(var i in data.listaEntidades) {
+										if(data.listaEntidades[i].usuario === usuarioLogin) {
+											/*
+											 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
+											 *  Essa mensagem está escrito "Já tem um login Igual a esse", que aparece quando o usuario coloca um email que já foi colocado.
+											 */
+											
+											alert(data.mensagem);
+											
+											/*
+											 *  Dar um jeito de aparecer a mensagem antes do "return false"
+											 */
+											return false;
+										}
+									}
+									return true;
 								});
 							}
 						}); 
