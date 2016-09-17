@@ -1,13 +1,16 @@
 package br.com.projetotcc.entidades;
 
-import java.util.Set;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "role")
@@ -23,12 +26,13 @@ public class Role implements InterfaceEntidade {
 	@Column(name = "name_role")
 	private String nameRole;
 	
-	@ManyToMany(mappedBy = "roles")
-	private Set<Login> login;
+	@JsonBackReference
+	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, targetEntity = Login.class)
+	@JoinColumn(name = "codigo_login", insertable = true, updatable = true)
+	private Login login;
 	
-	public Role(Long id, String nameRole) {
+	public Role(String nameRole) {
 		super();
-		this.id = id;
 		this.nameRole = nameRole;
 	}
 	
@@ -52,11 +56,11 @@ public class Role implements InterfaceEntidade {
 		this.nameRole = nameRole;
 	}
 
-	public Set<Login> getLogin() {
+	public Login getLogin() {
 		return login;
 	}
 
-	public void setLogin(Set<Login> login) {
+	public void setLogin(Login login) {
 		this.login = login;
 	}
 }

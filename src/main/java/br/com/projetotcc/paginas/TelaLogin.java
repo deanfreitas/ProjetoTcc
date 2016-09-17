@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.entidades.InterfaceEntidade;
 import br.com.projetotcc.entidades.Login;
-import br.com.projetotcc.mensagem.ResultadoMensagem;
+import br.com.projetotcc.mensagem.ResultadoServico;
 import br.com.projetotcc.seguranca.SegurancaSistema;
 
 @Controller
@@ -23,7 +23,7 @@ public class TelaLogin {
 	private BancoDadosService bancoDadosService;
 	
 	@Autowired
-	private ResultadoMensagem resultadoMensagem;
+	private ResultadoServico resultadoServico;
 	
 	@Autowired
 	private SegurancaSistema segurancaSistema;
@@ -34,7 +34,7 @@ public class TelaLogin {
 	}	
 	
 	@RequestMapping(value = "/EntrarTelaPrincipal", method = RequestMethod.POST)
-	public @ResponseBody ResultadoMensagem logarUsuario(@RequestBody Login login) {
+	public @ResponseBody ResultadoServico logarUsuario(@RequestBody Login login) {
 		String mensagem = null;
 
 		if(login.getUsuario() == null || login.getUsuario().equals("")) {
@@ -74,14 +74,12 @@ public class TelaLogin {
 				}
 			}
 
-		if(mensagem == null) {
-			resultadoMensagem.setCodigo(1);
-		} else {
-			resultadoMensagem.setCodigo(2);
+		if(mensagem != null) {
+			resultadoServico.setCodigo(1);
 		}
 
-		resultadoMensagem.setMensagem(mensagem);
+		resultadoServico.setMensagem(mensagem);
 
-		return resultadoMensagem;
+		return resultadoServico;
 	}
 }

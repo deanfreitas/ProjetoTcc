@@ -433,6 +433,34 @@ $(document)
 						alert("Formulario Apagado");
 					});
 					
+					function validarUsuarioExistente(emailField) {
+						var usuarioLogin = $('#usuario').val();
+						
+						var object = {usuario : usuarioLogin};
+						
+						$.ajax({
+							url: "/ProjetoTcc/validarLoginExiste",
+							type: 'POST',
+							data: JSON.stringify(object),
+							contentType: "application/json",
+						    dataType: 'json',
+							success: function(data, status) {
+								$(emailField).blur(function() {
+									/*
+									 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
+									 */
+									
+									alert(data.mensagem);
+									
+									/*
+									 *  Dar um jeito de aparecer a mensagem antes do "return false"
+									 */
+									return false;
+								});
+							}
+						}); 
+					}
+					
 					$('#btnSalvarUsuario').click(function() {
 						var nomeCompletoPessoa = $('#cNome').val();
 						var sexoPessoa = $("input:radio[id='radioSexo']:checked").val();
@@ -469,7 +497,7 @@ $(document)
 							contentType: "application/json",
 						    dataType: 'json',
 							success: function(data, status) {
-								if (data.codigo == 2) {
+								if (data.codigo == 0) {
 									alert(data.mensagem);
 									return false;
 								} else {
@@ -481,6 +509,7 @@ $(document)
 						});
 					});
 						
+					validarUsuarioExistente($('input[id="cEmail"]'));
 					colocarMascaraTelefoneResidencial($('input[id="cTel"]'));
 					colocarMascaraTelefoneComercial($('input[id="cCom"]'));
 					colocarMascaraCelular($('input[id="cCel"]'));

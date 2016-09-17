@@ -58,7 +58,7 @@ $(document).ready(function() {
 			contentType: "application/json",
 		    dataType: 'json',
 			success: function(data, status) {
-				if (data.codigo == 2) {
+				if (data.codigo == 1) {
 					/*
 					 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
 					 */

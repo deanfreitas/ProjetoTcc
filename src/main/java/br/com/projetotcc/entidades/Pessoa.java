@@ -1,5 +1,6 @@
 package br.com.projetotcc.entidades;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -36,14 +36,12 @@ public class Pessoa implements InterfaceEntidade {
 	@Column(name = "cor")
 	private String cor;
 	
-	@OneToOne(optional = false, fetch = FetchType.EAGER)
-	@PrimaryKeyJoinColumn
-	@JoinColumn(name = "codigo_contato")
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
+	@JoinColumn(name = "codigo_contato", insertable = true, updatable = true)
 	private Contato contato;
 	
-	@OneToOne(optional = false, fetch = FetchType.EAGER)
-	@PrimaryKeyJoinColumn
-	@JoinColumn(name = "codigo_endereco")
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
+	@JoinColumn(name = "codigo_endereco", insertable = true, updatable = true)
 	private Endereco endereco;
 	
 	@Column(name = "responsavel")
@@ -52,9 +50,8 @@ public class Pessoa implements InterfaceEntidade {
 	@Column(name = "crn")
 	private String crn;
 	
-	@OneToOne(optional = false, fetch = FetchType.EAGER)
-	@PrimaryKeyJoinColumn
-	@JoinColumn(name = "codigo_login")
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
+	@JoinColumn(name = "codigo_login", insertable = true, updatable = true)
 	private Login login;
 	
 	public Pessoa() {

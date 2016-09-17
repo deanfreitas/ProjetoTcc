@@ -14,7 +14,8 @@ import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.entidades.InterfaceEntidade;
 import br.com.projetotcc.entidades.Login;
 import br.com.projetotcc.entidades.Pessoa;
-import br.com.projetotcc.mensagem.ResultadoMensagem;
+import br.com.projetotcc.entidades.Role;
+import br.com.projetotcc.mensagem.ResultadoServico;
 
 @Controller
 public class TelaCadastro {
@@ -23,7 +24,7 @@ public class TelaCadastro {
 	private BancoDadosService bancoDadosService;
 	
 	@Autowired
-	private ResultadoMensagem resultadoMensagem;
+	private ResultadoServico resultadoServico;
 
 	@RequestMapping(value = "/TelaCadastro", method = RequestMethod.GET)
 	public ModelAndView aparecerTelaCadastro() {
@@ -31,7 +32,7 @@ public class TelaCadastro {
 	}
 	
 	@RequestMapping(value = "/SalvarUsuario", method = RequestMethod.POST)
-	public @ResponseBody ResultadoMensagem logarUsuario(@RequestBody Pessoa pessoa) {
+	public @ResponseBody ResultadoServico addUser(@RequestBody Pessoa pessoa) {
 		String mensagem = null;
 		
 		if(pessoa.getNomeCompleto() == null || pessoa.getNomeCompleto().equals("")) {
@@ -39,14 +40,33 @@ public class TelaCadastro {
 		} else {
 			List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarUsuario(pessoa.getLogin().getUsuario(), pessoa.getLogin());
 			if(listaUsuariosCadastrados.size() == 0) {
-				
+				try {
+					Role role = new Role("ROLE_usuario");
+					pessoa.getLogin().setRole(role);
+					bancoDadosService.adicionarUsuario(pessoa);
+					mensagem = "Usuario Cadastrado com sucesso";
+					resultadoServico.setCodigo(1);
+				}catch (Exception e) {
+					mensagem = "Erro ao fazer o cadastro";
+				}
 			} else {
 				mensagem = "Já tem um login Igual a esse";
 			}
 		}
 		
+		resultadoServico.setMensagem(mensagem);
 		
+		return resultadoServico;
+	}
+	
+	@RequestMapping(value = "/validarLoginExiste", method = RequestMethod.POST)
+	public @ResponseBody ResultadoServico validarLoginExiste(@RequestBody Login login) {
+		List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.listaUsuariosCadastros(login);
+		if(listaUsuariosCadastrados.size() > 0) {
+			resultadoServico.setListaEntidades(listaUsuariosCadastrados);
+			resultadoServico.setMensagem("Já tem um login Igual a esse");
+		}
 		
-		return resultadoMensagem;
+		return resultadoServico;
 	}
 }
