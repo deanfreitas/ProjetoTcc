@@ -31,22 +31,10 @@ public class Login implements InterfaceEntidade {
 	@OneToOne(fetch = FetchType.EAGER, mappedBy = "login")
 	private Pessoa pessoa;
 	
-	public Login(String usuario, String senha, Pessoa pessoa) {
-		super();
-		this.usuario = usuario;
-		this.senha = senha;
-		this.pessoa = pessoa;
-	}
-	
 	public Login(String usuario, String senha) {
 		super();
 		this.usuario = usuario;
 		this.senha = senha;
-	}
-	
-	public Login(Pessoa pessoa) {
-		super();
-		this.pessoa = pessoa;
 	}
 	
 	public Login() {
@@ -62,7 +50,7 @@ public class Login implements InterfaceEntidade {
 	}
 
 	public String getUsuario() {
-		return usuario;
+		return usuario.trim();
 	}
 
 	public void setUsuario(String usuario) {

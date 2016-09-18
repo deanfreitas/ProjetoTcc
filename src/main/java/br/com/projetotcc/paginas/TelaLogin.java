@@ -46,7 +46,7 @@ public class TelaLogin {
 
 			} else {
 				try {
-					List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarUsuario(login.getUsuario(), login);
+					List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarInformacao(login.getUsuario(), login);
 
 					if(listaUsuariosCadastrados.size() > 0) {
 						for(InterfaceEntidade usuarioCadastrado : listaUsuariosCadastrados) {
@@ -75,7 +75,7 @@ public class TelaLogin {
 			}
 
 		if(mensagem == null) {
-			resultadoServico.setCodigo(1);
+			resultadoServico.setCodigo(2);
 		}
 
 		resultadoServico.setMensagem(mensagem);

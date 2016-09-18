@@ -466,25 +466,44 @@ $(document)
 						}); 
 					}
 					
+					function arrumarData(dataField) {
+						var data = $(dataField).val();
+
+						for (i = 0; i < data.length; i++) {
+							if (data.charAt(i) == "-") {
+								data = data.replace(/\W/g, "");
+
+								var ano = data.substr(0, 4);
+								var mes = data.substr(4, 2);
+								var dia = data.substr(6, 2);
+
+								data = dia + "/" + mes + "/" + ano;
+								
+								return data.trim();
+							}
+						}
+						return data.trim();
+					};
+					
 					$('#btnSalvarUsuario').click(function() {
-						var nomeCompletoPessoa = $('#cNome').val();
+						var nomeCompletoPessoa = $('#cNome').val().trim();
 						var sexoPessoa = $("input:radio[id='radioSexo']:checked").val();
-						var dataNascimentoPessoa = $('#cData').val();
-						var estadoCivilPessoa = $('#selectEcivil').val();
-						var corPessoa = $('#selectRaca').val();
-						var telefonePessoa = $('#cTel').val();
-						var celularPessoa = $('#cCel').val();
-						var telefoneComercialPessoa = $('#cCom').val();
+						var dataNascimentoPessoa = arrumarData($('input[id="cData"]'));
+						var estadoCivilPessoa = $('#selectEcivil').val().trim();
+						var corPessoa = $('#selectRaca').val().trim();
+						var telefonePessoa = $('#cTel').val().trim();
+						var celularPessoa = $('#cCel').val().trim();
+						var telefoneComercialPessoa = $('#cCom').val().trim();
 						var cepPessoa = null;
-						var enderecoPessoa = $('#cEnd').val();
-						var numeroPessoa = $('#cNum').val();
-						var complementoPessoa = $('#cCompl').val();
-						var bairroPessoa = $('#cBairro').val();
-						var cidadePessoa = $('#cCity').val();
-						var estadoPessoa = $('#cUf').val();
-						var responsavelPessoa = $('#cResp').val();
-						var crnPessoa = $('#cCrn').val();
-						var usuarioPessoa = $('#cEmail').val();
+						var enderecoPessoa = $('#cEnd').val().trim();
+						var numeroPessoa = $('#cNum').val().trim();
+						var complementoPessoa = $('#cCompl').val().trim();
+						var bairroPessoa = $('#cBairro').val().trim();
+						var cidadePessoa = $('#cCity').val().trim();
+						var estadoPessoa = $('#cUf').val().trim();
+						var responsavelPessoa = $('#cResp').val().trim();
+						var crnPessoa = $('#cCrn').val().trim();
+						var usuarioPessoa = $('#cEmail').val().trim();
 						var senhaPessoa = $('#cSenha').val();
 						
 						var object = {nomeCompleto : nomeCompletoPessoa, sexo : sexoPessoa, dataNascimento : dataNascimentoPessoa, estadoCivil : estadoCivilPessoa, 
@@ -502,7 +521,7 @@ $(document)
 							contentType: "application/json",
 						    dataType: 'json',
 							success: function(data, status) {
-								if (data.codigo == 0) {
+								if (data.codigo != 2) {
 									alert(data.mensagem);
 									return false;
 								} else {

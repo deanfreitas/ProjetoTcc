@@ -50,7 +50,7 @@ public class Contato implements InterfaceEntidade {
 	}
 	
 	public String getTelefone() {
-		return telefone;
+		return telefone.trim();
 	}
 
 	public void setTelefone(String telefone) {
@@ -58,7 +58,7 @@ public class Contato implements InterfaceEntidade {
 	}
 
 	public String getCelular() {
-		return celular;
+		return celular.trim();
 	}
 
 	public void setCelular(String celular) {
@@ -66,7 +66,7 @@ public class Contato implements InterfaceEntidade {
 	}
 
 	public String getTelefoneComercial() {
-		return telefoneComercial;
+		return telefoneComercial.trim();
 	}
 
 	public void setTelefoneComercial(String telefoneComercial) {

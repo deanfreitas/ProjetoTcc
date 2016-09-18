@@ -27,7 +27,7 @@ public class AutenticacaoLogin implements UserDetailsService {
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String nomeUsuario) {
 		InterfaceEntidade interfaceEntidade = new Login();
-		List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarUsuario(nomeUsuario, interfaceEntidade);
+		List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarInformacao(nomeUsuario, interfaceEntidade);
 		if(listaUsuariosCadastrados.size() > 0) {
 			for(InterfaceEntidade usuarioCadastrado : listaUsuariosCadastrados) {
 				if(usuarioCadastrado instanceof Login) {

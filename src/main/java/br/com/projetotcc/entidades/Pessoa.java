@@ -90,7 +90,7 @@ public class Pessoa implements InterfaceEntidade {
 	}
 
 	public String getNomeCompleto() {
-		return nomeCompleto;
+		return nomeCompleto.trim();
 	}
 
 	public void setNomeCompleto(String nomeCompleto) {
@@ -98,7 +98,7 @@ public class Pessoa implements InterfaceEntidade {
 	}
 
 	public String getSexo() {
-		return sexo;
+		return sexo.trim();
 	}
 
 	public void setSexo(String sexo) {
@@ -106,7 +106,10 @@ public class Pessoa implements InterfaceEntidade {
 	}
 
 	public String getDataNascimento() {
-		return dataNascimento;
+		if(dataNascimento.contains("-")) {
+			dataNascimento.replace("-", "/");
+		}
+		return dataNascimento.trim();
 	}
 
 	public void setDataNascimento(String dataNascimento) {
@@ -114,7 +117,7 @@ public class Pessoa implements InterfaceEntidade {
 	}
 
 	public String getEstadoCivil() {
-		return estadoCivil;
+		return estadoCivil.trim();
 	}
 
 	public void setEstadoCivil(String estadoCivil) {
@@ -122,7 +125,7 @@ public class Pessoa implements InterfaceEntidade {
 	}
 
 	public String getCor() {
-		return cor;
+		return cor.trim();
 	}
 
 	public void setCor(String cor) {
@@ -146,7 +149,7 @@ public class Pessoa implements InterfaceEntidade {
 	}
 
 	public String getResponsavel() {
-		return responsavel;
+		return responsavel.trim();
 	}
 
 	public void setResponsavel(String responsavel) {
@@ -154,7 +157,7 @@ public class Pessoa implements InterfaceEntidade {
 	}
 
 	public String getCrn() {
-		return crn;
+		return crn.trim();
 	}
 
 	public void setCrn(String crn) {

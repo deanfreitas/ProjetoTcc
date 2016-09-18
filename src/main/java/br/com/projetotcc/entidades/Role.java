@@ -57,7 +57,7 @@ public class Role implements InterfaceEntidade {
 	}
 
 	public String getNameRole() {
-		return nameRole;
+		return nameRole.trim();
 	}
 
 	public void setNameRole(String nameRole) {

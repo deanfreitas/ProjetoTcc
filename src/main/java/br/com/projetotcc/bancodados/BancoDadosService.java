@@ -19,18 +19,18 @@ public class BancoDadosService {
         bancoDados.adiciona(entidadeGererica);
     }
 	
-	@Transactional
-	public List<InterfaceEntidade> encontrarUsuario(String nomeUsuario, InterfaceEntidade interfaceEntidade) {
-		return bancoDados.buscaPorNome(nomeUsuario, interfaceEntidade);
+	@Transactional(readOnly = true)
+	public List<InterfaceEntidade> encontrarInformacao(String nomeUsuario, InterfaceEntidade interfaceEntidade) {
+		return bancoDados.buscaPorAlgumaInformacao(nomeUsuario, interfaceEntidade);
 	}
 	
-	@Transactional
+	@Transactional(readOnly = true)
 	public void encontrarId(InterfaceEntidade interfaceEntidade, Long id) {
 		bancoDados.buscaPorId(interfaceEntidade, id);
 	}
 	
 	@Transactional(readOnly = true)
-    public List<InterfaceEntidade> listaUsuariosCadastros(InterfaceEntidade interfaceEntidade) {
-        return bancoDados.listaUsuariosCadastros(interfaceEntidade);
+    public List<InterfaceEntidade> listaInformacoesTabela(InterfaceEntidade interfaceEntidade) {
+        return bancoDados.listaInformacoesTabela(interfaceEntidade);
     }
 }

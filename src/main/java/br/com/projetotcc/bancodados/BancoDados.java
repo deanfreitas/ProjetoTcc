@@ -19,7 +19,7 @@ public class BancoDados {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public List<InterfaceEntidade> listaUsuariosCadastros(InterfaceEntidade interfaceEntidade) {
+	public List<InterfaceEntidade> listaInformacoesTabela(InterfaceEntidade interfaceEntidade) {
 		return entityManager.createQuery("select l from " + interfaceEntidade.getClass().getName().replace("br.com.projetotcc.entidades.", "") + " l", InterfaceEntidade.class).getResultList();
 	}
 	
@@ -44,12 +44,12 @@ public class BancoDados {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<InterfaceEntidade> buscaPorNome(String nomeUsuario, InterfaceEntidade interfaceEntidade) {
+	public List<InterfaceEntidade> buscaPorAlgumaInformacao(String informacaoUsuario, InterfaceEntidade interfaceEntidade) {
 		Session session = (Session) entityManager.getDelegate();
 		Criteria criteria = session.createCriteria(interfaceEntidade.getClass());
 		
 		if(interfaceEntidade instanceof Login) {
-			criteria.add(Restrictions.eq("usuario", nomeUsuario));
+			criteria.add(Restrictions.eq("usuario", informacaoUsuario));
 		}
 		
 		List<InterfaceEntidade> listaInterfaceEntidades = criteria.list();

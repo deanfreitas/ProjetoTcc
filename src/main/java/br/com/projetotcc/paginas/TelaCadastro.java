@@ -38,14 +38,13 @@ public class TelaCadastro {
 		if(pessoa.getNomeCompleto() == null || pessoa.getNomeCompleto().equals("")) {
 			mensagem = "Digite um nome";
 		} else {
-			List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarUsuario(pessoa.getLogin().getUsuario(), pessoa.getLogin());
+			List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarInformacao(pessoa.getLogin().getUsuario(), pessoa.getLogin());
 			if(listaUsuariosCadastrados.size() == 0) {
 				try {
-					Role role = new Role("ROLE_usuario");
-					role.setPessoa(pessoa);
+					Role role = new Role("ROLE_usuario", pessoa);
 					bancoDadosService.adicionarUsuario(role);
 					mensagem = "Usuario Cadastrado com sucesso";
-					resultadoServico.setCodigo(1);
+					resultadoServico.setCodigo(2);
 				}catch (Exception e) {
 					mensagem = "Erro ao fazer o cadastro";
 				}
@@ -61,7 +60,7 @@ public class TelaCadastro {
 	
 	@RequestMapping(value = "/validarLoginExiste", method = RequestMethod.POST)
 	public @ResponseBody ResultadoServico validarLoginExiste(@RequestBody Login login) {
-		List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.listaUsuariosCadastros(login);
+		List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.listaInformacoesTabela(login);
 		if(listaUsuariosCadastrados.size() > 0) {
 			resultadoServico.setListaEntidades(listaUsuariosCadastrados);
 			resultadoServico.setMensagem("Já tem um login Igual a esse");
