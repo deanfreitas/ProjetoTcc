@@ -28,7 +28,7 @@ public class Login implements InterfaceEntidade {
 	private String senha;
 	
 	@JsonBackReference
-	@OneToOne(fetch = FetchType.EAGER, mappedBy = "login")
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "login")
 	private Pessoa pessoa;
 	
 	public Login(String usuario, String senha) {

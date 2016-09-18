@@ -56,7 +56,7 @@ public class Pessoa implements InterfaceEntidade {
 	private String crn;
 	
 	@JsonManagedReference
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Login.class)
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Login.class)
 	@JoinColumn(name = "codigo_login", insertable = true, updatable = true)
 	private Login login;
 	
