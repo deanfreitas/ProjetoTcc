@@ -47,7 +47,7 @@ public class AutenticacaoLogin implements UserDetailsService {
 	private List<GrantedAuthority> construirAutoridade(Login login) {
 		Set<GrantedAuthority> setAutoridades = new HashSet<GrantedAuthority>();
 
-		for(Role role : login.getRoles()){
+		for(Role role : login.getPessoa().getRoles()){
 			setAutoridades.add(new SimpleGrantedAuthority(role.getNameRole()));
 		}
 

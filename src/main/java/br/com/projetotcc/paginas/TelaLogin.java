@@ -41,7 +41,7 @@ public class TelaLogin {
 			mensagem = "Digite um usuario";
 
 		} else
-			if(login.getUsuario() == null || login.getSenha().equals("")) {
+			if(login.getSenha() == null || login.getSenha().equals("")) {
 				mensagem = "Digite uma senha";
 
 			} else {
@@ -74,7 +74,7 @@ public class TelaLogin {
 				}
 			}
 
-		if(mensagem != null) {
+		if(mensagem == null) {
 			resultadoServico.setCodigo(1);
 		}
 

@@ -10,8 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 @Entity
 @Table(name = "role")
 public class Role implements InterfaceEntidade {
@@ -26,14 +24,24 @@ public class Role implements InterfaceEntidade {
 	@Column(name = "name_role")
 	private String nameRole;
 	
-	@JsonBackReference
-	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, targetEntity = Login.class)
-	@JoinColumn(name = "codigo_login", insertable = true, updatable = true)
-	private Login login;
+	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Pessoa.class)
+	@JoinColumn(name = "codigo_pessoa", insertable = true, updatable = true)
+	private Pessoa pessoa;
 	
 	public Role(String nameRole) {
 		super();
 		this.nameRole = nameRole;
+	}
+	
+	public Role(String nameRole, Pessoa pessoa) {
+		super();
+		this.nameRole = nameRole;
+		this.pessoa = pessoa;
+	}
+	
+	public Role(Pessoa pessoa) {
+		super();
+		this.pessoa = pessoa;
 	}
 	
 	public Role() {
@@ -56,11 +64,11 @@ public class Role implements InterfaceEntidade {
 		this.nameRole = nameRole;
 	}
 
-	public Login getLogin() {
-		return login;
+	public Pessoa getPessoa() {
+		return pessoa;
 	}
 
-	public void setLogin(Login login) {
-		this.login = login;
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 }

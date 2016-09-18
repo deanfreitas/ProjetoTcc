@@ -1,18 +1,14 @@
 package br.com.projetotcc.entidades;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "login")
@@ -31,18 +27,15 @@ public class Login implements InterfaceEntidade {
 	@Column(name = "senha")
 	private String senha;
 	
-	@OneToOne(mappedBy = "login")
+	@JsonBackReference
+	@OneToOne(fetch = FetchType.EAGER, mappedBy = "login")
 	private Pessoa pessoa;
 	
-	@JsonManagedReference
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "login")
-	private Set<Role> roles;
-
-	public Login(String usuario, String senha, Set<Role> roles) {
+	public Login(String usuario, String senha, Pessoa pessoa) {
 		super();
 		this.usuario = usuario;
 		this.senha = senha;
-		this.roles = roles;
+		this.pessoa = pessoa;
 	}
 	
 	public Login(String usuario, String senha) {
@@ -51,9 +44,9 @@ public class Login implements InterfaceEntidade {
 		this.senha = senha;
 	}
 	
-	public Login(Role role) {
+	public Login(Pessoa pessoa) {
 		super();
-		roles.add(role);
+		this.pessoa = pessoa;
 	}
 	
 	public Login() {
@@ -90,18 +83,5 @@ public class Login implements InterfaceEntidade {
 
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
-	}
-	
-	public void setRole(Role role) {
-		this.roles = new HashSet<Role>();
-		this.roles.add(role);
-	}
-	
-	public Set<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
 	}
 }

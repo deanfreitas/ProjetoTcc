@@ -1,5 +1,7 @@
 package br.com.projetotcc.entidades;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,8 +9,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "pessoa")
@@ -36,11 +41,11 @@ public class Pessoa implements InterfaceEntidade {
 	@Column(name = "cor")
 	private String cor;
 	
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Contato.class)
 	@JoinColumn(name = "codigo_contato", insertable = true, updatable = true)
 	private Contato contato;
 	
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Endereco.class)
 	@JoinColumn(name = "codigo_endereco", insertable = true, updatable = true)
 	private Endereco endereco;
 	
@@ -50,10 +55,14 @@ public class Pessoa implements InterfaceEntidade {
 	@Column(name = "crn")
 	private String crn;
 	
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
+	@JsonManagedReference
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Login.class)
 	@JoinColumn(name = "codigo_login", insertable = true, updatable = true)
 	private Login login;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pessoa")
+	private Set<Role> roles;
+
 	public Pessoa() {
 		super();
 	}
@@ -158,5 +167,13 @@ public class Pessoa implements InterfaceEntidade {
 
 	public void setLogin(Login login) {
 		this.login = login;
+	}
+	
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 }

@@ -27,6 +27,14 @@ public class ResultadoServico {
 		this.listaEntidades = listaEntidades;
 	}
 	
+	public ResultadoServico(long codigo, String mensagem, InterfaceEntidade interfaceEntidade) {
+		super();
+		this.codigo = codigo;
+		this.mensagem = mensagem;
+		this.listaEntidades = new ArrayList<InterfaceEntidade>();
+		this.listaEntidades.add(interfaceEntidade);
+	}
+	
 	public ResultadoServico(List<InterfaceEntidade> listaEntidades) {
 		super();
 		this.listaEntidades = listaEntidades;
@@ -34,6 +42,7 @@ public class ResultadoServico {
 	
 	public ResultadoServico(InterfaceEntidade interfaceEntidade) {
 		super();
+		listaEntidades = new ArrayList<InterfaceEntidade>();
 		this.listaEntidades.add(interfaceEntidade);
 	}
 	

@@ -20,10 +20,7 @@ public class BancoDados {
 	private EntityManager entityManager;
 
 	public List<InterfaceEntidade> listaUsuariosCadastros(InterfaceEntidade interfaceEntidade) {
-		if(interfaceEntidade instanceof Login) {
-			return entityManager.createQuery("select l from Login l", InterfaceEntidade.class).getResultList();
-		}
-		return null;
+		return entityManager.createQuery("select l from " + interfaceEntidade.getClass().getName().replace("br.com.projetotcc.entidades.", "") + " l", InterfaceEntidade.class).getResultList();
 	}
 	
 	public void adiciona(InterfaceEntidade entidadeGererica) {

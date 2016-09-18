@@ -42,8 +42,8 @@ public class TelaCadastro {
 			if(listaUsuariosCadastrados.size() == 0) {
 				try {
 					Role role = new Role("ROLE_usuario");
-					pessoa.getLogin().setRole(role);
-					bancoDadosService.adicionarUsuario(pessoa);
+					role.setPessoa(pessoa);
+					bancoDadosService.adicionarUsuario(role);
 					mensagem = "Usuario Cadastrado com sucesso";
 					resultadoServico.setCodigo(1);
 				}catch (Exception e) {
