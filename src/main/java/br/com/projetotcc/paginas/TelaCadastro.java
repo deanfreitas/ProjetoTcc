@@ -34,6 +34,7 @@ public class TelaCadastro {
 	@RequestMapping(value = "/SalvarUsuario", method = RequestMethod.POST)
 	public @ResponseBody ResultadoServico addUser(@RequestBody Pessoa pessoa) {
 		String mensagem = null;
+		long codigo = 0;
 		
 		if(pessoa.getNomeCompleto() == null || pessoa.getNomeCompleto().equals("")) {
 			mensagem = "Digite um nome";
@@ -44,7 +45,7 @@ public class TelaCadastro {
 					Role role = new Role("ROLE_usuario", pessoa);
 					bancoDadosService.adicionarUsuario(role);
 					mensagem = "Usuario Cadastrado com sucesso";
-					resultadoServico.setCodigo(2);
+					codigo = 2;
 				}catch (Exception e) {
 					mensagem = "Erro ao fazer o cadastro";
 				}
@@ -54,17 +55,25 @@ public class TelaCadastro {
 		}
 		
 		resultadoServico.setMensagem(mensagem);
+		resultadoServico.setListaEntidades(null);
+		resultadoServico.setCodigo(codigo);
 		
 		return resultadoServico;
 	}
 	
 	@RequestMapping(value = "/validarLoginExiste", method = RequestMethod.POST)
 	public @ResponseBody ResultadoServico validarLoginExiste(@RequestBody Login login) {
-		List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.listaInformacoesTabela(login);
+		String mensagem = null;
+		long codigo = 0;
+		
+		List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarInformacao(login.getUsuario(), login);
 		if(listaUsuariosCadastrados.size() > 0) {
-			resultadoServico.setListaEntidades(listaUsuariosCadastrados);
-			resultadoServico.setMensagem("Já tem um login Igual a esse");
+			mensagem = "Já tem um login Igual a esse";
 		}
+		
+		resultadoServico.setMensagem(mensagem);
+		resultadoServico.setListaEntidades(null);
+		resultadoServico.setCodigo(codigo);
 		
 		return resultadoServico;
 	}

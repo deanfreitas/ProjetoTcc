@@ -433,38 +433,35 @@ $(document)
 						alert("Formulario Apagado");
 					});
 					
-					function validarUsuarioExistente(emailField) {
-						var object = {};
-						
+					$('#cEmail').blur(function() {
+						var usuarioLogin = $(this).val();
+
+						var object = {usuario : usuarioLogin};
+
 						$.ajax({
 							url: "/ProjetoTcc/validarLoginExiste",
 							type: 'POST',
 							data: JSON.stringify(object),
 							contentType: "application/json",
-						    dataType: 'json',
+							dataType: 'json',
 							success: function(data, status) {
-								$(emailField).blur(function() {
-									var usuarioLogin = $(emailField).val();
-									for(var i in data.listaEntidades) {
-										if(data.listaEntidades[i].usuario === usuarioLogin) {
-											/*
-											 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
-											 *  Essa mensagem está escrito "Já tem um login Igual a esse", que aparece quando o usuario coloca um email que já foi colocado.
-											 */
-											
-											alert(data.mensagem);
-											
-											/*
-											 *  Dar um jeito de aparecer a mensagem antes do "return false"
-											 */
-											return false;
-										}
-									}
-									return true;
-								});
+								if(data.mensagem != null) {
+									/*
+									 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
+									 *  Essa mensagem está escrito "Já tem um login Igual a esse", que aparece quando o usuario coloca um email que já foi colocado.
+									 */
+
+									alert(data.mensagem);
+
+									/*
+									 *  Dar um jeito de aparecer a mensagem antes do "return false"
+									 */
+									return false;
+								}
+								return true;
 							}
-						}); 
-					}
+						});
+					});
 					
 					function arrumarData(dataField) {
 						var data = $(dataField).val();
@@ -533,7 +530,6 @@ $(document)
 						});
 					});
 						
-					validarUsuarioExistente($('input[id="cEmail"]'));
 					colocarMascaraTelefoneResidencial($('input[id="cTel"]'));
 					colocarMascaraTelefoneComercial($('input[id="cCom"]'));
 					colocarMascaraCelular($('input[id="cCel"]'));
