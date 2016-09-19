@@ -35,9 +35,13 @@ public class TelaCadastro {
 	public @ResponseBody ResultadoServico addUser(@RequestBody Pessoa pessoa) {
 		String mensagem = null;
 		long codigo = 0;
-		
+
 		if(pessoa.getNomeCompleto() == null || pessoa.getNomeCompleto().equals("")) {
 			mensagem = "Digite um nome";
+		} else if(pessoa.getLogin().getUsuario() == null || pessoa.getLogin().getUsuario().equals("")) {
+			mensagem = "Digite um usuario";
+		}else if(pessoa.getLogin().getSenha() == null || pessoa.getLogin().getSenha().equals("")) {
+			mensagem = "Digite uma senha";
 		} else {
 			List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarInformacao(pessoa.getLogin().getUsuario(), pessoa.getLogin());
 			if(listaUsuariosCadastrados.size() == 0) {
@@ -53,11 +57,11 @@ public class TelaCadastro {
 				mensagem = "Já tem um login Igual a esse";
 			}
 		}
-		
+
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setListaEntidades(null);
 		resultadoServico.setCodigo(codigo);
-		
+
 		return resultadoServico;
 	}
 	

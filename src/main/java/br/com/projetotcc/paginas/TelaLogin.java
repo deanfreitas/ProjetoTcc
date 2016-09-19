@@ -36,6 +36,7 @@ public class TelaLogin {
 	@RequestMapping(value = "/EntrarTelaPrincipal", method = RequestMethod.POST)
 	public @ResponseBody ResultadoServico logarUsuario(@RequestBody Login login) {
 		String mensagem = null;
+		long codigo = 0;
 
 		if(login.getUsuario() == null || login.getUsuario().equals("")) {
 			mensagem = "Digite um usuario";
@@ -75,9 +76,10 @@ public class TelaLogin {
 			}
 
 		if(mensagem == null) {
-			resultadoServico.setCodigo(2);
+			codigo = 1;
 		}
 
+		resultadoServico.setCodigo(codigo);
 		resultadoServico.setMensagem(mensagem);
 
 		return resultadoServico;
