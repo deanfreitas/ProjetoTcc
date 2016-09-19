@@ -74,17 +74,17 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	<security:http pattern="/resources/**" security="none"/>
-	<security:http pattern="/TelaCadastro" security="none"/>
+	<security:http pattern="/telaCadastrarUsuario" security="none"/>
 		
 	<security:http auto-config="true">
         <security:intercept-url pattern="/" access="hasRole('ROLE_administrador')"/>
-        <security:intercept-url pattern="/TelaPrincipal" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario')"/>
-        <security:intercept-url pattern="/TelaAlimentos" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario')"/>
-        <security:form-login login-page="/TelaLogin"
-        	default-target-url="/TelaPrincipal"
-        	authentication-failure-url="/TelaLogin"
+        <security:intercept-url pattern="/telaPrincipal" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>
+        <security:intercept-url pattern="/telaAlimentos" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>
+        <security:form-login login-page="/telaLogin"
+        	default-target-url="/telaPrincipal"
+        	authentication-failure-url="/telaLogin"
         	username-parameter="usuario" password-parameter="senha" />
-        <security:logout logout-url="" logout-success-url="/TelaLogin" />
+        <security:logout logout-url="/sairSistema" logout-success-url="/telaLogin" />
         <security:access-denied-handler error-page="/home" />
         <security:csrf disabled="true" />
     </security:http>

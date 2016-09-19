@@ -43,7 +43,7 @@ $(document).ready(function() {
 		} else {
 			var object = {usuario : usuarioLogin, senha : senhaLogin};
 			$.ajax({
-				url: "/ProjetoTcc/EntrarTelaPrincipal",
+				url: "/ProjetoTcc/entrarTelaPrincipal",
 				type: 'POST',
 				data: JSON.stringify(object),
 				contentType: "application/json",
@@ -61,7 +61,7 @@ $(document).ready(function() {
 						 */
 						return false;
 					} else {
-						window.location.href = '/ProjetoTcc/TelaPrincipal';
+						window.location.href = '/ProjetoTcc/telaPrincipal';
 						return true;
 					}
 				}
@@ -71,7 +71,7 @@ $(document).ready(function() {
 	});
 	
 	$('#btnCadastrar').click(function() {
-		window.location.href = '/ProjetoTcc/TelaCadastro';
+		window.location.href = '/ProjetoTcc/telaCadastrarUsuario';
 	});
 });
 
@@ -87,14 +87,14 @@ $(document).ready(function() {
 //		var login = new Object();
 //		login.usuario = $scope.usuario, login.senha = $scope.senha;
 //
-//		var response = $http.post("EntrarTelaPrincipal", login);
+//		var response = $http.post("entrarTelaPrincipal", login);
 //
 //		response.success(function(data, status, headers, config) {
 //			if (data.codigo == 2) {
 //				$window.alert(data.mensagem);
 //				return false;
 //			} else {
-//				$window.location.href = '/ProjetoTcc/TelaPrincipal';
+//				$window.location.href = '/ProjetoTcc/telaPrincipal';
 //				return true;
 //			}
 //		});

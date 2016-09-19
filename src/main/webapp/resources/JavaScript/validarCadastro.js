@@ -559,7 +559,7 @@ $(document)
 							};
 
 							$.ajax({
-								url: "/ProjetoTcc/SalvarUsuario",
+								url: "/ProjetoTcc/salvarUsuario",
 								type: 'POST',
 								data: JSON.stringify(object),
 								contentType: "application/json",
@@ -570,7 +570,7 @@ $(document)
 										return false;
 									} else {
 										alert(data.mensagem);
-										window.location.href = '/ProjetoTcc/TelaLogin';
+										window.location.href = '/ProjetoTcc/telaLogin';
 										return true;
 									}
 								}

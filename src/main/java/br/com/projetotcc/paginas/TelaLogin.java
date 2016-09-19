@@ -28,12 +28,17 @@ public class TelaLogin {
 	@Autowired
 	private SegurancaSistema segurancaSistema;
 	
-	@RequestMapping(value = "/TelaLogin", method = RequestMethod.GET)
+	@RequestMapping(value = "/telaLogin", method = RequestMethod.GET)
 	public ModelAndView aparecerTelaLogin() {
 		return new ModelAndView("TelaLogin");
-	}	
+	}
 	
-	@RequestMapping(value = "/EntrarTelaPrincipal", method = RequestMethod.POST)
+	@RequestMapping(value = "/sairSistema", method = RequestMethod.GET)
+	public ModelAndView sairSistema() {
+		return new ModelAndView("TelaLogin");
+	}
+	
+	@RequestMapping(value = "/entrarTelaPrincipal", method = RequestMethod.POST)
 	public @ResponseBody ResultadoServico logarUsuario(@RequestBody Login login) {
 		String mensagem = null;
 		long codigo = 0;

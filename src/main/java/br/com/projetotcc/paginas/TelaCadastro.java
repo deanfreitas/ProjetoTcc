@@ -26,12 +26,12 @@ public class TelaCadastro {
 	@Autowired
 	private ResultadoServico resultadoServico;
 
-	@RequestMapping(value = "/TelaCadastro", method = RequestMethod.GET)
+	@RequestMapping(value = "/telaCadastrarUsuario", method = RequestMethod.GET)
 	public ModelAndView aparecerTelaCadastro() {
 		return new ModelAndView("TelaCadastro");
 	}
 	
-	@RequestMapping(value = "/SalvarUsuario", method = RequestMethod.POST)
+	@RequestMapping(value = "/salvarUsuario", method = RequestMethod.POST)
 	public @ResponseBody ResultadoServico addUser(@RequestBody Pessoa pessoa) {
 		String mensagem = null;
 		long codigo = 0;

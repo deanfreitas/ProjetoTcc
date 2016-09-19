@@ -38,7 +38,7 @@
 						<!-- Varios botoes -->
 						<li class="active"><a href="javascript:void(0)">Perfil</a></li>
 						<li><a type="button" href="javascript:void(0)">Cardápio</a></li>
-						<li><a type="button" id="btnAlimentos" href="/ProjetoTcc/TelaAlimentos">Alimentos</a></li>
+						<li><a type="button" id="btnAlimentos" href="/ProjetoTcc/telaAlimentos">Alimentos</a></li>
 						<li><a type="button" href="">Vitaminas</a></li>
 						<li><a type="button" href="javascript:void(0)">Resultados</a></li>
 						<li><a type="button" href="javascript:void(0)">Avaliação</a></li>
@@ -76,7 +76,7 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
 						<!-- Voltar para o Login, logaut -->
-						<a href="index.html">
+						<a href="/ProjetoTcc/sairSistema">
 							<button type="button" class="btn btn-primary">Sim</button>
 						</a>
 					</div>

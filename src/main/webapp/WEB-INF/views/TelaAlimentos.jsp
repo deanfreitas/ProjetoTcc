@@ -32,7 +32,7 @@
 						<span class="icon-bar"> </span> 
 						<span class="icon-bar"> </span>
 					</button>
-					<a type="button" class="navbar-brand" id="btnTelaPrincipal" href="/ProjetoTcc/TelaPrincipal">Início</a>
+					<a type="button" class="navbar-brand" id="btnTelaPrincipal" href="/ProjetoTcc/telaPrincipal">Início</a>
 				</div>
 				<div class="navbar-collapse collapse navbar-responsive-collapse">
 					<ul class="nav navbar-nav">
@@ -77,7 +77,7 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
 						<!-- Voltar para tela de Login -->
-						<a href="index.html">
+						<a href="/ProjetoTcc/sairSistema">
 							<button type="button" class="btn btn-primary">Sim</button>
 						</a>
 					</div>
