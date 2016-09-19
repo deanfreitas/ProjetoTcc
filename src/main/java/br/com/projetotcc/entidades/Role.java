@@ -57,11 +57,11 @@ public class Role implements InterfaceEntidade {
 	}
 
 	public String getNameRole() {
-		return nameRole.trim();
+		return nameRole;
 	}
 
 	public void setNameRole(String nameRole) {
-		this.nameRole = nameRole;
+		this.nameRole = nameRole.trim();
 	}
 
 	public Pessoa getPessoa() {

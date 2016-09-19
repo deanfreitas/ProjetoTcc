@@ -50,27 +50,27 @@ public class Contato implements InterfaceEntidade {
 	}
 	
 	public String getTelefone() {
-		return telefone.trim();
+		return telefone;
 	}
 
 	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+		this.telefone = telefone.trim();
 	}
 
 	public String getCelular() {
-		return celular.trim();
+		return celular;
 	}
 
 	public void setCelular(String celular) {
-		this.celular = celular;
+		this.celular = celular.trim();
 	}
 
 	public String getTelefoneComercial() {
-		return telefoneComercial.trim();
+		return telefoneComercial;
 	}
 
 	public void setTelefoneComercial(String telefoneComercial) {
-		this.telefoneComercial = telefoneComercial;
+		this.telefoneComercial = telefoneComercial.trim();
 	}
 	
 	public Pessoa getPessoa() {

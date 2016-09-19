@@ -90,46 +90,51 @@ public class Pessoa implements InterfaceEntidade {
 	}
 
 	public String getNomeCompleto() {
-		return nomeCompleto.trim();
+		return nomeCompleto;
 	}
 
 	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
+		this.nomeCompleto = nomeCompleto.trim();
 	}
 
 	public String getSexo() {
-		return sexo.trim();
+		return sexo;
 	}
 
 	public void setSexo(String sexo) {
-		this.sexo = sexo;
+		this.sexo = sexo.trim();
 	}
 
 	public String getDataNascimento() {
-		if(dataNascimento.contains("-")) {
-			dataNascimento.replace("-", "/");
-		}
-		return dataNascimento.trim();
+		return dataNascimento;
 	}
 
 	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
+		if(dataNascimento.contains("-")) {
+			dataNascimento = dataNascimento.replace("-", "");
+			String ano = dataNascimento.substring(0, 4);
+			String mes = dataNascimento.substring(4, 6);
+			String dia = dataNascimento.substring(6, 8);
+			
+			dataNascimento = dia + "/" + mes + "/" + ano;
+		}
+		this.dataNascimento = dataNascimento.trim();
 	}
 
 	public String getEstadoCivil() {
-		return estadoCivil.trim();
+		return estadoCivil;
 	}
 
 	public void setEstadoCivil(String estadoCivil) {
-		this.estadoCivil = estadoCivil;
+		this.estadoCivil = estadoCivil.trim();
 	}
 
 	public String getCor() {
-		return cor.trim();
+		return cor;
 	}
 
 	public void setCor(String cor) {
-		this.cor = cor;
+		this.cor = cor.trim();
 	}
 
 	public Contato getContato() {
@@ -149,19 +154,19 @@ public class Pessoa implements InterfaceEntidade {
 	}
 
 	public String getResponsavel() {
-		return responsavel.trim();
+		return responsavel;
 	}
 
 	public void setResponsavel(String responsavel) {
-		this.responsavel = responsavel;
+		this.responsavel = responsavel.trim();
 	}
 
 	public String getCrn() {
-		return crn.trim();
+		return crn;
 	}
 
 	public void setCrn(String crn) {
-		this.crn = crn;
+		this.crn = crn.trim();
 	}
 
 	public Login getLogin() {

@@ -50,11 +50,11 @@ public class Login implements InterfaceEntidade {
 	}
 
 	public String getUsuario() {
-		return usuario.trim();
+		return usuario;
 	}
 
 	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+		this.usuario = usuario.trim();
 	}
 
 	public String getSenha() {

@@ -66,19 +66,19 @@ public class Endereco implements InterfaceEntidade {
 	}
 	
 	public String getCep() {
-		return cep.trim();
+		return cep;
 	}
 
 	public void setCep(String cep) {
-		this.cep = cep;
+		this.cep = cep.trim();
 	}
 	
 	public String getEndereco() {
-		return endereco.trim();
+		return endereco;
 	}
 
 	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+		this.endereco = endereco.trim();
 	}
 
 	public Long getNumero() {
@@ -90,35 +90,35 @@ public class Endereco implements InterfaceEntidade {
 	}
 
 	public String getComplemento() {
-		return complemento.trim();
+		return complemento;
 	}
 
 	public void setComplemento(String complemento) {
-		this.complemento = complemento;
+		this.complemento = complemento.trim();
 	}
 
 	public String getBairro() {
-		return bairro.trim();
+		return bairro;
 	}
 
 	public void setBairro(String bairro) {
-		this.bairro = bairro;
+		this.bairro = bairro.trim();
 	}
 
 	public String getCidade() {
-		return cidade.trim();
+		return cidade;
 	}
 
 	public void setCidade(String cidade) {
-		this.cidade = cidade;
+		this.cidade = cidade.trim();
 	}
 
 	public String getEstado() {
-		return estado.trim();
+		return estado;
 	}
 
 	public void setEstado(String estado) {
-		this.estado = estado;
+		this.estado = estado.trim();
 	}
 	
 	public Pessoa getPessoa() {
