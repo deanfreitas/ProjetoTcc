@@ -194,8 +194,13 @@ $(document)
 					function validarCamposDigitados(fields) {
 						$(fields).unbind('keyup').bind('keyup', function(e) {
 							var thisVal = $(this).val();
-							var tempVal = "";
-
+							/*
+							 *  Essa função de se o campo esta vazio. No if valida se o campo esta vazio ou não.
+							 *  Caso esteja, escolhe algum ação para o campo
+							 *  
+							 *  else é para caso o campo não esteja mais vazio.
+							 */
+							
 							if (thisVal == null || thisVal == "") {
 								$(this).css("border-color", "#FF0000");
 							} else {
@@ -429,6 +434,10 @@ $(document)
 						var crnPessoa = $('#cCrn').val('');
 						var usuarioPessoa = $('#cEmail').val('');
 						var senhaPessoa = $('#cSenha').val('');
+						
+						/*
+						 *  Mostra a mensagem de formurario apagado
+						 */
 						
 						alert("Formulario Apagado");
 					});

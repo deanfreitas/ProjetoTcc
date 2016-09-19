@@ -3,7 +3,6 @@ $(document).ready(function() {
 	
 	$('input[id="senha"]').unbind('keyup').bind('keyup', function(e) {
 		var thisVal = $(this).val();
-		var tempVal = "";
 
 		if (thisVal == null || thisVal == "") {
 			$(this).css("border-color", "#FF0000");
@@ -14,7 +13,6 @@ $(document).ready(function() {
 	
 	$('input[id="usuario"]').unbind('keyup').bind('keyup', function(e) {
 		var thisVal = $(this).val();
-		var tempVal = "";
 
 		if (thisVal == null || thisVal == "") {
 			$(this).css("border-color", "#FF0000");
