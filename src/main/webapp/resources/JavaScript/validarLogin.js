@@ -23,11 +23,6 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('input[id="btnEntrar"]').click(function() {
-
-		
-	});
-	
 	$('#btnEntrar').click(function() {
 
 		var usuarioLogin = $('#usuario').val();
@@ -38,7 +33,7 @@ $(document).ready(function() {
 			$('#usuario').css("border-color", "#FF0000");
 			display = true;
 		}
-
+		
 		if (senhaLogin == null || senhaLogin == "") {
 			$('#senha').css("border-color", "#FF0000");
 			display = true;

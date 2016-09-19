@@ -502,32 +502,71 @@ $(document)
 						var crnPessoa = $('#cCrn').val().trim();
 						var usuarioPessoa = $('#cEmail').val().trim();
 						var senhaPessoa = $('#cSenha').val();
+						var display = false;
 						
-						var object = {nomeCompleto : nomeCompletoPessoa, sexo : sexoPessoa, dataNascimento : dataNascimentoPessoa, estadoCivil : estadoCivilPessoa, 
-								responsavel : responsavelPessoa, crn : crnPessoa, cor : corPessoa, 
-								contato : {telefone : telefonePessoa, celular : celularPessoa, telefoneComercial : telefoneComercialPessoa}, 
-								endereco : {endereco : enderecoPessoa, numero : numeroPessoa, complemento : complementoPessoa, bairro : bairroPessoa,
-								cidade : cidadePessoa, estado : estadoPessoa},  
-								login : {usuario : usuarioPessoa, senha : senhaPessoa}
-						};
+						if(nomeCompletoPessoa == null || nomeCompletoPessoa == "") {
+							/*
+							 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite o nome
+							 */
+							$('#cNome').css("border-color", "#DC143C");
+							/*
+							 *  decide oque vamos mostrar antes desse comentario
+							 */
+							display = true;
+						} 
 						
-						$.ajax({
-							url: "/ProjetoTcc/SalvarUsuario",
-							type: 'POST',
-							data: JSON.stringify(object),
-							contentType: "application/json",
-						    dataType: 'json',
-							success: function(data, status) {
-								if (data.codigo != 2) {
-									alert(data.mensagem);
-									return false;
-								} else {
-									alert(data.mensagem);
-									window.location.href = '/ProjetoTcc/TelaLogin';
-									return true;
+						if(usuarioPessoa == null || usuarioPessoa == "") {
+							/*
+							 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite o email
+							 */
+							$('#cEmail').css("border-color", "#DC143C");
+							/*
+							 *  decide oque vamos mostrar antes desse comentario
+							 */
+							display = true;
+						}
+						
+						if(senhaPessoa == null || senhaPessoa == "") {
+							/*
+							 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite a senha
+							 */
+							$('#cSenha').css("border-color", "#DC143C");
+							/*
+							 *  decide oque vamos mostrar antes desse comentario
+							 */
+							display = true;
+						} 
+						
+						if(display) {
+							return false;
+						} else {
+
+							var object = {nomeCompleto : nomeCompletoPessoa, sexo : sexoPessoa, dataNascimento : dataNascimentoPessoa, estadoCivil : estadoCivilPessoa, 
+										responsavel : responsavelPessoa, crn : crnPessoa, cor : corPessoa, 
+									contato : {telefone : telefonePessoa, celular : celularPessoa, telefoneComercial : telefoneComercialPessoa}, 
+									endereco : {endereco : enderecoPessoa, numero : numeroPessoa, complemento : complementoPessoa, bairro : bairroPessoa,
+										cidade : cidadePessoa, estado : estadoPessoa},  
+									login : {usuario : usuarioPessoa, senha : senhaPessoa}
+							};
+
+							$.ajax({
+								url: "/ProjetoTcc/SalvarUsuario",
+								type: 'POST',
+								data: JSON.stringify(object),
+								contentType: "application/json",
+								dataType: 'json',
+								success: function(data, status) {
+									if (data.codigo != 2) {
+										alert(data.mensagem);
+										return false;
+									} else {
+										alert(data.mensagem);
+										window.location.href = '/ProjetoTcc/TelaLogin';
+										return true;
+									}
 								}
-							}
-						});
+							});
+						}
 					});
 						
 					colocarMascaraTelefoneResidencial($('input[id="cTel"]'));

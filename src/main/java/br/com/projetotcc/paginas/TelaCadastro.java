@@ -39,7 +39,7 @@ public class TelaCadastro {
 		if(pessoa.getNomeCompleto() == null || pessoa.getNomeCompleto().equals("")) {
 			mensagem = "Digite um nome";
 		} else if(pessoa.getLogin().getUsuario() == null || pessoa.getLogin().getUsuario().equals("")) {
-			mensagem = "Digite um usuario";
+			mensagem = "Digite um Email";
 		}else if(pessoa.getLogin().getSenha() == null || pessoa.getLogin().getSenha().equals("")) {
 			mensagem = "Digite uma senha";
 		} else {
