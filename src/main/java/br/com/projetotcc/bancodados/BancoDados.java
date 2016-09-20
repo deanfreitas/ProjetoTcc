@@ -60,4 +60,8 @@ public class BancoDados {
 		InterfaceEntidade entidadeClassMerge = buscaPorId(interfaceEntidade, interfaceEntidade.getId());
 		entityManager.merge(entidadeClassMerge);
 	}
+	
+	public void atualizarIdUsuario() {
+		entityManager.flush();
+	}
 }

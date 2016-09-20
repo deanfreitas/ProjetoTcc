@@ -2,6 +2,8 @@ package br.com.projetotcc.paginas;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,6 +29,9 @@ public class TelaLogin {
 	
 	@Autowired
 	private SegurancaSistema segurancaSistema;
+	
+	@Autowired
+    private ServletContext context;
 	
 	@RequestMapping(value = "/telaLogin", method = RequestMethod.GET)
 	public ModelAndView aparecerTelaLogin() {
@@ -60,6 +65,7 @@ public class TelaLogin {
 								Login loginUsuarioCadastrado = (Login) usuarioCadastrado;
 								if(loginUsuarioCadastrado.getSenha().equals(login.getSenha())) {
 									segurancaSistema.autenticarlogin(loginUsuarioCadastrado);
+									context.setAttribute("loginUsuario", login.getUsuario());
 									break;
 								} else {
 									mensagem = "Usuario ou senha inválido";

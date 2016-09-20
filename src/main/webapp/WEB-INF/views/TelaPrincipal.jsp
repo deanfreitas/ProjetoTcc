@@ -51,7 +51,7 @@
 							<ul class="dropdown-menu">
 								<li>
 									<!-- Voltar para a tela de cadastro com os dados Preenchidos  -->
-									<a type="button" href="">Alterar Dados</a>
+									<a type="button" href="/ProjetoTcc/telaUpdateCadastro">Alterar Dados</a>
 								</li>
 								<li class="divider"></li>
 								<li>

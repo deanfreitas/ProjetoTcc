@@ -33,4 +33,9 @@ public class BancoDadosService {
     public List<InterfaceEntidade> listaInformacoesTabela(InterfaceEntidade interfaceEntidade) {
         return bancoDados.listaInformacoesTabela(interfaceEntidade);
     }
+	
+	@Transactional
+	public void atualizarIdUsuario() {
+		bancoDados.atualizarIdUsuario();
+	}
 }

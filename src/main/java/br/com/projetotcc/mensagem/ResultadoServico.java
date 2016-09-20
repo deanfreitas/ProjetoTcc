@@ -5,14 +5,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import br.com.projetotcc.entidades.InterfaceEntidade;
-
 @Component
 public class ResultadoServico {
 
 	private long codigo;
 	private String mensagem;
-	private List<InterfaceEntidade> listaEntidades;
+	private List<Object> listaObjetos;
 	
 	public ResultadoServico(long codigo, String mensagem) {
 		super();
@@ -20,30 +18,30 @@ public class ResultadoServico {
 		this.mensagem = mensagem;
 	}
 	
-	public ResultadoServico(long codigo, String mensagem, List<InterfaceEntidade> listaEntidades) {
+	public ResultadoServico(long codigo, String mensagem, List<Object> listaObjetos) {
 		super();
 		this.codigo = codigo;
 		this.mensagem = mensagem;
-		this.listaEntidades = listaEntidades;
+		this.listaObjetos = listaObjetos;
 	}
 	
-	public ResultadoServico(long codigo, String mensagem, InterfaceEntidade interfaceEntidade) {
+	public ResultadoServico(long codigo, String mensagem, Object objeto) {
 		super();
 		this.codigo = codigo;
 		this.mensagem = mensagem;
-		this.listaEntidades = new ArrayList<InterfaceEntidade>();
-		this.listaEntidades.add(interfaceEntidade);
+		this.listaObjetos = new ArrayList<Object>();
+		this.listaObjetos.add(objeto);
 	}
 	
-	public ResultadoServico(List<InterfaceEntidade> listaEntidades) {
+	public ResultadoServico(List<Object> listaObjetos) {
 		super();
-		this.listaEntidades = listaEntidades;
+		this.listaObjetos = listaObjetos;
 	}
 	
-	public ResultadoServico(InterfaceEntidade interfaceEntidade) {
+	public ResultadoServico(Object objeto) {
 		super();
-		listaEntidades = new ArrayList<InterfaceEntidade>();
-		this.listaEntidades.add(interfaceEntidade);
+		listaObjetos = new ArrayList<Object>();
+		this.listaObjetos.add(objeto);
 	}
 	
 	public ResultadoServico() {
@@ -66,16 +64,16 @@ public class ResultadoServico {
 		this.mensagem = mensagem;
 	}
 	
-	public void setInterfaceEntidade(InterfaceEntidade interfaceEntidade) {
-		listaEntidades = new ArrayList<InterfaceEntidade>();
-		this.listaEntidades.add(interfaceEntidade);
+	public void setObjeto(Object objeto) {
+		listaObjetos = new ArrayList<Object>();
+		this.listaObjetos.add(objeto);
 	}
 
-	public List<InterfaceEntidade> getListaEntidades() {
-		return listaEntidades;
+	public List<Object> getListaObjetos() {
+		return listaObjetos;
 	}
 
-	public void setListaEntidades(List<InterfaceEntidade> listaEntidades) {
-		this.listaEntidades = listaEntidades;
+	public void setListaObjetos(List<Object> listaPessoas) {
+		this.listaObjetos = listaPessoas;
 	}
 }
