@@ -2,6 +2,7 @@ package br.com.projetotcc.mensagem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ public class ResultadoServico {
 	private long codigo;
 	private String mensagem;
 	private List<Object> listaObjetos;
+	private Set<Object> listaObjetosUnicos;
 	
 	public ResultadoServico(long codigo, String mensagem) {
 		super();
@@ -76,4 +78,13 @@ public class ResultadoServico {
 	public void setListaObjetos(List<Object> listaPessoas) {
 		this.listaObjetos = listaPessoas;
 	}
+
+	public Set<Object> getListaObjetosUnicos() {
+		return listaObjetosUnicos;
+	}
+
+	public void setListaObjetosUnicos(Set<Object> listaObjetosUnicos) {
+		this.listaObjetosUnicos = listaObjetosUnicos;
+	}
+
 }

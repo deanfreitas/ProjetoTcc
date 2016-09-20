@@ -1,7 +1,8 @@
 package br.com.projetotcc.paginas;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 
@@ -35,17 +36,17 @@ public class TelaPrincipal {
 		return new ModelAndView("TelaPrincipal");
 	}
 	
-	@RequestMapping(value = "/pegarCadastroUsuario", method = RequestMethod.POST)
+	@RequestMapping(value = "/pegarIdUsuarioCadastrado", method = RequestMethod.POST)
 	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Login login) {
-		List<Object> listaPessoas = new ArrayList<Object>();
+		Set<Object> listaIdPessoas = new HashSet<Object>();
 		List<InterfaceEntidade> listaInformacoes = bancoDadosService.encontrarInformacao(context.getAttribute("loginUsuario").toString(), login);
 		for(InterfaceEntidade informacoes : listaInformacoes) {
 			if(informacoes instanceof Login) {
-				listaPessoas.add(((Login) informacoes).getPessoa());
+				listaIdPessoas.add(((Login) informacoes).getPessoa().getId());
 			}
 		}
 		
-		resultadoServico.setListaObjetos(listaPessoas);
+		resultadoServico.setListaObjetosUnicos(listaIdPessoas);
 		return resultadoServico;
 	}
 }

@@ -1,6 +1,8 @@
 package br.com.projetotcc.paginas;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 
@@ -89,6 +91,25 @@ public class TelaCadastro {
 		resultadoServico.setListaObjetos(null);
 		resultadoServico.setCodigo(codigo);
 		
+		return resultadoServico;
+	}
+	
+	@RequestMapping(value = "/pegarCadastroUsuario", method = RequestMethod.POST)
+	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Pessoa pessoa) {
+		String mensagem = null;
+		
+		Set<Object> listaPessoas = new HashSet<Object>();
+		List<InterfaceEntidade> listaInformacoes = bancoDadosService.encontrarInformacao(context.getAttribute("loginUsuario").toString(), pessoa);
+		for(InterfaceEntidade informacoes : listaInformacoes) {
+			if(informacoes instanceof Pessoa) {
+				listaPessoas.add(informacoes);
+			} else {
+				mensagem = "Erro no Sistema. Instancia errada";
+			}
+		}
+		
+		resultadoServico.setMensagem(mensagem);
+		resultadoServico.setListaObjetosUnicos(listaPessoas);
 		return resultadoServico;
 	}
 }

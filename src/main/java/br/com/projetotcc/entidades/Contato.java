@@ -2,10 +2,13 @@ package br.com.projetotcc.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "contato")
@@ -27,7 +30,8 @@ public class Contato implements InterfaceEntidade {
 	@Column(name = "telefone_comercial")
 	private String telefoneComercial;
 	
-	@OneToOne(mappedBy = "contato")
+	@JsonManagedReference(value = "pessoa-contato")
+	@OneToOne(mappedBy = "contato", fetch = FetchType.LAZY)
 	private Pessoa pessoa;
 	
 	public Contato() {

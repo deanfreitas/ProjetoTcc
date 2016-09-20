@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "pessoa")
@@ -41,11 +41,13 @@ public class Pessoa implements InterfaceEntidade {
 	@Column(name = "cor")
 	private String cor;
 	
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Contato.class)
+	@JsonBackReference(value = "pessoa-contato")
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Contato.class)
 	@JoinColumn(name = "codigo_contato", insertable = true, updatable = true)
 	private Contato contato;
 	
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Endereco.class)
+	@JsonBackReference(value = "pessoa-endereco")
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Endereco.class)
 	@JoinColumn(name = "codigo_endereco", insertable = true, updatable = true)
 	private Endereco endereco;
 	
@@ -55,12 +57,13 @@ public class Pessoa implements InterfaceEntidade {
 	@Column(name = "crn")
 	private String crn;
 	
-	@JsonManagedReference
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Login.class)
+	@JsonBackReference(value = "entidade-pessoa")
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Login.class)
 	@JoinColumn(name = "codigo_login", insertable = true, updatable = true)
 	private Login login;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pessoa")
+	@JsonBackReference(value = "pessoa-role")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pessoa")
 	private Set<Role> roles;
 
 	public Pessoa() {

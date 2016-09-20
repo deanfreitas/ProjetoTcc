@@ -37,7 +37,7 @@
 				<div class="navbar-collapse collapse navbar-responsive-collapse">
 					<ul class="nav navbar-nav">
 						<!-- Varios Botoes -->
-						<li class="active"><a href="javascript:void(0)">Perfil</a></li>
+						<li class="active"><a type="button" href="/ProjetoTcc/telaAnamnese">Perfil</a></li>
 						<li><a type="button" href="javascript:void(0)">Cardápio</a></li>
 						<li><a type="button" id="btnAlimentos">Alimentos</a></li>
 						<li><a type="button" href="javascript:void(0)">Vitaminas</a></li>
@@ -51,8 +51,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
-								<!-- Ir para a tela de cadastro com os dados preechidos -->
-									<a type="button" href="javascript:void(0)">Alterar Dados</a>
+									<a type="button" href="/ProjetoTcc/telaUpdateCadastro">Alterar Dados</a>
 								</li>
 								<li class="divider"></li>
 								<li>
