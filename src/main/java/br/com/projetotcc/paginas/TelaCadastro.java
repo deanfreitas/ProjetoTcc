@@ -1,6 +1,5 @@
 package br.com.projetotcc.paginas;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -40,20 +39,6 @@ public class TelaCadastro {
 	@RequestMapping(value = "/telaUpdateCadastro", method = RequestMethod.GET)
 	public ModelAndView entrarTelaUpdateCadastro() {
 		return new ModelAndView("TelaCadastro");
-	}
-	
-	@RequestMapping(value = "/pegarCadastroUsuario", method = RequestMethod.PUT)
-	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Login login) {
-		List<Object> listaPessoas = new ArrayList<Object>();
-		List<InterfaceEntidade> listaInformacoes = bancoDadosService.encontrarInformacao(context.getAttribute("loginUsuario").toString(), login);
-		for(InterfaceEntidade informacoes : listaInformacoes) {
-			if(informacoes instanceof Login) {
-				listaPessoas.add(((Login) informacoes).getPessoa());
-			}
-		}
-		
-		resultadoServico.setListaObjetos(listaPessoas);
-		return resultadoServico;
 	}
 	
 	@RequestMapping(value = "/salvarUsuario", method = RequestMethod.POST)
