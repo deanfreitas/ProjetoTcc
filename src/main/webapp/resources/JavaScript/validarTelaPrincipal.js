@@ -1,6 +1,9 @@
 $(document).ready(function() {
 	$.material.init();
 	
+	var idUsuario;
+	pegarDadosUsuario();
+	
 	function pegarDadosUsuario() {
 		var object = {};
 
@@ -14,11 +17,16 @@ $(document).ready(function() {
 				if(data.mensagem != null) {
 					alert(data.mensagem);
 					return false;
+				} else {
+					idUsuario = data.listaObjetosUnicos;
+					return true;
 				}
-				return true;
+				return false;
 			}
 		});
 	};
 	
-	pegarDadosUsuario();
+	$('#btnAlterarDados').click(function() {
+		location.href = '/ProjetoTcc/telaUpdateCadastro/' + idUsuario;
+	});
 });

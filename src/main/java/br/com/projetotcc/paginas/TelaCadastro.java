@@ -38,7 +38,7 @@ public class TelaCadastro {
 		return new ModelAndView("TelaCadastro");
 	}
 	
-	@RequestMapping(value = "/telaUpdateCadastro", method = RequestMethod.GET)
+	@RequestMapping(value = "/telaUpdateCadastro/{idUsuario}", method = RequestMethod.GET)
 	public ModelAndView entrarTelaUpdateCadastro() {
 		return new ModelAndView("TelaCadastro");
 	}

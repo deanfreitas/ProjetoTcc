@@ -50,7 +50,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a type="button" href="/ProjetoTcc/telaUpdateCadastro">Alterar Dados</a>
+									<a type="button" id="btnAlterarDados" href="#">Alterar Dados</a>
 								</li>
 								<li class="divider"></li>
 								<li>

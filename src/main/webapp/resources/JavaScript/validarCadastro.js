@@ -209,212 +209,202 @@ $(document)
 						});
 					}
 
-					function colocarValidarData(dataField) {
+					$('#cData').blur(
+							function() {
+								var data = $(this).val();
+								var tamanhoData = data.length;
+								var dataCerta = true;
 
-						$(dataField).blur(
-								function() {
-									var data = $(this).val();
-									var tamanhoData = data.length;
-									var dataCerta = true;
-
-									data = data.replace(/\W/g, "");
-
-									if (tamanhoData == 10) {
-										return true;
-									} else if (tamanhoData == 8) {
-										var dia = data.substr(0, 2);
-										var mes = data.substr(2, 2);
-										var ano = data.substr(4, 4);
-
-										if (ano < 1900 || ano > 2016) {
-											dataCerta = false;
-										}
-
-										else if (mes == 01) {
-											if (dia > 31) {
-												dataCerta = false;
-											}
-										}
-
-										else if (mes == 02) {
-											if (dia > 28) {
-												dataCerta = false;
-											}
-										}
-
-										else if (mes == 03) {
-											if (dia > 31) {
-												dataCerta = false;
-											}
-										}
-
-										else if (mes == 04) {
-											if (dia > 30) {
-												dataCerta = false;
-											}
-										}
-
-										else if (mes == 05) {
-											if (dia > 31) {
-												dataCerta = false;
-											}
-										}
-
-										else if (mes == 06) {
-											if (dia > 30) {
-												dataCerta = false;
-											}
-										}
-
-										else if (mes == 07) {
-											if (dia > 31) {
-												dataCerta = false;
-											}
-										}
-
-										else if (mes == 08) {
-											if (dia > 31) {
-												dataCerta = false;
-											}
-										}
-
-										else if (mes == 09) {
-											if (dia > 30) {
-												dataCerta = false;
-											}
-										}
-
-										else if (mes == 10) {
-											if (dia > 31) {
-												dataCerta = false;
-											}
-										}
-
-										else if (mes == 11) {
-											if (dia > 30) {
-												dataCerta = false;
-											}
-										}
-
-										else if (mes == 12) {
-											if (dia > 31) {
-												dataCerta = false;
-											}
-										}
-
-										else if (mes > 12) {
-											dataCerta = false
-										}
-
-										if (dataCerta == false) {
-											$(this).css("border-color", "#FFFFFF");
-											$(this).tooltip("enable");
-											data = data.replace(/(\d{2})(\d)/, "$1/$2");
-											data = data.replace(/(\d{2})(\d)/, "$1/$2");
-											$(this).val(data);
+								if(data == "") {
+									return false;
+								} else {
+									for (i = 0; i < data.length; i++) {
+										if (data.charAt(i) == "-") {
 											return false;
-										} else {
-											$(this).css("border-color", "#FF0000");
-											$(this).tooltip("disable");
-											data = data.replace(/(\d{2})(\d)/, "$1/$2");
-											data = data.replace(/(\d{2})(\d)/, "$1/$2");
-											$(this).val(data);
-											return true;
-										}
-
-									}
-								});
-					}
-
-					function colocarMascaraCelular(celularField) {
-
-						$(celularField).blur(function() {
-							var celular = $(this).val();
-
-							celular = celular.replace(/\W/g, "");
-
-							celular = celular.replace(/(\d{2})(\d)/, "$1 $2");
-							celular = celular.replace(/(\d{0})(\d)/, "$1($2");
-							celular = celular.replace(/(\d{2})(\D)/, "$1)$2");
-							celular = celular.replace(/(\d{5})(\d)/, "$1-$2");
-							$(this).val(celular);
-						});
-					}
-
-					function colocarMascaraTelefoneComercial(
-							telefoneComercialField) {
-
-						$(telefoneComercialField).blur(
-								function() {
-									var telefoneComercial = $(this).val();
-
-									telefoneComercial = telefoneComercial
-											.replace(/\W/g, "");
-
-									telefoneComercial = telefoneComercial.replace(/(\d{2})(\d)/, "$1 $2");
-									telefoneComercial = telefoneComercial.replace(/(\d{0})(\d)/, "$1($2");
-									telefoneComercial = telefoneComercial.replace(/(\d{2})(\D)/, "$1)$2");
-									telefoneComercial = telefoneComercial.replace(/(\d{4})(\d)/, "$1-$2");
-									
-									$(this).val(telefoneComercial);
-								});
-					}
-
-					function colocarMascaraTelefoneResidencial(
-							telefoneResidencialField) {
-
-						$(telefoneResidencialField).blur(
-								function() {
-									var telefoneResidencial = $(this).val();
-
-									telefoneResidencial = telefoneResidencial
-											.replace(/\W/g, "");
-
-									telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\d)/, "$1 $2");
-									telefoneResidencial = telefoneResidencial.replace(/(\d{0})(\d)/, "$1($2");
-									telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\D)/, "$1)$2");
-									telefoneResidencial = telefoneResidencial.replace(/(\d{4})(\d)/, "$1-$2");
-									
-									$(this).val(telefoneResidencial);
-								});
-					}
-
-					function validarEmail(emailField) {
-						$(emailField).blur(function() {
-							var email = $(this).val();
-							var emailInvalido = false;
-							var i;
-
-							for (i = 0; i < email.length; i++) {
-								if (email.charAt(i) != "@") {
-									emailInvalido = true;
-								}
-
-								if (email.charAt(i) == "@" && email.charAt(i) != " ") {
-									emailInvalido = false;
-
-									i = email.length + 1;
-
-									for (i = 0; i < email.length; i++) {
-										if (email.charAt(i) == " ") {
-											emailInvalido = true;
 										}
 									}
-
 								}
+
+								data = data.replace(/\W/g, "");
+
+								var dia = data.substr(0, 2);
+								var mes = data.substr(2, 2);
+								var ano = data.substr(4, 4);
+
+								if (ano < 1900 || ano > 2016) {
+									dataCerta = false;
+								}
+
+								else if (mes == 01) {
+									if (dia > 31) {
+										dataCerta = false;
+									}
+								}
+
+								else if (mes == 02) {
+									if (dia > 28) {
+										dataCerta = false;
+									}
+								}
+
+								else if (mes == 03) {
+									if (dia > 31) {
+										dataCerta = false;
+									}
+								}
+
+								else if (mes == 04) {
+									if (dia > 30) {
+										dataCerta = false;
+									}
+								}
+
+								else if (mes == 05) {
+									if (dia > 31) {
+										dataCerta = false;
+									}
+								}
+
+								else if (mes == 06) {
+									if (dia > 30) {
+										dataCerta = false;
+									}
+								}
+
+								else if (mes == 07) {
+									if (dia > 31) {
+										dataCerta = false;
+									}
+								}
+
+								else if (mes == 08) {
+									if (dia > 31) {
+										dataCerta = false;
+									}
+								}
+
+								else if (mes == 09) {
+									if (dia > 30) {
+										dataCerta = false;
+									}
+								}
+
+								else if (mes == 10) {
+									if (dia > 31) {
+										dataCerta = false;
+									}
+								}
+
+								else if (mes == 11) {
+									if (dia > 30) {
+										dataCerta = false;
+									}
+								}
+
+								else if (mes == 12) {
+									if (dia > 31) {
+										dataCerta = false;
+									}
+								}
+
+								else if (mes > 12) {
+									dataCerta = false
+								}
+
+								if (dataCerta == false) {
+									$(this).css("border-color", "#FFFFFF");
+									$(this).tooltip("enable");
+									data = data.replace(/(\d{2})(\d)/, "$1/$2");
+									data = data.replace(/(\d{2})(\d)/, "$1/$2");
+									$(this).val(data);
+									return false;
+								} else {
+									$(this).css("border-color", "#FF0000");
+									$(this).tooltip("disable");
+									data = data.replace(/(\d{2})(\d)/, "$1/$2");
+									data = data.replace(/(\d{2})(\d)/, "$1/$2");
+									$(this).val(data);
+									return true;
+								}
+
+							});
+
+					$('#cCel').blur(function() {
+						var celular = $(this).val();
+
+						celular = celular.replace(/\W/g, "");
+
+						celular = celular.replace(/(\d{2})(\d)/, "$1 $2");
+						celular = celular.replace(/(\d{0})(\d)/, "$1($2");
+						celular = celular.replace(/(\d{2})(\D)/, "$1)$2");
+						celular = celular.replace(/(\d{5})(\d)/, "$1-$2");
+						$(this).val(celular);
+					});
+
+					$('#cCom').blur(
+							function() {
+								var telefoneComercial = $(this).val();
+
+								telefoneComercial = telefoneComercial
+								.replace(/\W/g, "");
+
+								telefoneComercial = telefoneComercial.replace(/(\d{2})(\d)/, "$1 $2");
+								telefoneComercial = telefoneComercial.replace(/(\d{0})(\d)/, "$1($2");
+								telefoneComercial = telefoneComercial.replace(/(\d{2})(\D)/, "$1)$2");
+								telefoneComercial = telefoneComercial.replace(/(\d{4})(\d)/, "$1-$2");
+
+								$(this).val(telefoneComercial);
+							});
+
+					$('#cTel').blur(
+							function() {
+								var telefoneResidencial = $(this).val();
+
+								telefoneResidencial = telefoneResidencial
+								.replace(/\W/g, "");
+
+								telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\d)/, "$1 $2");
+								telefoneResidencial = telefoneResidencial.replace(/(\d{0})(\d)/, "$1($2");
+								telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\D)/, "$1)$2");
+								telefoneResidencial = telefoneResidencial.replace(/(\d{4})(\d)/, "$1-$2");
+
+								$(this).val(telefoneResidencial);
+							});
+
+					$('#cEmail').blur(function() {
+						var email = $(this).val();
+						var emailInvalido = false;
+						var i;
+
+						for (i = 0; i < email.length; i++) {
+							if (email.charAt(i) != "@") {
+								emailInvalido = true;
 							}
 
-							if (emailInvalido == true) {
-								$(this).css("border-color", "#FF0000");
-								$(this).tooltip("enable");
-								return false;
-							} else {
-								$(this).css("border-color", "#FFFFFF");
-								$(this).tooltip("disable");
-								return true;
+							if (email.charAt(i) == "@" && email.charAt(i) != " ") {
+								emailInvalido = false;
+
+								i = email.length + 1;
+
+								for (i = 0; i < email.length; i++) {
+									if (email.charAt(i) == " ") {
+										emailInvalido = true;
+									}
+								}
+
 							}
-						});
-					}
+						}
+
+						if (emailInvalido == true) {
+							$(this).css("border-color", "#FF0000");
+							$(this).tooltip("enable");
+							return false;
+						} else {
+							$(this).css("border-color", "#FFFFFF");
+							$(this).tooltip("disable");
+							return true;
+						}
+					});
 					
 					$('#btnLimparFormulario').click(function() {
 						var nomeCompletoPessoa = $('#cNome').val('');
@@ -578,10 +568,6 @@ $(document)
 						}
 					});
 						
-					colocarMascaraTelefoneResidencial($('input[id="cTel"]'));
-					colocarMascaraTelefoneComercial($('input[id="cCom"]'));
-					colocarMascaraCelular($('input[id="cCel"]'));
-					colocarValidarData($('input[id="cData"]'));
 					validarCamposDigitados($('input[id="cEmail"]'));
 					validarCamposDigitados($('input[id="cSenha"]'));
 					colocarMascaraCep($('input[id="cCep"]'));
@@ -599,5 +585,4 @@ $(document)
 					$('input[id="cRg"]').tooltip("disable");
 					$('input[id="cData"]').tooltip("disable");
 					$('input[id="cEmail"]').tooltip("disable");
-					validarEmail($('input[id="cEmail"]'));
 				});
