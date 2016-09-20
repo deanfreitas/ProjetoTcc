@@ -39,7 +39,7 @@
 				</div>
 				<div class="navbar-collapse collapse navbar-responsive-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a type="button" >Perfil</a></li>
+						<li class="active"><a id="btnPerfil" >Perfil</a></li>
 						<li><a type="button" href="javascript:void(0)">Cardápio</a></li>
 						<li><a type="button" id="btnAlimentos" href="/ProjetoTcc/telaAlimentos">Alimentos</a></li>
 						<li><a type="button" href="">Vitaminas</a></li>
