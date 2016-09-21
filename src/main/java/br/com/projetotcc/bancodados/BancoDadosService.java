@@ -35,7 +35,17 @@ public class BancoDadosService {
     }
 	
 	@Transactional
-	public void atualizarIdUsuario() {
-		bancoDados.atualizarIdUsuario();
+	public void pegarIdUsuario() {
+		bancoDados.pegarIdUsuario();
+	}
+	
+	@Transactional
+	public void atualizarCadastroUsuario(InterfaceEntidade interfaceEntidade) {
+		bancoDados.altera(interfaceEntidade);
+	}
+	
+	@Transactional
+	public void removerCadastroUsuario(InterfaceEntidade interfaceEntidade) {
+		bancoDados.remove(interfaceEntidade);
 	}
 }

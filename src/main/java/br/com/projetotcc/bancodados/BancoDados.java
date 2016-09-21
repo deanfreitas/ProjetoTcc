@@ -61,7 +61,7 @@ public class BancoDados {
 		entityManager.merge(entidadeClassMerge);
 	}
 	
-	public void atualizarIdUsuario() {
+	public void pegarIdUsuario() {
 		entityManager.flush();
 	}
 }

@@ -4,8 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.servlet.ServletContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,9 +28,6 @@ public class TelaCadastro {
 	@Autowired
 	private ResultadoServico resultadoServico;
 	
-	@Autowired
-    private ServletContext context;
-
 	@RequestMapping(value = "/telaCadastrarUsuario", method = RequestMethod.GET)
 	public ModelAndView cadastrarUsuario() {
 		return new ModelAndView("TelaCadastro");
@@ -71,9 +66,9 @@ public class TelaCadastro {
 		}
 
 		resultadoServico.setMensagem(mensagem);
-		resultadoServico.setListaObjetos(null);
 		resultadoServico.setCodigo(codigo);
-
+		resultadoServico.setListaObjetosUnicos(null);
+		
 		return resultadoServico;
 	}
 	
@@ -88,14 +83,14 @@ public class TelaCadastro {
 		}
 		
 		resultadoServico.setMensagem(mensagem);
-		resultadoServico.setListaObjetos(null);
 		resultadoServico.setCodigo(codigo);
+		resultadoServico.setListaObjetosUnicos(null);
 		
 		return resultadoServico;
 	}
 	
 	@RequestMapping(value = "/pegarCadastroUsuario", method = RequestMethod.POST)
-	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Pessoa pessoa) {
+	public @ResponseBody ResultadoServico pegarCadastroUsuario(@RequestBody Pessoa pessoa) {
 		String mensagem = null;
 		
 		Set<Object> listaPessoas = new HashSet<Object>();
@@ -110,6 +105,19 @@ public class TelaCadastro {
 		
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setListaObjetosUnicos(listaPessoas);
+		return resultadoServico;
+	}
+	
+	@RequestMapping(value = "/atualizarCadastro", method = RequestMethod.PUT)
+	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Pessoa pessoa) {
+		String mensagem = null;
+		long codigo = 0;
+		
+		bancoDadosService.atualizarCadastroUsuario(pessoa);
+		
+		resultadoServico.setMensagem(mensagem);
+		resultadoServico.setCodigo(codigo);
+		resultadoServico.setListaObjetosUnicos(null);
 		return resultadoServico;
 	}
 }
