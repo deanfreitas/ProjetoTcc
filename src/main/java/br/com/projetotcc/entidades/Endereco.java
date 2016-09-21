@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "endereco")
@@ -41,7 +41,7 @@ public class Endereco implements InterfaceEntidade {
 	@Column(name = "estado")
 	private String estado;
 	
-	@JsonManagedReference(value = "pessoa-endereco")
+	@JsonBackReference(value = "pessoa-endereco")
 	@OneToOne(mappedBy = "endereco")
 	private Pessoa pessoa;
 

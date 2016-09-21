@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "pessoa")
@@ -41,12 +42,12 @@ public class Pessoa implements InterfaceEntidade {
 	@Column(name = "cor")
 	private String cor;
 	
-	@JsonBackReference(value = "pessoa-contato")
+	@JsonManagedReference(value = "pessoa-contato")
 	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Contato.class)
 	@JoinColumn(name = "codigo_contato", insertable = true, updatable = true)
 	private Contato contato;
 	
-	@JsonBackReference(value = "pessoa-endereco")
+	@JsonManagedReference(value = "pessoa-endereco")
 	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Endereco.class)
 	@JoinColumn(name = "codigo_endereco", insertable = true, updatable = true)
 	private Endereco endereco;
@@ -57,7 +58,7 @@ public class Pessoa implements InterfaceEntidade {
 	@Column(name = "crn")
 	private String crn;
 	
-	@JsonBackReference(value = "entidade-pessoa")
+	@JsonManagedReference(value = "pessoa-login")
 	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Login.class)
 	@JoinColumn(name = "codigo_login", insertable = true, updatable = true)
 	private Login login;

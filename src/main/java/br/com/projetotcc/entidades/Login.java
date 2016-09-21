@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "login")
@@ -27,7 +27,7 @@ public class Login implements InterfaceEntidade {
 	@Column(name = "senha")
 	private String senha;
 	
-	@JsonManagedReference(value = "entidade-pessoa")
+	@JsonBackReference(value = "pessoa-login")
 	@OneToOne(fetch = FetchType.EAGER, mappedBy = "login")
 	private Pessoa pessoa;
 	

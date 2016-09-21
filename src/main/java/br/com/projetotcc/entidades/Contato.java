@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "contato")
@@ -30,7 +30,7 @@ public class Contato implements InterfaceEntidade {
 	@Column(name = "telefone_comercial")
 	private String telefoneComercial;
 	
-	@JsonManagedReference(value = "pessoa-contato")
+	@JsonBackReference(value = "pessoa-contato")
 	@OneToOne(mappedBy = "contato", fetch = FetchType.LAZY)
 	private Pessoa pessoa;
 	

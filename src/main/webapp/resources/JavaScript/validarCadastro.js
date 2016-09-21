@@ -570,8 +570,31 @@ $(document)
 					
 					function carregarDadosUsuario() {
 						var url = window.location.href;
-						var idCasdastroPessoa = url.replace(/(\/)(\d{1,})/, "$1 $2");
-						var idCasdastroPessoa = idCasdastroPessoa.replace(/(^[^ ]*)(\d{1,})/, "$2");
+						var idCasdastroPessoa = url.replace(/(\/)(\d{1,})/, "$1 $2").replace(/(^[^ ]*)/, "").trim();
+						
+						if(idCasdastroPessoa == null || idCasdastroPessoa == "") {
+							return false;
+						} else {
+							var object = {id : idCasdastroPessoa};
+
+							$.ajax({
+								url: "/ProjetoTcc/pegarCadastroUsuario",
+								type: 'POST',
+								data: JSON.stringify(object),
+								contentType: "application/json",
+								dataType: 'json',
+								success: function(data, status) {
+									if(data.mensagem != null) {
+										alert(data.mensagem);
+										return false;
+									} else {
+										idUsuario = data.listaObjetosUnicos;
+										return true;
+									}
+									return false;
+								}
+							});
+						}
 					};
 						
 					carregarDadosUsuario();
