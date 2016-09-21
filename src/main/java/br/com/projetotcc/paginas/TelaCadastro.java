@@ -112,9 +112,12 @@ public class TelaCadastro {
 	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Pessoa pessoa) {
 		String mensagem = null;
 		long codigo = 0;
-		
-		bancoDadosService.atualizarCadastroUsuario(pessoa);
-		
+		try {
+			bancoDadosService.atualizarCadastroUsuario(pessoa);
+		} catch (Exception e) {
+			mensagem = "Erro ao atualizar o cadastro";
+			codigo = 2;
+		}
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
 		resultadoServico.setListaObjetosUnicos(null);
