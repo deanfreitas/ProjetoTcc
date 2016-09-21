@@ -567,7 +567,14 @@ $(document)
 							});
 						}
 					});
+					
+					function carregarDadosUsuario() {
+						var url = window.location.href;
+						var idCasdastroPessoa = url.replace(/(\/)(\d{1,})/, "$1 $2");
+						var idCasdastroPessoa = idCasdastroPessoa.replace(/(^[^ ]*)(\d{1,})/, "$2");
+					};
 						
+					carregarDadosUsuario();
 					validarCamposDigitados($('input[id="cEmail"]'));
 					validarCamposDigitados($('input[id="cSenha"]'));
 					colocarMascaraCep($('input[id="cCep"]'));

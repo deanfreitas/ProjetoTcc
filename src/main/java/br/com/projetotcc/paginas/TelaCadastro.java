@@ -99,7 +99,7 @@ public class TelaCadastro {
 		String mensagem = null;
 		
 		Set<Object> listaPessoas = new HashSet<Object>();
-		List<InterfaceEntidade> listaInformacoes = bancoDadosService.encontrarInformacao(context.getAttribute("loginUsuario").toString(), pessoa);
+		List<InterfaceEntidade> listaInformacoes = bancoDadosService.encontrarInformacao(pessoa.getId().toString(), pessoa);
 		for(InterfaceEntidade informacoes : listaInformacoes) {
 			if(informacoes instanceof Pessoa) {
 				listaPessoas.add(informacoes);

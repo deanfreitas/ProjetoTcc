@@ -38,14 +38,19 @@ public class TelaPrincipal {
 	
 	@RequestMapping(value = "/pegarIdUsuarioCadastrado", method = RequestMethod.POST)
 	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Login login) {
+		String mensagem = null;
+		
 		Set<Object> listaIdPessoas = new HashSet<Object>();
 		List<InterfaceEntidade> listaInformacoes = bancoDadosService.encontrarInformacao(context.getAttribute("loginUsuario").toString(), login);
 		for(InterfaceEntidade informacoes : listaInformacoes) {
 			if(informacoes instanceof Login) {
 				listaIdPessoas.add(((Login) informacoes).getPessoa().getId());
+			} else {
+				mensagem = "Erro no sistema. Instancia errada";
 			}
 		}
 		
+		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setListaObjetosUnicos(listaIdPessoas);
 		return resultadoServico;
 	}
