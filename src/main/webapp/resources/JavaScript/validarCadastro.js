@@ -588,13 +588,57 @@ $(document)
 										alert(data.mensagem);
 										return false;
 									} else {
-										idUsuario = data.listaObjetosUnicos;
+										for(var i in data.listaObjetosUnicos) {
+											var nomeCompletoPessoa = $('#cNome').val(data.listaObjetosUnicos[i].nomeCompleto.trim()).prop("disabled", true);
+											var sexoPessoa = $("input:radio[id='radioSexo']").prop("disabled", true);
+											if(sexoPessoa.is(':checked') === false) {
+												sexoPessoa.filter('[value=' + data.listaObjetosUnicos[i].sexo.trim() + ']').prop('checked', true);
+										    }
+											var dataNascimentoPessoa = $('input[id="cData"]').val(mudarFormatoData(data.listaObjetosUnicos[i].dataNascimento)).prop("disabled", true);
+											var estadoCivilPessoa = $('#selectEcivil').val(data.listaObjetosUnicos[i].estadoCivil.trim()).prop("disabled", true);
+											var corPessoa = $('#selectRaca').val(data.listaObjetosUnicos[i].cor.trim()).prop("disabled", true);
+											var responsavelPessoa = $('#cResp').val(data.listaObjetosUnicos[i].responsavel.trim()).prop("disabled", true);
+											var crnPessoa = $('#cCrn').val(data.listaObjetosUnicos[i].crn.trim()).prop("disabled", true);
+											
+											var telefonePessoa = $('#cTel').val(data.listaObjetosUnicos[i].contato.telefone.trim()).prop("disabled", true);
+											var celularPessoa = $('#cCel').val(data.listaObjetosUnicos[i].contato.celular.trim()).prop("disabled", true);
+											var telefoneComercialPessoa = $('#cCom').val(data.listaObjetosUnicos[i].contato.telefoneComercial.trim()).prop("disabled", true);
+											
+											var enderecoPessoa = $('#cEnd').val(data.listaObjetosUnicos[i].endereco.endereco.trim()).prop("disabled", true);
+											var numeroPessoa = $('#cNum').val(data.listaObjetosUnicos[i].endereco.numero).prop("disabled", true);
+											var complementoPessoa = $('#cCompl').val(data.listaObjetosUnicos[i].endereco.complemento.trim()).prop("disabled", true);
+											var bairroPessoa = $('#cBairro').val(data.listaObjetosUnicos[i].endereco.bairro.trim()).prop("disabled", true);
+											var cidadePessoa = $('#cCity').val(data.listaObjetosUnicos[i].endereco.cidade.trim()).prop("disabled", true);
+											var estadoPessoa = $('#cUf').val(data.listaObjetosUnicos[i].endereco.estado.trim()).prop("disabled", true);
+											
+											var usuarioPessoa = $('#cEmail').val(data.listaObjetosUnicos[i].login.usuario.trim()).prop("disabled", true);
+											var senhaPessoa = $('#cSenha').val(data.listaObjetosUnicos[i].login.senha.trim()).prop("disabled", true);
+										}
 										return true;
 									}
 									return false;
 								}
 							});
 						}
+					};
+					
+					function mudarFormatoData(dataField) {
+						var data = dataField;
+
+						for (i = 0; i < data.length; i++) {
+							if (data.charAt(i) == "/") {
+								data = data.replace(/\W/g, "");
+
+								var dia = data.substr(0, 2);
+								var mes = data.substr(2, 2);
+								var ano = data.substr(4, 4);
+
+								data = ano + "-" + mes + "-" + dia;
+								
+								return data.trim();
+							}
+						}
+						return data.trim();
 					};
 						
 					carregarDadosUsuario();

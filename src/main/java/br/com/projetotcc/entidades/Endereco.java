@@ -2,6 +2,7 @@ package br.com.projetotcc.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -42,7 +43,7 @@ public class Endereco implements InterfaceEntidade {
 	private String estado;
 	
 	@JsonBackReference(value = "pessoa-endereco")
-	@OneToOne(mappedBy = "endereco")
+	@OneToOne(mappedBy = "endereco", fetch = FetchType.LAZY)
 	private Pessoa pessoa;
 
 	public Endereco() {
