@@ -36,7 +36,7 @@
 					<div class="row">
 						<div class="form-group col-md-6">
 							<div class="col-md-6">
-								<input type="text" class="form-control" id="cNome" name="tNome" size="40" placeholder="Nome Completo">
+								<input type="text" class="form-control" id="cNome" name="tNome" size="40" placeholder="Nome Completo" required>
 							</div>
 						</div>
 						<div class="form-group col-md-6">
@@ -179,12 +179,12 @@
 			<div class="row">
 				<div class="form-group col-md-6">
 					<form class="form-inline">
-						<input type="email" class="form-control" name="tEmail" id="cEmail" size="20" placeholder="E-mail" data-toggle="tooltip" title="Digite o Email corretamente"/>
+						<input type="email" class="form-control" name="tEmail" id="cEmail" size="20" placeholder="E-mail" data-toggle="tooltip" title="Digite o Email corretamente" required/>
 					</form>
 				</div>
 				<div class="form-group col-md-6">
 					<form class="form-inline">
-						<input type="password" class="form-control" name="tSenha" id="cSenha" size="20" placeholder="Senha" />
+						<input type="password" class="form-control" name="tSenha" id="cSenha" size="20" placeholder="Senha" required/>
 					</form>
 				</div>
 			</div>
@@ -205,21 +205,14 @@
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-							<h4 class="modal-title">Digite seu usuário e senha para continuar</h4>
+							<h4 class="modal-title">Digite sua Senha para continuar</h4>
 						</div>
 						<div class="modal-body">
 						<table>
 							<tr>
-								<td>Usuário:</td>
-								<td>
-									<input type="text" class="form-control"id="usuario" name="usuario" size="30"  required />
-									<br />
-								</td>
-							</tr>
-							<tr>
 								<td>Senha:</td>
 								<td>
-									<input  type="password" class="form-control" id="senha" name="senha" size="30"  required />
+									<input  type="password" class="form-control" id="validarSenha" name="senha" size="30"  required />
 									<br />
 								</td>
 							</tr>
@@ -227,10 +220,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-							<!-- Voltar para o Login, logaut -->
-							<a href="cadastro2.html">
-								<button type="button" class="btn btn-primary">OK</button>
-							</a>
+							<button type="button" id="verificarSenha" data-dismiss="modal" class="btn btn-primary">OK</button>
 						</div>
 					</div>
 				</div>

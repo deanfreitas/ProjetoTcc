@@ -646,6 +646,38 @@ $(document)
 						return data.trim();
 					};
 					
+					$('#verificarSenha').click(function() {
+						var senhaPessoa = $('#validarSenha').val();
+						
+						if(senhaPessoa != $('#cSenha').val()) {
+							return false;
+						} else {
+							var nomeCompletoPessoa = $('#cNome').prop("disabled", false);
+							var sexoPessoa = $("input:radio[id='radioSexo']").prop("disabled", false);
+							var dataNascimentoPessoa = $('input[id="cData"]').prop("disabled", false);
+							var estadoCivilPessoa = $('#selectEcivil').prop("disabled", false);
+							var corPessoa = $('#selectRaca').prop("disabled", false);
+							var responsavelPessoa = $('#cResp').prop("disabled", false);
+							var crnPessoa = $('#cCrn').prop("disabled", false);
+
+							var telefonePessoa = $('#cTel').prop("disabled", false);
+							var celularPessoa = $('#cCel').prop("disabled", false);
+							var telefoneComercialPessoa = $('#cCom').prop("disabled", false);
+
+							var enderecoPessoa = $('#cEnd').prop("disabled", false);
+							var numeroPessoa = $('#cNum').prop("disabled", false);
+							var complementoPessoa = $('#cCompl').prop("disabled", false);
+							var bairroPessoa = $('#cBairro').prop("disabled", false);
+							var cidadePessoa = $('#cCity').prop("disabled", false);
+							var estadoPessoa = $('#cUf').prop("disabled", false);
+
+							var usuarioPessoa = $('#cEmail').prop("disabled", false);
+							var senhaPessoa = $('#cSenha').prop("disabled", false);
+							
+							return true;
+						}
+					});
+					
 					carregarDadosUsuario();
 					validarCamposDigitados($('input[id="cEmail"]'));
 					validarCamposDigitados($('input[id="cSenha"]'));
