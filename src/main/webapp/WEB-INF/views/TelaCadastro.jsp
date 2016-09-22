@@ -195,6 +195,8 @@
 						<a type="button" id="btnSalvarUsuario" class="btn btn-raised btn-success">Salvar</a>
 						<!-- Apagar dados -->
 						<a type="button" id="btnLimparFormulario" class="btn btn-raised btn-danger">Apagar</a>
+						<!-- Alterar dados -->
+						<a type="button" id="btnAlterarFormulario" class="btn btn-raised btn-info">Alterar</a>
 					</form>
 				</div>
 			</div>
