@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
 	$.material.init();
 	
 	var idUsuario;
@@ -29,4 +29,4 @@ $(document).ready(function() {
 	$('#btnAlterarDados').click(function() {
 		location.href = '/ProjetoTcc/telaUpdateCadastro/' + idUsuario;
 	});
-});
+});   */
