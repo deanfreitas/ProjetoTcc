@@ -542,16 +542,16 @@ $(document)
 						if(display) {
 							return false;
 						} else {
-
-							var object = {nomeCompleto : nomeCompletoPessoa, sexo : sexoPessoa, dataNascimento : dataNascimentoPessoa, estadoCivil : estadoCivilPessoa, 
-										responsavel : responsavelPessoa, crn : crnPessoa, cor : corPessoa, 
-									contato : {telefone : telefonePessoa, celular : celularPessoa, telefoneComercial : telefoneComercialPessoa}, 
-									endereco : {endereco : enderecoPessoa, numero : numeroPessoa, complemento : complementoPessoa, bairro : bairroPessoa,
-										cidade : cidadePessoa, estado : estadoPessoa},  
-									login : {usuario : usuarioPessoa, senha : senhaPessoa}
-							};
-
 							if(idCasdastroPessoa == null || idCasdastroPessoa == "") {
+
+								var object = {nomeCompleto : nomeCompletoPessoa, sexo : sexoPessoa, dataNascimento : dataNascimentoPessoa, estadoCivil : estadoCivilPessoa, 
+											responsavel : responsavelPessoa, crn : crnPessoa, cor : corPessoa, 
+										contato : {telefone : telefonePessoa, celular : celularPessoa, telefoneComercial : telefoneComercialPessoa}, 
+										endereco : {endereco : enderecoPessoa, numero : numeroPessoa, complemento : complementoPessoa, bairro : bairroPessoa,
+											cidade : cidadePessoa, estado : estadoPessoa},  
+										login : {usuario : usuarioPessoa, senha : senhaPessoa}
+								};
+
 								$.ajax({
 									url: "/ProjetoTcc/salvarUsuario",
 									type: 'POST',
@@ -570,9 +570,18 @@ $(document)
 									}
 								});
 							} else {
+								
+								var object = {id : idCasdastroPessoa, nomeCompleto : nomeCompletoPessoa, sexo : sexoPessoa, dataNascimento : dataNascimentoPessoa, estadoCivil : estadoCivilPessoa, 
+										responsavel : responsavelPessoa, crn : crnPessoa, cor : corPessoa, 
+									contato : {telefone : telefonePessoa, celular : celularPessoa, telefoneComercial : telefoneComercialPessoa}, 
+									endereco : {endereco : enderecoPessoa, numero : numeroPessoa, complemento : complementoPessoa, bairro : bairroPessoa,
+										cidade : cidadePessoa, estado : estadoPessoa},  
+									login : {usuario : usuarioPessoa, senha : senhaPessoa}
+								};
+								
 								$.ajax({
 									url: "/ProjetoTcc/atualizarCadastro",
-									type: 'POST',
+									type: 'PUT',
 									data: JSON.stringify(object),
 									contentType: "application/json",
 									dataType: 'json',
@@ -582,6 +591,7 @@ $(document)
 											return false;
 										} else {
 											alert(data.mensagem);
+											window.location.href = '/ProjetoTcc/telaPrincipal';
 											return true;
 										}
 									}

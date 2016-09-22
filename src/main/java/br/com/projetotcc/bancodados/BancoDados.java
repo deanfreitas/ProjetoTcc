@@ -27,6 +27,14 @@ public class BancoDados {
 		entityManager.persist(entidadeGererica);
 	}
 	
+	public void remove(InterfaceEntidade interfaceEntidade, Long id) {
+		InterfaceEntidade removerLinhaTabela = buscaPorId(interfaceEntidade, id);
+		
+		if (removerLinhaTabela != null) {
+			entityManager.remove(removerLinhaTabela);
+		}
+	}
+	
 	public void remove(InterfaceEntidade interfaceEntidade) {
 		InterfaceEntidade removerLinhaTabela = buscaPorId(interfaceEntidade, interfaceEntidade.getId());
 		

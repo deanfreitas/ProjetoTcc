@@ -48,4 +48,9 @@ public class BancoDadosService {
 	public void removerCadastroUsuario(InterfaceEntidade interfaceEntidade) {
 		bancoDados.remove(interfaceEntidade);
 	}
+	
+	@Transactional
+	public void removerCadastroUsuario(InterfaceEntidade interfaceEntidade, Long id) {
+		bancoDados.remove(interfaceEntidade, id);
+	}
 }
