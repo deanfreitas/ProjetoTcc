@@ -113,9 +113,10 @@ public class TelaCadastro {
 		String mensagem = null;
 		long codigo = 0;
 		try {
-			pessoa.getLogin().setId(pessoa.getId());
-			pessoa.getContato().setId(pessoa.getId());
-			pessoa.getEndereco().setId(pessoa.getId());
+			Pessoa dadosCastradoPessoa = (Pessoa) bancoDadosService.encontrarInformacaoPorId(pessoa, pessoa.getId());
+			pessoa.getLogin().setId(dadosCastradoPessoa.getLogin().getId());
+			pessoa.getContato().setId(dadosCastradoPessoa.getContato().getId());
+			pessoa.getEndereco().setId(dadosCastradoPessoa.getEndereco().getId());
 			bancoDadosService.atualizarCadastroUsuario(pessoa);
 			mensagem = "Cadastro atualizado com sucesso";
 		} catch (Exception e) {

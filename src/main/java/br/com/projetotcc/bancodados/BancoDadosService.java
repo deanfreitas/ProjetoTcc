@@ -25,8 +25,8 @@ public class BancoDadosService {
 	}
 	
 	@Transactional(readOnly = true)
-	public void encontrarId(InterfaceEntidade interfaceEntidade, Long id) {
-		bancoDados.buscaPorId(interfaceEntidade, id);
+	public InterfaceEntidade encontrarInformacaoPorId(InterfaceEntidade interfaceEntidade, Long id) {
+		return bancoDados.buscaPorId(interfaceEntidade, id);
 	}
 	
 	@Transactional(readOnly = true)
