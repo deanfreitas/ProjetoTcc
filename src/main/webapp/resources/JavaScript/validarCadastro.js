@@ -3,6 +3,9 @@ $(document)
 				function() {
 					$.material.init();
 					
+					var url = window.location.href;
+					var idCasdastroPessoa = url.replace(/(\/)(\d{1,})/, "$1 $2").replace(/(^[^ ]*)/, "").trim();
+					
 					function onlyNumber(fields) {
 						$(fields).unbind('keyup').bind('keyup', function(e) {
 							var thisVal = $(this).val();
@@ -548,30 +551,46 @@ $(document)
 									login : {usuario : usuarioPessoa, senha : senhaPessoa}
 							};
 
-							$.ajax({
-								url: "/ProjetoTcc/salvarUsuario",
-								type: 'POST',
-								data: JSON.stringify(object),
-								contentType: "application/json",
-								dataType: 'json',
-								success: function(data, status) {
-									if (data.codigo != 2) {
-										alert(data.mensagem);
-										return false;
-									} else {
-										alert(data.mensagem);
-										window.location.href = '/ProjetoTcc/telaLogin';
-										return true;
+							if(idCasdastroPessoa == null || idCasdastroPessoa == "") {
+								$.ajax({
+									url: "/ProjetoTcc/salvarUsuario",
+									type: 'POST',
+									data: JSON.stringify(object),
+									contentType: "application/json",
+									dataType: 'json',
+									success: function(data, status) {
+										if (data.codigo != 2) {
+											alert(data.mensagem);
+											return false;
+										} else {
+											alert(data.mensagem);
+											window.location.href = '/ProjetoTcc/telaLogin';
+											return true;
+										}
 									}
-								}
-							});
+								});
+							} else {
+								$.ajax({
+									url: "/ProjetoTcc/atualizarCadastro",
+									type: 'POST',
+									data: JSON.stringify(object),
+									contentType: "application/json",
+									dataType: 'json',
+									success: function(data, status) {
+										if (data.codigo == 2) {
+											alert(data.mensagem);
+											return false;
+										} else {
+											alert(data.mensagem);
+											return true;
+										}
+									}
+								});
+							}
 						}
 					});
 					
 					function carregarDadosUsuario() {
-						var url = window.location.href;
-						var idCasdastroPessoa = url.replace(/(\/)(\d{1,})/, "$1 $2").replace(/(^[^ ]*)/, "").trim();
-						
 						if(idCasdastroPessoa == null || idCasdastroPessoa == "") {
 							$('#btnAlterarDados').toggle();
 							return false;
@@ -650,6 +669,7 @@ $(document)
 						var senhaPessoa = $('#validarSenha').val();
 						
 						if(senhaPessoa != $('#cSenha').val()) {
+							alert("Senha incorreta");
 							return false;
 						} else {
 							var nomeCompletoPessoa = $('#cNome').prop("disabled", false);

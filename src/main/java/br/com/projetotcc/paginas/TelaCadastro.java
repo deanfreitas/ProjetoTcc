@@ -114,6 +114,7 @@ public class TelaCadastro {
 		long codigo = 0;
 		try {
 			bancoDadosService.atualizarCadastroUsuario(pessoa);
+			mensagem = "Cadastro atualizado com sucesso";
 		} catch (Exception e) {
 			mensagem = "Erro ao atualizar o cadastro";
 			codigo = 2;
