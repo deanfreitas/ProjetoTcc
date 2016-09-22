@@ -51,7 +51,6 @@
 							<ul class="dropdown-menu">
 								<li>
 									<a type="button" id="btnAlterarDados" href="#">Alterar Dados</a>
-									<a type="button" id="btnAlterarDados" data-toggle="modal" href="#mymodal2">Alterar Dados</a>
 								</li>
 								<li class="divider"></li> 
 								<li>

@@ -573,8 +573,10 @@ $(document)
 						var idCasdastroPessoa = url.replace(/(\/)(\d{1,})/, "$1 $2").replace(/(^[^ ]*)/, "").trim();
 						
 						if(idCasdastroPessoa == null || idCasdastroPessoa == "") {
+							$('#btnAlterarDados').toggle();
 							return false;
 						} else {
+							$('#btnLimparFormulario').toggle();
 							var object = {id : idCasdastroPessoa};
 
 							$.ajax({
