@@ -50,6 +50,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
+									<a type="button" id="btnAlterarDados" href="#">Alterar Dados</a>
 									<a type="button" id="btnAlterarDados" data-toggle="modal" href="#mymodal2">Alterar Dados</a>
 								</li>
 								<li class="divider"></li> 
@@ -77,41 +78,6 @@
 						<!-- Voltar para o Login, logaut -->
 						<a href="/ProjetoTcc/sairSistema">
 							<button type="button" class="btn btn-primary">Sim</button>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-<div class="modal" id="mymodal2">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<h4 class="modal-title">Digite seu usuário e senha para continuar</h4>
-					</div>
-					<div class="modal-body">
-						<table>
-				<tr>
-					<td>Usuário:</td>
-					<td>
-						<input type="text" class="form-control"id="usuario" name="usuario" size="30"  required />
-						<br />
-					</td>
-				</tr>
-				<tr>
-					<td>Senha:</td>
-					<td>
-						<input  type="password" class="form-control" id="senha" name="senha" size="30"  required />
-						<br />
-					</td>
-				</tr>
-			</table>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-						<!-- Voltar para o Login, logaut -->
-						<a href="cadastro2.html">
-							<button type="button" class="btn btn-primary">OK</button>
 						</a>
 					</div>
 				</div>

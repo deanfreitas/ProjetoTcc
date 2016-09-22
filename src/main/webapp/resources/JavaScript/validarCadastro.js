@@ -624,23 +624,26 @@ $(document)
 					
 					function mudarFormatoData(dataField) {
 						var data = dataField;
+						var nomeBrowser = /chrome/.test(navigator.userAgent.toLowerCase());
+						
+						if(nomeBrowser) {
+							for (i = 0; i < data.length; i++) {
+								if (data.charAt(i) == "/") {
+									data = data.replace(/\W/g, "");
 
-						for (i = 0; i < data.length; i++) {
-							if (data.charAt(i) == "/") {
-								data = data.replace(/\W/g, "");
+									var dia = data.substr(0, 2);
+									var mes = data.substr(2, 2);
+									var ano = data.substr(4, 4);
 
-								var dia = data.substr(0, 2);
-								var mes = data.substr(2, 2);
-								var ano = data.substr(4, 4);
-
-								data = ano + "-" + mes + "-" + dia;
-								
-								return data.trim();
+									data = ano + "-" + mes + "-" + dia;
+									
+									return data.trim();
+								}
 							}
 						}
 						return data.trim();
 					};
-						
+					
 					carregarDadosUsuario();
 					validarCamposDigitados($('input[id="cEmail"]'));
 					validarCamposDigitados($('input[id="cSenha"]'));
