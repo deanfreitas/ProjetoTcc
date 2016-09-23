@@ -1,5 +1,6 @@
 package br.com.projetotcc.bancodados;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -51,8 +52,8 @@ public class BancoDados {
 		return entityManager.find(interfaceEntidade.getClass(), id);
 	}
 	
-	@SuppressWarnings("unchecked")
 	public List<InterfaceEntidade> buscaPorAlgumaInformacao(String informacaoUsuario, InterfaceEntidade interfaceEntidade) {
+		List<InterfaceEntidade> listaInterfaceEntidades = new ArrayList<InterfaceEntidade>();
 		Session session = (Session) entityManager.getDelegate();
 		Criteria criteria = session.createCriteria(interfaceEntidade.getClass());
 		
@@ -60,7 +61,10 @@ public class BancoDados {
 			criteria.add(Restrictions.eq("usuario", informacaoUsuario));
 		}
 		
-		List<InterfaceEntidade> listaInterfaceEntidades = criteria.list();
+		for (Object object : criteria.list()) {
+			listaInterfaceEntidades.add((InterfaceEntidade) object);
+		}
+		
 		return listaInterfaceEntidades;
 	}
 
