@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,6 +29,9 @@ public class TelaCadastro {
 	
 	@Autowired
 	private ResultadoServico resultadoServico;
+	
+	@Autowired
+    private ServletContext context;
 	
 	@RequestMapping(value = "/telaCadastrarUsuario", method = RequestMethod.GET)
 	public ModelAndView cadastrarUsuario() {
@@ -113,12 +118,13 @@ public class TelaCadastro {
 		String mensagem = null;
 		long codigo = 0;
 		try {
-			Pessoa dadosCastradoPessoa = (Pessoa) bancoDadosService.encontrarInformacaoPorId(pessoa, pessoa.getId());
+			Pessoa dadosCastradoPessoa = (Pessoa) context.getAttribute("dadosCadastradosPessoa");
 			pessoa.getLogin().setId(dadosCastradoPessoa.getLogin().getId());
 			pessoa.getContato().setId(dadosCastradoPessoa.getContato().getId());
 			pessoa.getEndereco().setId(dadosCastradoPessoa.getEndereco().getId());
 			bancoDadosService.atualizarCadastroUsuario(pessoa);
 			mensagem = "Cadastro atualizado com sucesso";
+			context.setAttribute("loginUsuario", pessoa.getLogin().getUsuario());
 		} catch (Exception e) {
 			mensagem = "Erro ao atualizar o cadastro";
 			codigo = 2;

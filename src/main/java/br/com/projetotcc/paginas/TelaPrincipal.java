@@ -45,6 +45,7 @@ public class TelaPrincipal {
 		for(InterfaceEntidade informacoes : listaInformacoes) {
 			if(informacoes instanceof Login) {
 				listaIdPessoas.add(((Login) informacoes).getPessoa().getId());
+				context.setAttribute("dadosCadastradosPessoa", ((Login) informacoes).getPessoa());
 			} else {
 				mensagem = "Erro no sistema. Instancia errada";
 			}
