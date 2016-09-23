@@ -5,6 +5,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -20,8 +24,14 @@ public class BancoDados {
 	@PersistenceContext
 	private EntityManager entityManager;
 
+	@SuppressWarnings("unchecked")
 	public List<InterfaceEntidade> listaInformacoesTabela(InterfaceEntidade interfaceEntidade) {
-		return entityManager.createQuery("select l from " + interfaceEntidade.getClass().getName().replace("br.com.projetotcc.entidades.", "") + " l", InterfaceEntidade.class).getResultList();
+		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+		CriteriaQuery<InterfaceEntidade> createQuery = (CriteriaQuery<InterfaceEntidade>) cb.createQuery(interfaceEntidade.getClass());
+        Root<InterfaceEntidade> rootEntry = (Root<InterfaceEntidade>) createQuery.from(interfaceEntidade.getClass());
+        CriteriaQuery<InterfaceEntidade> all = createQuery.select(rootEntry);
+        TypedQuery<InterfaceEntidade> allQuery = entityManager.createQuery(all);
+        return allQuery.getResultList();
 	}
 	
 	public void adiciona(InterfaceEntidade entidadeGererica) {
