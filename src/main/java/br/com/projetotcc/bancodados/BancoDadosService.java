@@ -35,8 +35,8 @@ public class BancoDadosService {
     }
 	
 	@Transactional
-	public void pegarIdUsuario() {
-		bancoDados.pegarIdUsuario();
+	public void sincronizarBancoDados() {
+		bancoDados.sincronizarBancoDados();
 	}
 	
 	@Transactional

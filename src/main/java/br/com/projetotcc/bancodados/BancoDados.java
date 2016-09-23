@@ -83,7 +83,7 @@ public class BancoDados {
 		entityManager.merge(entidadeClassMerge);
 	}
 	
-	public void pegarIdUsuario() {
+	public void sincronizarBancoDados() {
 		entityManager.flush();
 	}
 }
