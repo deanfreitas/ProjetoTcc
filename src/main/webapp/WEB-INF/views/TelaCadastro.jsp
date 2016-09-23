@@ -67,12 +67,12 @@
 									<option>Solteiro(a)</option>
 									<option>Casado(a)</option>
 									<option>Divorciado(a)</option>
-									<option>ViÃºvo(a)</option>
+									<option>Viúvo(a)</option>
 								</select>
 							</div>
 						</div>
 						<div class="form-group ">
-							<label for="selectRaca" class="col-md-4 control-label"> Cor/RaÃ§a </label>
+							<label for="selectRaca" class="col-md-4 control-label"> Cor/Raça </label>
 							<div class="col-md-8">
 								<select id="selectRaca" class="form-control">
 									<option></option>
@@ -80,7 +80,7 @@
 									<option>Preta</option>
 									<option>Parda</option>
 									<option>Amarela</option>
-									<option>IndÃ­gena</option>
+									<option>Indígena</option>
 								</select>
 							</div>
 						</div>
@@ -204,13 +204,13 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x—</button>
 							<h4 class="modal-title">Digite sua Senha para continuar</h4>
 						</div>
 						<div class="modal-body">
 						<table>
 							<tr>
-								<td>Senha:</td>
+								<td><h4>Senha:</h4></td>
 								<td>
 									<input  type="password" class="form-control" id="validarSenha" name="senha" size="30"  required />
 									<br />

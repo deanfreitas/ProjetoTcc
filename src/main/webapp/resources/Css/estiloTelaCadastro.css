@@ -24,6 +24,9 @@ legend {
 	margin-right: auto;
 	display: block;
 }
+.modal-header{
+	background-color:#53BF53;
+}
 
 .validarCampoDigitado {
 	border-color: #FF0000;
