@@ -27,15 +27,10 @@ public class AutenticacaoLogin implements UserDetailsService {
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String nomeUsuario) {
 		InterfaceEntidade interfaceEntidade = new Login();
-		List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarInformacao(nomeUsuario, interfaceEntidade);
-		if(listaUsuariosCadastrados.size() > 0) {
-			for(InterfaceEntidade usuarioCadastrado : listaUsuariosCadastrados) {
-				if(usuarioCadastrado instanceof Login) {
-					Login loginUsuarioCadastrado = (Login) usuarioCadastrado;
-					List<GrantedAuthority> autoridades = construirAutoridade(loginUsuarioCadastrado);
-					return construirUsuarioAutenticacao(loginUsuarioCadastrado, autoridades);
-				}
-			}
+		Login loginPessoa = (Login) bancoDadosService.encontrarInformacao(interfaceEntidade, nomeUsuario);
+		if(loginPessoa != null) {
+			List<GrantedAuthority> autoridades = construirAutoridade(loginPessoa);
+			return construirUsuarioAutenticacao(loginPessoa, autoridades);
 		}
 		return null;
 	}

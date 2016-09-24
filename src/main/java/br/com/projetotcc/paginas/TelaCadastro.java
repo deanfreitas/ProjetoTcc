@@ -1,9 +1,5 @@
 package br.com.projetotcc.paginas;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
-import br.com.projetotcc.entidades.InterfaceEntidade;
 import br.com.projetotcc.entidades.Login;
 import br.com.projetotcc.entidades.Pessoa;
 import br.com.projetotcc.entidades.Role;
@@ -55,8 +50,8 @@ public class TelaCadastro {
 		}else if(pessoa.getLogin().getSenha() == null || pessoa.getLogin().getSenha().equals("")) {
 			mensagem = "Digite uma senha";
 		} else {
-			List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarInformacao(pessoa.getLogin().getUsuario(), pessoa.getLogin());
-			if(listaUsuariosCadastrados.size() == 0) {
+			Login loginPessoa = (Login) bancoDadosService.encontrarInformacao(pessoa.getLogin(), pessoa.getLogin().getUsuario());
+			if(loginPessoa == null) {
 				try {
 					Role role = new Role("ROLE_usuario", pessoa);
 					bancoDadosService.adicionarUsuario(role);
@@ -72,7 +67,7 @@ public class TelaCadastro {
 
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
-		resultadoServico.setListaObjetosUnicos(null);
+		resultadoServico.setObjeto(null);
 		
 		return resultadoServico;
 	}
@@ -82,14 +77,14 @@ public class TelaCadastro {
 		String mensagem = null;
 		long codigo = 0;
 		
-		List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarInformacao(login.getUsuario(), login);
-		if(listaUsuariosCadastrados.size() > 0) {
+		Login LoginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, login.getUsuario());
+		if(LoginCadastrado != null) {
 			mensagem = "Já tem um login Igual a esse";
 		}
 		
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
-		resultadoServico.setListaObjetosUnicos(null);
+		resultadoServico.setObjeto(null);
 		
 		return resultadoServico;
 	}
@@ -98,18 +93,10 @@ public class TelaCadastro {
 	public @ResponseBody ResultadoServico pegarCadastroUsuario(@RequestBody Pessoa pessoa) {
 		String mensagem = null;
 		
-		Set<Object> listaPessoas = new HashSet<Object>();
-		List<InterfaceEntidade> listaInformacoes = bancoDadosService.encontrarInformacao(pessoa.getId().toString(), pessoa);
-		for(InterfaceEntidade informacoes : listaInformacoes) {
-			if(informacoes instanceof Pessoa) {
-				listaPessoas.add(informacoes);
-			} else {
-				mensagem = "Erro no Sistema. Instancia errada";
-			}
-		}
+		Pessoa pessoaCadastrada = (Pessoa) bancoDadosService.encontrarInformacaoPorId(pessoa, pessoa.getId());
 		
 		resultadoServico.setMensagem(mensagem);
-		resultadoServico.setListaObjetosUnicos(listaPessoas);
+		resultadoServico.setObjeto(pessoaCadastrada);
 		return resultadoServico;
 	}
 	
@@ -131,7 +118,7 @@ public class TelaCadastro {
 		}
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
-		resultadoServico.setListaObjetosUnicos(null);
+		resultadoServico.setObjeto(null);
 		return resultadoServico;
 	}
 }

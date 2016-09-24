@@ -1,9 +1,5 @@
 package br.com.projetotcc.paginas;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
-import br.com.projetotcc.entidades.InterfaceEntidade;
 import br.com.projetotcc.entidades.Login;
 import br.com.projetotcc.mensagem.ResultadoServico;
 
@@ -39,20 +34,12 @@ public class TelaPrincipal {
 	@RequestMapping(value = "/pegarIdUsuarioCadastrado", method = RequestMethod.POST)
 	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Login login) {
 		String mensagem = null;
-		
-		Set<Object> listaIdPessoas = new HashSet<Object>();
-		List<InterfaceEntidade> listaInformacoes = bancoDadosService.encontrarInformacao(context.getAttribute("loginUsuario").toString(), login);
-		for(InterfaceEntidade informacoes : listaInformacoes) {
-			if(informacoes instanceof Login) {
-				listaIdPessoas.add(((Login) informacoes).getPessoa().getId());
-				context.setAttribute("dadosCadastradosPessoa", ((Login) informacoes).getPessoa());
-			} else {
-				mensagem = "Erro no sistema. Instancia errada";
-			}
-		}
+
+		Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, context.getAttribute("loginUsuario").toString());
+		context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getPessoa());
 		
 		resultadoServico.setMensagem(mensagem);
-		resultadoServico.setListaObjetosUnicos(listaIdPessoas);
+		resultadoServico.setObjeto(loginCadastrado.getPessoa().getId());
 		return resultadoServico;
 	}
 }

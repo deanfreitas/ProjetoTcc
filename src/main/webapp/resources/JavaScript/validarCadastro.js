@@ -619,31 +619,31 @@ $(document)
 										alert(data.mensagem);
 										return false;
 									} else {
-										for(var i in data.listaObjetosUnicos) {
-											var nomeCompletoPessoa = $('#cNome').val(data.listaObjetosUnicos[i].nomeCompleto.trim()).prop("disabled", true);
+										for(var i in data.listaObjetos) {
+											var nomeCompletoPessoa = $('#cNome').val(data.listaObjetos[i].nomeCompleto.trim()).prop("disabled", true);
 											var sexoPessoa = $("input:radio[id='radioSexo']").prop("disabled", true);
 											if(sexoPessoa.is(':checked') === false) {
-												sexoPessoa.filter('[value=' + data.listaObjetosUnicos[i].sexo.trim() + ']').prop('checked', true);
+												sexoPessoa.filter('[value=' + data.listaObjetos[i].sexo.trim() + ']').prop('checked', true);
 										    }
-											var dataNascimentoPessoa = $('input[id="cData"]').val(mudarFormatoData(data.listaObjetosUnicos[i].dataNascimento)).prop("disabled", true);
-											var estadoCivilPessoa = $('#selectEcivil').val(data.listaObjetosUnicos[i].estadoCivil.trim()).prop("disabled", true);
-											var corPessoa = $('#selectRaca').val(data.listaObjetosUnicos[i].cor.trim()).prop("disabled", true);
-											var responsavelPessoa = $('#cResp').val(data.listaObjetosUnicos[i].responsavel.trim()).prop("disabled", true);
-											var crnPessoa = $('#cCrn').val(data.listaObjetosUnicos[i].crn.trim()).prop("disabled", true);
+											var dataNascimentoPessoa = $('input[id="cData"]').val(mudarFormatoData(data.listaObjetos[i].dataNascimento)).prop("disabled", true);
+											var estadoCivilPessoa = $('#selectEcivil').val(data.listaObjetos[i].estadoCivil.trim()).prop("disabled", true);
+											var corPessoa = $('#selectRaca').val(data.listaObjetos[i].cor.trim()).prop("disabled", true);
+											var responsavelPessoa = $('#cResp').val(data.listaObjetos[i].responsavel.trim()).prop("disabled", true);
+											var crnPessoa = $('#cCrn').val(data.listaObjetos[i].crn.trim()).prop("disabled", true);
 											
-											var telefonePessoa = $('#cTel').val(data.listaObjetosUnicos[i].contato.telefone.trim()).prop("disabled", true);
-											var celularPessoa = $('#cCel').val(data.listaObjetosUnicos[i].contato.celular.trim()).prop("disabled", true);
-											var telefoneComercialPessoa = $('#cCom').val(data.listaObjetosUnicos[i].contato.telefoneComercial.trim()).prop("disabled", true);
+											var telefonePessoa = $('#cTel').val(data.listaObjetos[i].contato.telefone.trim()).prop("disabled", true);
+											var celularPessoa = $('#cCel').val(data.listaObjetos[i].contato.celular.trim()).prop("disabled", true);
+											var telefoneComercialPessoa = $('#cCom').val(data.listaObjetos[i].contato.telefoneComercial.trim()).prop("disabled", true);
 											
-											var enderecoPessoa = $('#cEnd').val(data.listaObjetosUnicos[i].endereco.endereco.trim()).prop("disabled", true);
-											var numeroPessoa = $('#cNum').val(data.listaObjetosUnicos[i].endereco.numero).prop("disabled", true);
-											var complementoPessoa = $('#cCompl').val(data.listaObjetosUnicos[i].endereco.complemento.trim()).prop("disabled", true);
-											var bairroPessoa = $('#cBairro').val(data.listaObjetosUnicos[i].endereco.bairro.trim()).prop("disabled", true);
-											var cidadePessoa = $('#cCity').val(data.listaObjetosUnicos[i].endereco.cidade.trim()).prop("disabled", true);
-											var estadoPessoa = $('#cUf').val(data.listaObjetosUnicos[i].endereco.estado.trim()).prop("disabled", true);
+											var enderecoPessoa = $('#cEnd').val(data.listaObjetos[i].endereco.endereco.trim()).prop("disabled", true);
+											var numeroPessoa = $('#cNum').val(data.listaObjetos[i].endereco.numero).prop("disabled", true);
+											var complementoPessoa = $('#cCompl').val(data.listaObjetos[i].endereco.complemento.trim()).prop("disabled", true);
+											var bairroPessoa = $('#cBairro').val(data.listaObjetos[i].endereco.bairro.trim()).prop("disabled", true);
+											var cidadePessoa = $('#cCity').val(data.listaObjetos[i].endereco.cidade.trim()).prop("disabled", true);
+											var estadoPessoa = $('#cUf').val(data.listaObjetos[i].endereco.estado.trim()).prop("disabled", true);
 											
-											var usuarioPessoa = $('#cEmail').val(data.listaObjetosUnicos[i].login.usuario.trim()).prop("disabled", true);
-											var senhaPessoa = $('#cSenha').val(data.listaObjetosUnicos[i].login.senha.trim()).prop("disabled", true);
+											var usuarioPessoa = $('#cEmail').val(data.listaObjetos[i].login.usuario.trim()).prop("disabled", true);
+											var senhaPessoa = $('#cSenha').val(data.listaObjetos[i].login.senha.trim()).prop("disabled", true);
 										}
 										return true;
 									}

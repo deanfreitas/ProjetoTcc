@@ -1,18 +1,16 @@
 package br.com.projetotcc.bancodados;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import br.com.projetotcc.entidades.InterfaceEntidade;
@@ -26,12 +24,12 @@ public class BancoDados {
 
 	@SuppressWarnings("unchecked")
 	public List<InterfaceEntidade> listaInformacoesTabela(InterfaceEntidade interfaceEntidade) {
-		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-		CriteriaQuery<InterfaceEntidade> createQuery = (CriteriaQuery<InterfaceEntidade>) cb.createQuery(interfaceEntidade.getClass());
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<InterfaceEntidade> createQuery = (CriteriaQuery<InterfaceEntidade>) criteriaBuilder.createQuery(interfaceEntidade.getClass());
         Root<InterfaceEntidade> rootEntry = (Root<InterfaceEntidade>) createQuery.from(interfaceEntidade.getClass());
-        CriteriaQuery<InterfaceEntidade> all = createQuery.select(rootEntry);
-        TypedQuery<InterfaceEntidade> allQuery = entityManager.createQuery(all);
-        return allQuery.getResultList();
+        createQuery.select(rootEntry);
+        TypedQuery<InterfaceEntidade> typedQuery = entityManager.createQuery(createQuery);
+        return typedQuery.getResultList();
 	}
 	
 	public void adiciona(InterfaceEntidade entidadeGererica) {
@@ -62,20 +60,26 @@ public class BancoDados {
 		return entityManager.find(interfaceEntidade.getClass(), id);
 	}
 	
-	public List<InterfaceEntidade> buscaPorAlgumaInformacao(String informacaoUsuario, InterfaceEntidade interfaceEntidade) {
-		List<InterfaceEntidade> listaInterfaceEntidades = new ArrayList<InterfaceEntidade>();
-		Session session = (Session) entityManager.getDelegate();
-		Criteria criteria = session.createCriteria(interfaceEntidade.getClass());
-		
-		if(interfaceEntidade instanceof Login) {
-			criteria.add(Restrictions.eq("usuario", informacaoUsuario));
+	@SuppressWarnings("unchecked")
+	public InterfaceEntidade buscaPorAlgumaInformacao(InterfaceEntidade interfaceEntidade, String informacaoUsuario) {
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<InterfaceEntidade> createQuery = (CriteriaQuery<InterfaceEntidade>) criteriaBuilder.createQuery(interfaceEntidade.getClass());
+        Root<InterfaceEntidade> rootEntry = (Root<InterfaceEntidade>) createQuery.from(interfaceEntidade.getClass());
+        createQuery.select(rootEntry);
+        ParameterExpression<String> parameterExpression = criteriaBuilder.parameter(String.class);
+        
+        if(interfaceEntidade instanceof Login) {
+        	createQuery.where(criteriaBuilder.equal(rootEntry.get("usuario"), parameterExpression));
 		}
-		
-		for (Object object : criteria.list()) {
-			listaInterfaceEntidades.add((InterfaceEntidade) object);
+        
+        TypedQuery<InterfaceEntidade> typedQuery = entityManager.createQuery(createQuery);
+        typedQuery.setParameter(parameterExpression, informacaoUsuario);
+        
+        try {
+        	return typedQuery.getSingleResult();
+        } catch (NoResultException e) {
+			return null;
 		}
-		
-		return listaInterfaceEntidades;
 	}
 
 	public void finaliza(InterfaceEntidade interfaceEntidade) {

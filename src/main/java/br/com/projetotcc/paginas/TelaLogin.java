@@ -1,7 +1,5 @@
 package br.com.projetotcc.paginas;
 
-import java.util.List;
-
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
-import br.com.projetotcc.entidades.InterfaceEntidade;
 import br.com.projetotcc.entidades.Login;
 import br.com.projetotcc.mensagem.ResultadoServico;
 import br.com.projetotcc.seguranca.SegurancaSistema;
@@ -57,31 +54,18 @@ public class TelaLogin {
 
 			} else {
 				try {
-					List<InterfaceEntidade> listaUsuariosCadastrados = bancoDadosService.encontrarInformacao(login.getUsuario(), login);
-
-					if(listaUsuariosCadastrados.size() > 0) {
-						for(InterfaceEntidade usuarioCadastrado : listaUsuariosCadastrados) {
-							if(usuarioCadastrado instanceof Login) {
-								Login loginUsuarioCadastrado = (Login) usuarioCadastrado;
-								if(loginUsuarioCadastrado.getSenha().equals(login.getSenha())) {
-									segurancaSistema.autenticarlogin(loginUsuarioCadastrado);
-									context.setAttribute("loginUsuario", login.getUsuario());
-									break;
-								} else {
-									mensagem = "Usuario ou senha inválido";
-								}
-							} else {
-								mensagem = "instância Errada";
-							}
+					Login loginUsuario = (Login) bancoDadosService.encontrarInformacao(login, login.getUsuario());
+					if(loginUsuario != null) {
+						if(loginUsuario.getSenha().equals(login.getSenha())) {
+							segurancaSistema.autenticarlogin(loginUsuario);
+							context.setAttribute("loginUsuario", login.getUsuario());
+						} else {
+							mensagem = "Usuario ou senha inválido";
 						}
 					} else {
-						mensagem = "Esse usuario não existe";
+						mensagem = "Não Existe esse usuario";
 					}
-				} catch(NullPointerException nullPointerException) {
-					mensagem = "Erro no Sistema";
-				} catch(ClassCastException classCastException) {
-					mensagem = "Erro no Sistema";
-				} catch(IndexOutOfBoundsException indexOutOfBoundsException) {
+				} catch(Exception e) {
 					mensagem = "Erro no Sistema";
 				}
 			}

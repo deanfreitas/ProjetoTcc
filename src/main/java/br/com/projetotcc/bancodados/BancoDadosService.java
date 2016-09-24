@@ -20,8 +20,8 @@ public class BancoDadosService {
     }
 	
 	@Transactional(readOnly = true)
-	public List<InterfaceEntidade> encontrarInformacao(String nomeUsuario, InterfaceEntidade interfaceEntidade) {
-		return bancoDados.buscaPorAlgumaInformacao(nomeUsuario, interfaceEntidade);
+	public InterfaceEntidade encontrarInformacao(InterfaceEntidade interfaceEntidade, String nomeUsuario) {
+		return bancoDados.buscaPorAlgumaInformacao(interfaceEntidade, nomeUsuario);
 	}
 	
 	@Transactional(readOnly = true)

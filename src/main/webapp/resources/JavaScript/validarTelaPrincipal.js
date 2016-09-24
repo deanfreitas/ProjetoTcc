@@ -18,7 +18,7 @@ $(document).ready(function() {
 					alert(data.mensagem);
 					return false;
 				} else {
-					idUsuario = data.listaObjetosUnicos;
+					idUsuario = data.listaObjetos;
 					return true;
 				}
 				return false;
