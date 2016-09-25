@@ -25,60 +25,24 @@
 
 <body>
 	<div class="container-fluid col-md-12">
-		<div class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-						<span class="icon-bar"> 
-						</span> 
-						<span class="icon-bar"> 
-						</span> 
-						<span class="icon-bar"> </span>
-					</button>
-					<a type="button" class="navbar-brand" id="btnTelaPrincipal" href="/ProjetoTcc/telaPrincipal">InÃ­cio</a>
-				</div>
-				<div class="navbar-collapse collapse navbar-responsive-collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a id="btnPerfil" >Perfil</a></li>
-						<li><a type="button" href="javascript:void(0)">CardÃ¡pio</a></li>
-						<li><a type="button" id="btnAlimentos" href="/ProjetoTcc/telaAlimentos">Alimentos</a></li>
-						<li><a type="button" href="">Vitaminas</a></li>
-						<li><a type="button" href="javascript:void(0)">Resultados</a></li>
-						<li><a type="button" href="javascript:void(0)">AvaliaÃ§Ã£o</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-						<a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Ajustes
-							<b class="caret"></b>
-						</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a type="button" href="/ProjetoTcc/telaUpdateCadastro">Alterar Dados</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									<a data-toggle="modal" href="#mymodal">Sair</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+	<header>
+		<figure>
+			<img src="<c:url value = '/resources/Imagens/novologotransp.png' />" id="logo" />
+		</figure>
+	</header>
 	</div>
 	<div class="modal" id="mymodal">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
 					<h4 class="modal-title">Sair</h4>
 				</div>
 				<div class="modal-body">
-					<p>VocÃª tem certeza que deseja sair?</p>
+					<p>Você tem certeza que deseja sair?</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal"> NÃ£o</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
 					<a href="/ProjetoTcc/sairSistema">
 						<button type="button" class="btn btn-primary">Sim</button>
 					</a>
@@ -87,21 +51,21 @@
 		</div>
 	</div>
 	<div class="container-fluid col-md-12">
-		<h2>Anamnese Alimentar</h2>
+		
 		<br>
 		<div class="container-fluid col-md-3">
 			<!--ESSE E O MENU LATERAL COM AS OPCOES DO FORMULARIO, AQUI VC VAI COLOCAR PARA CHAMAR AS DIVS-->
 			<ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
 				<li>
-					<a type="button" id="btnIdentificacao" href="javascript:void(0)">IdentificaÃ§Ã£o</a>
+					<a type="button" id="btnIdentificacao" href="javascript:void(0)">Identificação</a>
 				</li>
 				<li>
-					<a type="button" id="btnHistoricoFamiliar" href="javascript:void(0)">HistÃ³rico Social e Familiar</a></li>
+					<a type="button" id="btnHistoricoFamiliar" href="javascript:void(0)">Histórico Social e Familiar</a></li>
 				<li>
-					<a type="button" id="btnDadosAntropo" href="javascript:void(0)">Dados AntropomÃ©tricos </a>
+					<a type="button" id="btnDadosAntropo" href="javascript:void(0)">Dados Antropométricos </a>
 				</li>
 				<li>
-					<a type="button" id="btnDadosClinicos" href="javascript:void(0)">Dados ClÃ­nicos</a>
+					<a type="button" id="btnDadosClinicos" href="javascript:void(0)">Dados Clínicos</a>
 				</li>
 				<li>
 					<a type="button" id="btnAtividadeFisica" href="javascript:void(0)">Atividade FÃ­sica </a>
@@ -127,9 +91,9 @@
 			<!--ESSA Ã‰ A PRIMEIRA ID A SER CHAMADA-->
 			<form id="formIdentificacao">
 				<fieldset>
-					<legend> IdentificaÃ§Ã£o </legend>
+					<legend> Identificação </legend>
 					<div class="form-group col-md-4">
-						<label for="tData"> Data da 1Âª Consulta: </label> 
+						<label for="tData"> Data da 1ª Consulta: </label> 
 						<input type="date" class="form-control" id="tData" placeholder="dd/mm/aaaa">
 					</div>
 					<div class="form-group col-md-12">
@@ -137,11 +101,11 @@
 						<input type="text" class="form-control" id="tNome">
 					</div>
 					<div class="form-group col-md-10">
-						<label for="tEnd"> EndereÃ§o: </label> 
+						<label for="tEnd"> Endereço: </label> 
 						<input type="text" class="form-control" id="tEnd">
 					</div>
 					<div class="form-group col-md-2">
-						<label for="tNum"> NÃºmero: </label> 
+						<label for="tNum"> Número: </label> 
 						<input type="text" class="form-control" id="tNum">
 					</div>
 					<div class="form-group col-md-5">
@@ -230,13 +194,13 @@
 		<div id="divHistoricoFamiliar">
 			<form id="formHistoricoFamiliar">
 				<fieldset>
-					<legend> HistÃ³rico Social e Familiar </legend>
+					<legend> Histórico Social e Familiar </legend>
 					<div class="form-group col-md-4">
-						<label for="tProfi"> ProfissÃ£o: </label> 
+						<label for="tProfi"> Profissão: </label> 
 						<input type="text" class="form-control" id="tProfi">
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tChor"> Carga HorÃ¡ria: </label> 
+						<label for="tChor"> Carga Horária: </label> 
 						<input type="text" class="form-control" id="tChor">
 					</div>
 					<div class="form-group col-md-4">
@@ -245,12 +209,12 @@
 							<option></option>
 							<option>Solteiro</option>
 							<option>Casado</option>
-							<option>ViÃºvo</option>
+							<option>Viúvo</option>
 							<option>Separado</option>
 						</select>
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tCfam"> ComposiÃ§Ã£o Familiar: </label> 
+						<label for="tCfam"> Composição Familiar: </label> 
 						<input type="text" class="form-control" id="tCfam">
 					</div>
 					<div class="form-group col-md-4">
@@ -258,7 +222,7 @@
 						<input type="text" class="form-control" id="tQcomp">
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tCompfre"> A compra Ã© feita: </label> 
+						<label for="tCompfre"> A compra é feita: </label> 
 						<select class="form-control" id="tCompfre">
 							<option></option>
 							<option>Diariamente</option>
@@ -267,11 +231,11 @@
 						</select>
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tPrepara"> Quem prepara as refeiÃ§Ãµes: </label> 
+						<label for="tPrepara"> Quem prepara as refeições: </label> 
 						<input type="text" class="form-control" id="tPrepara">
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tQuemr"> Com quem realiza as refeiÃ§Ãµes: </label> 
+						<label for="tQuemr"> Com quem realiza as refeições: </label> 
 						<input type="text" class="form-control" id="tQuemr">
 					</div>
 					<div class="form-group col-md-4">
@@ -279,14 +243,14 @@
 						<select class="form-control" id="tBeber">
 							<option></option>
 							<option>NÃ£o</option>
-							<option>Sim, uma vez por mÃªs ou menos</option>
-							<option>Sim, 2 a 4 vezes por mÃªs</option>
+							<option>Sim, uma vez por mês ou menos</option>
+							<option>Sim, 2 a 4 vezes por mês</option>
 							<option>Sim, 2 a 3 vezes por semana</option>
 							<option>Sim, 4 ou mais vezes por semana</option>
 						</select>
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tFumar"> Fuma ou jÃ¡ fumou? </label> 
+						<label for="tFumar"> Fuma ou já fumou? </label> 
 						<select class="form-control" id="tFumar">
 							<option></option>
 							<option>NÃ£o</option>
