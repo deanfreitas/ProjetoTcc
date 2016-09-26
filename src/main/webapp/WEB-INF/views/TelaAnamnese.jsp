@@ -23,14 +23,30 @@
 
 </head>
 
-<body>
-	<div class="container-fluid col-md-12">
-	<header>
-		<figure>
-			<img src="<c:url value = '/resources/Imagens/novologotransp.png' />" id="logo" />
-		</figure>
-	</header>
-	</div>
+<body> 
+
+<div class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+						<span class="icon-bar"> </span> <span class="icon-bar"> </span> 
+						<span class="icon-bar"> </span>
+					</button>
+					<img src="<c:url value = '/resources/Imagens/novologotransp.png' />" id="logo" />
+					</div>
+				<div class="navbar-collapse collapse navbar-responsive-collapse">
+				
+					<ul class="nav navbar-nav navbar-right">
+						<h3>Voltar
+						<a href="javascript:void(0)" id="voltar" class="btn btn-default btn-fab"><i class="material-icons">reply</i></a></h3>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+	
+	
 	<div class="modal" id="mymodal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -68,22 +84,22 @@
 					<a type="button" id="btnDadosClinicos" href="javascript:void(0)">Dados Clínicos</a>
 				</li>
 				<li>
-					<a type="button" id="btnAtividadeFisica" href="javascript:void(0)">Atividade FÃ­sica </a>
+					<a type="button" id="btnAtividadeFisica" href="javascript:void(0)">Atividade Física </a>
 				</li>
 				<li>
-					<a type="button" id="btnHistoricoAlimentar" href="javascript:void(0)">HistÃ³rico Alimentar Nutricional </a>
+					<a type="button" id="btnHistoricoAlimentar" href="javascript:void(0)">Histórico Alimentar Nutricional </a>
 				</li>
 				<li>
-					<a type="button" id="btnExamesBio" href="javascript:void(0)">Exames BioquÃ­micos </a>
+					<a type="button" id="btnExamesBio" href="javascript:void(0)">Exames Bioquímicos </a>
 				</li>
 				<li>
 					<a type="button" id="btnUsoMedicamentos" href="javascript:void(0)">Faz uso de medicamentos? </a>
 				</li>
 				<li>
-					<a type="button" id="btnRecordata" href="javascript:void(0)">RecordatÃ³rio Habitual </a>
+					<a type="button" id="btnRecordata" href="javascript:void(0)">Recordatório Habitual </a>
 				</li>
 				<li>
-					<a type="button" id="btnFrequenciaAlimentar" href="javascript:void(0)">FreqÃ¼Ãªncia Alimentar </a>
+					<a type="button" id="btnFrequenciaAlimentar" href="javascript:void(0)">Frequência Alimentar </a>
 				</li>
 			</ul>
 		</div>
@@ -183,7 +199,7 @@
 						<input type="text" class="form-control" id="tMotivo">
 					</div>
 					<div class="form-group col-md-12">
-						<label for="tObs"> ObservaÃ§Ãµes: </label> 
+						<label for="tObs"> Observações: </label> 
 						<input type="text" class="form-control" id="tObs">
 					</div>
 				</fieldset>
@@ -242,7 +258,7 @@
 						<label for="tBeber"> Faz uso de bebidas alcoÃ³licas? </label> 
 						<select class="form-control" id="tBeber">
 							<option></option>
-							<option>NÃ£o</option>
+							<option>Não</option>
 							<option>Sim, uma vez por mês ou menos</option>
 							<option>Sim, 2 a 4 vezes por mês</option>
 							<option>Sim, 2 a 3 vezes por semana</option>
@@ -253,12 +269,12 @@
 						<label for="tFumar"> Fuma ou já fumou? </label> 
 						<select class="form-control" id="tFumar">
 							<option></option>
-							<option>NÃ£o</option>
-							<option>Sim, jÃ¡ fumei mas parei</option>
-							<option>Sim, atÃ© 5 cigarros por dia</option>
-							<option>Sim, atÃ© 3 maÃ§os por semana</option>
-							<option>Sim, atÃ© 7 maÃ§os por semana</option>
-							<option>Sim, mais de 7 maÃ§os por semana</option>
+							<option>Não</option>
+							<option>Sim, já fumei mas parei</option>
+							<option>Sim, até 5 cigarros por dia</option>
+							<option>Sim, até 3 maços por semana</option>
+							<option>Sim, até 7 maços por semana</option>
+							<option>Sim, mais de 7 maços por semana</option>
 						</select>
 					</div>
 				</fieldset>
@@ -267,30 +283,24 @@
 		<div id="divDadosAntropo">
 			<form id="formDadosAntropo">
 				<fieldset>
-					<legend> Dados AntropomÃ©tricos </legend>
+					<legend> Dados Antropométricos </legend>
+					<a href="javascript:void(0)" class="btn btn-info">Adicionar Data</a>
+					<a href="javascript:void(0)" class="btn btn-danger">Apagar</a>
 					<table class="table table-striped table-hover col-md-8">
 						<thead>
 							<tr>
-								<th>Dados <br> AntropomÃ©tricos
+								<th>Dados <br> Antropométricos
 								</th>
+								
 								<th>
-									<input type="text" size="7"/>
+									 <div class="checkbox">
+          					 <label>
+          				  <input type="checkbox"> Data:
+          					</label>
+									<input type="text" size="7" placeholder="  /  /    "/>
 								</th>
-								<th>
-									<input type="text" size="7"/>
-								</th>
-								<th>
-									<input type="text" size="7"/>
-								</th>
-								<th>
-									<input type="text" size="7"/>
-								</th>
-								<th>
-									<input type="text" size="7"/>
-								</th>
-								<th>
-									<input type="text" size="7"/>
-								</th>
+								</div>
+								
 							</tr>
 						</thead>
 						<tbody>
@@ -299,528 +309,187 @@
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/>
-								</td>
-								<td>
-									<input type="text" size="5"/>
-								</td>
-								<td>
-									<input type="text" size="5"/>
-								</td>
-								<td>
-									<input type="text" size="5"/>
-								</td>
-								<td>
-									<input type="text" size="5"/>
-								</td>
+								
 							</tr>
 							<tr>
 								<td>Peso (kg)</td>
 								<td>
 									<input type="text" size="5"/>
 								</td>
-								<td>
-									<input type="text" size="5"/>
-								</td>
-								<td>
-									<input type="text" size="5"/>
-								</td>
-								<td>
-									<input type="text" size="5"/>
-								</td>
-								<td>
-									<input type="text" size="5"/>
-								</td>
-								<td>
-									<input type="text" size="5"/>
-								</td>
+								
 							</tr>
 							<tr>
 								<td>Altura (cm)</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>IMC</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>PCT</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>PCB</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>PCSE</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>PCPeitoral</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>PCAb</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>	
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+							
 							</tr>
 							<tr>
 								<td>PCSI</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>PCCoxa</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>PCPant</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+							
 							</tr>
 							<tr>
-								<td>CBraÃ§o</td>
+								<td>CBraço</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
-								<td>CAntebraÃ§o</td>
+								<td>CAntebraço</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>CPunho</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/>
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
+								
 							</tr>
 							<tr>
-								<td>CTÃ³rax</td>
+								<td>CTórax</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>CCintura</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>CAbdominal</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>CQuadril</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>	
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>CCoxa</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>CPanturrilha</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
-								<td>CompleiÃ§Ã£o</td>
+								<td>Compleição</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/>
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>EM</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>%G</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+								
 							</tr>
 							<tr>
 								<td>%MM</td>
 								<td>
 									<input type="text" size="5"/> 
 								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
-								<td>
-									<input type="text" size="5"/> 
-								</td>
+							
 							</tr>
 						</tbody>
 					</table>
+					<div class="form-group col-md-6">
+						<label for="tObs"> Peso usual: </label> 
+						<input type="text" class="form-control" id="tPusual">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="tObs"> Peso ideal: </label> 
+						<input type="text" class="form-control" id="tPideal">
+					</div>
 				</fieldset>
 			</form>
 		</div>

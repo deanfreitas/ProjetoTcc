@@ -8,16 +8,20 @@ body {
 	background-color: white;
 }
 
-header {
-	background-color: #009688;
+.navbar-header {
+
 	margin-left: 5px;
 	margin-right: 5px;
 	height: 100px;
-	
+	padding:10px;
 	
 }
-#logo {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
+#logo{
+	margin-left:auto;
+	margin-right:auto;
+	size:90%;
+
+}
+#voltar{
+	margin-top:10px;
 }
