@@ -25,5 +25,12 @@ $(document).ready(function() {
 		$('#divDadosAntropo').show();
 	});
 	
+	$('#btnAdicionarColunaTabela').click(function() {
+		var numerosColunasTabela = $("#tableDadosAntropometricos").find("thead tr th label input").length;
+		
+		$("#colunaCampoData").append("<label> <input type='checkbox' id='checkboxData"+ numerosColunasTabela +"'> Data: </label>").append("<input type='text' size='7' placeholder='  /  /    ' id='data'/>");
+		$("#colunaCampoPa").append("<input type='text' size='5' id='pa"+ numerosColunasTabela +"'/>");
+	});
+	
 	deixarDivsInvisiveis();
 });

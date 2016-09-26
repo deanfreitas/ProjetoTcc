@@ -285,201 +285,171 @@
 			<form id="formDadosAntropo">
 				<fieldset>
 					<legend> Dados Antropométricos </legend>
-					<a href="javascript:void(0)" class="btn btn-info">Adicionar Data</a>
-					<a href="javascript:void(0)" class="btn btn-danger">Apagar</a>
-					<table class="table table-striped table-hover col-md-8">
+					<a href="javascript:void(0)" class="btn btn-info" id="btnAdicionarColunaTabela">Adicionar Data</a>
+					<a href="javascript:void(0)" class="btn btn-danger" id="btnApagarColunaTabela">Apagar</a>
+					<table class="table table-striped table-hover col-md-8" id="tableDadosAntropometricos">
 						<thead>
 							<tr>
-								<th>Dados <br> Antropométricos
+								<th>Dados <br> Antropométricos </th>
+								<th id="colunaCampoData">
+									<div class="checkbox"></div>
+          							<label>
+          				  				<input type="checkbox" id="checkboxData"> Data:
+          							</label>
+									<input type="text" size="7" placeholder="  /  /    " id="data"/>
 								</th>
-								
-								<th>
-									 <div class="checkbox">
-          					 <label>
-          				  <input type="checkbox"> Data:
-          					</label>
-									<input type="text" size="7" placeholder="  /  /    "/>
-								</th>
-								</div>
-								
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>PA</td>
-								<td>
-									<input type="text" size="5"/> 
+								<td id="colunaCampoPa">
+									<input type="text" size="5" id="pa"/> 
 								</td>
-								
 							</tr>
 							<tr>
 								<td>Peso (kg)</td>
 								<td>
-									<input type="text" size="5"/>
+									<input type="text" size="5" id="peso"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>Altura (cm)</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="altura"/> 
 								</td>
-								
 							</tr>
 							<tr>
 								<td>IMC</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="imc"/> 
 								</td>
-								
 							</tr>
 							<tr>
 								<td>PCT</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="pct"/> 
 								</td>
-								
 							</tr>
 							<tr>
 								<td>PCB</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="pcb"/> 
 								</td>
-								
 							</tr>
 							<tr>
 								<td>PCSE</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="pcse"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>PCPeitoral</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="peitoral"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>PCAb</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="pcab"/>
 								</td>
-							
 							</tr>
 							<tr>
 								<td>PCSI</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="pcsi"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>PCCoxa</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="coxa"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>PCPant</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="pant"/>
 								</td>
-							
 							</tr>
 							<tr>
 								<td>CBraço</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="braco"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>CAntebraço</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="antebraco"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>CPunho</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="punho"/>
 								</td>
-								
-								
 							</tr>
 							<tr>
 								<td>CTórax</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="torax"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>CCintura</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="cintura"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>CAbdominal</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="abdominal"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>CQuadril</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="quadril"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>CCoxa</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="coxa"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>CPanturrilha</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="panturrilha"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>Compleição</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id=">compleicao"/> 
 								</td>
-								
 							</tr>
 							<tr>
 								<td>EM</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="em"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>%G</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="g"/>
 								</td>
-								
 							</tr>
 							<tr>
 								<td>%MM</td>
 								<td>
-									<input type="text" size="5"/> 
+									<input type="text" size="5" id="mm"/>
 								</td>
-							
 							</tr>
 						</tbody>
 					</table>
