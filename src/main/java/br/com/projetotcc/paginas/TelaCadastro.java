@@ -92,11 +92,17 @@ public class TelaCadastro {
 	@RequestMapping(value = "/pegarCadastroUsuario", method = RequestMethod.POST)
 	public @ResponseBody ResultadoServico pegarCadastroUsuario(@RequestBody Pessoa pessoa) {
 		String mensagem = null;
+		Pessoa pessoaCadastrada = null;
 		
-		Pessoa pessoaCadastrada = (Pessoa) bancoDadosService.encontrarInformacaoPorId(pessoa, pessoa.getId());
+		try {
+			pessoaCadastrada = (Pessoa) bancoDadosService.encontrarInformacaoPorId(pessoa, pessoa.getId());
+		}catch (Exception e) {
+			mensagem = "Erro no sistema";
+		}
 		
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setObjeto(pessoaCadastrada);
+		
 		return resultadoServico;
 	}
 	

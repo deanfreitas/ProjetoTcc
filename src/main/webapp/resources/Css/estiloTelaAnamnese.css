@@ -9,19 +9,18 @@ body {
 }
 
 .navbar-header {
-
 	margin-left: 5px;
 	margin-right: 5px;
 	height: 100px;
-	padding:10px;
-	
+	padding: 10px;
 }
-#logo{
-	margin-left:auto;
-	margin-right:auto;
-	size:90%;
 
+#logo {
+	margin-left: auto;
+	margin-right: auto;
+	size: 90%;
 }
-#voltar{
-	margin-top:10px;
+
+#voltar {
+	margin-top: 10px;
 }

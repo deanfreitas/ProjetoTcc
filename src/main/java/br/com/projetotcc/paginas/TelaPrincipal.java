@@ -36,10 +36,14 @@ public class TelaPrincipal {
 		String mensagem = null;
 
 		Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, context.getAttribute("loginUsuario").toString());
-		context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getPessoa());
 		
-		resultadoServico.setMensagem(mensagem);
-		resultadoServico.setObjeto(loginCadastrado.getPessoa().getId());
+		if(loginCadastrado != null) {
+			context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getPessoa());
+			
+			resultadoServico.setMensagem(mensagem);
+			resultadoServico.setObjeto(loginCadastrado.getPessoa().getId());
+		}
+		
 		return resultadoServico;
 	}
 }

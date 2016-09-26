@@ -25,27 +25,28 @@
 
 <body> 
 
-<div class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-						<span class="icon-bar"> </span> <span class="icon-bar"> </span> 
-						<span class="icon-bar"> </span>
-					</button>
-					<img src="<c:url value = '/resources/Imagens/novologotransp.png' />" id="logo" />
-					</div>
-				<div class="navbar-collapse collapse navbar-responsive-collapse">
-				
-					<ul class="nav navbar-nav navbar-right">
+	<div class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+					<span class="icon-bar"> </span> <span class="icon-bar"> </span> 
+					<span class="icon-bar"> </span>
+				</button>
+				<img src="<c:url value = '/resources/Imagens/novologotransp.png' />" id="logo" />
+			</div>
+			<div class="navbar-collapse collapse navbar-responsive-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
 						<h3>Voltar
-						<a href="javascript:void(0)" id="voltar" class="btn btn-default btn-fab"><i class="material-icons">reply</i></a></h3>
-					</ul>
-				</div>
+							<a href="/ProjetoTcc/telaPrincipal" id="voltar" class="btn btn-default btn-fab">
+								<i class="material-icons">reply</i>
+							</a>
+						</h3>
+					</li>
+				</ul>
 			</div>
 		</div>
-	
-
-	
+	</div>
 	
 	<div class="modal" id="mymodal">
 		<div class="modal-dialog">
