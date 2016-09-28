@@ -7,13 +7,13 @@ div#anamnese {
 body {
 	background-color: white;
 }
-.navbar{
-	padding:10px;
-	margin-top:10px;
-	margin-right:10px;
-	margin-left:10px;
-}
 
+.navbar {
+	padding: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
 
 #logo {
 	margin-left: auto;

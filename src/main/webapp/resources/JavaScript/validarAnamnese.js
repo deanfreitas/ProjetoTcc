@@ -144,18 +144,7 @@ $(document).ready(function() {
 		$('#divFrequenciaAlimentar').show();
 	});
 	
-	$('#btnAdicionarColunaTabela').click(function() {
-		var numerosColunasTabela = $("#tableDadosAntropometricos").find("thead tr th label input").length;
-		
-		$("#colunaCampoData").append("<label> <input type='checkbox' id='checkboxData"+ numerosColunasTabela +"'> Data: </label>").append("<input type='text' size='7' placeholder='  /  /    ' id='data'/>");
-		$("#colunaCampoPa").append("<td> <input type='text' size='5' id='pa"+ numerosColunasTabela +"'/> </td>");
-	});
-	
-	deixarDivsInvisiveis();
-});
-
-$(document).ready(function() {
-	  $('#inputOculto').hide();
+	 $('#inputOculto').hide();
 	  $('#HabIntestinal').change(function() {
 	    if ($('#HabIntestinal').val() == 'Outro') {
 	      $('#inputOculto').show();
@@ -163,9 +152,7 @@ $(document).ready(function() {
 	      $('#inputOculto').hide();
 	    }
 	  });
-	});
-
-$(document).ready(function() {
+	
 	  $('#inputOculto2').hide();
 	  $('#ConsFezes').change(function() {
 	    if ($('#ConsFezes').val() == 'Outro') {
@@ -174,4 +161,6 @@ $(document).ready(function() {
 	      $('#inputOculto2').hide();
 	    }
 	  });
-	});
+	  
+	deixarDivsInvisiveis();
+});
