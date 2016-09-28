@@ -25,48 +25,23 @@
 
 <body> 
 
-	<div class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-					<span class="icon-bar"> </span> <span class="icon-bar"> </span> 
-					<span class="icon-bar"> </span>
-				</button>
-				<img src="<c:url value = '/resources/Imagens/novologotransp.png' />" id="logo" />
-			</div>
-			<div class="navbar-collapse collapse navbar-responsive-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<h3>Voltar
+	<div class="navbar navbar-default"> 
+		
+	
+				<div class="col-md-12">
+				<div class="col-md-4" id="logo"><img src="<c:url value = '/resources/Imagens/novologotransp.png' />" /></div>
+				<div class="col-md-4" id="titulo"><h1>Anamnese</h1></div>
+				<div class="col-md-4" id="botao">
 							<a href="/ProjetoTcc/telaPrincipal" id="voltar" class="btn btn-default btn-fab">
 								<i class="material-icons">reply</i>
 							</a>
-						</h3>
-					</li>
-				</ul>
-			</div>
-		</div>
+						</div>
+				</div>
+			
+			
+		
 	</div>
 	
-	<div class="modal" id="mymodal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-					<h4 class="modal-title">Sair</h4>
-				</div>
-				<div class="modal-body">
-					<p>Você tem certeza que deseja sair?</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-					<a href="/ProjetoTcc/sairSistema">
-						<button type="button" class="btn btn-primary">Sim</button>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
 	<div class="container-fluid col-md-12">
 		
 		<br>
@@ -430,7 +405,7 @@
 							<tr>
 								<td>Compleição</td>
 								<td>
-									<input type="text" size="5" id=">compleicao"/> 
+									<input type="text" size="5" id="compleicao"/> 
 								</td>
 							</tr>
 							<tr>
@@ -464,6 +439,386 @@
 				</fieldset>
 			</form>
 		</div>
+		
+		<div id="divDadosClinicos">
+			<form id="formDadosClinicos">
+				<fieldset>
+					<legend> Dados Clínicos </legend>
+					
+			<table class="table table-striped table-hover ">
+  <thead>
+  <tr>
+    <th> </th>
+    <th> Opção </th>
+    <th> Observação</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td> Vômito </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+    
+  </tr>
+  <tr>
+    <td> Náusea </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+  <tr>
+    <td> Mastigação </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+  <tr>
+    <td> Deglutição </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+  <tr>
+    <td> Digestão </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+  <tr>
+    <td> Pirose </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+  <tr>
+    <td> Refluxo </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+    <tr>
+    <td> Diarréia  </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+    <tr>
+    <td> Obstipação  </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+    <tr>
+    <td> Insônia  </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+    <tr>
+    <td> Estresse  </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+    <tr>
+    <td> Cansaço  </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+    <tr>
+    <td> Ansiedade </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+  </tbody>
+</table>		
+
+					<div class="form-group col-md-6">
+						<label for="tObs">  Possui lesões ou problemas na pele, cabelo e unha? </label> 
+						<input type="text" class="form-control" id="PeleCabelo">
+					</div>
+					
+					<div class="form-group col-md-6">
+						<label for="tObs">   Já passou por algum tipo de cirurgia? Qual? Quando?  </label> 
+						<input type="text" class="form-control" id="CirurgiaQuando">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="tFumar">  Hábito intestinal: </label> 
+						<select class="form-control" id="HabIntestinal">
+							<option></option>
+							<option> Diário </option>
+							<option> Até 3 dias </option>
+							<option>  Mais 3 dias </option>
+							<option>  Outro </option>
+						</select>
+						<!-- ESSA DIV É PARA O PACIENTE COLOCAR A OPÇÃO CASO ELE SELECIONE O CAMPO OUTRO DO SELECT -->
+						<div id="inputOculto">
+  						<input type="text" class="form-control" />
+					</div>
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="tFumar">   Consistência das fezes: </label> 
+						<select class="form-control" id="ConsFezes">
+							<option></option>
+							<option> Normal  </option>
+							<option> Amolecidas  </option>
+							<option>  Duras  </option>
+							<option>  Outro </option>
+						</select>
+						<div id="inputOculto2">
+  						<input type="text" class="form-control" />
+					</div>
+						</div>
+						
+						<div class="form-group col-md-4">
+						<label for="tObs">    Diurese (Quantidade/Coloração):   </label> 
+						<input type="text" class="form-control" id="DiureseQuant">
+					</div>
+					
+						<div class="form-group col-md-12">
+						<label for="tObs">     Possui alguma patologia? Qual? Desde quando?   </label> 
+						<input type="text" class="form-control" id="PossuiPatologia">
+					</div>
+					<br>
+					
+					<h4> Antecedentes familiares/Quem:</h4>
+					
+					<table class="table table-striped table-hover ">
+  <thead>
+  <tr>
+    <th> </th>
+    <th> Opção </th>
+    <th> Observação</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td> DM  </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+    
+  </tr>
+  <tr>
+    <td> HA </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+  <tr>
+    <td> CA </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+    <tr>
+    <td> Dislipidemia  </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+    <tr>
+    <td> Obesidade  </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+    <tr>
+    <td> Magreza </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+    <tr>
+    <td> Outros: </td>
+    <td> <div class="togglebutton">
+          <label>
+            <input type="checkbox"> 
+          </label></div>
+    </td>
+    <td><input type="text" size="30"></td>
+  </tr>
+    </tbody>
+</table>
+					
+					
+					
+					</fieldset>
+				</form>
+			</div>
+			
+			<div id="divAtividadeFisica">
+			<form id="formAtividadeFisica">
+				<fieldset>
+					<legend> Atividade Física </legend>
+					
+			<div class="form-group col-md-12">
+						<label for="tObs">  Tipo de atividade física: </label> 
+						<input type="text" class="form-control" id="TipoAtivFisica">
+					</div>
+					
+			<div class="form-group col-md-6">
+						<label for="tObs"> Frequência </label> 
+						<input type="text" class="form-control" id="FreqAtiv">
+					</div>
+					
+			<div class="form-group col-md-6">
+						<label for="tObs"> Duração </label> 
+						<input type="text" class="form-control" id="DuracaoAtiv">
+					</div>
+					
+			<div class="form-group col-md-6">
+						<label for="tFumar">   Você pratica as atividades: </label> 
+						<select class="form-control" id="ConsFezes">
+							<option></option>
+							<option> Alimentado  </option>
+							<option> Jejum  </option>
+						</select>
+					</div>
+					
+			<div class="form-group col-md-6">
+						<label for="tObs"> Horário preferido:  </label> 
+						<input type="text" class="form-control" id="HorarioPref">
+					</div>
+					
+					
+					
+					
+					</fieldset>
+				</form>
+			</div>
+			
+			<div id="divHistoricoAlimentar">
+			<form id="formHistoricoAlimentar">
+				<fieldset>
+					<legend> Histórico Alimentar Nutricional </legend>
+					
+					
+					
+					
+					
+					
+					</fieldset>
+				</form>
+			</div>
+			
+			<div id="divExamesBio">
+			<form id="formExamesBio">
+				<fieldset>
+					<legend> Exames Bioquímicos  </legend>
+					
+					
+					
+					
+					
+					
+					</fieldset>
+				</form>
+			</div>
+			
+			<div id="divUsoMedicamentos">
+			<form id="formUsoMedicamentos">
+				<fieldset>
+					<legend>  Faz uso de medicamentos?  </legend>
+					
+					
+					
+					
+					
+					
+					</fieldset>
+				</form>
+			</div>
+			
+				<div id="divRecordata">
+			<form id="formRecordata">
+				<fieldset>
+					<legend> Recordatório Habitual  </legend>  
+					
+					
+					
+					
+					
+					
+					</fieldset>
+				</form>
+			</div>
+			
+				<div id="divFrequenciaAlimentar">
+			<form id="formFrequenciaAlimentar">
+				<fieldset>
+					<legend> Frequência Alimentar   </legend> 
+					
+					
+					
+					
+					
+					
+					</fieldset>
+				</form>
+			</div>
 	</div>
 </body>
 </html>
