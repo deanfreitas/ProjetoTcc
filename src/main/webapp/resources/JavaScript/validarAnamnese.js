@@ -162,5 +162,14 @@ $(document).ready(function() {
 	    }
 	  });
 	  
+	  $('#inputOculto3').hide();
+	  $('#AltApetite').change(function() {
+	    if ($('#AltApetite').val() == 'Sim') {
+	      $('#inputOculto3').show();
+	    } else {
+	      $('#inputOculto3').hide();
+	    }
+	  });
+	  
 	deixarDivsInvisiveis();
 });

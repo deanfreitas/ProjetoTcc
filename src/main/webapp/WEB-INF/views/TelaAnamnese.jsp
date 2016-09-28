@@ -755,10 +755,67 @@
 				<fieldset>
 					<legend> Histórico Alimentar Nutricional </legend>
 					
+			<div class="form-group col-md-6">
+						<label for="tObs"> Intolerância Alimentar:  </label> 
+						<input type="text" class="form-control" id="IntAlimentar">
+					</div>
 					
+			<div class="form-group col-md-6">
+						<label for="tObs"> Preferência Alimentar:  </label> 
+						<input type="text" class="form-control" id="PrefAlimentar">
+					</div>
 					
+			<div class="form-group col-md-6">
+						<label for="tFumar">   Alterações do Apetite:  </label> 
+						<select class="form-control" id="AltApetite">
+							<option></option>
+							<option> Sim  </option>
+							<option> Não  </option>
+						</select>
+						<div id="inputOculto3">
+  						<input type="text" class="form-control" placeholder="Desde quando:" />
+					</div>
+						</div>
+						
+			<div class="form-group col-md-6">
+						<label for="tObs"> Fase que iniciou obesidade /perda peso:  </label> 
+						<input type="text" class="form-control" id="ObesidadePerda">
+					</div>
 					
+			<div class="form-group col-md-6">
+						<label for="tObs"> Segue alguma dieta especial:  </label> 
+						<input type="text" class="form-control" id="DietaEspecial">
+					</div>
 					
+			<div class="form-group col-md-6">
+						<label for="tObs"> Quantas refeições faz por dia:  </label> 
+						<input type="text" class="form-control" id="QuantRefeicoes">
+					</div>
+					
+			<div class="form-group col-md-4">
+						<label for="tObs"> Consumo de água:  </label> 
+						<input type="text" class="form-control" id="ConsumoAgua">
+					</div>
+					
+			<div class="form-group col-md-4">
+						<label for="tObs"> Consumo de sal / mês:   </label> 
+						<input type="text" class="form-control" id="ConsumoSal">
+					</div>
+					
+			<div class="form-group col-md-4">
+						<label for="tObs">  Consumo de óleo / mês:  </label> 
+						<input type="text" class="form-control" id="ConsumoOleo">
+					</div>
+			
+			<div class="form-group col-md-6">
+						<label for="tObs"> Faz uso de suplementos? Qual?  </label> 
+						<input type="text" class="form-control" id="UsoSuplemento">
+					</div>
+					
+			<div class="form-group col-md-6">
+						<label for="tObs"> Quem indicou?  </label> 
+						<input type="text" class="form-control" id="QuemIndicou">
+					</div>
 					
 					</fieldset>
 				</form>
