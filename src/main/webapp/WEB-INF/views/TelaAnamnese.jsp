@@ -20,6 +20,15 @@
 <script src="<c:url value ='/resources/JavaScript/ripples.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/validarAnamnese.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid.core.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid.load-indicator.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid.load-strategies.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid.sort-strategies.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid.field.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid.field.text.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid.field.textarea.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid.field.number.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/db.js' />"></script>
 
 </head>
 
@@ -260,6 +269,10 @@
 			<form id="formDadosAntropo">
 				<fieldset>
 					<legend> Dados Antropométricos </legend>
+					
+					<div id="jsGrid"></div>
+					
+					
 					<a href="javascript:void(0)" class="btn btn-info" id="btnAdicionarColunaTabela">Adicionar Data</a>
 					<a href="javascript:void(0)" class="btn btn-danger" id="btnApagarColunaTabela">Apagar</a>
 					<table class="table table-striped table-hover col-md-8" id="tableDadosAntropometricos">
