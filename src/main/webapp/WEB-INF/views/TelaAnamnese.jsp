@@ -12,8 +12,12 @@
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap.min.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/Css/bootstrap-material-design.min.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/ripples.min.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/demos.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/jsgrid.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/theme.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelaAnamnese.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='http://fonts.googleapis.com/css?family=Open+Sans:300,600,400'/>" />
 <script src="<c:url value ='/resources/JavaScript/angular.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/jquery-2.1.4.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/material.min.js' />" /></script>
