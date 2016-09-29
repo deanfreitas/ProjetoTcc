@@ -172,6 +172,11 @@ $(document).ready(function() {
 	  });
 	  
 	  
+	  /*
+	   *  Esse é a função da tabela que esta na div "Dados Antropométricos", ainda preciso fazer uns ajustes mas vocês já podem colocar mais colunas na tabela,
+	   *  é só acrescentar ou alterar no fields(name = nome da tabela, type = tipo do campo, exemplo se é texto, numero, width = é a largura da campo, no validate não 
+	   *  é para mexer ainda)
+	   */
 	  $(function() {
 
           $("#jsGrid").jsGrid({
@@ -188,7 +193,7 @@ $(document).ready(function() {
               deleteConfirm: "Do you really want to delete the client?",
               controller: db,
               fields: [
-                  { name: "Name", type: "text", width: 150, validate: "required" },
+                  { name: "PA", type: "text", width: 150, validate: "required" },
                   { name: "Age", type: "number", width: 50, validate: { validator: "range", param: [18,80] } },
                   { name: "Address", type: "text", width: 200, validate: { validator: "rangeLength", param: [10, 250] } },
                   { name: "Country", type: "select", items: db.countries, valueField: "Id", textField: "Name",
