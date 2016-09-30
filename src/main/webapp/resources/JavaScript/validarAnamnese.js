@@ -180,7 +180,7 @@ $(document).ready(function() {
 	  $(function() {
 
           $("#jsGrid").jsGrid({
-              height: "70%",
+              height: "500px",
               width: "100%",
               filtering: true,
               editing: true,
@@ -193,12 +193,34 @@ $(document).ready(function() {
               deleteConfirm: "Do you really want to delete the client?",
               controller: db,
               fields: [
-                  { name: "PA", type: "text", width: 150, validate: "required" },
-                  { name: "Age", type: "number", width: 50, validate: { validator: "range", param: [18,80] } },
-                  { name: "Address", type: "text", width: 200, validate: { validator: "rangeLength", param: [10, 250] } },
-                  { name: "Country", type: "select", items: db.countries, valueField: "Id", textField: "Name",
-                      validate: { message: "Country should be specified", validator: function(value) { return value > 0; } } },
-                  { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
+                  { name: "Data", type: "text", width: 30, validate: "required" },
+                  { name: "PA", type: "text", width: 30, validate: "required" },
+                  { name: "Peso (kg)", type: "number", width: 30, validate: { validator: "range", param: [18,80] } },
+                  { name: "Altura (cm)", type: "text", width: 30, validate: { validator: "rangeLength", param: [10, 250] } },
+                  { name: "IMC", type: "number",width: 30, textField: "Name"},
+                  { name: "PCT", type: "text", width: 30, validate: "required" },
+                  { name: "PCB", type: "text", width: 30, validate: "required" },
+                  { name: "PCSE", type: "text", width: 30, validate: "required" },
+                  { name: "PCPeitoral", type: "text", width: 40, validate: "required" },
+                  { name: "PCAb", type: "text", width: 30, validate: "required" },
+                  { name: "PCSI", type: "text", width: 30, validate: "required" },
+                  { name: "PCCoxa", type: "text", width: 30, validate: "required" },
+                  { name: "PCPant", type: "text", width: 30, validate: "required" },
+                  { name: "CBraço", type: "text", width: 30, validate: "required" },
+                  { name: "CAntebraço", type: "text", width: 40, validate: "required" },
+                  { name: "CPunho", type: "text", width: 30, validate: "required" },
+                  { name: "CTórax", type: "text", width: 30, validate: "required" },
+                  { name: "CCintura", type: "text", width: 40, validate: "required" },
+                  { name: "CCoxa", type: "text", width: 30, validate: "required" },
+                  { name: "CPanturrilha", type: "text", width: 40, validate: "required" },
+                  { name: "Compleição", type: "text", width: 40, validate: "required" },
+                  { name: "EM", type: "text", width: 30, validate: "required" },
+                  { name: "%G", type: "text", width: 30, validate: "required" },
+                  { name: "%MM", type: "text", width: 30, validate: "required" },
+                  { name: "CCintura", type: "text", width: 30, validate: "required" },
+                  
+                  
+                      
                   { type: "control" }
               ]
           });

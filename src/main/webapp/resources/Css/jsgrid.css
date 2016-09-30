@@ -33,7 +33,7 @@
 
 .jsgrid-table {
     width: 100%;
-    table-layout: fixed;
+    table-layout: ralative;
     border-collapse: collapse;
     border-spacing: 0;
 }
