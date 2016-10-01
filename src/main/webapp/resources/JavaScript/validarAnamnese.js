@@ -171,12 +171,6 @@ $(document).ready(function() {
 	    }
 	  });
 	  
-	  
-	  /*
-	   *  Esse é a função da tabela que esta na div "Dados Antropométricos", ainda preciso fazer uns ajustes mas vocês já podem colocar mais colunas na tabela,
-	   *  é só acrescentar ou alterar no fields(name = nome da tabela, type = tipo do campo, exemplo se é texto, numero, width = é a largura da campo, no validate não 
-	   *  é para mexer ainda)
-	   */
 	  $(function() {
 
           $("#jsGrid").jsGrid({
@@ -193,34 +187,31 @@ $(document).ready(function() {
               deleteConfirm: "Do you really want to delete the client?",
               controller: db,
               fields: [
-                  { name: "Data", type: "text", width: 30, validate: "required" },
-                  { name: "PA", type: "text", width: 30, validate: "required" },
-                  { name: "Peso (kg)", type: "number", width: 30, validate: { validator: "range", param: [18,80] } },
-                  { name: "Altura (cm)", type: "text", width: 30, validate: { validator: "rangeLength", param: [10, 250] } },
-                  { name: "IMC", type: "number",width: 30, textField: "Name"},
-                  { name: "PCT", type: "text", width: 30, validate: "required" },
-                  { name: "PCB", type: "text", width: 30, validate: "required" },
-                  { name: "PCSE", type: "text", width: 30, validate: "required" },
-                  { name: "PCPeitoral", type: "text", width: 40, validate: "required" },
-                  { name: "PCAb", type: "text", width: 30, validate: "required" },
-                  { name: "PCSI", type: "text", width: 30, validate: "required" },
-                  { name: "PCCoxa", type: "text", width: 30, validate: "required" },
-                  { name: "PCPant", type: "text", width: 30, validate: "required" },
-                  { name: "CBraço", type: "text", width: 30, validate: "required" },
-                  { name: "CAntebraço", type: "text", width: 40, validate: "required" },
-                  { name: "CPunho", type: "text", width: 30, validate: "required" },
-                  { name: "CTórax", type: "text", width: 30, validate: "required" },
-                  { name: "CCintura", type: "text", width: 40, validate: "required" },
-                  { name: "CCoxa", type: "text", width: 30, validate: "required" },
-                  { name: "CPanturrilha", type: "text", width: 40, validate: "required" },
-                  { name: "Compleição", type: "text", width: 40, validate: "required" },
-                  { name: "EM", type: "text", width: 30, validate: "required" },
-                  { name: "%G", type: "text", width: 30, validate: "required" },
-                  { name: "%MM", type: "text", width: 30, validate: "required" },
-                  { name: "CCintura", type: "text", width: 30, validate: "required" },
-                  
-                  
-                      
+                  { name: "Data", type: "text", width: 100, validate: "required"},
+                  { name: "PA", type: "text", width: 100, validate: "required"},
+                  { name: "Peso (kg)", type: "number", width: 100, validate: "required"},
+                  { name: "Altura (cm)", type: "text", width: 100, validate: "required"},
+                  { name: "IMC", type: "number",width: 100, validate: "required"},
+                  { name: "PCT", type: "text", width: 100, validate: "required"},
+                  { name: "PCB", type: "text", width: 100, validate: "required"},
+                  { name: "PCSE", type: "text", width: 100, validate: "required"},
+                  { name: "PCPeitoral", type: "text", width: 100, validate: "required"},
+                  { name: "PCAb", type: "text", width: 100, validate: "required"},
+                  { name: "PCSI", type: "text", width: 100, validate: "required" },
+                  { name: "PCCoxa", type: "text", width: 100, validate: "required" },
+                  { name: "PCPant", type: "text", width: 100, validate: "required" },
+                  { name: "CBraço", type: "text", width: 100, validate: "required" },
+                  { name: "CAntebraço", type: "text", width: 100, validate: "required" },
+                  { name: "CPunho", type: "text", width: 100, validate: "required" },
+                  { name: "CTórax", type: "text", width: 100, validate: "required" },
+                  { name: "CCintura", type: "text", width: 100, validate: "required" },
+                  { name: "CCoxa", type: "text", width: 100, validate: "required" },
+                  { name: "CPanturrilha", type: "text", width: 100, validate: "required" },
+                  { name: "Compleição", type: "text", width: 100, validate: "required" },
+                  { name: "EM", type: "text", width: 100, validate: "required" },
+                  { name: "%G", type: "text", width: 100, validate: "required" },
+                  { name: "%MM", type: "text", width: 100, validate: "required" },
+                  { name: "CCintura", type: "text", width: 100, validate: "required" },
                   { type: "control" }
               ]
           });
