@@ -24,18 +24,19 @@
 <script src="<c:url value ='/resources/JavaScript/ripples.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/validarAnamnese.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/jsgrid.core.js' />"></script>
-<script src="<c:url value ='/resources/JavaScript/jsgrid.load-indicator.js' />"></script>
-<script src="<c:url value ='/resources/JavaScript/jsgrid.load-strategies.js' />"></script>
-<script src="<c:url value ='/resources/JavaScript/jsgrid.sort-strategies.js' />"></script>
-<script src="<c:url value ='/resources/JavaScript/jsgrid.field.js' />"></script>
-<script src="<c:url value ='/resources/JavaScript/jsgrid.field.text.js' />"></script>
-<script src="<c:url value ='/resources/JavaScript/jsgrid.field.textarea.js' />"></script>
-<script src="<c:url value ='/resources/JavaScript/jsgrid.field.select.js' />"></script>
-<script src="<c:url value ='/resources/JavaScript/jsgrid.field.number.js' />"></script>
-<script src="<c:url value ='/resources/JavaScript/jsgrid.field.control.js' />"></script>
-<script src="<c:url value ='/resources/JavaScript/jsgrid.field.checkbox.js' />"></script>
 <script src="<c:url value ='/resources/JavaScript/db.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/jsgrid.core.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/jsgrid.load-indicator.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/jsgrid.load-strategies.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/jsgrid.sort-strategies.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/jsgrid.field.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/jsgrid.validation.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/fields/jsgrid.field.text.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/fields/jsgrid.field.number.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/fields/jsgrid.field.textarea.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/fields/jsgrid.field.select.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/fields/jsgrid.field.checkbox.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/fields/jsgrid.field.control.js' />"></script>
 
 </head>
 
