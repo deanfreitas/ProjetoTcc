@@ -25,8 +25,6 @@
 <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/validarTelas/validarAnamnese.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/db.js' />"></script>
 <script src="<c:url value ='/resources/JavaScript/jsgrid/jsgrid.core.js' />"></script>
 <script src="<c:url value ='/resources/JavaScript/jsgrid/jsgrid.load-indicator.js' />"></script>
 <script src="<c:url value ='/resources/JavaScript/jsgrid/jsgrid.load-strategies.js' />"></script>
@@ -39,6 +37,8 @@
 <script src="<c:url value ='/resources/JavaScript/jsgrid/fields/jsgrid.field.select.js' />"></script>
 <script src="<c:url value ='/resources/JavaScript/jsgrid/fields/jsgrid.field.checkbox.js' />"></script>
 <script src="<c:url value ='/resources/JavaScript/jsgrid/fields/jsgrid.field.control.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/jsgrid/idiomas/pt-br.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/validarTelas/validarAnamnese.js' />" /></script>
 
 </head>
 

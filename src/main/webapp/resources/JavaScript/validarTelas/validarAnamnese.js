@@ -173,6 +173,8 @@ $(document).ready(function() {
 	  
 	  $(function() {
 
+		  jsGrid.locale("pt-br");
+		  
           $("#jsGrid").jsGrid({
               height: "500px",
               width: "100%",
@@ -185,7 +187,7 @@ $(document).ready(function() {
               pageSize: 15,
               pageButtonCount: 5,
               deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
-              controller: db,
+              controller: true,
               fields: [
                   { name: "Data", type: "text", width: 100, validate: "required"},
                   { name: "PA", type: "text", width: 100, validate: "required"},
@@ -220,6 +222,8 @@ $(document).ready(function() {
 	  
 	  $(function() {
 
+		  jsGrid.locale("pt-br");
+		  
           $("#jsGrid2").jsGrid({
               height: "300px",
               width: "100%",
@@ -250,6 +254,8 @@ $(document).ready(function() {
 	  
 	  $(function() {
 
+		  jsGrid.locale("pt-br");
+		  
           $("#jsGrid3").jsGrid({
               height: "300px",
               width: "100%",
