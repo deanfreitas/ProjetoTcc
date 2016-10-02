@@ -13,18 +13,18 @@
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap-material-design.min.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/ripples.min.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelaCadastro.css'/>" />
-<script src="<c:url value ='/resources/JavaScript/angular.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/jquery-2.1.4.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/material.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/ripples.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/validarCadastro.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/bootstrap.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/angular/angular.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/validarTelas/validarCadastro.js' />" /></script>
 </head>
 
 <body>
 	<header>
 		<figure>
-			<img src="<c:url value = '/resources/Imagens/novologotransp.png' />" id="logo" />
+			<img src="<c:url value = '/resources/Imagens/imagensTelas/novologotransp.png' />" id="logo" />
 		</figure>
 	</header>
 	<div class="container-fluid col-md-2 hidden-xs"></div>

@@ -14,12 +14,12 @@
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/ripples.min.css' />" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelaPrincipal.css' />" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />" />
-<script src="<c:url value ='/resources/JavaScript/angular.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/jquery-2.1.4.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/material.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/ripples.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/bootstrap.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/validarTelaPrincipal.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/angular/angular.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/validarTelas/validarTelaPrincipal.js' />" /></script>
 </head>
 
 <body>
@@ -93,16 +93,16 @@
 			</ol>
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="<c:url value = '/resources/Imagens/car3.jpg' />" alt="Legumes" />
+					<img src="<c:url value = '/resources/Imagens/imagensTelas/car3.jpg' />" alt="Legumes" />
 				</div>
 				<div class="item">
-					<img src="<c:url value = '/resources/Imagens/testecar.jpg' />" alt="Frutas" />
+					<img src="<c:url value = '/resources/Imagens/imagensTelas/testecar.jpg' />" alt="Frutas" />
 				</div>
 				<div class="item">
-					<img src="<c:url value = '/resources/Imagens/maca4.jpg' />" alt="Maçã" />
+					<img src="<c:url value = '/resources/Imagens/imagensTelas/maca4.jpg' />" alt="Maçã" />
 				</div>
 				<div class="item">
-					<img src="<c:url value = '/resources/Imagens/academia.jpg' />" alt="Musculação" />
+					<img src="<c:url value = '/resources/Imagens/imagensTelas/academia.jpg' />" alt="Musculação" />
 				</div>
 			</div>
 			<a class="left carousel-control" href="#MeuCarousel" role="button" data-slide="prev"> 

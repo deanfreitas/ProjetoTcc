@@ -18,12 +18,14 @@
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelaAnamnese.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='http://fonts.googleapis.com/css?family=Open+Sans:300,600,400'/>" />
-<script src="<c:url value ='/resources/JavaScript/angular.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/jquery-2.1.4.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/material.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/ripples.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/bootstrap.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/validarAnamnese.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/angular/angular.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/jquery/validate/jquery.validate.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/jquery/validate/jquery.validate.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/validarTelas/validarAnamnese.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/db.js' />"></script>
 <script src="<c:url value ='/resources/JavaScript/jsgrid/jsgrid.core.js' />"></script>
 <script src="<c:url value ='/resources/JavaScript/jsgrid/jsgrid.load-indicator.js' />"></script>
@@ -46,7 +48,7 @@
 		
 	
 				<div class="col-md-12">
-				<div class="col-md-4" id="logo"><img src="<c:url value = '/resources/Imagens/novologotransp.png' />" /></div>
+				<div class="col-md-4" id="logo"><img src="<c:url value = '/resources/Imagens/imagensTelas/novologotransp.png' />" /></div>
 				<div class="col-md-4" id="titulo"><h1>Anamnese</h1></div>
 				<div class="col-md-4" id="botao">
 							<a href="/ProjetoTcc/telaPrincipal" id="voltar" class="btn btn-default btn-fab">

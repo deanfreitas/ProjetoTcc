@@ -1,71 +1,32 @@
 @charset "UTF-8";
 
 body {
-	background-image: url(../Imagens/home.jpg);
-	width: 800px;
+	background-image: url(../Imagens/imagensTelas/home2.jpg);
 }
 
-div#pagina {
-	width: 800px;
-	height: 550px;
+#pagina {
 	position: relative;
-	left: 50%;
-	top: 5%;
-	box-shadow: 1px 1px 15px blue;
-	padding: 40px;
-	background: rgba(0, 0, 0, 0.4);
-	font-family: Arial;
-	font-size: 14px;
 }
 
-p {
-	font-weight: bold;
-	font-size: 14px;
-	font-family: Calibri;
+header {
+	background-color: #009688;
+	margin-left: 5px;
+	margin-right: 5px;
+	height: 100px;
 }
 
-fieldset {
-	font-weight: bold;
-	font-size: 18px;
-	font-family: Calibri;
-	border-radius: 15px 50px;
-	border: 2px dashed black;
-	margin-right: 50px;
+legend {
+	font-family: Helvetica;
 }
 
-fieldset#acesso {
-	margin-right: 350px;
+#logo {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 
-figure.logo {
-	position: absolute;
-	top: 20px;
-	left: -10px;
-	box-shadow: 2px 2px 3px green;
-}
-
-figure.botao {
-	opacity: 1;
-	transition: opacity;
-	position: absolute;
-	top: 460px;
-	left: 550px;
-}
-
-figure.botao:hover {
-	opacity: 0.5;
-}
-
-figure.botao2 {
-	opacity: 1;
-	transition: opacity;
-	position: absolute;
-	top: 400px;
-	left: 520px;
-}
-
-figure.botao2:hover {
-	opacity: 0.5;
+.modal-header {
+	background-color: #53BF53;
 }
 
 .validarCampoDigitado {

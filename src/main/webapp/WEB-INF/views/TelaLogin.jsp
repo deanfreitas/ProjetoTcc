@@ -14,18 +14,18 @@
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelaLogin.css'/> " />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap-material-design.min.css'/> " />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/ripples.min.css'/> " />
-<script src="<c:url value ='/resources/JavaScript/jquery-2.1.4.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/bootstrap.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/material.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/ripples.min.js' />" /></script>
-<!-- <script src="<c:url value ='/resources/JavaScript/angular.min.js' />" /></script> -->
-<script src="<c:url value ='/resources/JavaScript/validarLogin.js' />" /></script>
+<!-- <script src="<c:url value ='/resources/JavaScript/angular/angular.min.js' />" /></script> -->
+<script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/validarTelas/validarLogin.js' />" /></script>
 </head>
 
 <body>
 	<div class="container-fluid col-md-12" id="pagina">
 		<div id="logo">
-			<img src="<c:url value = '/resources/Imagens/novologotransp.png'  />" 
+			<img src="<c:url value = '/resources/Imagens/imagensTelas/novologotransp.png'  />" 
 			class="img-responsive center-block" />
 		</div>
 		<form class="form-login" ng-controller="validarLogin">
