@@ -9,13 +9,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Perfil</title>
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap.min.css'/>" />
-<link rel="stylesheet" type="text/css" href="<c:url value='/resources/Css/bootstrap-material-design.min.css'/>" />
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/ripples.min.css'/>" />
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/demos.css'/>" />
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/jsgrid.css'/>" />
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/theme.css'/>" />
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelaAnamnese.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/bootstrap.min.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/resources/Css/bootstrap/bootstrap-material-design.min.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/ripples.min.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/jsgrid/demos.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/jsgrid/jsgrid.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/jsgrid/theme.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelas/estiloTelaAnamnese.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='http://fonts.googleapis.com/css?family=Open+Sans:300,600,400'/>" />
 <script src="<c:url value ='/resources/JavaScript/angular/angular.min.js' />" /></script>

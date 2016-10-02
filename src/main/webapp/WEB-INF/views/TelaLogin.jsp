@@ -10,10 +10,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap.min.css'/> " />
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelaLogin.css'/> " />
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap-material-design.min.css'/> " />
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/ripples.min.css'/> " />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/bootstrap.min.css'/> " />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/bootstrap-material-design.min.css'/> " />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/ripples.min.css'/> " />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelas/estiloTelaLogin.css'/> " />
 <!-- <script src="<c:url value ='/resources/JavaScript/angular/angular.min.js' />" /></script> -->
 <script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
