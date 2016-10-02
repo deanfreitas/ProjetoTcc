@@ -184,7 +184,7 @@ $(document).ready(function() {
               autoload: true,
               pageSize: 15,
               pageButtonCount: 5,
-              deleteConfirm: "Do you really want to delete the client?",
+              deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
               controller: db,
               fields: [
                   { name: "Data", type: "text", width: 100, validate: "required"},
@@ -217,6 +217,64 @@ $(document).ready(function() {
           });
 
       });
+	  
+	  $(function() {
+
+          $("#jsGrid2").jsGrid({
+              height: "300px",
+              width: "100%",
+              filtering: true,
+              editing: true,
+              inserting: true,
+              sorting: true,
+              paging: true,
+              autoload: true,
+              pageSize: 15,
+              pageButtonCount: 5,
+              deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
+              controller: db,
+              fields: [
+                  { name: "Data", type: "text", width: 70, validate: "required"},
+                  { name: "Valor de Referencia ", type: "text", width: 70, validate: "required"},
+                  { name: "GLI", type: "text", width: 70, validate: "required"},
+                  { name: "Hg", type: "number", width: 70, validate: "required"},
+                  { name: "TG", type: "text", width: 70, validate: "required"},
+                  { name: "CT", type: "number",width: 70, validate: "required"},
+                  { name: "LDL", type: "text", width: 70, validate: "required"},
+                  { name: "HDL", type: "text", width: 70, validate: "required"},
+                  { type: "control" }
+                  ]
+          });
+
+      });
+	  
+	  $(function() {
+
+          $("#jsGrid3").jsGrid({
+              height: "300px",
+              width: "100%",
+              filtering: true,
+              editing: true,
+              inserting: true,
+              sorting: true,
+              paging: true,
+              autoload: true,
+              pageSize: 15,
+              pageButtonCount: 5,
+              deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
+              controller: db,
+              fields: [
+                  { name: "Nome ", type: "text", width: 70, validate: "required"},
+                  { name: "Dose ", type: "text", width: 70, validate: "required"},
+                  { name: "Horário ", type: "text", width: 70, validate: "required"},
+                  { name: "Motivo ", type: "text", width: 70, validate: "required"},
+                  { name: "Inter. Droga x Nutr. ", type: "text", width: 70, validate: "required"},
+                  { type: "control" }
+                  ]
+          });
+
+      });
+	  
 	  
 	deixarDivsInvisiveis();
 });

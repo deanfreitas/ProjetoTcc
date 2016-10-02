@@ -680,7 +680,7 @@
 				<fieldset>
 					<legend> Exames Bioquímicos  </legend>
 					
-					
+					<div id="jsGrid2"></div>
 					
 					
 					
@@ -695,7 +695,7 @@
 					<legend>  Faz uso de medicamentos?  </legend>
 					
 					
-					
+					<div id="jsGrid3"></div>
 					
 					
 					
