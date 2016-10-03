@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alimentos</title>
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/bootstrap.min.css' />" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/dataTables.bootstrap.min.css' />" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/bootstrap-material-design.min.css' />" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/ripples.min.css' />" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelas/estiloTelaAlimentos.css' />" />
@@ -17,9 +18,11 @@
 <script src="<c:url value ='/resources/JavaScript/angular/angular.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/dataTables.bootstrap.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/validarTelas/validarAlimentos.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/jquery/jquery.dataTables.min.js' />" /></script>
 </head>
 
 <body>
@@ -44,7 +47,7 @@
 		<div class="jumbotron">
 			
 			<p>Tabela de Calorias dos alimentos mais consumidos:</p>
-			<table class="table table-striped table-bordered" cellspacing="0" width="100%">
+			<table id="alimentos" class="table table-striped table-bordered" cellspacing="0" width="100%">
   <thead>
   <tr>
     <th></th>
@@ -62,13 +65,13 @@
   </tr>
   <tr>
     <td>2</td>
-    <td>Café com açúcar</td>
+    <td>Caf� com açúcar</td>
     <td>1 xícara de 50 ml</td>
     <td>33</td>
   </tr>
   <tr>
     <td>3</td>
-    <td>Café sem açúcar</td>
+    <td>Caf� sem açúcar</td>
     <td>1 xícara de 40 ml</td>
     <td>3</td>
   </tr>
@@ -104,7 +107,7 @@
   </tr>
   <tr>
     <td>9</td>
-    <td>Suco de melão natural</td>
+    <td>Suco de mel�o natural</td>
     <td>1 copo de 240 ml</td>
     <td>60</td>
   </tr>
@@ -1808,7 +1811,7 @@
   </tr>
   <tr>
     <td>291</td>
-    <td>Melão</td>
+    <td>mel�o</td>
     <td>1 porção - 70 gramas</td>
     <td>19</td>
   </tr>

@@ -38,7 +38,9 @@
 <script src="<c:url value ='/resources/JavaScript/jsgrid/fields/jsgrid.field.checkbox.js' />"></script>
 <script src="<c:url value ='/resources/JavaScript/jsgrid/fields/jsgrid.field.control.js' />"></script>
 <script src="<c:url value ='/resources/JavaScript/jsgrid/idiomas/pt-br.js' />"></script>
+<script src="<c:url value ='/resources/JavaScript/db.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/validarTelas/validarAnamnese.js' />" /></script>
+
 
 </head>
 
