@@ -22,7 +22,7 @@
 <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/validarTelas/validarAlimentos.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/jquery/jquery.dataTables.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/jquery/dataTables/jquery.dataTables.min.js' />" /></script>
 </head>
 
 <body>
