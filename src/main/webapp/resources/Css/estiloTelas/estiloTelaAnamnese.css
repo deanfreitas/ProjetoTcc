@@ -23,8 +23,12 @@ body {
 
 #voltar {
 	margin-left: 280px;
-	margin-top:10px;
+	margin-top:20px;
 }
 h1{
 	margin-top:40px;
+}
+h4{
+	font-weight: bold;
+	color:red;
 }

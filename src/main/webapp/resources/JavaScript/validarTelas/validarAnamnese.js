@@ -281,6 +281,188 @@ $(document).ready(function() {
 
       });
 	  
+	  $(function() {
+
+		  jsGrid.locale("pt-br");
+		  
+          $("#jsGrid4").jsGrid({
+              height: "300px",
+              width: "100%",
+              filtering: true,
+              editing: true,
+              inserting: true,
+              sorting: true,
+              paging: true,
+              autoload: true,
+              pageSize: 15,
+              pageButtonCount: 5,
+              deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
+              controller: db,
+              fields: [
+                  { name: "Alimento ", type: "text", width: 70, validate: "required"},
+                  { name: "Quantidade ", type: "text", width: 70, validate: "required"},
+                  { type: "control" }
+                  ]
+          });
+
+      });
 	  
-	deixarDivsInvisiveis();
+	  
+	  $(function() {
+
+		  jsGrid.locale("pt-br");
+		  
+          $("#jsGrid5").jsGrid({
+              height: "300px",
+              width: "100%",
+              filtering: true,
+              editing: true,
+              inserting: true,
+              sorting: true,
+              paging: true,
+              autoload: true,
+              pageSize: 15,
+              pageButtonCount: 5,
+              deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
+              controller: db,
+              fields: [
+                  { name: "Alimento ", type: "text", width: 70, validate: "required"},
+                  { name: "Quantidade ", type: "text", width: 70, validate: "required"},
+                  { type: "control" }
+                  ]
+          });
+
+      });
+	  
+	  $(function() {
+
+		  jsGrid.locale("pt-br");
+		  
+          $("#jsGrid6").jsGrid({
+              height: "300px",
+              width: "100%",
+              filtering: true,
+              editing: true,
+              inserting: true,
+              sorting: true,
+              paging: true,
+              autoload: true,
+              pageSize: 15,
+              pageButtonCount: 5,
+              deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
+              controller: db,
+              fields: [
+                  { name: "Alimento ", type: "text", width: 70, validate: "required"},
+                  { name: "Quantidade ", type: "text", width: 70, validate: "required"},
+                  { type: "control" }
+                  ]
+          });
+
+      });
+	  
+	  $(function() {
+
+		  jsGrid.locale("pt-br");
+		  
+          $("#jsGrid7").jsGrid({
+              height: "300px",
+              width: "100%",
+              filtering: true,
+              editing: true,
+              inserting: true,
+              sorting: true,
+              paging: true,
+              autoload: true,
+              pageSize: 15,
+              pageButtonCount: 5,
+              deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
+              controller: db,
+              fields: [
+                  { name: "Alimento ", type: "text", width: 70, validate: "required"},
+                  { name: "Quantidade ", type: "text", width: 70, validate: "required"},
+                  { type: "control" }
+                  ]
+          });
+
+      });
+	  
+	  $(function() {
+
+		  jsGrid.locale("pt-br");
+		  
+          $("#jsGrid8").jsGrid({
+              height: "300px",
+              width: "100%",
+              filtering: true,
+              editing: true,
+              inserting: true,
+              sorting: true,
+              paging: true,
+              autoload: true,
+              pageSize: 15,
+              pageButtonCount: 5,
+              deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
+              controller: db,
+              fields: [
+                  { name: "Alimento ", type: "text", width: 70, validate: "required"},
+                  { name: "Quantidade ", type: "text", width: 70, validate: "required"},
+                  { type: "control" }
+                  ]
+          });
+
+      });
+	  
+	  $(function() {
+
+		  jsGrid.locale("pt-br");
+		  
+          $("#jsGrid9").jsGrid({
+              height: "300px",
+              width: "100%",
+              filtering: true,
+              editing: true,
+              inserting: true,
+              sorting: true,
+              paging: true,
+              autoload: true,
+              pageSize: 15,
+              pageButtonCount: 5,
+              deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
+              controller: db,
+              fields: [
+                  { name: "Alimento ", type: "text", width: 70, validate: "required"},
+                  { name: "Quantidade ", type: "text", width: 70, validate: "required"},
+                  { type: "control" }
+                  ]
+          });
+
+      });
+	  
+	  $(function() {
+
+		  jsGrid.locale("pt-br");
+		  
+          $("#jsGrid10").jsGrid({
+              height: "300px",
+              width: "100%",
+              filtering: true,
+              editing: true,
+              inserting: true,
+              sorting: true,
+              paging: true,
+              autoload: true,
+              pageSize: 15,
+              pageButtonCount: 5,
+              deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
+              controller: db,
+              fields: [
+                  { name: "Alimento ", type: "text", width: 70, validate: "required"},
+                  { name: "Quantidade ", type: "text", width: 70, validate: "required"},
+                  { type: "control" }
+                  ]
+          });
+
+      });
+	
+	  deixarDivsInvisiveis();
 });

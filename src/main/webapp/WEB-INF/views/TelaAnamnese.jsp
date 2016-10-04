@@ -285,11 +285,11 @@
 					<div id="jsGrid"></div>
 					
 					<div class="form-group col-md-6">
-						<label for="tObs"> Peso usual: </label> 
+						<label for="tPusual"> Peso usual: </label> 
 						<input type="text" class="form-control" id="tPusual">
 					</div>
 					<div class="form-group col-md-6">
-						<label for="tObs"> Peso ideal: </label> 
+						<label for="tPideal"> Peso ideal: </label> 
 						<input type="text" class="form-control" id="tPideal">
 					</div>
 				</fieldset>
@@ -432,17 +432,17 @@
 </table>		
 
 					<div class="form-group col-md-6">
-						<label for="tObs">  Possui lesões ou problemas na pele, cabelo e unha? </label> 
+						<label for="PeleCabelo">  Possui lesões ou problemas na pele, cabelo e unha? </label> 
 						<input type="text" class="form-control" id="PeleCabelo">
 					</div>
 					
 					<div class="form-group col-md-6">
-						<label for="tObs">   Já passou por algum tipo de cirurgia? Qual? Quando?  </label> 
+						<label for="CirurgiaQuando">   Já passou por algum tipo de cirurgia? Qual? Quando?  </label> 
 						<input type="text" class="form-control" id="CirurgiaQuando">
 					</div>
 					
 					<div class="form-group col-md-4">
-						<label for="tFumar">  Hábito intestinal: </label> 
+						<label for="HabIntestinal">  Hábito intestinal: </label> 
 						<select class="form-control" id="HabIntestinal">
 							<option></option>
 							<option> Diário </option>
@@ -457,7 +457,7 @@
 					</div>
 					
 					<div class="form-group col-md-4">
-						<label for="tFumar">   Consistência das fezes: </label> 
+						<label for="ConsFezes">   Consistência das fezes: </label> 
 						<select class="form-control" id="ConsFezes">
 							<option></option>
 							<option> Normal  </option>
@@ -471,12 +471,12 @@
 						</div>
 						
 						<div class="form-group col-md-4">
-						<label for="tObs">    Diurese (Quantidade/Coloração):   </label> 
+						<label for="DiureseQuant">    Diurese (Quantidade/Coloração):   </label> 
 						<input type="text" class="form-control" id="DiureseQuant">
 					</div>
 					
 						<div class="form-group col-md-12">
-						<label for="tObs">     Possui alguma patologia? Qual? Desde quando?   </label> 
+						<label for="PossuiPatologia">     Possui alguma patologia? Qual? Desde quando?   </label> 
 						<input type="text" class="form-control" id="PossuiPatologia">
 					</div>
 					<br>
@@ -571,22 +571,22 @@
 					<legend> Atividade Física </legend>
 					
 			<div class="form-group col-md-12">
-						<label for="tObs">  Tipo de atividade física: </label> 
+						<label for="TipoAtivFisica">  Tipo de atividade física: </label> 
 						<input type="text" class="form-control" id="TipoAtivFisica">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="tObs"> Frequência </label> 
+						<label for="FreqAtiv"> Frequência </label> 
 						<input type="text" class="form-control" id="FreqAtiv">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="tObs"> Duração </label> 
+						<label for="DuracaoAtiv"> Duração </label> 
 						<input type="text" class="form-control" id="DuracaoAtiv">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="tFumar">   Você pratica as atividades: </label> 
+						<label for="ConsFezes">   Você pratica as atividades: </label> 
 						<select class="form-control" id="ConsFezes">
 							<option></option>
 							<option> Alimentado  </option>
@@ -595,7 +595,7 @@
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="tObs"> Horário preferido:  </label> 
+						<label for="HorarioPref"> Horário preferido:  </label> 
 						<input type="text" class="form-control" id="HorarioPref">
 					</div>
 					
@@ -612,17 +612,17 @@
 					<legend> Histórico Alimentar Nutricional </legend>
 					
 			<div class="form-group col-md-6">
-						<label for="tObs"> Intolerância Alimentar:  </label> 
+						<label for="IntAlimentar"> Intolerância Alimentar:  </label> 
 						<input type="text" class="form-control" id="IntAlimentar">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="tObs"> Preferência Alimentar:  </label> 
+						<label for="PrefAlimentar"> Preferência Alimentar:  </label> 
 						<input type="text" class="form-control" id="PrefAlimentar">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="tFumar">   Alterações do Apetite:  </label> 
+						<label for="AltApetite">   Alterações do Apetite:  </label> 
 						<select class="form-control" id="AltApetite">
 							<option></option>
 							<option> Sim  </option>
@@ -634,42 +634,42 @@
 						</div>
 						
 			<div class="form-group col-md-6">
-						<label for="tObs"> Fase que iniciou obesidade /perda peso:  </label> 
+						<label for="ObesidadePerda"> Fase que iniciou obesidade /perda peso:  </label> 
 						<input type="text" class="form-control" id="ObesidadePerda">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="tObs"> Segue alguma dieta especial:  </label> 
+						<label for="DietaEspecial"> Segue alguma dieta especial:  </label> 
 						<input type="text" class="form-control" id="DietaEspecial">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="tObs"> Quantas refeições faz por dia:  </label> 
+						<label for="QuantRefeicoes"> Quantas refeições faz por dia:  </label> 
 						<input type="text" class="form-control" id="QuantRefeicoes">
 					</div>
 					
 			<div class="form-group col-md-4">
-						<label for="tObs"> Consumo de água:  </label> 
+						<label for="ConsumoAgua"> Consumo de água:  </label> 
 						<input type="text" class="form-control" id="ConsumoAgua">
 					</div>
 					
 			<div class="form-group col-md-4">
-						<label for="tObs"> Consumo de sal / mês:   </label> 
-						<input type="text" class="form-control" id="ConsumoSal">
+						<label for="ConsumoAgua"> Consumo de sal / mês:   </label> 
+						<input type="text" class="form-control" id="ConsumoAgua">
 					</div>
 					
 			<div class="form-group col-md-4">
-						<label for="tObs">  Consumo de óleo / mês:  </label> 
+						<label for="ConsumoOleo">  Consumo de óleo / mês:  </label> 
 						<input type="text" class="form-control" id="ConsumoOleo">
 					</div>
 			
 			<div class="form-group col-md-6">
-						<label for="tObs"> Faz uso de suplementos? Qual?  </label> 
+						<label for="UsoSuplemento"> Faz uso de suplementos? Qual?  </label> 
 						<input type="text" class="form-control" id="UsoSuplemento">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="tObs"> Quem indicou?  </label> 
+						<label for="QuemIndicou"> Quem indicou?  </label> 
 						<input type="text" class="form-control" id="QuemIndicou">
 					</div>
 					
@@ -710,9 +710,136 @@
 				<fieldset>
 					<legend> Recordatório Habitual  </legend>  
 					
+					<h4>Desjejum</h4>
+					<div class="form-group col-md-4">
+						<label for="Desjejum"> Horário: </label> 
+						<input type="text" class="form-control" id="Desjejum">
+					</div>
 					
+					<div class="form-group col-md-4">
+						<label for="idLocal"> Local: </label> 
+						<input type="text" class="form-control" id="idLocal">
+					</div>
 					
+					<div class="form-group col-md-4">
+						<label for="idHumor"> Humor: </label> 
+						<input type="text" class="form-control" id="idHumor">
+					</div>
 					
+					<div id="jsGrid4"></div>
+					<br>
+					<h4>Colação</h4>
+					<div class="form-group col-md-4">
+						<label for="idColacao"> Horário: </label> 
+						<input type="text" class="form-control" id="idColacao">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="idLocal"> Local: </label> 
+						<input type="text" class="form-control" id="idLocal">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="idHumor"> Humor: </label> 
+						<input type="text" class="form-control" id="idHumor">
+					</div>
+					
+					<div id="jsGrid5"></div>
+					
+					<br>
+					<h4>Almoço</h4>
+					<div class="form-group col-md-4">
+						<label for="idAlmoco"> Horário: </label> 
+						<input type="text" class="form-control" id="idAlmoco">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="idLocal"> Local: </label> 
+						<input type="text" class="form-control" id="idLocal">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="idHumor"> Humor: </label> 
+						<input type="text" class="form-control" id="idHumor">
+					</div>
+					
+					<div id="jsGrid6"></div>
+					
+					<br>
+					<h4>Lanche</h4>
+					<div class="form-group col-md-4">
+						<label for="idLanche"> Horário: </label> 
+						<input type="text" class="form-control" id="idLanche">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="idLocal"> Local: </label> 
+						<input type="text" class="form-control" id="idLocal">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="idHumor"> Humor: </label> 
+						<input type="text" class="form-control" id="idHumor">
+					</div>
+					
+					<div id="jsGrid7"></div>
+					
+					<br>
+					<h4>Jantar</h4>
+					<div class="form-group col-md-4">
+						<label for="idJantar"> Horário: </label> 
+						<input type="text" class="form-control" id="idJantar">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="idLocal"> Local: </label> 
+						<input type="text" class="form-control" id="idLocal">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="idHumor"> Humor: </label> 
+						<input type="text" class="form-control" id="idHumor">
+					</div>
+					
+					<div id="jsGrid8"></div>
+					
+					<br>
+					<h4>Ceia</h4>
+					<div class="form-group col-md-4">
+						<label for="idCeia"> Horário: </label> 
+						<input type="text" class="form-control" id="idCeia">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="idLocal"> Local: </label> 
+						<input type="text" class="form-control" id="idLocal">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="idHumor"> Humor: </label> 
+						<input type="text" class="form-control" id="idHumor">
+					</div>
+					
+					<div id="jsGrid9"></div>
+					
+					<br>
+					<h4>Fora de hora</h4>
+					<div class="form-group col-md-4">
+						<label for="idFdeHora"> Horário: </label> 
+						<input type="text" class="form-control" id="idFdeHora">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="idLocal"> Local: </label> 
+						<input type="text" class="form-control" id="idLocal">
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label for="idHumor"> Humor: </label> 
+						<input type="text" class="form-control" id="idHumor">
+					</div>
+					
+					<div id="jsGrid10"></div>
 					
 					
 					</fieldset>
