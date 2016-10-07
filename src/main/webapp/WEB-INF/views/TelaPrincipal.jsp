@@ -70,7 +70,7 @@
 						<h4 class="modal-title">Sair</h4>
 					</div>
 					<div class="modal-body">
-						<p>VocÃª tem certeza que deseja sair ?</p>
+						<p>Você tem certeza que deseja sair ?</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>

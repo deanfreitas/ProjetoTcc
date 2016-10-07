@@ -107,7 +107,7 @@
 					<legend> Identificação </legend>
 					<div class="form-group col-md-4">
 						<label for="tData"> Data da 1ª Consulta: </label> 
-						<input type="date" class="form-control" id="tData" placeholder="dd/mm/aaaa">
+						<input type="text" class="form-control" id="tData" placeholder="dd/mm/aaaa">
 					</div>
 					<div class="form-group col-md-12">
 						<label for="tNome"> Nome: </label> 
@@ -176,7 +176,7 @@
 					</div>
 					<div class="form-group col-md-4">
 						<label for="tNasc"> Data de Nascimento: </label> 
-						<input type="date" class="form-control" id="tNasc" placeholder="dd/mm/aaaa">
+						<input type="text" class="form-control" id="tNasc" placeholder="dd/mm/aaaa">
 					</div>
 					<div class="form-group col-md-4">
 						<label for="tIdade"> Idade: </label> <input type="number"
@@ -191,6 +191,31 @@
 							<option>Feminino</option>
 						</select>
 					</div>
+					
+						<div class="form-group col-md-4 ">
+							<label for="idEstadoCivil"> Estado Civil </label>
+								<select id="idEstadoCivil" class="form-control">
+									<option></option>
+									<option>Solteiro(a)</option>
+									<option>Casado(a)</option>
+									<option>Divorciado(a)</option>
+									<option>Viúvo(a)</option>
+								</select>
+							</div>
+						
+						<div class="form-group col-md-4">
+							<label for="idRaca"> Cor/Raça </label>
+							
+								<select id="idRaca" class="form-control">
+									<option></option>
+									<option>Branca</option>
+									<option>Preta</option>
+									<option>Parda</option>
+									<option>Amarela</option>
+									<option>Indígena</option>
+								</select>
+							
+							</div>
 					<div class="form-group col-md-12">
 						<label for="tMotivo"> Motivo da Consulta: </label> 
 						<input type="text" class="form-control" id="tMotivo">
