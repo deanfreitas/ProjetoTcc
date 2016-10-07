@@ -851,8 +851,651 @@
 				<fieldset>
 					<legend> Frequência Alimentar   </legend> 
 					
+					<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th>ALIMENTOS </th>
+    <th>OPÇÃO</th>
+    <th>PORÇÃO MÉDIA</th>
+    
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Arroz </td>
+    <td>
+						<select id="idArroz" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Macarrão  </td>
+    <td>
+						<select id="idMacarrao" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Batata / Mandioca  </td>
+    <td>
+						<select id="idBatata" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Pão </td>
+    <td>
+						<select id="idPao" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Pão de queijo </td>
+    <td>
+						<select id="idPaoQueijo" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Farinhas</td>
+    <td>
+						<select id="idFarinhas" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Cereal matinal</td>
+    <td>
+						<select id="idCereal" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Hortaliças cruas </td>
+    <td>
+						<select id="idHortalicasCruas" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Hortaliças cozidas </td>
+    <td>
+						<select id="idHortalicasCozidas" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Frutas  </td>
+    <td>
+						<select id="idFrutas" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Leite Integral</td>
+    <td>
+						<select id="idLeiteInt" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Leite desnatado </td>
+    <td>
+						<select id="idLeiteDes" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Iogurte</td>
+    <td>
+						<select id="idIogurte" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Iogurte desnatado</td>
+    <td>
+						<select id="idIogurteDes" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Queijos</td>
+    <td>
+						<select id="idQueijos" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Carne vermelha</td>
+    <td>
+						<select id="idCarneVermelha" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Embutidos</td>
+    <td>
+						<select id="idEmbutidos" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Enlatados</td>
+    <td>
+						<select id="idEnlatados" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Ovos</td>
+    <td>
+						<select id="idOvos" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Leguminosas</td>
+    <td>
+						<select id="idLeguminosas" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Margarina comum</td>
+    <td>
+						<select id="idMargarinaComun" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Margarina light</td>
+    <td>
+						<select id="idMargarinaLight" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Manteiga</td>
+    <td>
+						<select id="idManteiga" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Requeijão comum </td>
+    <td>
+						<select id="idRequijaoComum" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Requeijão light</td>
+    <td>
+						<select id="idRequeijaoLight" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Maionese comum</td>
+    <td>
+						<select id="idMaioneseComum" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Maionese light</td>
+    <td>
+						<select id="idMaioneseLight" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Creme de leite</td>
+    <td>
+						<select id="idCremeDeLeite" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Frituras </td>
+    <td>
+						<select id="idFrituras" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Açúcar</td>
+    <td>
+						<select id="idAcucar" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Adoçante  </td>
+    <td>
+						<select id="idAdocante" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Mel</td>
+    <td>
+						<select id="idMel" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Barra de cereal</td>
+    <td>
+						<select id="idBarraDeCereal" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Doces</td>
+    <td>
+						<select id="idDoces" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Bolacha recheada </td>
+    <td>
+						<select id="idBolachaRecheada" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Bolacha/Bolo/Biscoito</td>
+    <td>
+						<select id="idBolachaBoloBiscoito" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Chiclete / Balas</td>
+    <td>
+						<select id="idChicleteBalas" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Chocolate</td>
+    <td>
+						<select id="idChocolate" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Sanduíche / Pizza</td>
+    <td>
+						<select id="idSanduichePizza" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Salgadinhos</td>
+    <td>
+						<select id="idSalgadinhos" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Salgadinho (pacote)</td>
+    <td>
+						<select id="idSalgadinhoPacote" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Refrigerante comum </td>
+    <td>
+						<select id="idRefrigeranteComum" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Refrigerante diet/light </td>
+    <td>
+						<select id="idRefriLightDiet" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+   <tr>
+    <td>Suco natural </td>
+    <td>
+						<select id="idSucoNatural" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+     <tr>
+    <td>Suco artificial</td>
+    <td>
+						<select id="idSucoArtificial" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+     <tr>
+    <td>Café</td>
+    <td>
+						<select id="idCafe" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+     <tr>
+    <td>Chá</td>
+    <td>
+						<select id="idCha" class="form-control">
+							<option></option>
+							<option>NULO </option>
+							<option>EVENTUAL </option>
+							<option>SEMANAL </option>
+							<option>DIÁRIA </option>
+						</select>
+					</td>
+	<td><input type="text" class="form-control"></td>
+  </tr>
+  
+  
+  
+  </tbody>
+</table>
+
+					<div class="form-group col-md-12">
+						<label for="idDiagnostico"> Diagnóstico Nutricional:  </label> 
+						<input type="text" class="form-control" id="idDiagnostico">
+					</div>
+					
+					<div class="form-group col-md-12">
+						<label for="idConduta"> Conduta Dietoterápica:  </label> 
+						<input type="text" class="form-control" id="idConduta">
+					</div> 
 					
 					
+					<div class="form-group col-md-12">
+      <label for="textArea">Relato de caso, Orientações Nutricionais e Evolução: </label>
+
+      <div class="col-md-12">
+        <textarea class="form-control" rows="10" id="textArea"></textarea>
+      </div>
+    </div>
 					
 					
 					

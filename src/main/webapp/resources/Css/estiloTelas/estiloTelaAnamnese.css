@@ -32,3 +32,9 @@ h4{
 	font-weight: bold;
 	color:red;
 }
+td{
+	font-weight: bold;
+}
+.form-control{
+	height:20px;
+}
