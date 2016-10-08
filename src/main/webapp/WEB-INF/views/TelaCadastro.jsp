@@ -22,17 +22,17 @@
 </head>
 
 <body>
-	<header>
-		<figure>
-			<img src="<c:url value = '/resources/Imagens/imagensTelas/novologotransp.png' />" id="logo" />
-		</figure>
-	</header>
+		
+		
 	<div class="container-fluid col-md-2 hidden-xs"></div>
 	<div class="container-fluid col-md-8" id="pagina">
+	<div class="col-md-12" id="idLogo">
+	<img src="<c:url value = '/resources/Imagens/imagensTelas/novologotransp.png' />" />
+	</div>
 		<div class="jumbotron" id="jumbo">
 			<form class="form-inline">
 				<fieldset>
-					<legend> Dados Pessoais </legend>
+					<legend></legend>
 					<div class="row">
 						<div class="form-group col-md-6">
 							<div class="col-md-6">
