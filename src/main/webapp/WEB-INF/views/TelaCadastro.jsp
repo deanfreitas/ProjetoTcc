@@ -24,21 +24,24 @@
 <body>
 		
 		
-	<div class="container-fluid col-md-2 hidden-xs"></div>
-	<div class="container-fluid col-md-8" id="pagina">
+	
+	<div class="container-fluid col-md-12" id="pagina">
+	
 	<div class="col-md-12" id="idLogo">
-	<img src="<c:url value = '/resources/Imagens/imagensTelas/novologotransp.png' />" />
+	<label class="col-md-4"> </label>
+	<img src="<c:url value = '/resources/Imagens/imagensTelas/novologotransp2.png' />"class="col-md-4 hidden-sm hidden-xs" />
+	<label class="col-md-4"> </label>
 	</div>
-		<div class="jumbotron" id="jumbo">
-			<form class="form-inline">
+	
+		<div class="jumbotron col-md-8" id="jumbo">
+			
 				<fieldset>
 					<legend></legend>
-					<div class="row">
+					
 						<div class="form-group col-md-6">
-							<div class="col-md-6">
-								<input type="text" class="form-control" id="cNome" name="tNome" size="40" placeholder="Nome Completo" required>
-							</div>
-						</div>
+						
+						<input type="text" class="form-control" id="idNome" placeholder="Nome">
+					</div>
 						<div class="form-group col-md-6">
 							<label class="radio-inline"> 
 								<input type="radio" name="optradio" id="radioSexo" value="Masculino"> Masculino
@@ -47,40 +50,43 @@
 								<input type="radio" name="optradio" id="radioSexo" value="Feminino"> Feminino 
 							</label>
 						</div>
-					</div>
+					
 				</fieldset>
-			</form>
-			<div class="row">
-				
-				
-			</div>
 			
-			<div class="row">
+			
+			
+			
 				<div class="form-group col-md-6">
-					<form class="form-inline">
-						<input type="text" class="form-control" name="tResp" id="cResp" size="20" placeholder="Responsavel" />
-					</form>
-				</div>
+						
+						<input type="text" class="form-control" id="idResp" placeholder="Responsável">
+					</div>
 				<div class="form-group col-md-6">
-					<form class="form-inline">
-						<input type="text" class="form-control" name="tCrn" id="cCrn" size="20" placeholder="CRN" />
-					</form>
+					
+						<input type="text" class="form-control" id="idCRN" placeholder="CRN">
+					
 				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-6">
-					<form class="form-inline">
-						<input type="email" class="form-control" name="tEmail" id="cEmail" size="20" placeholder="E-mail" data-toggle="tooltip" title="Digite o Email corretamente" required/>
-					</form>
+			
+			
+				<div class="form-group col-md-4">
+					
+						<input type="email" class="form-control"  id="idEmail"  placeholder="E-mail" data-toggle="tooltip" title="Digite o Email corretamente" required/>
+					
 				</div>
-				<div class="form-group col-md-6">
-					<form class="form-inline">
-						<input type="password" class="form-control" name="tSenha" id="cSenha" size="20" placeholder="Senha" required/>
-					</form>
+				<div class="form-group col-md-4">
+					
+						<input type="text" class="form-control"  id="idApelido"  placeholder="Apelido" required/>
+					
 				</div>
-			</div>
+				<div class="form-group col-md-4">
+					
+						<input type="password" class="form-control"  id="idSenha"  placeholder="Senha" required/>
+				
+				</div>
+				
+			
 			<div class="row" id="botoes">
-				<div class="form-group col-md-6" id="salvar">
+			<label class="col-md-4"></label>
+				<div class="form-group col-md-4" id="salvar">
 					<form class="form-inline">
 						<!-- Transferir para tela de Login -->
 						<a type="button" id="btnSalvarUsuario" class="btn btn-raised btn-success">Salvar</a>
@@ -90,6 +96,7 @@
 						<a type="button" id="btnAlterarDados" class="btn btn-raised btn-info" data-toggle="modal" href="#mymodal2">Alterar</a>
 					</form>
 				</div>
+				<label class="col-md-4"></label>
 			</div>
 			<div class="modal" id="mymodal2">
 				<div class="modal-dialog">
