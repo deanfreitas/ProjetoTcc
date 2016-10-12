@@ -21,12 +21,22 @@ legend {
 	positon:relative;
 	margin-top:1%;
 }
-
+#idModalTipoCadastro {
+   margin-top:130px;
+}
 
 .modal-header {
 	background-color: #53BF53;
+	
+	
+	}
+	
+.modal-content {
+	text-align:center;
 }
-
+.modal-title {
+	text-align:center;
+}
 .validarCampoDigitado {
 	border-color: #FF0000;
 }

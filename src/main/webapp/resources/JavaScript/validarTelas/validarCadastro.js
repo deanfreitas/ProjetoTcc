@@ -727,3 +727,11 @@ $(document)
 					$('input[id="cData"]').tooltip("disable");
 					$('input[id="cEmail"]').tooltip("disable");
 				});
+
+$(document).ready(function() {
+	   $('#idModalTipoCadastro').modal('show');
+	});
+
+$(document).ready(function() {
+	   $('#idPaci').modal('hide');
+	});

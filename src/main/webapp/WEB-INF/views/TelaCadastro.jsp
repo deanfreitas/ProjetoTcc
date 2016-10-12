@@ -22,7 +22,21 @@
 </head>
 
 <body>
-		
+	<div class="modal" id="idModalTipoCadastro">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <h4 class="modal-title">SELECIONE O TIPO DE CADASTRO:</h4>
+      </div>
+      
+        <button type="button" class="btn btn-default" >Nutricionista</button>
+        <button type="button" class="btn btn-primary"  class="close" data-dismiss="modal" aria-hidden="true">Paciente</button>
+     
+    </div>
+  </div>
+</div>
+
 		
 	
 	<div class="container-fluid col-md-12" id="pagina">
@@ -58,7 +72,7 @@
 			
 				<div class="form-group col-md-6">
 						
-						<input type="text" class="form-control" id="idResp" placeholder="Responsável">
+						<input type="text" class="form-control" id="idResp" placeholder="ResponsÃ¡vel">
 					</div>
 				<div class="form-group col-md-6">
 					
@@ -102,7 +116,7 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x—</button>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">xÂ—</button>
 							<h4 class="modal-title">Digite sua Senha para continuar</h4>
 						</div>
 						<div class="modal-body">
