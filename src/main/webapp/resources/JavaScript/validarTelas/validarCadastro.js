@@ -732,6 +732,23 @@ $(document).ready(function() {
 	   $('#idModalTipoCadastro').modal('show');
 	});
 
-$(document).ready(function() {
-	   $('#idPaci').modal('hide');
-	});
+
+
+function deixarDivsInvisiveis() {
+	$('#idCadPaciente').toggle();
+	$('#idCadNutricionista').toggle();
+}
+
+$('#btnPaci').click(function() {
+	$('#idCadPaciente').show();
+	$('#idCadNutricionista').hide();
+
+
+$('#btnNutri').click(function() {
+	$('#idCadPaciente').hide();
+	$('#idCadNutricionista').show();
+
+deixarDivsInvisiveis();
+});
+
+});

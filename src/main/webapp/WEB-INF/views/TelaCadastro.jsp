@@ -22,7 +22,7 @@
 </head>
 
 <body>
-	<div class="modal" id="idModalTipoCadastro">
+	<div class="modal" id="idModalTipoCadastro" data-backdrop="static">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -30,8 +30,8 @@
         <h4 class="modal-title">SELECIONE O TIPO DE CADASTRO:</h4>
       </div>
       
-        <button type="button" class="btn btn-default" >Nutricionista</button>
-        <button type="button" class="btn btn-primary"  class="close" data-dismiss="modal" aria-hidden="true">Paciente</button>
+        <button type="button" class="btn btn-default" id="btnNutri">Nutricionista</button>
+        <button type="button" class="btn btn-primary" id="btnPaci" >Paciente</button>
      
     </div>
   </div>
@@ -47,10 +47,10 @@
 	<label class="col-md-4"> </label>
 	</div>
 	
-		<div class="jumbotron col-md-8" id="jumbo">
+		<div class="jumbotron col-md-8" id="idCadPaciente">
 			
 				<fieldset>
-					<legend></legend>
+					<legend>Paciente:</legend>
 					
 						<div class="form-group col-md-6">
 						
@@ -138,6 +138,64 @@
 				</div>
 			</div>
 		</div>
+				
+				<div class="jumbotron col-md-8" id="idCadNutricionista">
+				
+				<fieldset>
+					<legend>Nutricionista:</legend>
+					
+						<div class="form-group col-md-6">
+						
+						<input type="text" class="form-control" id="idNome" placeholder="Nome">
+					</div>
+						<div class="form-group col-md-6">
+							<label class="radio-inline"> 
+								<input type="radio" name="optradio" id="radioSexo" value="Masculino"> Masculino
+							</label> 
+							<label class="radio-inline"> 
+								<input type="radio" name="optradio" id="radioSexo" value="Feminino"> Feminino 
+							</label>
+						</div>
+					
+				</fieldset>
+			
+				
+			
+	
+			
+			
+				<div class="form-group col-md-4">
+					
+						<input type="email" class="form-control"  id="idEmail"  placeholder="E-mail" data-toggle="tooltip" title="Digite o Email corretamente" required/>
+					
+				</div>
+				<div class="form-group col-md-4">
+					
+						<input type="text" class="form-control"  id="idApelido"  placeholder="Apelido" required/>
+					
+				</div>
+				<div class="form-group col-md-4">
+					
+						<input type="password" class="form-control"  id="idSenha"  placeholder="Senha" required/>
+				
+				</div>
+				
+			
+			<div class="row" id="botoes">
+			<label class="col-md-4"></label>
+				<div class="form-group col-md-4" id="salvar">
+					<form class="form-inline">
+						<!-- Transferir para tela de Login -->
+						<a type="button" id="btnSalvarUsuario" class="btn btn-raised btn-success">Salvar</a>
+						<!-- Apagar dados -->
+						<a type="button" id="btnLimparFormulario" class="btn btn-raised btn-danger">Apagar</a>
+				</form>
+			</div>
+		</div>
+	
+				
+				
+				</div>
 	</div>
 </body>
 </html>

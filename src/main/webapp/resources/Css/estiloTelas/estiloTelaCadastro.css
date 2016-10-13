@@ -14,16 +14,22 @@ legend {
 }
 
 
-#jumbo {
+#idCadPaciente {
 	width:75%;
 	background:rgba(255,255,255,0.6);
 	left:13%;
 	positon:relative;
 	margin-top:1%;
 }
-#idModalTipoCadastro {
-   margin-top:130px;
+
+#idCadNutricionista {
+	width:75%;
+	background:rgba(255,255,255,0.6);
+	left:13%;
+	positon:relative;
+	margin-top:1%;
 }
+
 
 .modal-header {
 	background-color: #53BF53;
@@ -37,6 +43,28 @@ legend {
 .modal-title {
 	text-align:center;
 }
+
+.modal {
+  text-align: center;
+  background:rgba(255,255,255,0.8);
+  
+}
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+
 .validarCampoDigitado {
 	border-color: #FF0000;
 }
