@@ -159,11 +159,59 @@
 					
 				</fieldset>
 			
+				<div class="form-group col-md-4">
+					
+						<input type="text" class="form-control"  id="idCPF"  placeholder="CPF" required/>
+					
+				</div>
 				
-				
-			
+				<div class="form-group col-md-4">
+					
+						<input type="text" class="form-control" id="idCRN" placeholder="CRN">
+					
+				</div>
 	
-			
+				<div class="form-group col-md-4">
+				
+						<input type="text" class="form-control" id="idDataNascimento" placeholder="Data de Nascimento"/>
+				
+				</div>
+				
+				<div class="form-group col-md-6">
+				
+						<input type="text" class="form-control" id="idEndereco" placeholder="Endereço:"/>
+				
+				</div>
+				
+				<div class="form-group col-md-3">
+				
+						<input type="number" class="form-control" id="idNumero" placeholder="Nº"/>
+				
+				</div>
+				
+				<div class="form-group col-md-3">
+				
+						<input type="text" class="form-control" id="idComplemento" placeholder="Complemento:"/>
+				
+				</div>
+				
+				<div class="form-group col-md-4">
+				
+						<input type="text" class="form-control" id="idTelefone" placeholder="Telefone:"/>
+				
+				</div>
+				
+				<div class="form-group col-md-4">
+				
+						<input type="text" class="form-control" id="idCelular" placeholder="Celular"/>
+				
+				</div>
+				
+				<div class="form-group col-md-4">
+				
+						<input type="text" class="form-control" id="idComercial" placeholder="Comercial"/>
+				
+				</div>
 			
 				<div class="form-group col-md-4">
 					

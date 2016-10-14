@@ -708,6 +708,30 @@ $(document)
 						}
 					});
 					
+					 $('#idModalTipoCadastro').modal('show');
+					 
+					 function deixarDivsInvisiveis() {
+							$('#idCadPaciente').toggle();
+							$('#idCadNutricionista').toggle();
+							
+						}
+
+						$('#btnPaci').click(function() {
+							$('#idCadPaciente').show();
+							$('#idCadNutricionista').hide();
+							$('#idModalTipoCadastro').hide();
+
+						});
+							
+						$('#btnNutri').click(function() {
+							$('#idCadPaciente').hide();
+							$('#idCadNutricionista').show();
+							$('#idModalTipoCadastro').hide();
+							
+						});
+
+						deixarDivsInvisiveis();
+					
 					carregarDadosUsuario();
 					validarCamposDigitados($('input[id="cEmail"]'));
 					validarCamposDigitados($('input[id="cSenha"]'));
@@ -728,30 +752,12 @@ $(document)
 					$('input[id="cEmail"]').tooltip("disable");
 				});
 
-$(document).ready(function() {
-	   $('#idModalTipoCadastro').modal('show');
-	});
 
-
-
-function deixarDivsInvisiveis() {
-	$('#idCadPaciente').toggle();
-	$('#idCadNutricionista').toggle();
-}
-
-$('#btnPaci').click(function() {
-	$('#idCadPaciente').show();
-	$('#idCadNutricionista').hide();
-
-});
+	  
 	
-$('#btnNutri').click(function() {
-	$('#idCadPaciente').hide();
-	$('#idCadNutricionista').show();
 
-	
-});
 
-deixarDivsInvisiveis();
+
+
 
 
