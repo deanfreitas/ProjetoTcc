@@ -160,6 +160,7 @@
 				</fieldset>
 			
 				
+				
 			
 	
 			
@@ -169,6 +170,7 @@
 						<input type="email" class="form-control"  id="idEmail"  placeholder="E-mail" data-toggle="tooltip" title="Digite o Email corretamente" required/>
 					
 				</div>
+				
 				<div class="form-group col-md-4">
 					
 						<input type="text" class="form-control"  id="idApelido"  placeholder="Apelido" required/>

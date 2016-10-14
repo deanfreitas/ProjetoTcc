@@ -743,12 +743,15 @@ $('#btnPaci').click(function() {
 	$('#idCadPaciente').show();
 	$('#idCadNutricionista').hide();
 
-
+});
+	
 $('#btnNutri').click(function() {
 	$('#idCadPaciente').hide();
 	$('#idCadNutricionista').show();
 
-deixarDivsInvisiveis();
+	
 });
 
-});
+deixarDivsInvisiveis();
+
+
