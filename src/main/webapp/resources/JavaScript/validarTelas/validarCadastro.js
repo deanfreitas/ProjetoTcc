@@ -719,19 +719,18 @@ $(document)
 						$('#btnPaci').click(function() {
 							$('#idCadPaciente').show();
 							$('#idCadNutricionista').hide();
-							$('#idModalTipoCadastro').hide();
+							$('#idModalTipoCadastro').modal('toggle');
 
 						});
 							
 						$('#btnNutri').click(function() {
 							$('#idCadPaciente').hide();
 							$('#idCadNutricionista').show();
-							$('#idModalTipoCadastro').hide();
+							$('#idModalTipoCadastro').modal('toggle');
 							
 						});
 
-						deixarDivsInvisiveis();
-					
+					deixarDivsInvisiveis();
 					carregarDadosUsuario();
 					validarCamposDigitados($('input[id="cEmail"]'));
 					validarCamposDigitados($('input[id="cSenha"]'));
