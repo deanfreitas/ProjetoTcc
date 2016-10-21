@@ -126,12 +126,14 @@
 			</div>
 		</div>
 		<div class="col-md-4" id="two">
-			<div class="jumbotron">
+			<div class="jumbotron" id="idIMC">
 				<h1>IMC</h1>
 				<p>Calcule o seu Índice de Massa Corporal</p>
 				<p>
-					<a class="btn btn-primary btn-lg">Leia mais</a>
+					<a data-toggle="modal" href="#ModalIMC">Saiba mais</a>
 				</p>
+				
+						
 			</div>
 		</div>
 		<div class="col-md-4" id="three">
@@ -141,6 +143,44 @@
 				<p>
 					<a class="btn btn-primary btn-lg">Leia mais</a>
 				</p>
+			</div>
+		</div>
+		<div class="modal" id="ModalIMC">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+						<h1 class="modal-title">IMC</h1>
+					</div>
+					<div class="modal-body">
+						<form name="imcForm" id="imcForm" action="#">
+
+<div class="form-group col-md-6">
+<input type="text" class="form-control"  id="altura" name="altura" placeholder="Altura" />
+</div>
+
+<div class="form-group col-md-6">
+<input type="text" class="form-control" id="peso" name="peso" placeholder="Peso"/>
+</div>
+
+	<div class="form-group col-md-6">
+							<label class="radio-inline"> 
+								<input type="radio" name="sexo" id="sexo_0" value="opção"> Masculino
+							</label> 
+							<label class="radio-inline"> 
+								<input type="radio" name="sexo" id="sexo_1" value="opção"> Feminino 
+							</label>
+						</div>
+
+
+<p><input name="Enviar" type="submit" class="btn btn-raised btn-default" value="Calcular" onclick="calcula_imc()" />
+</p>
+</form>
+					</div>
+					<div class="modal-footer">
+					
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

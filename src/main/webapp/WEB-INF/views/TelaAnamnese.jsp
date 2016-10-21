@@ -624,6 +624,18 @@
 						<input type="text" class="form-control" id="HorarioPref">
 					</div>
 					
+			<div class="form-group col-md-6">
+						<label for="idSuplemento">Faz uso de suplementos?</label> 
+						<select class="form-control" id="idSuplemento">
+							<option></option>
+							<option> Sim  </option>
+							<option> Não  </option>
+						</select>
+						<div id="inputOculto4">
+  						<input type="text" class="form-control" placeholder="Qual?"/>
+					</div>
+						</div>
+					
 					
 					
 					

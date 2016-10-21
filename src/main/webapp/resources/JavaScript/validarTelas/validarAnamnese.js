@@ -144,6 +144,8 @@ $(document).ready(function() {
 		$('#divFrequenciaAlimentar').show();
 	});
 	
+	
+	
 	 $('#inputOculto').hide();
 	  $('#HabIntestinal').change(function() {
 	    if ($('#HabIntestinal').val() == 'Outro') {
@@ -171,6 +173,14 @@ $(document).ready(function() {
 	    }
 	  });
 	  
+	  $('#inputOculto4').hide();
+	  $('#idSuplemento').change(function() {
+	    if ($('#idSuplemento').val() == 'Sim') {
+	      $('#inputOculto4').show();
+	    } else {
+	      $('#inputOculto4').hide();
+	    }
+	  });
 	  $(function() {
 
 		  jsGrid.locale("pt-br");
@@ -239,13 +249,27 @@ $(document).ready(function() {
               controller: db,
               fields: [
                   { name: "Data", type: "text", width: 70, validate: "required"},
-                  { name: "Valor de Referencia ", type: "text", width: 70, validate: "required"},
                   { name: "GLI", type: "text", width: 70, validate: "required"},
-                  { name: "Hg", type: "number", width: 70, validate: "required"},
+                  { name: "HG", type: "number", width: 70, validate: "required"},
                   { name: "TG", type: "text", width: 70, validate: "required"},
                   { name: "CT", type: "number",width: 70, validate: "required"},
                   { name: "LDL", type: "text", width: 70, validate: "required"},
                   { name: "HDL", type: "text", width: 70, validate: "required"},
+                  { name: "Sódio", type: "text", width: 70, validate: "required"},
+                  { name: "Potássio", type: "text", width: 70, validate: "required"},
+                  { name: "Creatinina", type: "text", width: 70, validate: "required"},
+                  { name: "TGO", type: "text", width: 70, validate: "required"},
+                  { name: "TGP", type: "text", width: 70, validate: "required"},
+                  { name: "GGT", type: "text", width: 70, validate: "required"},
+                  { name: "Ferritina", type: "text", width: 70, validate: "required"},
+                  { name: "Vitamina B12", type: "text", width: 70, validate: "required"},
+                  { name: "Ácido Fólico", type: "text", width: 70, validate: "required"},
+                  { name: "Não HDL", type: "text", width: 70, validate: "required"},
+                  { name: "VLDL", type: "text", width: 70, validate: "required"},
+                  { name: "Ureia", type: "text", width: 70, validate: "required"},
+                  { name: "Fósforo", type: "text", width: 70, validate: "required"},
+                  { name: "Cálcio", type: "text", width: 70, validate: "required"},
+                  { name: "Ácido Úrico", type: "text", width: 70, validate: "required"},
                   { type: "control" }
                   ]
           });
