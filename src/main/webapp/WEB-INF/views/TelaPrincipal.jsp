@@ -138,11 +138,8 @@
 		</div>
 		<div class="col-md-4" id="three">
 			<div class="jumbotron">
-				<h1>Dicas</h1>
-				<p>--em Construção--</p>
-				<p>
-					<a class="btn btn-primary btn-lg">Leia mais</a>
-				</p>
+			<h3>Eventos:</h3>
+			<script type="text/javascript">writeCalendar()</script>
 			</div>
 		</div>
 		<div class="modal" id="ModalIMC">
