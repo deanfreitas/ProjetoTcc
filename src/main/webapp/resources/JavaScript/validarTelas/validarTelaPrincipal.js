@@ -97,11 +97,12 @@ function maxDays(mm, yyyy){
 
 	var text = ""
 	text = "<form name=calForm>"
-	text += "<table border=1>"
+	text += "<table border=0>"
 	text += "<tr><td>"
 	text += "<table width=100%><tr>"
 	text += "<td align=left>"
-	text += "<select name=selMonth onChange='changeCal()'>"
+	text += "<select name=selMonth onChange='changeCal()' class='form-control'>"
+
 		for (ii=0;ii<=11;ii++){
 			if (ii==mm){
 				text += "<option value= " + ii + " Selected>" + arrM[ii] + "</option>"
@@ -113,7 +114,7 @@ function maxDays(mm, yyyy){
 	text += "</select>"
 	text += "</td>"
 	text += "<td align=right>"
-	text += "<select name=selYear onChange='changeCal()'>"
+	text += "<select name=selYear onChange='changeCal()' class='form-control'>"
 		for (ii=0;ii<=4;ii++){
 			if (ii==2){
 				text += "<option value= " + arrY[ii] + " Selected>" + arrY[ii] + "</option>"
@@ -127,8 +128,9 @@ function maxDays(mm, yyyy){
 	text += "</tr></table>"
 	text += "</td></tr>"
 	text += "<tr><td>"
-	text += "<table border=1>"
+	text += "<table border=0>"
 	text += "<tr>"
+
 		for (ii=0;ii<=6;ii++){
 			text += "<td align=center><span class=label>" + arrD[ii] + "</span></td>"
 		}
