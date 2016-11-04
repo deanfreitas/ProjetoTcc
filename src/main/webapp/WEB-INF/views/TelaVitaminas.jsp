@@ -43,7 +43,21 @@
 	</div>
 	<div class="container-fluid col-md-12">
 		<div class="jumbotron">
-		<p>--Em Construção--</p>
+		<p>As vitaminas são substâncias que o organismo não tem condições de produzir e, 
+		por isso, precisam fazer parte da dieta alimentar. Suas principais fontes são as frutas, 
+		verduras e legumes, mas elas também são encontradas na carne, no leite, nos ovos e cereais.</p>
+		<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>Vitamina A</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="<c:url value = '/resources/Imagens/imagensTelas/cenoura.jpg' />" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
 		
 		
 		
