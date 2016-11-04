@@ -13,16 +13,14 @@
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/dataTables.bootstrap.min.css' />" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/bootstrap-material-design.min.css' />" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/ripples.min.css' />" />
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelas/estiloTelaAlimentos.css' />" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelas/estiloTelaVitamina.css' />" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />" />
 <script src="<c:url value ='/resources/JavaScript/angular/angular.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/bootstrap/dataTables.bootstrap.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/validarTelas/validarAlimentos.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/jquery/dataTables/jquery.dataTables.min.js' />" /></script>
+
 </head>
 
 <body>
@@ -49,11 +47,13 @@
 		<div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="..." alt="...">
+      <img src="<c:url value = '/resources/Imagens/imagensTelas/cenoura.jpg' />" alt="cenoura">
       <div class="caption">
         <h3>Vitamina A</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="<c:url value = '/resources/Imagens/imagensTelas/cenoura.jpg' />" class="btn btn-default" role="button">Button</a></p>
+        <p>A vitamina A é importante no crescimento, pois forma ossos e dentes,
+         melhora a pele e o cabelo, protege os aparelhos respiratório, digestivo
+          e urinário e também é importante para a visão.</p>
+        <p><a href="#" class="btn btn-primary" role="button">Onde encontrá-la?</a></p>
       </div>
     </div>
   </div>
