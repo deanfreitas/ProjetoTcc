@@ -44,7 +44,9 @@
 		<p>As vitaminas são substâncias que o organismo não tem condições de produzir e, 
 		por isso, precisam fazer parte da dieta alimentar. Suas principais fontes são as frutas, 
 		verduras e legumes, mas elas também são encontradas na carne, no leite, nos ovos e cereais.</p>
+		
 		<div class="row">
+		
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <img src="<c:url value = '/resources/Imagens/imagensTelas/cenoura.jpg' />" alt="cenoura">
@@ -53,16 +55,44 @@
         <p>A vitamina A é importante no crescimento, pois forma ossos e dentes,
          melhora a pele e o cabelo, protege os aparelhos respiratório, digestivo
           e urinário e também é importante para a visão.</p>
+        <p><a href="#" class="btn btn-primary" role="button">Onde encontrá-las?</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="<c:url value = '/resources/Imagens/imagensTelas/leguminosas.jpg' />" alt="leguminosas">
+      <div class="caption">
+        <h3>Vitaminas do Complexo B</h3>
+        <p>As vitaminas do complexo B, desempenham um papel importante em manter nosso corpo funcionando como máquinas
+          bem lubrificadas. Estes nutrientes essenciais ajudam a converter os alimentos em
+           combustível, o que nos permite ficar energizados durante todo o dia.</p>
+        <p><a href="#" class="btn btn-primary" role="button">Quais são?</a> <a href="#" class="btn btn-default" role="button">Onde encontrá-la?</a></p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="<c:url value = '/resources/Imagens/imagensTelas/vitaminac.jpg' />" alt="vitamina -c">
+      <div class="caption">
+        <h3>Vitamina C</h3>
+        <p> A vitamina C preserva ossos, dentes, gengivas e vasos sangüíneos, aumenta
+         a absorção de ferro, ajuda o sistema imunológico e aumenta a cicatrização.</p>
         <p><a href="#" class="btn btn-primary" role="button">Onde encontrá-la?</a></p>
       </div>
     </div>
   </div>
 </div>
+</div>
+		
+</div>		
 		
 		
 		
-		
-		</div>
-	</div>
+	
 </body>
 </html>
