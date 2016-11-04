@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Paciente</title>
+<title>Vitaminas</title>
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/bootstrap.min.css' />" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/dataTables.bootstrap.min.css' />" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/bootstrap-material-design.min.css' />" />
@@ -32,7 +32,7 @@
 				<img src="<c:url value = '/resources/Imagens/imagensTelas/novologotransp.png' />" />
 			</div>
 			<div class="col-md-4" id="titulo">
-				<h1>Paciente</h1>
+				<h1>Vitaminas</h1>
 			</div>
 			<div class="col-md-4" id="botao">
 				<a href="/ProjetoTcc/telaPrincipal" id="voltar" class="btn btn-default btn-fab"> 
