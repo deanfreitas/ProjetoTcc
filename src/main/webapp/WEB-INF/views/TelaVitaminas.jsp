@@ -20,6 +20,7 @@
 <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/bootstrap/validarVitaminas.js' />" /></script>
 
 </head>
 
@@ -47,7 +48,7 @@
 		
 		<div class="row">
 		
-  <div class="col-sm-6 col-md-4">
+  <div class="col-sm-6 col-md-4" id="idVitaminaA">
     <div class="thumbnail">
       <img src="<c:url value = '/resources/Imagens/imagensTelas/cenoura.jpg' />" alt="cenoura">
       <div class="caption">
@@ -55,12 +56,14 @@
         <p>A vitamina A é importante no crescimento, pois forma ossos e dentes,
          melhora a pele e o cabelo, protege os aparelhos respiratório, digestivo
           e urinário e também é importante para a visão.</p>
-        <p><a href="#" class="btn btn-primary" role="button">Onde encontrá-las?</a></p>
+        <p><a href="#" class="btn btn-primary" id="btnVitaminaA" role="button">Onde encontrá-las?</a></p>
+         <div id="ondeA"> jljljl</div>
       </div>
     </div>
   </div>
+ 
 
-  <div class="col-sm-6 col-md-4">
+  <div class="col-sm-6 col-md-4" id="idVitaminaB">
     <div class="thumbnail">
       <img src="<c:url value = '/resources/Imagens/imagensTelas/leguminosas.jpg' />" alt="leguminosas">
       <div class="caption">
@@ -68,21 +71,21 @@
         <p>As vitaminas do complexo B, desempenham um papel importante em manter nosso corpo funcionando como máquinas
           bem lubrificadas. Estes nutrientes essenciais ajudam a converter os alimentos em
            combustível, o que nos permite ficar energizados durante todo o dia.</p>
-        <p><a href="#" class="btn btn-primary" role="button">Quais são?</a> <a href="#" class="btn btn-default" role="button">Onde encontrá-la?</a></p>
+        <p><a href="#" class="btn btn-primary" id="btnVitaminaB" role="button">Onde encontrá-las?</a> <a href="#" class="btn btn-default" role="button">Quais são?</a></p>
       </div>
     </div>
   </div>
 
 
 
-  <div class="col-sm-6 col-md-4">
+  <div class="col-sm-6 col-md-4" id="idVitaminaC">
     <div class="thumbnail">
       <img src="<c:url value = '/resources/Imagens/imagensTelas/vitaminac.jpg' />" alt="vitamina -c">
       <div class="caption">
         <h3>Vitamina C</h3>
         <p> A vitamina C preserva ossos, dentes, gengivas e vasos sangüíneos, aumenta
          a absorção de ferro, ajuda o sistema imunológico e aumenta a cicatrização.</p>
-        <p><a href="#" class="btn btn-primary" role="button">Onde encontrá-la?</a></p>
+        <p><a href="#" class="btn btn-primary" id="btnVitaminaC" role="button">Onde encontrá-la?</a></p>
       </div>
     </div>
   </div>
