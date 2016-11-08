@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
@@ -39,7 +39,7 @@
 <script src="<c:url value ='/resources/JavaScript/jsgrid/fields/jsgrid.field.control.js' />"></script>
 <script src="<c:url value ='/resources/JavaScript/jsgrid/idiomas/pt-br.js' />"></script>
 <script src="<c:url value ='/resources/JavaScript/db.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/validarTelas/validarAnamnese.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/validarTelas/validarAnamnese.js' />" charset="utf-8"/></script>
 
 
 </head>
@@ -70,43 +70,43 @@
 			<!--ESSE E O MENU LATERAL COM AS OPCOES DO FORMULARIO, AQUI VC VAI COLOCAR PARA CHAMAR AS DIVS-->
 			<ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
 				<li>
-					<a type="button" id="btnIdentificacao" href="javascript:void(0)">IdentificaÁ„o</a>
+					<a type="button" id="btnIdentificacao" href="javascript:void(0)">Identifica√ß√£o</a>
 				</li>
 				<li>
-					<a type="button" id="btnHistoricoFamiliar" href="javascript:void(0)">HistÛrico Social e Familiar</a></li>
+					<a type="button" id="btnHistoricoFamiliar" href="javascript:void(0)">Hist√≥rico Social e Familiar</a></li>
 				<li>
-					<a type="button" id="btnDadosAntropo" href="javascript:void(0)">Dados AntropomÈtricos </a>
+					<a type="button" id="btnDadosAntropo" href="javascript:void(0)">Dados Antropom√©tricos </a>
 				</li>
 				<li>
-					<a type="button" id="btnDadosClinicos" href="javascript:void(0)">Dados ClÌnicos</a>
+					<a type="button" id="btnDadosClinicos" href="javascript:void(0)">Dados Cl√≠nicos</a>
 				</li>
 				<li>
-					<a type="button" id="btnAtividadeFisica" href="javascript:void(0)">Atividade FÌsica </a>
+					<a type="button" id="btnAtividadeFisica" href="javascript:void(0)">Atividade F√≠sica </a>
 				</li>
 				<li>
-					<a type="button" id="btnHistoricoAlimentar" href="javascript:void(0)">HistÛrico Alimentar Nutricional </a>
+					<a type="button" id="btnHistoricoAlimentar" href="javascript:void(0)">Hist√≥rico Alimentar Nutricional </a>
 				</li>
 				<li>
-					<a type="button" id="btnExamesBio" href="javascript:void(0)">Exames BioquÌmicos </a>
+					<a type="button" id="btnExamesBio" href="javascript:void(0)">Exames Bioqu√≠micos </a>
 				</li>
 				<li>
 					<a type="button" id="btnUsoMedicamentos" href="javascript:void(0)">Faz uso de medicamentos? </a>
 				</li>
 				<li>
-					<a type="button" id="btnRecordata" href="javascript:void(0)">RecordatÛrio Habitual </a>
+					<a type="button" id="btnRecordata" href="javascript:void(0)">Recordat√≥rio Habitual </a>
 				</li>
 				<li>
-					<a type="button" id="btnFrequenciaAlimentar" href="javascript:void(0)">FrequÍncia Alimentar </a>
+					<a type="button" id="btnFrequenciaAlimentar" href="javascript:void(0)">Frequ√™ncia Alimentar </a>
 				</li>
 			</ul>
 		</div>
 		<div id="divIdentificacao">
-			<!--ESSA √â A PRIMEIRA ID A SER CHAMADA-->
+			<!--ESSA √É¬â A PRIMEIRA ID A SER CHAMADA-->
 			<form id="formIdentificacao">
 				<fieldset>
-					<legend> IdentificaÁ„o </legend>
+					<legend> Identifica√ß√£o </legend>
 					<div class="form-group col-md-4">
-						<label for="tData"> Data da 1™ Consulta: </label> 
+						<label for="tData"> Data da 1¬™ Consulta: </label> 
 						<input type="text" class="form-control" id="tData" placeholder="dd/mm/aaaa">
 					</div>
 					<div class="form-group col-md-12">
@@ -114,11 +114,11 @@
 						<input type="text" class="form-control" id="tNome">
 					</div>
 					<div class="form-group col-md-10">
-						<label for="tEnd"> EndereÁo: </label> 
+						<label for="tEnd"> Endere√ßo: </label> 
 						<input type="text" class="form-control" id="tEnd">
 					</div>
 					<div class="form-group col-md-2">
-						<label for="tNum"> N˙mero: </label> 
+						<label for="tNum"> N√∫mero: </label> 
 						<input type="text" class="form-control" id="tNum">
 					</div>
 					<div class="form-group col-md-5">
@@ -182,7 +182,7 @@
 						<label for="tIdade"> Idade: </label> <input type="number"
 							class="form-control" id="tIdade">
 					</div>
-					<!--Gilberto nessa op√ß√£o, cria um c√°lculo no javascrip para mostrar a idade atraves da data de nascimento inserida anteriormente-->
+					<!--Gilberto nessa op√É¬ß√É¬£o, cria um c√É¬°lculo no javascrip para mostrar a idade atraves da data de nascimento inserida anteriormente-->
 					<div class="form-group col-md-4">
 						<label for="tSexo"> Sexo: </label> 
 							<select class="form-control" id="tSexo">
@@ -199,12 +199,12 @@
 									<option>Solteiro(a)</option>
 									<option>Casado(a)</option>
 									<option>Divorciado(a)</option>
-									<option>Vi˙vo(a)</option>
+									<option>Vi√∫vo(a)</option>
 								</select>
 							</div>
 						
 						<div class="form-group col-md-4">
-							<label for="idRaca"> Cor/RaÁa </label>
+							<label for="idRaca"> Cor/Ra√ßa </label>
 							
 								<select id="idRaca" class="form-control">
 									<option></option>
@@ -212,7 +212,7 @@
 									<option>Preta</option>
 									<option>Parda</option>
 									<option>Amarela</option>
-									<option>IndÌgena</option>
+									<option>Ind√≠gena</option>
 								</select>
 							
 							</div>
@@ -221,24 +221,24 @@
 						<input type="text" class="form-control" id="tMotivo">
 					</div>
 					<div class="form-group col-md-12">
-						<label for="tObs"> ObservaÁıes: </label> 
+						<label for="tObs"> Observa√ß√µes: </label> 
 						<input type="text" class="form-control" id="tObs">
 					</div>
 				</fieldset>
 			</form>
 		</div>
-		<!--AQUI COME√áA A OUTRA DIV QUE TERA QUE APARECER AO CLICAR NO MENU LATERAL, EM HISTORICO SOCIAL E FAMILIAR, E AUTOMATICAMENTE OCULTAR O FORMULARIO
-                        ANTERIOR E S√ì EXIBIR NOVAMENTE A CLICAR SOBRE ELE NO MENU-->
+		<!--AQUI COME√É¬áA A OUTRA DIV QUE TERA QUE APARECER AO CLICAR NO MENU LATERAL, EM HISTORICO SOCIAL E FAMILIAR, E AUTOMATICAMENTE OCULTAR O FORMULARIO
+                        ANTERIOR E S√É¬ì EXIBIR NOVAMENTE A CLICAR SOBRE ELE NO MENU-->
 		<div id="divHistoricoFamiliar">
 			<form id="formHistoricoFamiliar">
 				<fieldset>
-					<legend> HistÛrico Social e Familiar </legend>
+					<legend> Hist√≥rico Social e Familiar </legend>
 					<div class="form-group col-md-4">
-						<label for="tProfi"> Profiss„o: </label> 
+						<label for="tProfi"> Profiss√£o: </label> 
 						<input type="text" class="form-control" id="tProfi">
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tChor"> Carga Hor·ria: </label> 
+						<label for="tChor"> Carga Hor√°ria: </label> 
 						<input type="text" class="form-control" id="tChor">
 					</div>
 					<div class="form-group col-md-4">
@@ -247,12 +247,12 @@
 							<option></option>
 							<option>Solteiro</option>
 							<option>Casado</option>
-							<option>Vi˙vo</option>
+							<option>Vi√∫vo</option>
 							<option>Separado</option>
 						</select>
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tCfam"> ComposiÁ„o Familiar: </label> 
+						<label for="tCfam"> Composi√ß√£o Familiar: </label> 
 						<input type="text" class="form-control" id="tCfam">
 					</div>
 					<div class="form-group col-md-4">
@@ -260,7 +260,7 @@
 						<input type="text" class="form-control" id="tQcomp">
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tCompfre"> A compra È feita: </label> 
+						<label for="tCompfre"> A compra √© feita: </label> 
 						<select class="form-control" id="tCompfre">
 							<option></option>
 							<option>Diariamente</option>
@@ -269,34 +269,34 @@
 						</select>
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tPrepara"> Quem prepara as refeiÁıes: </label> 
+						<label for="tPrepara"> Quem prepara as refei√ß√µes: </label> 
 						<input type="text" class="form-control" id="tPrepara">
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tQuemr"> Com quem realiza as refeiÁıes: </label> 
+						<label for="tQuemr"> Com quem realiza as refei√ß√µes: </label> 
 						<input type="text" class="form-control" id="tQuemr">
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tBeber"> Faz uso de bebidas alco√≥licas? </label> 
+						<label for="tBeber"> Faz uso de bebidas alco√É¬≥licas? </label> 
 						<select class="form-control" id="tBeber">
 							<option></option>
-							<option>N„o</option>
-							<option>Sim, uma vez por mÍs ou menos</option>
-							<option>Sim, 2 a 4 vezes por mÍs</option>
+							<option>N√£o</option>
+							<option>Sim, uma vez por m√™s ou menos</option>
+							<option>Sim, 2 a 4 vezes por m√™s</option>
 							<option>Sim, 2 a 3 vezes por semana</option>
 							<option>Sim, 4 ou mais vezes por semana</option>
 						</select>
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tFumar"> Fuma ou j· fumou? </label> 
+						<label for="tFumar"> Fuma ou j√° fumou? </label> 
 						<select class="form-control" id="tFumar">
 							<option></option>
-							<option>N„o</option>
-							<option>Sim, j· fumei mas parei</option>
-							<option>Sim, atÈ 5 cigarros por dia</option>
-							<option>Sim, atÈ 3 maÁos por semana</option>
-							<option>Sim, atÈ 7 maÁos por semana</option>
-							<option>Sim, mais de 7 maÁos por semana</option>
+							<option>N√£o</option>
+							<option>Sim, j√° fumei mas parei</option>
+							<option>Sim, at√© 5 cigarros por dia</option>
+							<option>Sim, at√© 3 ma√ßos por semana</option>
+							<option>Sim, at√© 7 ma√ßos por semana</option>
+							<option>Sim, mais de 7 ma√ßos por semana</option>
 						</select>
 					</div>
 				</fieldset>
@@ -305,7 +305,7 @@
 		<div id="divDadosAntropo">
 			<form id="formDadosAntropo">
 				<fieldset>
-					<legend> Dados AntropomÈtricos </legend>
+					<legend> Dados Antropom√©tricos </legend>
 					
 					<div id="jsGrid"></div>
 					
@@ -324,19 +324,19 @@
 		<div id="divDadosClinicos">
 			<form id="formDadosClinicos">
 				<fieldset>
-					<legend> Dados ClÌnicos </legend>
+					<legend> Dados Cl√≠nicos </legend>
 					
 			<table class="table table-striped table-hover ">
   <thead>
   <tr>
     <th> </th>
-    <th> OpÁ„o </th>
-    <th> ObservaÁ„o</th>
+    <th> Op√ß√£o </th>
+    <th> Observa√ß√£o</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td> VÙmito </td>
+    <td> V√¥mito </td>
     <td> <div class="togglebutton">
           <label>
             <input type="checkbox"> 
@@ -346,7 +346,7 @@
     
   </tr>
   <tr>
-    <td> N·usea </td>
+    <td> N√°usea </td>
     <td> <div class="togglebutton">
           <label>
             <input type="checkbox"> 
@@ -355,7 +355,7 @@
     <td><input type="text" size="30"></td>
   </tr>
   <tr>
-    <td> MastigaÁ„o </td>
+    <td> Mastiga√ß√£o </td>
     <td> <div class="togglebutton">
           <label>
             <input type="checkbox"> 
@@ -364,7 +364,7 @@
     <td><input type="text" size="30"></td>
   </tr>
   <tr>
-    <td> DeglutiÁ„o </td>
+    <td> Degluti√ß√£o </td>
     <td> <div class="togglebutton">
           <label>
             <input type="checkbox"> 
@@ -373,7 +373,7 @@
     <td><input type="text" size="30"></td>
   </tr>
   <tr>
-    <td> Digest„o </td>
+    <td> Digest√£o </td>
     <td> <div class="togglebutton">
           <label>
             <input type="checkbox"> 
@@ -400,7 +400,7 @@
     <td><input type="text" size="30"></td>
   </tr>
     <tr>
-    <td> DiarrÈia  </td>
+    <td> Diarr√©ia  </td>
     <td> <div class="togglebutton">
           <label>
             <input type="checkbox"> 
@@ -409,7 +409,7 @@
     <td><input type="text" size="30"></td>
   </tr>
     <tr>
-    <td> ObstipaÁ„o  </td>
+    <td> Obstipa√ß√£o  </td>
     <td> <div class="togglebutton">
           <label>
             <input type="checkbox"> 
@@ -418,7 +418,7 @@
     <td><input type="text" size="30"></td>
   </tr>
     <tr>
-    <td> InsÙnia  </td>
+    <td> Ins√¥nia  </td>
     <td> <div class="togglebutton">
           <label>
             <input type="checkbox"> 
@@ -436,7 +436,7 @@
     <td><input type="text" size="30"></td>
   </tr>
     <tr>
-    <td> CansaÁo  </td>
+    <td> Cansa√ßo  </td>
     <td> <div class="togglebutton">
           <label>
             <input type="checkbox"> 
@@ -457,32 +457,32 @@
 </table>		
 
 					<div class="form-group col-md-6">
-						<label for="PeleCabelo">  Possui lesıes ou problemas na pele, cabelo e unha? </label> 
+						<label for="PeleCabelo">  Possui les√µes ou problemas na pele, cabelo e unha? </label> 
 						<input type="text" class="form-control" id="PeleCabelo">
 					</div>
 					
 					<div class="form-group col-md-6">
-						<label for="CirurgiaQuando">   J· passou por algum tipo de cirurgia? Qual? Quando?  </label> 
+						<label for="CirurgiaQuando">   J√° passou por algum tipo de cirurgia? Qual? Quando?  </label> 
 						<input type="text" class="form-control" id="CirurgiaQuando">
 					</div>
 					
 					<div class="form-group col-md-4">
-						<label for="HabIntestinal">  H·bito intestinal: </label> 
+						<label for="HabIntestinal">  H√°bito intestinal: </label> 
 						<select class="form-control" id="HabIntestinal">
 							<option></option>
-							<option> Di·rio </option>
-							<option> AtÈ 3 dias </option>
+							<option> Di√°rio </option>
+							<option> At√© 3 dias </option>
 							<option>  Mais 3 dias </option>
 							<option>  Outro </option>
 						</select>
-						<!-- ESSA DIV … PARA O PACIENTE COLOCAR A OP«√O CASO ELE SELECIONE O CAMPO OUTRO DO SELECT -->
+						<!-- ESSA DIV √â PARA O PACIENTE COLOCAR A OP√á√ÉO CASO ELE SELECIONE O CAMPO OUTRO DO SELECT -->
 						<div id="inputOculto">
   						<input type="text" class="form-control" />
 					</div>
 					</div>
 					
 					<div class="form-group col-md-4">
-						<label for="ConsFezes">   ConsistÍncia das fezes: </label> 
+						<label for="ConsFezes">   Consist√™ncia das fezes: </label> 
 						<select class="form-control" id="ConsFezes">
 							<option></option>
 							<option> Normal  </option>
@@ -496,7 +496,7 @@
 						</div>
 						
 						<div class="form-group col-md-4">
-						<label for="DiureseQuant">    Diurese (Quantidade/ColoraÁ„o):   </label> 
+						<label for="DiureseQuant">    Diurese (Quantidade/Colora√ß√£o):   </label> 
 						<input type="text" class="form-control" id="DiureseQuant">
 					</div>
 					
@@ -512,8 +512,8 @@
   <thead>
   <tr>
     <th> </th>
-    <th> OpÁ„o </th>
-    <th> ObservaÁ„o</th>
+    <th> Op√ß√£o </th>
+    <th> Observa√ß√£o</th>
   </tr>
   </thead>
   <tbody>
@@ -593,25 +593,25 @@
 			<div id="divAtividadeFisica">
 			<form id="formAtividadeFisica">
 				<fieldset>
-					<legend> Atividade FÌsica </legend>
+					<legend> Atividade F√≠sica </legend>
 					
 			<div class="form-group col-md-12">
-						<label for="TipoAtivFisica">  Tipo de atividade fÌsica: </label> 
+						<label for="TipoAtivFisica">  Tipo de atividade f√≠sica: </label> 
 						<input type="text" class="form-control" id="TipoAtivFisica">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="FreqAtiv"> FrequÍncia </label> 
+						<label for="FreqAtiv"> Frequ√™ncia </label> 
 						<input type="text" class="form-control" id="FreqAtiv">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="DuracaoAtiv"> DuraÁ„o </label> 
+						<label for="DuracaoAtiv"> Dura√ß√£o </label> 
 						<input type="text" class="form-control" id="DuracaoAtiv">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="ConsFezes">   VocÍ pratica as atividades: </label> 
+						<label for="ConsFezes">   Voc√™ pratica as atividades: </label> 
 						<select class="form-control" id="ConsFezes">
 							<option></option>
 							<option> Alimentado  </option>
@@ -620,7 +620,7 @@
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="HorarioPref"> Hor·rio preferido:  </label> 
+						<label for="HorarioPref"> Hor√°rio preferido:  </label> 
 						<input type="text" class="form-control" id="HorarioPref">
 					</div>
 					
@@ -629,7 +629,7 @@
 						<select class="form-control" id="idSuplemento">
 							<option></option>
 							<option> Sim  </option>
-							<option> N„o  </option>
+							<option> N√£o  </option>
 						</select>
 						<div id="inputOculto4">
   						<input type="text" class="form-control" placeholder="Qual?"/>
@@ -646,24 +646,24 @@
 			<div id="divHistoricoAlimentar">
 			<form id="formHistoricoAlimentar">
 				<fieldset>
-					<legend> HistÛrico Alimentar Nutricional </legend>
+					<legend> Hist√≥rico Alimentar Nutricional </legend>
 					
 			<div class="form-group col-md-6">
-						<label for="IntAlimentar"> Intoler‚ncia Alimentar:  </label> 
+						<label for="IntAlimentar"> Intoler√¢ncia Alimentar:  </label> 
 						<input type="text" class="form-control" id="IntAlimentar">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="PrefAlimentar"> PreferÍncia Alimentar:  </label> 
+						<label for="PrefAlimentar"> Prefer√™ncia Alimentar:  </label> 
 						<input type="text" class="form-control" id="PrefAlimentar">
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="AltApetite">   AlteraÁıes do Apetite:  </label> 
+						<label for="AltApetite">   Altera√ß√µes do Apetite:  </label> 
 						<select class="form-control" id="AltApetite">
 							<option></option>
 							<option> Sim  </option>
-							<option> N„o  </option>
+							<option> N√£o  </option>
 						</select>
 						<div id="inputOculto3">
   						<input type="text" class="form-control" placeholder="Desde quando:" />
@@ -681,22 +681,22 @@
 					</div>
 					
 			<div class="form-group col-md-6">
-						<label for="QuantRefeicoes"> Quantas refeiÁıes faz por dia:  </label> 
+						<label for="QuantRefeicoes"> Quantas refei√ß√µes faz por dia:  </label> 
 						<input type="text" class="form-control" id="QuantRefeicoes">
 					</div>
 					
 			<div class="form-group col-md-4">
-						<label for="ConsumoAgua"> Consumo de ·gua:  </label> 
+						<label for="ConsumoAgua"> Consumo de √°gua:  </label> 
 						<input type="text" class="form-control" id="ConsumoAgua">
 					</div>
 					
 			<div class="form-group col-md-4">
-						<label for="ConsumoAgua"> Consumo de sal / mÍs:   </label> 
+						<label for="ConsumoAgua"> Consumo de sal / m√™s:   </label> 
 						<input type="text" class="form-control" id="ConsumoAgua">
 					</div>
 					
 			<div class="form-group col-md-4">
-						<label for="ConsumoOleo">  Consumo de Ûleo / mÍs:  </label> 
+						<label for="ConsumoOleo">  Consumo de √≥leo / m√™s:  </label> 
 						<input type="text" class="form-control" id="ConsumoOleo">
 					</div>
 			
@@ -717,7 +717,7 @@
 			<div id="divExamesBio">
 			<form id="formExamesBio">
 				<fieldset>
-					<legend> Exames BioquÌmicos  </legend>
+					<legend> Exames Bioqu√≠micos  </legend>
 					
 					<div id="jsGrid2"></div>
 					
@@ -745,11 +745,11 @@
 				<div id="divRecordata">
 			<form id="formRecordata">
 				<fieldset>
-					<legend> RecordatÛrio Habitual  </legend>  
+					<legend> Recordat√≥rio Habitual  </legend>  
 					
 					<h4>Desjejum</h4>
 					<div class="form-group col-md-4">
-						<label for="Desjejum"> Hor·rio: </label> 
+						<label for="Desjejum"> Hor√°rio: </label> 
 						<input type="text" class="form-control" id="Desjejum">
 					</div>
 					
@@ -765,9 +765,9 @@
 					
 					<div id="jsGrid4"></div>
 					<br>
-					<h4>ColaÁ„o</h4>
+					<h4>Cola√ß√£o</h4>
 					<div class="form-group col-md-4">
-						<label for="idColacao"> Hor·rio: </label> 
+						<label for="idColacao"> Hor√°rio: </label> 
 						<input type="text" class="form-control" id="idColacao">
 					</div>
 					
@@ -784,9 +784,9 @@
 					<div id="jsGrid5"></div>
 					
 					<br>
-					<h4>AlmoÁo</h4>
+					<h4>Almo√ßo</h4>
 					<div class="form-group col-md-4">
-						<label for="idAlmoco"> Hor·rio: </label> 
+						<label for="idAlmoco"> Hor√°rio: </label> 
 						<input type="text" class="form-control" id="idAlmoco">
 					</div>
 					
@@ -805,7 +805,7 @@
 					<br>
 					<h4>Lanche</h4>
 					<div class="form-group col-md-4">
-						<label for="idLanche"> Hor·rio: </label> 
+						<label for="idLanche"> Hor√°rio: </label> 
 						<input type="text" class="form-control" id="idLanche">
 					</div>
 					
@@ -824,7 +824,7 @@
 					<br>
 					<h4>Jantar</h4>
 					<div class="form-group col-md-4">
-						<label for="idJantar"> Hor·rio: </label> 
+						<label for="idJantar"> Hor√°rio: </label> 
 						<input type="text" class="form-control" id="idJantar">
 					</div>
 					
@@ -843,7 +843,7 @@
 					<br>
 					<h4>Ceia</h4>
 					<div class="form-group col-md-4">
-						<label for="idCeia"> Hor·rio: </label> 
+						<label for="idCeia"> Hor√°rio: </label> 
 						<input type="text" class="form-control" id="idCeia">
 					</div>
 					
@@ -862,7 +862,7 @@
 					<br>
 					<h4>Fora de hora</h4>
 					<div class="form-group col-md-4">
-						<label for="idFdeHora"> Hor·rio: </label> 
+						<label for="idFdeHora"> Hor√°rio: </label> 
 						<input type="text" class="form-control" id="idFdeHora">
 					</div>
 					
@@ -886,14 +886,14 @@
 				<div id="divFrequenciaAlimentar">
 			<form id="formFrequenciaAlimentar">
 				<fieldset>
-					<legend> FrequÍncia Alimentar   </legend> 
+					<legend> Frequ√™ncia Alimentar   </legend> 
 					
 					<table class="table table-striped table-hover">
   <thead>
   <tr>
     <th>ALIMENTOS </th>
-    <th>OP«√O</th>
-    <th>POR«√O M…DIA</th>
+    <th>OP√á√ÉO</th>
+    <th>POR√á√ÉO M√âDIA</th>
     
   </tr>
   </thead>
@@ -906,20 +906,20 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
   </tr>
   <tr>
-    <td>Macarr„o  </td>
+    <td>Macarr√£o  </td>
     <td>
 						<select id="idMacarrao" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -932,33 +932,33 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
   </tr>
   <tr>
-    <td>P„o </td>
+    <td>P√£o </td>
     <td>
 						<select id="idPao" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
   </tr>
   <tr>
-    <td>P„o de queijo </td>
+    <td>P√£o de queijo </td>
     <td>
 						<select id="idPaoQueijo" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -971,7 +971,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -984,33 +984,33 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
   </tr>
   <tr>
-    <td>HortaliÁas cruas </td>
+    <td>Hortali√ßas cruas </td>
     <td>
 						<select id="idHortalicasCruas" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
   </tr>
   <tr>
-    <td>HortaliÁas cozidas </td>
+    <td>Hortali√ßas cozidas </td>
     <td>
 						<select id="idHortalicasCozidas" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1023,7 +1023,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1036,7 +1036,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1049,7 +1049,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1062,7 +1062,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1075,7 +1075,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1088,7 +1088,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1101,7 +1101,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1114,7 +1114,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1127,7 +1127,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1140,7 +1140,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1153,7 +1153,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1166,7 +1166,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1179,7 +1179,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1192,33 +1192,33 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
   </tr>
   <tr>
-    <td>Requeij„o comum </td>
+    <td>Requeij√£o comum </td>
     <td>
 						<select id="idRequijaoComum" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
   </tr>
   <tr>
-    <td>Requeij„o light</td>
+    <td>Requeij√£o light</td>
     <td>
 						<select id="idRequeijaoLight" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1231,7 +1231,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1244,7 +1244,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1257,7 +1257,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1270,33 +1270,33 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
   </tr>
    <tr>
-    <td>AÁ˙car</td>
+    <td>A√ß√∫car</td>
     <td>
 						<select id="idAcucar" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
   </tr>
    <tr>
-    <td>AdoÁante  </td>
+    <td>Ado√ßante  </td>
     <td>
 						<select id="idAdocante" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1309,7 +1309,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1322,7 +1322,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1335,7 +1335,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1348,7 +1348,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1361,7 +1361,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1374,7 +1374,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1387,20 +1387,20 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
   </tr>
    <tr>
-    <td>SanduÌche / Pizza</td>
+    <td>Sandu√≠che / Pizza</td>
     <td>
 						<select id="idSanduichePizza" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1413,7 +1413,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1426,7 +1426,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1439,7 +1439,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1452,7 +1452,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1465,7 +1465,7 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1478,33 +1478,33 @@
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
   </tr>
      <tr>
-    <td>CafÈ</td>
+    <td>Caf√©</td>
     <td>
 						<select id="idCafe" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
   </tr>
      <tr>
-    <td>Ch·</td>
+    <td>Ch√°</td>
     <td>
 						<select id="idCha" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
 							<option>SEMANAL </option>
-							<option>DI¡RIA </option>
+							<option>DI√ÅRIA </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control"></td>
@@ -1516,18 +1516,18 @@
 </table>
 
 					<div class="form-group col-md-12">
-						<label for="idDiagnostico"> DiagnÛstico Nutricional:  </label> 
+						<label for="idDiagnostico"> Diagn√≥stico Nutricional:  </label> 
 						<input type="text" class="form-control" id="idDiagnostico">
 					</div>
 					
 					<div class="form-group col-md-12">
-						<label for="idConduta"> Conduta Dietoter·pica:  </label> 
+						<label for="idConduta"> Conduta Dietoter√°pica:  </label> 
 						<input type="text" class="form-control" id="idConduta">
 					</div> 
 					
 					
 					<div class="form-group col-md-12">
-      <label for="textArea">Relato de caso, OrientaÁıes Nutricionais e EvoluÁ„o: </label>
+      <label for="textArea">Relato de caso, Orienta√ß√µes Nutricionais e Evolu√ß√£o: </label>
 
       <div class="col-md-12">
         <textarea class="form-control" rows="10" id="textArea"></textarea>

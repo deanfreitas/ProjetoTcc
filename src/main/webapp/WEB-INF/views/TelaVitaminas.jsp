@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
@@ -42,9 +42,9 @@
 	</div>
 	<div class="container-fluid col-md-12">
 		<div class="jumbotron">
-		<p>As vitaminas s„o subst‚ncias que o organismo n„o tem condiÁıes de produzir e, 
-		por isso, precisam fazer parte da dieta alimentar. Suas principais fontes s„o as frutas, 
-		verduras e legumes, mas elas tambÈm s„o encontradas na carne, no leite, nos ovos e cereais.</p>
+		<p>As vitaminas s√£o subst√¢ncias que o organismo n√£o tem condi√ß√µes de produzir e, 
+		por isso, precisam fazer parte da dieta alimentar. Suas principais fontes s√£o as frutas, 
+		verduras e legumes, mas elas tamb√©m s√£o encontradas na carne, no leite, nos ovos e cereais.</p>
 		
 		<div class="row">
 		
@@ -53,11 +53,11 @@
       <img src="<c:url value = '/resources/Imagens/imagensTelas/cenoura.jpg' />" alt="cenoura">
       <div class="caption">
         <h3>Vitamina A</h3>
-        <p>A vitamina A È importante no crescimento, pois forma ossos e dentes,
-         melhora a pele e o cabelo, protege os aparelhos respiratÛrio, digestivo
-          e urin·rio e tambÈm È importante para a vis„o.</p>
-        <p><a href="#" class="btn btn-primary" id="btnVitaminaA" role="button">Onde encontr·-las?</a></p>
-         <div id="ondeA"> jljljl</div>
+        <p>A vitamina A √© importante no crescimento, pois forma ossos e dentes,
+         melhora a pele e o cabelo, protege os aparelhos respirat√≥rio, digestivo
+          e urin√°rio e tamb√©m √© importante para a vis√£o.</p>
+        <p><a href="#" class="btn btn-primary" id="btnVitaminaA" role="button">Onde encontr√°-las?</a></p>
+    
       </div>
     </div>
   </div>
@@ -68,10 +68,10 @@
       <img src="<c:url value = '/resources/Imagens/imagensTelas/leguminosas.jpg' />" alt="leguminosas">
       <div class="caption">
         <h3>Vitaminas do Complexo B</h3>
-        <p>As vitaminas do complexo B, desempenham um papel importante em manter nosso corpo funcionando como m·quinas
+        <p>As vitaminas do complexo B, desempenham um papel importante em manter nosso corpo funcionando como m√°quinas
           bem lubrificadas. Estes nutrientes essenciais ajudam a converter os alimentos em
-           combustÌvel, o que nos permite ficar energizados durante todo o dia.</p>
-        <p><a href="#" class="btn btn-primary" id="btnVitaminaB" role="button">Onde encontr·-las?</a> <a href="#" class="btn btn-default" role="button">Quais s„o?</a></p>
+           combust√≠vel, o que nos permite ficar energizados durante todo o dia.</p>
+        <p><a href="#" class="btn btn-primary" id="btnVitaminaB" role="button">Onde encontr√°-las?</a> <a href="#" class="btn btn-default" role="button">Quais s√£o?</a></p>
       </div>
     </div>
   </div>
@@ -83,12 +83,39 @@
       <img src="<c:url value = '/resources/Imagens/imagensTelas/vitaminac.jpg' />" alt="vitamina -c">
       <div class="caption">
         <h3>Vitamina C</h3>
-        <p> A vitamina C preserva ossos, dentes, gengivas e vasos sang¸Ìneos, aumenta
-         a absorÁ„o de ferro, ajuda o sistema imunolÛgico e aumenta a cicatrizaÁ„o.</p>
-        <p><a href="#" class="btn btn-primary" id="btnVitaminaC" role="button">Onde encontr·-la?</a></p>
+        <p> A vitamina C preserva ossos, dentes, gengivas e vasos sang√º√≠neos, aumenta
+         a absor√ß√£o de ferro, ajuda o sistema imunol√≥gico e aumenta a cicatriza√ß√£o.</p>
+        <p><a href="#" class="btn btn-primary" id="btnVitaminaC" role="button">Onde encontr√°-la?</a></p>
       </div>
     </div>
   </div>
+</div>
+<div class="row">
+
+  <div class="col-sm-6 col-md-4" id="idVitaminaD">
+    <div class="thumbnail">
+      <img src="<c:url value = '/resources/Imagens/imagensTelas/ovos.jpg' />" alt="vitamina D">
+      <div class="caption">
+        <h3>Vitamina D</h3>
+        <p>A vitamina D √© fundamental no fortalecimento dos ossos e dentes e ajuda na coagula√ß√£o do sangue.</p>
+        <p><a href="#" class="btn btn-primary" id="btnVitaminaD" role="button">Onde encontr√°-la?</a></p>
+      </div>
+    </div>
+  </div>
+ 
+   <div class="col-sm-6 col-md-4" id="idVitaminaE">
+    <div class="thumbnail">
+      <img src="<c:url value = '/resources/Imagens/imagensTelas/vitaminae.jpg' />" alt="vitamina E">
+      <div class="caption">
+        <h3>Vitamina E</h3>
+        <p>A vitamina E √© uma vitamina sol√∫vel em gordura que primeiramente funciona como um anti-oxidante, 
+        o que significa que ajuda a prevenir ou reduzir os danos causados ‚Äã‚Äãpor radicais livres, em √∫ltima an√°lise
+         a redu√ß√£o do risco de problemas de sa√∫de, como a doen√ßa card√≠aca ou cancro.</p>
+        <p><a href="#" class="btn btn-primary" id="btnVitaminaE" role="button">Onde encontr√°-la?</a></p>
+      </div>
+    </div>
+  </div>
+  
 </div>
 </div>
 		
