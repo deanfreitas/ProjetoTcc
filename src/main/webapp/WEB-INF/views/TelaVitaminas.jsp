@@ -20,7 +20,7 @@
 <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
-<script src="<c:url value ='/resources/JavaScript/bootstrap/validarVitaminas.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/validarTelas/validarVitaminas.js' />" /></script>
 
 </head>
 
@@ -56,12 +56,23 @@
         <p>A vitamina A é importante no crescimento, pois forma ossos e dentes,
          melhora a pele e o cabelo, protege os aparelhos respiratório, digestivo
           e urinário e também é importante para a visão.</p>
-        <p><a href="#" class="btn btn-primary" id="btnVitaminaA" role="button">Onde encontrá-las?</a></p>
+        <p><a class="btn btn-primary" id="btnVitaminaA" role="button">Onde encontrá-las?</a></p>
     
       </div>
     </div>
   </div>
- 
+  <div class="col-sm-6 col-md-4" id="OndeVitA">
+   <ul>
+   <li>Fígado</li>
+   <li>Gema de ovo</li>
+   <li>Óleos de peixes</li>
+   <li>Cenoura</li>
+   <li>Espinafre</li>
+   <li>Manga</li>
+   <li>Mamão</li>
+   </ul>
+   <p><a class="btn btn-primary" id="btnVitaminaAreturn" role="button">Voltar</a></p>
+   </div>
 
   <div class="col-sm-6 col-md-4" id="idVitaminaB">
     <div class="thumbnail">
@@ -75,7 +86,18 @@
       </div>
     </div>
   </div>
-
+  <div class="col-sm-6 col-md-4" id="OndeVitB">
+   <ul>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   </ul>
+   <p><a class="btn btn-primary" id="btnVitaminaBreturn" role="button">Voltar</a></p>
+   </div>
 
 
   <div class="col-sm-6 col-md-4" id="idVitaminaC">

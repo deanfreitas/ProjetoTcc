@@ -277,7 +277,7 @@
 						<input type="text" class="form-control" id="tQuemr">
 					</div>
 					<div class="form-group col-md-4">
-						<label for="tBeber"> Faz uso de bebidas alcoÃ³licas? </label> 
+						<label for="tBeber"> Faz uso de bebidas alcoólicas? </label> 
 						<select class="form-control" id="tBeber">
 							<option></option>
 							<option>Não</option>
