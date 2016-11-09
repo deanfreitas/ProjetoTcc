@@ -174,14 +174,7 @@ $(document).ready(function() {
 	    }
 	  });
 	  
-	  $('#inputOculto4').hide();
-	  $('#idSuplemento').change(function() {
-	    if ($('#idSuplemento').val() == 'Sim') {
-	      $('#inputOculto4').show();
-	    } else {
-	      $('#inputOculto4').hide();
-	    }
-	  });
+	
 	  $(function() {
 
 		  jsGrid.locale("pt-br");

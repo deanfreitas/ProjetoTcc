@@ -29,13 +29,71 @@ h1{
 h3 {
 	text-align:center;
 	font-weight: bold;
+	
 }
 .thumbnail{
 	margin-top:20px;
+	
 }
 #titulo{
 	text-align:center;
 }
-#OndeVitA{
+#OndeVitA {
 	display:none;
+	font-size:22px;
+	font-family:helvetica;
+	padding: 30px;
+    
+	
+}
+#OndeVitB {
+	display:none;
+	font-size:22px;
+	font-family:helvetica;
+	padding: 30px;
+}
+
+#QuaisVitB {
+	display:none;
+	font-size:22px;
+	font-family:helvetica;
+	padding: 30px;
+}
+
+#OndeVitC {
+	display:none;
+	font-size:22px;
+	font-family:helvetica;
+	padding: 30px;
+}
+#OndeVitD {
+	display:none;
+	font-size:22px;
+	font-family:helvetica;
+	padding: 30px;
+}
+#OndeVitE {
+	display:none;
+	font-size:22px;
+	font-family:helvetica;
+	padding: 30px;
+}
+#OndeVitK {
+	display:none;
+	font-size:22px;
+	font-family:helvetica;
+	padding: 30px;
+}
+
+#btnVitaminaAreturn {
+	margin-top:60%;
+} 
+
+.Intro {
+	margin-left: 50px;
+	margin-right: 50px;
+	color: black;
+}
+p {
+	color: #2F4F4F;
 }

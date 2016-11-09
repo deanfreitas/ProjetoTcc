@@ -129,7 +129,7 @@
 			<div class="jumbotron" id="idIMC">
 				<h1>IMC</h1>
 				<p>Calcule o seu Índice de Massa Corporal</p>
-				<p>
+				<p><br><br>
 					<a data-toggle="modal" href="#ModalIMC">Saiba mais</a>
 				</p>
 				

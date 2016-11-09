@@ -241,16 +241,7 @@
 						<label for="tChor"> Carga Horária: </label> 
 						<input type="text" class="form-control" id="tChor">
 					</div>
-					<div class="form-group col-md-4">
-						<label for="tEcivil"> Estado Civil: </label> 
-						<select class="form-control" id="tEcivil">
-							<option></option>
-							<option>Solteiro</option>
-							<option>Casado</option>
-							<option>Viúvo</option>
-							<option>Separado</option>
-						</select>
-					</div>
+				
 					<div class="form-group col-md-4">
 						<label for="tCfam"> Composição Familiar: </label> 
 						<input type="text" class="form-control" id="tCfam">
@@ -623,20 +614,7 @@
 						<label for="HorarioPref"> Horário preferido:  </label> 
 						<input type="text" class="form-control" id="HorarioPref">
 					</div>
-					
-			<div class="form-group col-md-6">
-						<label for="idSuplemento">Faz uso de suplementos?</label> 
-						<select class="form-control" id="idSuplemento">
-							<option></option>
-							<option> Sim  </option>
-							<option> Não  </option>
-						</select>
-						<div id="inputOculto4">
-  						<input type="text" class="form-control" placeholder="Qual?"/>
-					</div>
-						</div>
-					
-					
+			
 					
 					
 					</fieldset>

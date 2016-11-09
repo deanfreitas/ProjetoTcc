@@ -72,7 +72,7 @@
 			
 				<div class="form-group col-md-6">
 						
-						<input type="text" class="form-control" id="idResp" placeholder="ResponsÃ¡vel">
+						<input type="text" class="form-control" id="idResp" placeholder="Responsável">
 					</div>
 				<div class="form-group col-md-6">
 					
@@ -116,7 +116,7 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">xÂ—</button>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x—</button>
 							<h4 class="modal-title">Digite sua Senha para continuar</h4>
 						</div>
 						<div class="modal-body">
@@ -185,7 +185,7 @@
 				
 				<div class="form-group col-md-3">
 				
-						<input type="number" class="form-control" id="idNumero" placeholder="NÂº"/>
+						<input type="number" class="form-control" id="idNumero" placeholder="Nº"/>
 				
 				</div>
 				
