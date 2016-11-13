@@ -1,4 +1,4 @@
-package br.com.projetotcc.entidades;
+package br.com.projetotcc.entidades.pessoas.dados;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +10,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import br.com.projetotcc.entidades.pessoa.Nutricionista;
+import br.com.projetotcc.entidades.pessoa.Paciente;
+import br.com.projetotcc.interfaces.InterfaceEntidade;
+
 @Entity
 @Table(name = "login")
 public class Login implements InterfaceEntidade {
@@ -18,21 +22,32 @@ public class Login implements InterfaceEntidade {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id_login", nullable = false)
+	@Column(name = "Id_Login", nullable = false)
 	private Long id;
 	
-	@Column(name = "usuario")
+	@Column(name = "Log_Usuario")
 	private String usuario;
 
-	@Column(name = "senha")
+	@Column(name = "Log_Senha")
 	private String senha;
 	
-	@JsonBackReference(value = "pessoa-login")
+	@JsonBackReference(value = "nutricionista-login")
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "login")
-	private Pessoa pessoa;
+	private Nutricionista nutricionista;
+	
+	@JsonBackReference(value = "paciente-login")
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "login")
+	private Paciente paciente;
 	
 	public Login(String usuario, String senha) {
 		super();
+		this.usuario = usuario;
+		this.senha = senha;
+	}
+	
+	public Login(Long id, String usuario, String senha) {
+		super();
+		this.id = id;
 		this.usuario = usuario;
 		this.senha = senha;
 	}
@@ -64,12 +79,20 @@ public class Login implements InterfaceEntidade {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	public Pessoa getPessoa() {
-		return pessoa;
+
+	public Nutricionista getNutricionista() {
+		return nutricionista;
 	}
 
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+	public void setNutricionista(Nutricionista nutricionista) {
+		this.nutricionista = nutricionista;
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
 	}
 }
