@@ -33,10 +33,17 @@
 	</beans:bean>
 
 	<context:component-scan base-package="br.com.projetotcc" />
-	<context:component-scan base-package="br.com.projetotcc.paginas" />
 	<context:component-scan base-package="br.com.projetotcc.bancodados" />
-	<context:component-scan base-package="br.com.projetotcc.entidades" />
+	<context:component-scan base-package="br.com.projetotcc.entidade.paciente.alimentacao" />
+	<context:component-scan base-package="br.com.projetotcc.entidade.paciente.informacao" />
+	<context:component-scan base-package="br.com.projetotcc.entidade.pessoa" />
+	<context:component-scan base-package="br.com.projetotcc.entidade.pessoa.informacao" />
+	<context:component-scan base-package="br.com.projetotcc.interfaces" />
+	<context:component-scan base-package="br.com.projetotcc.mensagem" />
+	<context:component-scan base-package="br.com.projetotcc.pagina" />
 	<context:component-scan base-package="br.com.projetotcc.seguranca" />
+	
+	<context:component-scan base-package="br.com.projetotcc.entidade.pessoa.dados" />
 
 	<context:annotation-config />
 
@@ -74,11 +81,12 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	<security:http pattern="/resources/**" security="none"/>
-	<security:http pattern="/telaCadastrarUsuario" security="none"/>
+	<security:http pattern="/telaCadastrarUsuario/**" security="none"/>
 		
 	<security:http auto-config="true">
         <security:intercept-url pattern="/" access="hasRole('ROLE_administrador')"/>
         <security:intercept-url pattern="/telaPrincipal" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>
+        <security:intercept-url pattern="/telaVitaminas" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>
         <security:intercept-url pattern="/telaAlimentos" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>
         <security:intercept-url pattern="/telaAnamnese" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>
         <security:intercept-url pattern="/telaUpdateCadastro/**" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>

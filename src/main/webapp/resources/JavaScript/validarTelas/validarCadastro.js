@@ -5,6 +5,12 @@ $(document)
 					
 					var url = window.location.href;
 					var idCasdastroPessoa = url.replace(/(\/)(\d{1,})/, "$1 $2").replace(/(^[^ ]*)/, "").trim();
+					if($.contains(url, "nutricionista")) {
+						var tipoPessoa = "nutricionista";
+					} else
+						if($.contains(url, "paciente")) {
+							var tipoPessoa = "paciente";
+						}
 					
 					function onlyNumber(fields) {
 						$(fields).unbind('keyup').bind('keyup', function(e) {
@@ -435,7 +441,7 @@ $(document)
 						alert("Formulario Apagado");
 					});
 					
-					$('#cEmail').blur(function() {
+					$('#idApelido').blur(function() {
 						var usuarioLogin = $(this).val();
 
 						var object = {usuario : usuarioLogin};
@@ -553,7 +559,7 @@ $(document)
 								};
 
 								$.ajax({
-									url: "/ProjetoTcc/salvarUsuario",
+									url: "/ProjetoTcc/salvarUsuario/" + tipoPessoa,
 									type: 'POST',
 									data: JSON.stringify(object),
 									contentType: "application/json",
@@ -606,10 +612,9 @@ $(document)
 							return false;
 						} else {
 							$('#btnLimparFormulario').toggle();
-							var object = {id : idCasdastroPessoa};
 
 							$.ajax({
-								url: "/ProjetoTcc/pegarCadastroUsuario",
+								url: "/ProjetoTcc/pegarCadastroUsuario/" + tipoPessoa + "/" + idCasdastroPessoa,
 								type: 'POST',
 								data: JSON.stringify(object),
 								contentType: "application/json",
@@ -720,6 +725,7 @@ $(document)
 							$('#idCadPaciente').show();
 							$('#idCadNutricionista').hide();
 							$('#idModalTipoCadastro').modal('toggle');
+							location.href = '/ProjetoTcc/telaCadastrarUsuario/paciente';
 
 						});
 							
@@ -727,7 +733,7 @@ $(document)
 							$('#idCadPaciente').hide();
 							$('#idCadNutricionista').show();
 							$('#idModalTipoCadastro').modal('toggle');
-							
+							location.href = '/ProjetoTcc/telaCadastrarUsuario/nutricionista';
 						});
 
 					deixarDivsInvisiveis();

@@ -13,8 +13,8 @@ import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.projetotcc.entidades.InterfaceEntidade;
-import br.com.projetotcc.entidades.Login;
+import br.com.projetotcc.entidade.pessoa.informacao.Login;
+import br.com.projetotcc.interfaces.InterfaceEntidade;
 
 @Repository
 public class BancoDados {

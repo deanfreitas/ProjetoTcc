@@ -14,9 +14,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
-import br.com.projetotcc.entidades.InterfaceEntidade;
-import br.com.projetotcc.entidades.Login;
-import br.com.projetotcc.entidades.Role;
+import br.com.projetotcc.entidade.pessoa.informacao.Login;
+import br.com.projetotcc.entidade.pessoa.informacao.Role;
+import br.com.projetotcc.interfaces.InterfaceEntidade;
+import br.com.projetotcc.interfaces.InterfacePessoa;
 
 public class AutenticacaoLogin implements UserDetailsService {
 	
@@ -27,22 +28,22 @@ public class AutenticacaoLogin implements UserDetailsService {
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String nomeUsuario) {
 		InterfaceEntidade interfaceEntidade = new Login();
-		Login loginPessoa = (Login) bancoDadosService.encontrarInformacao(interfaceEntidade, nomeUsuario);
-		if(loginPessoa != null) {
-			List<GrantedAuthority> autoridades = construirAutoridade(loginPessoa);
-			return construirUsuarioAutenticacao(loginPessoa, autoridades);
+		InterfacePessoa interfacePessoa = (InterfacePessoa) bancoDadosService.encontrarInformacao(interfaceEntidade, nomeUsuario);
+		if(interfacePessoa != null) {
+			List<GrantedAuthority> autoridades = construirAutoridade(interfacePessoa);
+			return construirUsuarioAutenticacao(interfacePessoa, autoridades);
 		}
 		return null;
 	}
 	
-	private UserDetails construirUsuarioAutenticacao(Login login, List<GrantedAuthority> autoridades) {
-        return new User(login.getUsuario(), login.getSenha(), true, true, true, true, autoridades);
+	private UserDetails construirUsuarioAutenticacao(InterfacePessoa interfacePessoa, List<GrantedAuthority> autoridades) {
+        return new User(interfacePessoa.getLogin().getUsuario(), interfacePessoa.getLogin().getSenha(), true, true, true, true, autoridades);
     }
 	
-	private List<GrantedAuthority> construirAutoridade(Login login) {
+	private List<GrantedAuthority> construirAutoridade(InterfacePessoa interfacePessoa) {
 		Set<GrantedAuthority> setAutoridades = new HashSet<GrantedAuthority>();
 
-		for(Role role : login.getPessoa().getRoles()){
+		for(Role role : interfacePessoa.getRoles()){
 			setAutoridades.add(new SimpleGrantedAuthority(role.getNameRole()));
 		}
 

@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import br.com.projetotcc.entidades.Login;
+import br.com.projetotcc.entidade.pessoa.informacao.Login;
 
 @Service
 public class SegurancaSistema {
