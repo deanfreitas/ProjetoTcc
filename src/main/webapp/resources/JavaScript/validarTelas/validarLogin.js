@@ -71,7 +71,7 @@ $(document).ready(function() {
 	});
 	
 	$('#btnCadastrar').click(function() {
-		window.location.href = '/ProjetoTcc/telaCadastrarUsuario';
+		window.location.href = '/ProjetoTcc/telaCadastrarUsuario/null';
 	});
 });
 

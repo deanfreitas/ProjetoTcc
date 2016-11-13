@@ -10,8 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.interfaces.InterfaceEntidade;
 
@@ -44,7 +42,6 @@ public class Almoco implements InterfaceEntidade {
 	@Column(name = "Alm_Quantidade")
 	private String quantidade;
 
-	@JsonManagedReference(value = "almoco-paciente")
 	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Paciente.class)
 	@JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
 	private Paciente paciente;

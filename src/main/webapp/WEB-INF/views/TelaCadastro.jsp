@@ -161,7 +161,7 @@
 			
 				<div class="form-group col-md-4">
 					
-						<input type="text" class="form-control"  id="idCPF"  placeholder="CPF" required/>
+						<input type="text" class="form-control"  id="idCPF"  placeholder="CPF" data-toggle="tooltip" title="Digite o CPF corretamente" required/>
 					
 				</div>
 				
@@ -173,7 +173,7 @@
 	
 				<div class="form-group col-md-4">
 				
-						<input type="text" class="form-control" id="idDataNascimento" placeholder="Data de Nascimento"/>
+						<input type="text" class="form-control" id="idDataNascimento" placeholder="Data de Nascimento" data-toggle="tooltip" title="Digite a data de nascimento corretamente" />
 				
 				</div>
 				
@@ -215,7 +215,7 @@
 			
 				<div class="form-group col-md-4">
 					
-						<input type="email" class="form-control"  id="idEmail"  placeholder="E-mail" data-toggle="tooltip" title="Digite o Email corretamente" required/>
+						<input type="email" class="form-control"  id="idEmail"  placeholder="E-mail" data-toggle="tooltip" title="Digite o Email corretamente" required>
 					
 				</div>
 				

@@ -5,11 +5,35 @@ $(document)
 					
 					var url = window.location.href;
 					var idCasdastroPessoa = url.replace(/(\/)(\d{1,})/, "$1 $2").replace(/(^[^ ]*)/, "").trim();
-					if($.contains(url, "nutricionista")) {
-						var tipoPessoa = "nutricionista";
+					
+//					Campos para as duas pessoas
+					var nome = $('#idNome');
+					var sexo = $("input:radio[id='radioSexo']:checked");
+					var crn = $('#idCRN');
+					var email = $('#idEmail');
+					var apelido = $('#idApelido');
+					var senha = $('#idSenha');
+					
+//					Campo para paciente
+					var responsavel = $('#idResp');
+					
+//					Campos para o nutricionista
+					var cpf = $('#idCPF');
+					var dataNascimento = $('#idDataNascimento');
+					var endereco = $('#idEndereco');
+					var numero = $('#idNumero');
+					var complemento = $('#idComplemento');
+					var telefone = $('#idTelefone');
+					var celular = $('#idCelular');
+					var comercial = $('#idComercial');
+					
+					var tipoPessoa = null;
+					
+					if(url.indexOf("nutricionista") > -1) {
+						tipoPessoa = "nutricionista";
 					} else
-						if($.contains(url, "paciente")) {
-							var tipoPessoa = "paciente";
+						if(url.indexOf("paciente") > -1) {
+							tipoPessoa = "paciente";
 						}
 					
 					function onlyNumber(fields) {
@@ -218,7 +242,7 @@ $(document)
 						});
 					}
 
-					$('#cData').blur(
+					dataNascimento.blur(
 							function() {
 								var data = $(this).val();
 								var tamanhoData = data.length;
@@ -338,7 +362,7 @@ $(document)
 
 							});
 
-					$('#cCel').blur(function() {
+					celular.blur(function() {
 						var celular = $(this).val();
 
 						celular = celular.replace(/\W/g, "");
@@ -350,7 +374,7 @@ $(document)
 						$(this).val(celular);
 					});
 
-					$('#cCom').blur(
+					comercial.blur(
 							function() {
 								var telefoneComercial = $(this).val();
 
@@ -365,7 +389,7 @@ $(document)
 								$(this).val(telefoneComercial);
 							});
 
-					$('#cTel').blur(
+					telefone.blur(
 							function() {
 								var telefoneResidencial = $(this).val();
 
@@ -380,23 +404,23 @@ $(document)
 								$(this).val(telefoneResidencial);
 							});
 
-					$('#cEmail').blur(function() {
-						var email = $(this).val();
+					email.blur(function() {
+						var emailValidar = $(this).val();
 						var emailInvalido = false;
 						var i;
 
-						for (i = 0; i < email.length; i++) {
-							if (email.charAt(i) != "@") {
+						for (i = 0; i < emailValidar.length; i++) {
+							if (emailValidar.charAt(i) != "@") {
 								emailInvalido = true;
 							}
 
-							if (email.charAt(i) == "@" && email.charAt(i) != " ") {
+							if (emailValidar.charAt(i) == "@" && emailValidar.charAt(i) != " ") {
 								emailInvalido = false;
 
-								i = email.length + 1;
+								i = emailValidar.length + 1;
 
-								for (i = 0; i < email.length; i++) {
-									if (email.charAt(i) == " ") {
+								for (i = 0; i < emailValidar.length; i++) {
+									if (emailValidar.charAt(i) == " ") {
 										emailInvalido = true;
 									}
 								}
@@ -441,7 +465,7 @@ $(document)
 						alert("Formulario Apagado");
 					});
 					
-					$('#idApelido').blur(function() {
+					apelido.blur(function() {
 						var usuarioLogin = $(this).val();
 
 						var object = {usuario : usuarioLogin};
@@ -660,21 +684,18 @@ $(document)
 					
 					function mudarFormatoData(dataField) {
 						var data = dataField;
-						var nomeBrowser = /chrome/.test(navigator.userAgent.toLowerCase());
-						
-						if(nomeBrowser) {
-							for (i = 0; i < data.length; i++) {
-								if (data.charAt(i) == "/") {
-									data = data.replace(/\W/g, "");
 
-									var dia = data.substr(0, 2);
-									var mes = data.substr(2, 2);
-									var ano = data.substr(4, 4);
+						for (i = 0; i < data.length; i++) {
+							if (data.charAt(i) == "/") {
+								data = data.replace(/\W/g, "");
 
-									data = ano + "-" + mes + "-" + dia;
-									
-									return data.trim();
-								}
+								var dia = data.substr(0, 2);
+								var mes = data.substr(2, 2);
+								var ano = data.substr(4, 4);
+
+								data = ano + "-" + mes + "-" + dia;
+
+								return data.trim();
 							}
 						}
 						return data.trim();
@@ -713,48 +734,69 @@ $(document)
 						}
 					});
 					
-					 $('#idModalTipoCadastro').modal('show');
-					 
-					 function deixarDivsInvisiveis() {
-							$('#idCadPaciente').toggle();
-							$('#idCadNutricionista').toggle();
-							
-						}
+					function deixarDivsInvisiveis() {
+						$('#idCadPaciente').toggle();
+						$('#idCadNutricionista').toggle();
+					}
 
-						$('#btnPaci').click(function() {
+					$('#btnPaci').click(function() {
+						location.href = '/ProjetoTcc/telaCadastrarUsuario/paciente';
+						$('#idCadPaciente').show();
+						$('#idCadNutricionista').hide();
+						$('#idModalTipoCadastro').modal('toggle');
+					});
+						
+					$('#btnNutri').click(function() {
+						location.href = '/ProjetoTcc/telaCadastrarUsuario/nutricionista';
+						$('#idCadPaciente').hide();
+						$('#idCadNutricionista').show();
+						$('#idModalTipoCadastro').modal('toggle');
+					});
+					
+					if(tipoPessoa == null) {
+						 $('#idModalTipoCadastro').modal('show');
+						 
+						 function deixarDivsInvisiveis() {
+								$('#idCadPaciente').toggle();
+								$('#idCadNutricionista').toggle();
+							}
+
+							$('#btnPaci').click(function() {
+								location.href = '/ProjetoTcc/telaCadastrarUsuario/paciente';
+							});
+								
+							$('#btnNutri').click(function() {
+								location.href = '/ProjetoTcc/telaCadastrarUsuario/nutricionista';
+							});
+							
+							deixarDivsInvisiveis();
+					} else 
+						if(tipoPessoa == 'paciente') {
 							$('#idCadPaciente').show();
 							$('#idCadNutricionista').hide();
-							$('#idModalTipoCadastro').modal('toggle');
-							location.href = '/ProjetoTcc/telaCadastrarUsuario/paciente';
-
-						});
-							
-						$('#btnNutri').click(function() {
-							$('#idCadPaciente').hide();
-							$('#idCadNutricionista').show();
-							$('#idModalTipoCadastro').modal('toggle');
-							location.href = '/ProjetoTcc/telaCadastrarUsuario/nutricionista';
-						});
-
-					deixarDivsInvisiveis();
+						} else 
+							if(tipoPessoa == 'nutricionista') {
+								$('#idCadPaciente').hide();
+								$('#idCadNutricionista').show();
+							}
+					
 					carregarDadosUsuario();
-					validarCamposDigitados($('input[id="cEmail"]'));
-					validarCamposDigitados($('input[id="cSenha"]'));
+					validarCamposDigitados(email);
+					validarCamposDigitados(apelido);
+					validarCamposDigitados(senha);
 					colocarMascaraCep($('input[id="cCep"]'));
-					validarRG($('input[id="cRg"]'));
-					validarCPF($('input[id="cCpf"]'));
-					onlyNumber($('input[id="cData"]'));
+					validarCPF(cpf);
+					onlyNumber(dataNascimento);
 					onlyNumber($('input[id="cCep"]'));
-					onlyNumber($('input[id="cCel"]'));
-					onlyNumber($('input[id="cRg"]'));
-					onlyNumber($('input[id="cCpf"]'));
-					onlyNumber($('input[id="cTel"]'));
-					onlyNumber($('input[id="cCom"]'));
+					onlyNumber(celular);
+					onlyNumber(cpf);
+					onlyNumber(telefone);
+					onlyNumber(comercial);
+					onlyNumber(numero);
 					$('[data-toggle="tooltip"]').tooltip();
-					$('input[id="cCpf"]').tooltip("disable");
-					$('input[id="cRg"]').tooltip("disable");
-					$('input[id="cData"]').tooltip("disable");
-					$('input[id="cEmail"]').tooltip("disable");
+					cpf.tooltip("disable");
+					dataNascimento.tooltip("disable");
+					email.tooltip("disable");
 				});
 
 
