@@ -130,7 +130,7 @@ public class TelaCadastro {
 	public @ResponseBody ResultadoServico pegarCadastroUsuario(@PathVariable(value = "idUsuario") Long id, @PathVariable(value = "tipoPessoa") String tipoPessoa) {
 		String mensagem = null;
 		InterfacePessoa interfacePessoa = null;
-		
+
 		if(tipoPessoa.equals("nutricionista")) {
 			interfacePessoa = new Nutricionista();
 		} else 
@@ -139,37 +139,61 @@ public class TelaCadastro {
 			} else {
 				mensagem = "Não foi encontrado Nenhum tipo de pessoa";
 			}
-		
-		try {
-			resultadoServico.setObjeto(bancoDadosService.encontrarInformacaoPorId(interfacePessoa, id));
-		}catch (Exception e) {
-			mensagem = "Erro no sistema";
+
+		if(mensagem == null) {
+			try {
+				resultadoServico.setObjeto(bancoDadosService.encontrarInformacaoPorId(interfacePessoa, id));
+			}catch (Exception e) {
+				mensagem = "Erro no sistema";
+			}
 		}
-		
+
 		resultadoServico.setMensagem(mensagem);
-		
+
 		return resultadoServico;
 	}
 	
-//	@RequestMapping(value = "/atualizarCadastro", method = RequestMethod.PUT)
-//	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Pessoa pessoa) {
-//		String mensagem = null;
-//		long codigo = 0;
-//		try {
-//			Pessoa dadosCastradoPessoa = (Pessoa) context.getAttribute("dadosCadastradosPessoa");
-//			pessoa.getLogin().setId(dadosCastradoPessoa.getLogin().getId());
-//			pessoa.getContato().setId(dadosCastradoPessoa.getContato().getId());
-//			pessoa.getEndereco().setId(dadosCastradoPessoa.getEndereco().getId());
-//			bancoDadosService.atualizarCadastroUsuario(pessoa);
-//			mensagem = "Cadastro atualizado com sucesso";
-//			context.setAttribute("loginUsuario", pessoa.getLogin().getUsuario());
-//		} catch (Exception e) {
-//			mensagem = "Erro ao atualizar o cadastro";
-//			codigo = 2;
-//		}
-//		resultadoServico.setMensagem(mensagem);
-//		resultadoServico.setCodigo(codigo);
-//		resultadoServico.setObjeto(null);
-//		return resultadoServico;
-//	}
+	@RequestMapping(value = "/atualizarCadastro/paciente", method = RequestMethod.PUT)
+	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Paciente paciente) {
+		String mensagem = null;
+		long codigo = 0;
+		try {
+			if(context.getAttribute("dadosCadastradosPessoa") instanceof Paciente) {
+				Paciente dadosCastradoPessoa = (Paciente) context.getAttribute("dadosCadastradosPessoa");
+				paciente.getLogin().setId(dadosCastradoPessoa.getLogin().getId());
+				bancoDadosService.atualizarCadastroUsuario(paciente);
+				mensagem = "Cadastro atualizado com sucesso";
+				context.setAttribute("loginUsuario", paciente.getLogin().getUsuario());
+			}
+		} catch (Exception e) {
+			mensagem = "Erro ao atualizar o cadastro";
+			codigo = 2;
+		}
+		resultadoServico.setMensagem(mensagem);
+		resultadoServico.setCodigo(codigo);
+		resultadoServico.setObjeto(null);
+		return resultadoServico;
+	}
+	
+	@RequestMapping(value = "/atualizarCadastro/nutricionista", method = RequestMethod.PUT)
+	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Nutricionista nutricionista) {
+		String mensagem = null;
+		long codigo = 0;
+		try {
+			if(context.getAttribute("dadosCadastradosPessoa") instanceof Nutricionista) {
+				Paciente dadosCastradoPessoa = (Paciente) context.getAttribute("dadosCadastradosPessoa");
+				nutricionista.getLogin().setId(dadosCastradoPessoa.getLogin().getId());
+				bancoDadosService.atualizarCadastroUsuario(nutricionista);
+				mensagem = "Cadastro atualizado com sucesso";
+				context.setAttribute("loginUsuario", nutricionista.getLogin().getUsuario());
+			}
+		} catch (Exception e) {
+			mensagem = "Erro ao atualizar o cadastro";
+			codigo = 2;
+		}
+		resultadoServico.setMensagem(mensagem);
+		resultadoServico.setCodigo(codigo);
+		resultadoServico.setObjeto(null);
+		return resultadoServico;
+	}
 }

@@ -50,9 +50,7 @@ $(document)
 						});
 					}
 
-					function validarCPF(cpfField) {
-
-						$(cpfField).blur(
+						cpf.blur(
 								function() {
 									var cpf = $(this).val();
 									var i;
@@ -137,7 +135,6 @@ $(document)
 									$(this).val(cpf);
 									return true;
 								});
-					}
 
 					function validarRG(rgField) {
 
@@ -440,24 +437,27 @@ $(document)
 					});
 					
 					$('#btnLimparFormulario').click(function() {
-						var nomeCompletoPessoa = $('#cNome').val('');
-						var dataNascimentoPessoa = $('#cData').val('');
-						var estadoCivilPessoa = $('#selectEcivil').val('');
-						var corPessoa = $('#selectRaca').val('');
-						var telefonePessoa = $('#cTel').val('');
-						var celularPessoa = $('#cCel').val('');
-						var telefoneComercialPessoa = $('#cCom').val('');
-						var enderecoPessoa = $('#cEnd').val('');
-						var numeroPessoa = $('#cNum').val('');
-						var complementoPessoa = $('#cCompl').val('');
-						var bairroPessoa = $('#cBairro').val('');
-						var cidadePessoa = $('#cCity').val('');
-						var estadoPessoa = $('#cUf').val('');
-						var responsavelPessoa = $('#cResp').val('');
-						var crnPessoa = $('#cCrn').val('');
-						var usuarioPessoa = $('#cEmail').val('');
-						var senhaPessoa = $('#cSenha').val('');
+						nome.val('');
+						sexo.val('');
+						crn.val('');
+						email.val('');
+						apelido.val('');
+						senha.val('');
 						
+						if(tipoPessoa == 'paciente') {
+							responsavel.val('');
+							
+						} else 
+							if(tipoPessoa == 'nutricionista') {
+								cpf.val('');
+								dataNascimento.val('');
+								endereco.val('');
+								numero.val('');
+								complemento.val('');
+								telefone.val('');
+								celular.val('');
+								comercial.val('');
+							}	
 						/*
 						 *  Mostra a mensagem de formurario apagado
 						 */
@@ -466,9 +466,7 @@ $(document)
 					});
 					
 					apelido.blur(function() {
-						var usuarioLogin = $(this).val();
-
-						var object = {usuario : usuarioLogin};
+						var object = {usuario : apelido.val()};
 
 						$.ajax({
 							url: "/ProjetoTcc/validarLoginExiste",
@@ -495,92 +493,68 @@ $(document)
 						});
 					});
 					
-					function arrumarData(dataField) {
-						var data = $(dataField).val();
-
-						for (i = 0; i < data.length; i++) {
-							if (data.charAt(i) == "-") {
-								data = data.replace(/\W/g, "");
-
-								var ano = data.substr(0, 4);
-								var mes = data.substr(4, 2);
-								var dia = data.substr(6, 2);
-
-								data = dia + "/" + mes + "/" + ano;
-								
-								return data.trim();
-							}
-						}
-						return data.trim();
-					};
-					
 					$('#btnSalvarUsuario').click(function() {
-						var nomeCompletoPessoa = $('#cNome').val().trim();
-						var sexoPessoa = $("input:radio[id='radioSexo']:checked").val();
-						var dataNascimentoPessoa = arrumarData($('input[id="cData"]'));
-						var estadoCivilPessoa = $('#selectEcivil').val().trim();
-						var corPessoa = $('#selectRaca').val().trim();
-						var telefonePessoa = $('#cTel').val().trim();
-						var celularPessoa = $('#cCel').val().trim();
-						var telefoneComercialPessoa = $('#cCom').val().trim();
-						var cepPessoa = null;
-						var enderecoPessoa = $('#cEnd').val().trim();
-						var numeroPessoa = $('#cNum').val().trim();
-						var complementoPessoa = $('#cCompl').val().trim();
-						var bairroPessoa = $('#cBairro').val().trim();
-						var cidadePessoa = $('#cCity').val().trim();
-						var estadoPessoa = $('#cUf').val().trim();
-						var responsavelPessoa = $('#cResp').val().trim();
-						var crnPessoa = $('#cCrn').val().trim();
-						var usuarioPessoa = $('#cEmail').val().trim();
-						var senhaPessoa = $('#cSenha').val();
 						var display = false;
-						
-						if(nomeCompletoPessoa == null || nomeCompletoPessoa == "") {
+
+						if(nome.val() == null || nome.val() == "") {
 							/*
 							 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite o nome
 							 */
-							$('#cNome').css("border-color", "#DC143C");
+							nome.css("border-color", "#DC143C");
 							/*
 							 *  decide oque vamos mostrar antes desse comentario
 							 */
 							display = true;
-						} 
-						
-						if(usuarioPessoa == null || usuarioPessoa == "") {
-							/*
-							 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite o email
-							 */
-							$('#cEmail').css("border-color", "#DC143C");
-							/*
-							 *  decide oque vamos mostrar antes desse comentario
-							 */
-							display = true;
-						}
-						
-						if(senhaPessoa == null || senhaPessoa == "") {
-							/*
-							 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite a senha
-							 */
-							$('#cSenha').css("border-color", "#DC143C");
-							/*
-							 *  decide oque vamos mostrar antes desse comentario
-							 */
-							display = true;
-						} 
-						
+						} else 
+							if(apelido.val() == null || apelido.val() == "") {
+								/*
+								 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite o apelido
+								 */
+								apelido.css("border-color", "#DC143C");
+								/*
+								 *  decide oque vamos mostrar antes desse comentario
+								 */
+								display = true;
+							} else
+								if(email.val() == null || email.val() == "") {
+									/*
+									 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite o email
+									 */
+									email.css("border-color", "#DC143C");
+									/*
+									 *  decide oque vamos mostrar antes desse comentario
+									 */
+									display = true;
+								} else
+									if(senha.val() == null || senha.val() == "") {
+										/*
+										 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite a senha
+										 */
+										senha.css("border-color", "#DC143C");
+										/*
+										 *  decide oque vamos mostrar antes desse comentario
+										 */
+										display = true;
+									} 
+
 						if(display) {
 							return false;
 						} else {
 							if(idCasdastroPessoa == null || idCasdastroPessoa == "") {
-
-								var object = {nomeCompleto : nomeCompletoPessoa, sexo : sexoPessoa, dataNascimento : dataNascimentoPessoa, estadoCivil : estadoCivilPessoa, 
-											responsavel : responsavelPessoa, crn : crnPessoa, cor : corPessoa, 
-										contato : {telefone : telefonePessoa, celular : celularPessoa, telefoneComercial : telefoneComercialPessoa}, 
-										endereco : {endereco : enderecoPessoa, numero : numeroPessoa, complemento : complementoPessoa, bairro : bairroPessoa,
-											cidade : cidadePessoa, estado : estadoPessoa},  
-										login : {usuario : usuarioPessoa, senha : senhaPessoa}
-								};
+								if(tipoPessoa == 'nutricionista') {
+									var object = {nomeCompleto : nome.val(), sexo : sexo.val(), dataNascimento : dataNascimento.val(), estadoCivil : estadoCivilPessoa, 
+												crn : crn.val(), email : email.val(), cpf : cpf.val(), endereco : endereco.val(), numero : numero.val(), 
+												complemento : complemento.val(), telefone : telefone.val(), celular : celular.val(), comercial : comercial.val(),
+											login : {usuario : apelido.val(), senha : senha.val()}
+									};
+								} else 
+									if(tipoPessoa == 'paciente') {
+										var object = {nomeCompleto : nome.val(), email : email.val(), responsavel : responsavel.val(), 
+											identificacao : {sexo : sexo.val()},
+											nutricionista : {crn : crn.val()},
+											login : {usuario : apelido.val(), senha : senha.val()}
+										};
+									}
 
 								$.ajax({
 									url: "/ProjetoTcc/salvarUsuario/" + tipoPessoa,
@@ -600,17 +574,21 @@ $(document)
 									}
 								});
 							} else {
-								
-								var object = {id : idCasdastroPessoa, nomeCompleto : nomeCompletoPessoa, sexo : sexoPessoa, dataNascimento : dataNascimentoPessoa, estadoCivil : estadoCivilPessoa, 
-										responsavel : responsavelPessoa, crn : crnPessoa, cor : corPessoa, 
-									contato : {telefone : telefonePessoa, celular : celularPessoa, telefoneComercial : telefoneComercialPessoa}, 
-									endereco : {endereco : enderecoPessoa, numero : numeroPessoa, complemento : complementoPessoa, bairro : bairroPessoa,
-										cidade : cidadePessoa, estado : estadoPessoa},  
-									login : {usuario : usuarioPessoa, senha : senhaPessoa}
-								};
-								
+								if(tipoPessoa == 'nutricionista') {
+									var object = {nomeCompleto : nome.val(), sexo : sexo.val(), dataNascimento : dataNascimento.val(), estadoCivil : estadoCivilPessoa, 
+												crn : crn.val(), email : email.val(), cpf : cpf.val(), endereco : endereco.val(), numero : numero.val(), 
+												complemento : complemento.val(), telefone : telefone.val(), celular : celular.val(), comercial : comercial.val(),
+											login : {usuario : apelido.val(), senha : senha.val()}
+									};
+								} else 
+									if(tipoPessoa == 'paciente') {
+										var object = {nomeCompleto : nome.val(), email : email.val(), responsavel : responsavel.val(), 
+											login : {usuario : apelido.val(), senha : senha.val()}
+										};
+									}
+
 								$.ajax({
-									url: "/ProjetoTcc/atualizarCadastro",
+									url: "/ProjetoTcc/atualizarCadastro/" + tipoPessoa,
 									type: 'PUT',
 									data: JSON.stringify(object),
 									contentType: "application/json",
@@ -682,25 +660,6 @@ $(document)
 						}
 					};
 					
-					function mudarFormatoData(dataField) {
-						var data = dataField;
-
-						for (i = 0; i < data.length; i++) {
-							if (data.charAt(i) == "/") {
-								data = data.replace(/\W/g, "");
-
-								var dia = data.substr(0, 2);
-								var mes = data.substr(2, 2);
-								var ano = data.substr(4, 4);
-
-								data = ano + "-" + mes + "-" + dia;
-
-								return data.trim();
-							}
-						}
-						return data.trim();
-					};
-					
 					$('#verificarSenha').click(function() {
 						var senhaPessoa = $('#validarSenha').val();
 						
@@ -708,28 +667,29 @@ $(document)
 							alert("Senha incorreta");
 							return false;
 						} else {
-							var nomeCompletoPessoa = $('#cNome').prop("disabled", false);
-							var sexoPessoa = $("input:radio[id='radioSexo']").prop("disabled", false);
-							var dataNascimentoPessoa = $('input[id="cData"]').prop("disabled", false);
-							var estadoCivilPessoa = $('#selectEcivil').prop("disabled", false);
-							var corPessoa = $('#selectRaca').prop("disabled", false);
-							var responsavelPessoa = $('#cResp').prop("disabled", false);
-							var crnPessoa = $('#cCrn').prop("disabled", false);
-
-							var telefonePessoa = $('#cTel').prop("disabled", false);
-							var celularPessoa = $('#cCel').prop("disabled", false);
-							var telefoneComercialPessoa = $('#cCom').prop("disabled", false);
-
-							var enderecoPessoa = $('#cEnd').prop("disabled", false);
-							var numeroPessoa = $('#cNum').prop("disabled", false);
-							var complementoPessoa = $('#cCompl').prop("disabled", false);
-							var bairroPessoa = $('#cBairro').prop("disabled", false);
-							var cidadePessoa = $('#cCity').prop("disabled", false);
-							var estadoPessoa = $('#cUf').prop("disabled", false);
-
-							var usuarioPessoa = $('#cEmail').prop("disabled", false);
-							var senhaPessoa = $('#cSenha').prop("disabled", false);
 							
+							nome.prop("disabled", false);
+							sexo.prop("disabled", false);
+							crn.prop("disabled", false);
+							email.prop("disabled", false);
+							apelido.prop("disabled", false);
+							senha.prop("disabled", false);
+							
+							if(tipoPessoa == 'paciente') {
+								responsavel.prop("disabled", false);
+								
+							} else 
+								if(tipoPessoa == 'nutricionista') {
+									cpf.prop("disabled", false);
+									dataNascimento.prop("disabled", false);
+									endereco.prop("disabled", false);
+									numero.prop("disabled", false);
+									complemento.prop("disabled", false);
+									telefone.prop("disabled", false);
+									celular.prop("disabled", false);
+									comercial.prop("disabled", false);
+								}
+			
 							return true;
 						}
 					});
@@ -785,7 +745,6 @@ $(document)
 					validarCamposDigitados(apelido);
 					validarCamposDigitados(senha);
 					colocarMascaraCep($('input[id="cCep"]'));
-					validarCPF(cpf);
 					onlyNumber(dataNascimento);
 					onlyNumber($('input[id="cCep"]'));
 					onlyNumber(celular);
@@ -798,13 +757,3 @@ $(document)
 					dataNascimento.tooltip("disable");
 					email.tooltip("disable");
 				});
-
-
-	  
-	
-
-
-
-
-
-

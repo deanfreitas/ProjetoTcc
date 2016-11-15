@@ -1,5 +1,6 @@
 package br.com.projetotcc.entidade.pessoa;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -78,6 +79,10 @@ public class Nutricionista implements InterfacePessoa {
 	@JsonBackReference(value = "paciente-role")
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "paciente")
 	private Set<Role> roles;
+	
+	@JsonManagedReference(value = "nutricionista-paciente")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "nutricionista")
+	private List<Paciente> pacientes;
 	
 	public Nutricionista() {
 		super();
@@ -201,5 +206,13 @@ public class Nutricionista implements InterfacePessoa {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public List<Paciente> getPacientes() {
+		return pacientes;
+	}
+
+	public void setPacientes(List<Paciente> pacientes) {
+		this.pacientes = pacientes;
 	}
 }

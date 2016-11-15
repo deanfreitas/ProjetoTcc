@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -105,6 +106,11 @@ public class Paciente implements InterfacePessoa {
 	@JoinColumn(name = "Id_Login", insertable = true, updatable = true)
 	private Login login;
 	
+	@JsonBackReference(value = "nutricionista-paciente")
+	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Nutricionista.class)
+	@JoinColumn(name = "id_nutricionista", insertable = true, updatable = true)
+	private Nutricionista nutricionista;
+	
 	@JsonBackReference(value = "almoco-paciente")
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
 	private List<Almoco> almocos;
@@ -137,8 +143,8 @@ public class Paciente implements InterfacePessoa {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
 	private List<UsoMedicamento> usoMedicamentos;
 	
-	@JsonBackReference(value = "nutricionista-role")
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "nutricionista")
+	@JsonBackReference(value = "paciente-role")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "paciente")
 	private Set<Role> roles;
 	
 	public Paciente() {
@@ -319,5 +325,13 @@ public class Paciente implements InterfacePessoa {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public Nutricionista getNutricionista() {
+		return nutricionista;
+	}
+
+	public void setNutricionista(Nutricionista nutricionista) {
+		this.nutricionista = nutricionista;
 	}
 }
