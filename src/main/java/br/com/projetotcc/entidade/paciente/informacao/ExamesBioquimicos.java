@@ -2,15 +2,20 @@ package br.com.projetotcc.entidade.paciente.informacao;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.com.projetotcc.interfaces.InterfaceEntidade;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import br.com.projetotcc.entidade.pessoa.Paciente;
+import br.com.projetotcc.interfaces.InterfaceDadosPaciente;
 
 @Entity
 @Table(name = "Exames_Bioquimicos")
-public class ExamesBioquimicos implements InterfaceEntidade {
+public class ExamesBioquimicos implements InterfaceDadosPaciente {
 
 	/**
 	 * 
@@ -90,6 +95,10 @@ public class ExamesBioquimicos implements InterfaceEntidade {
 	
 	@Column(name = "Bio_Acidourico")
 	private String acidourico;
+	
+	@JsonBackReference(value = "paciente-examesBioquimicos")
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "examesBioquimicos")
+	private Paciente paciente;
 	
 	public ExamesBioquimicos() {
 		super();
@@ -285,5 +294,13 @@ public class ExamesBioquimicos implements InterfaceEntidade {
 
 	public void setAcidourico(String acidourico) {
 		this.acidourico = acidourico;
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
 	}
 }

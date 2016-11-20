@@ -11,11 +11,11 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import br.com.projetotcc.entidade.pessoa.Paciente;
-import br.com.projetotcc.interfaces.InterfaceEntidade;
+import br.com.projetotcc.interfaces.InterfaceDadosPaciente;
 
 @Entity
 @Table(name = "Historico_Social_e_Familiar")
-public class HistoricoSocialFamiliar implements InterfaceEntidade {
+public class HistoricoSocialFamiliar implements InterfaceDadosPaciente {
 
 	/**
 	 * 
@@ -169,5 +169,13 @@ public class HistoricoSocialFamiliar implements InterfaceEntidade {
 
 	public void setComQuemRealizaRefeicoes(String comQuemRealizaRefeicoes) {
 		this.comQuemRealizaRefeicoes = comQuemRealizaRefeicoes;
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
 	}
 }

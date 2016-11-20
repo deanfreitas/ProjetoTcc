@@ -11,11 +11,11 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import br.com.projetotcc.entidade.pessoa.Paciente;
-import br.com.projetotcc.interfaces.InterfaceEntidade;
+import br.com.projetotcc.interfaces.InterfaceDadosPaciente;
 
 @Entity
 @Table(name = "Identificacao")
-public class Identificacao implements InterfaceEntidade {
+public class Identificacao implements InterfaceDadosPaciente {
 
 	/**
 	 * 

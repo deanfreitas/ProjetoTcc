@@ -29,6 +29,7 @@ import br.com.projetotcc.entidade.paciente.informacao.AntecedentesFamiliares;
 import br.com.projetotcc.entidade.paciente.informacao.AtividadeFisica;
 import br.com.projetotcc.entidade.paciente.informacao.DadosAntropometricos;
 import br.com.projetotcc.entidade.paciente.informacao.DadosClinicos;
+import br.com.projetotcc.entidade.paciente.informacao.ExamesBioquimicos;
 import br.com.projetotcc.entidade.paciente.informacao.FrequenciaAlimentar;
 import br.com.projetotcc.entidade.paciente.informacao.HistoricoAlimentarNutricional;
 import br.com.projetotcc.entidade.paciente.informacao.HistoricoSocialFamiliar;
@@ -96,9 +97,14 @@ public class Paciente implements InterfacePessoa {
 	@JoinColumn(name = "Id_HistoricoAlimentarNutricional", insertable = true, updatable = true)
 	private HistoricoAlimentarNutricional historicoAlimentarNutricional;
 	
+	@JsonManagedReference(value = "paciente-examesBioquimicos")
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = ExamesBioquimicos.class)
+	@JoinColumn(name = "Id_HistoricoAlimentarNutricional", insertable = true, updatable = true)
+	private ExamesBioquimicos examesBioquimicos;
+	
 	@JsonManagedReference(value = "paciente-identificacao")
 	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Identificacao.class)
-	@JoinColumn(name = "Id_identificacao", insertable = true, updatable = true)
+	@JoinColumn(name = "Id_ExamesBioquimicos", insertable = true, updatable = true)
 	private Identificacao identificacao;
 	
 	@JsonManagedReference(value = "paciente-login")
@@ -333,5 +339,13 @@ public class Paciente implements InterfacePessoa {
 
 	public void setNutricionista(Nutricionista nutricionista) {
 		this.nutricionista = nutricionista;
+	}
+
+	public ExamesBioquimicos getExamesBioquimicos() {
+		return examesBioquimicos;
+	}
+
+	public void setExamesBioquimicos(ExamesBioquimicos examesBioquimicos) {
+		this.examesBioquimicos = examesBioquimicos;
 	}
 }

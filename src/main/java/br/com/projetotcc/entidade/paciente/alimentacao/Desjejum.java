@@ -11,11 +11,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.com.projetotcc.entidade.pessoa.Paciente;
-import br.com.projetotcc.interfaces.InterfaceEntidade;
+import br.com.projetotcc.interfaces.InterfaceAlimentaresPaciente;
 
 @Entity
 @Table(name = "Desjejum")
-public class Desjejum implements InterfaceEntidade {
+public class Desjejum implements InterfaceAlimentaresPaciente {
 	
 	/**
 	 * 
