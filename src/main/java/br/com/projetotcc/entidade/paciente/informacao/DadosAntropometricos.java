@@ -93,10 +93,10 @@ public class DadosAntropometricos implements InterfaceDadosPaciente {
 	@Column(name = "Ant_EM")
 	private Double em;
 	
-	@Column(name = "Ant_%G")
+	@Column(name = "Ant_porcentG")
 	private Double g;
 	
-	@Column(name = "Ant_%MM")
+	@Column(name = "Ant_porcentMM")
 	private Double mm;
 	
 	@JsonBackReference(value = "paciente-dadosAntropometricos")

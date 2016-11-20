@@ -12,11 +12,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
-import br.com.projetotcc.interfaces.InterfaceEntidade;
+import br.com.projetotcc.interfaces.InterfaceDadosPessoa;
 
 @Entity
 @Table(name = "login")
-public class Login implements InterfaceEntidade {
+public class Login implements InterfaceDadosPessoa {
 
 	private static final long serialVersionUID = 7405967516600314828L;
 

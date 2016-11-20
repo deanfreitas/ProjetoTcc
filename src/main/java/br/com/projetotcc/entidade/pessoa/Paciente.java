@@ -99,12 +99,12 @@ public class Paciente implements InterfacePessoa {
 	
 	@JsonManagedReference(value = "paciente-examesBioquimicos")
 	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = ExamesBioquimicos.class)
-	@JoinColumn(name = "Id_HistoricoAlimentarNutricional", insertable = true, updatable = true)
+	@JoinColumn(name = "Id_ExamesBioquimicos", insertable = true, updatable = true)
 	private ExamesBioquimicos examesBioquimicos;
 	
 	@JsonManagedReference(value = "paciente-identificacao")
 	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Identificacao.class)
-	@JoinColumn(name = "Id_ExamesBioquimicos", insertable = true, updatable = true)
+	@JoinColumn(name = "Id_identificacao", insertable = true, updatable = true)
 	private Identificacao identificacao;
 	
 	@JsonManagedReference(value = "paciente-login")
@@ -112,7 +112,6 @@ public class Paciente implements InterfacePessoa {
 	@JoinColumn(name = "Id_Login", insertable = true, updatable = true)
 	private Login login;
 	
-	@JsonBackReference(value = "nutricionista-paciente")
 	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Nutricionista.class)
 	@JoinColumn(name = "id_nutricionista", insertable = true, updatable = true)
 	private Nutricionista nutricionista;
@@ -150,7 +149,7 @@ public class Paciente implements InterfacePessoa {
 	private List<UsoMedicamento> usoMedicamentos;
 	
 	@JsonBackReference(value = "paciente-role")
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "paciente")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
 	private Set<Role> roles;
 	
 	public Paciente() {

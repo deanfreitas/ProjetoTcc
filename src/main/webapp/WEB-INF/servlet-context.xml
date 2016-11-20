@@ -85,12 +85,12 @@
 		
 	<security:http auto-config="true">
         <security:intercept-url pattern="/" access="hasRole('ROLE_administrador')"/>
-        <security:intercept-url pattern="/telaPrincipal" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>
-        <security:intercept-url pattern="/telaVitaminas" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>
-        <security:intercept-url pattern="/telaAlimentos" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>
-        <security:intercept-url pattern="/telaAnamnese" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>
-        <security:intercept-url pattern="/telaUpdateCadastro/**" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>
-        <security:intercept-url pattern="/sairSistema" access="hasAnyRole('ROLE_administrador', 'ROLE_usuario', 'Role_nutricionista')"/>
+        <security:intercept-url pattern="/telaPrincipal" access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
+        <security:intercept-url pattern="/telaVitaminas" access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
+        <security:intercept-url pattern="/telaAlimentos" access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
+        <security:intercept-url pattern="/telaAnamnese" access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
+        <security:intercept-url pattern="/telaUpdateCadastro/**" access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
+        <security:intercept-url pattern="/sairSistema" access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
         <security:form-login login-page="/telaLogin"
         	default-target-url="/telaPrincipal"
         	authentication-failure-url="/telaLogin"

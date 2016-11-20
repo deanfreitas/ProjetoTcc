@@ -61,6 +61,8 @@ public class TelaCadastro {
 					mensagem = "Usuario Cadastrado com sucesso";
 					codigo = 2;
 				}catch (Exception e) {
+					System.out.println();
+					System.out.println(e);
 					mensagem = "Erro ao fazer o cadastro";
 				}
 			} else {

@@ -12,11 +12,11 @@ import javax.persistence.Table;
 
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
-import br.com.projetotcc.interfaces.InterfaceEntidade;
+import br.com.projetotcc.interfaces.InterfaceDadosPessoa;
 
 @Entity
 @Table(name = "role")
-public class Role implements InterfaceEntidade {
+public class Role implements InterfaceDadosPessoa {
 
 	private static final long serialVersionUID = 1089552982627127898L;
 	
@@ -28,11 +28,11 @@ public class Role implements InterfaceEntidade {
 	@Column(name = "Role_Name")
 	private String nameRole;
 	
-	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Paciente.class)
+	@ManyToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.LAZY, targetEntity = Paciente.class)
 	@JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
 	private Paciente paciente;
 	
-	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Nutricionista.class)
+	@ManyToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.LAZY, targetEntity = Nutricionista.class)
 	@JoinColumn(name = "id_nutricionista", insertable = true, updatable = true)
 	private Nutricionista nutricionista;
 	

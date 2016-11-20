@@ -542,9 +542,9 @@ $(document)
 						} else {
 							if(idCasdastroPessoa == null || idCasdastroPessoa == "") {
 								if(tipoPessoa == 'nutricionista') {
-									var object = {nomeCompleto : nome.val(), sexo : sexo.val(), dataNascimento : dataNascimento.val(), estadoCivil : estadoCivilPessoa, 
-												crn : crn.val(), email : email.val(), cpf : cpf.val(), endereco : endereco.val(), numero : numero.val(), 
-												complemento : complemento.val(), telefone : telefone.val(), celular : celular.val(), comercial : comercial.val(),
+									var object = {nomeCompleto : nome.val(), sexo : sexo.val(), dataNascimento : dataNascimento.val(), crn : crn.val(), 
+											email : email.val(), cpf : cpf.val(), endereco : endereco.val(), numero : numero.val(), complemento : complemento.val(), 
+											telefone : telefone.val(), celular : celular.val(), comercial : comercial.val(),
 											login : {usuario : apelido.val(), senha : senha.val()}
 									};
 								} else 

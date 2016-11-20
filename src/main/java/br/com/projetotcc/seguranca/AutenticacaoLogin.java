@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
 import br.com.projetotcc.entidade.pessoa.informacao.Role;
-import br.com.projetotcc.interfaces.InterfaceEntidade;
 import br.com.projetotcc.interfaces.InterfacePessoa;
 
 public class AutenticacaoLogin implements UserDetailsService {
@@ -27,13 +26,19 @@ public class AutenticacaoLogin implements UserDetailsService {
 	@Override
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String nomeUsuario) {
-		InterfaceEntidade interfaceEntidade = new Login();
-		InterfacePessoa interfacePessoa = (InterfacePessoa) bancoDadosService.encontrarInformacao(interfaceEntidade, nomeUsuario);
-		if(interfacePessoa != null) {
-			List<GrantedAuthority> autoridades = construirAutoridade(interfacePessoa);
-			return construirUsuarioAutenticacao(interfacePessoa, autoridades);
-		}
-		return null;
+		Login login = new Login();
+		login = (Login) bancoDadosService.encontrarInformacao(login, nomeUsuario);
+		InterfacePessoa interfacePessoa = null;
+
+		if(login.getNutricionista() != null) {
+			interfacePessoa = login.getNutricionista();
+		} else
+			if(login.getPaciente() != null) {
+				interfacePessoa = login.getPaciente();
+			}
+
+		List<GrantedAuthority> autoridades = construirAutoridade(interfacePessoa);
+		return construirUsuarioAutenticacao(interfacePessoa, autoridades);
 	}
 	
 	private UserDetails construirUsuarioAutenticacao(InterfacePessoa interfacePessoa, List<GrantedAuthority> autoridades) {

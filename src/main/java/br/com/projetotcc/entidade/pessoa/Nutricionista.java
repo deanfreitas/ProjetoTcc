@@ -22,7 +22,7 @@ import br.com.projetotcc.entidade.pessoa.informacao.Role;
 import br.com.projetotcc.interfaces.InterfacePessoa;
 
 @Entity
-@Table(name = "Paciente")
+@Table(name = "Nutricionista")
 public class Nutricionista implements InterfacePessoa {
 
 	/**
@@ -76,12 +76,11 @@ public class Nutricionista implements InterfacePessoa {
 	@JoinColumn(name = "Id_Login", insertable = true, updatable = true)
 	private Login login;
 	
-	@JsonBackReference(value = "paciente-role")
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "paciente")
+	@JsonBackReference(value = "nutricionista-role")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "nutricionista")
 	private Set<Role> roles;
 	
-	@JsonManagedReference(value = "nutricionista-paciente")
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "nutricionista")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "nutricionista")
 	private List<Paciente> pacientes;
 	
 	public Nutricionista() {
