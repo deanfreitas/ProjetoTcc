@@ -2,6 +2,7 @@ $(document).ready(function() {
 	$.material.init();
 	
 	var idUsuario;
+	var tipoUsuario;
 	pegarDadosUsuario();
 	
 	function pegarDadosUsuario() {
@@ -14,20 +15,14 @@ $(document).ready(function() {
 			contentType: "application/json",
 			dataType: 'json',
 			success: function(data, status) {
-				if(data.mensagem != null) {
-					alert(data.mensagem);
-					return false;
-				} else {
-					idUsuario = data.listaObjetos;
-					return true;
-				}
-				return false;
+				tipoUsuario = data.mensagem
+				idUsuario = data.listaObjetos;
 			}
 		});
 	};
 	
 	$('#btnAlterarDados').click(function() {
-		location.href = '/ProjetoTcc/telaUpdateCadastro/' + idUsuario;
+		location.href = '/ProjetoTcc/telaUpdateCadastro/' + tipoUsuario + '/' + idUsuario;
 	});
 });
 

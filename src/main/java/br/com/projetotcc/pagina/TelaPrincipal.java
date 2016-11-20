@@ -38,13 +38,13 @@ public class TelaPrincipal {
 		Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, context.getAttribute("loginUsuario").toString());
 		
 		if(loginCadastrado != null) {
-			if(context.getAttribute("tipoUsuario").toString().equals("nutricionista")) {
+			if(loginCadastrado.getNutricionista() != null) {
 				context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getNutricionista());
 				mensagem = "nutricionista";
 				
 				resultadoServico.setObjeto(loginCadastrado.getNutricionista().getId());
 			} else 
-				if(context.getAttribute("tipoUsuario").toString().equals("paciente")) {
+				if(loginCadastrado.getPaciente() != null) {
 					context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getPaciente());
 					mensagem = "paciente";
 					

@@ -59,12 +59,6 @@ public class TelaLogin {
 						if(loginUsuario.getSenha().equals(login.getSenha())) {
 							segurancaSistema.autenticarlogin(loginUsuario);
 							context.setAttribute("loginUsuario", login.getUsuario());
-							if(login.getNutricionista() != null) {
-								context.setAttribute("tipoUsuario", "nutricionista");
-							} else
-								if(login.getPaciente() != null) {
-									context.setAttribute("tipoUsuario", "paciente");
-								}
 						} else {
 							mensagem = "Usuario ou senha inválido";
 						}
