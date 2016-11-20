@@ -145,8 +145,8 @@
                                                 ficar energizados durante todo o dia.
                                             </p>
                                             <p>
-                                                <a href="#" class="btn btn-primary" id="btnVitaminaB" role="button">Onde encontrá-las?</a>
-                                                <a href="#" class="btn btn-default" id="btnQuaisVitB" role="button">Quais são?</a>
+                                                <a class="btn btn-primary" id="btnVitaminaB" role="button">Onde encontrá-las?</a>
+                                                <a class="btn btn-default" id="btnQuaisVitB" role="button">Quais são?</a>
                                             </p>
                                         </div>
                                     </div>
@@ -194,7 +194,7 @@
                                             <br>
                                             <br>
                                             <p>
-                                                <a href="#" class="btn btn-primary" id="btnVitaminaBreturn" role="button">Voltar</a>
+                                                <a class="btn btn-primary" id="btnVitaminaBreturn" role="button">Voltar</a>
                                             </p>
                                         </div>
                                     </div>
@@ -262,7 +262,7 @@
                                             <br>
                                             <br>
                                             <p>
-                                                <a href="#" class="btn btn-primary" id="btnVitaminaC" role="button">Onde encontrá-la?</a>
+                                                <a class="btn btn-primary" id="btnVitaminaC" role="button">Onde encontrá-la?</a>
                                             </p>
                                         </div>
                                     </div>
@@ -333,7 +333,7 @@
                                             <br>
                                             <br>
                                             <p>
-                                                <a href="#" class="btn btn-primary" id="btnVitaminaD" role="button">Onde encontrá-la?</a>
+                                                <a class="btn btn-primary" id="btnVitaminaD" role="button">Onde encontrá-la?</a>
                                             </p>
                                         </div>
                                     </div>
@@ -397,7 +397,7 @@
                                                 risco de problemas de saúde, como a doença cardíaca ou cancro.
                                             </p>
                                             <p>
-                                                <a href="#" class="btn btn-primary" id="btnVitaminaE" role="button">Onde encontrá-la?</a>
+                                                <a class="btn btn-primary" id="btnVitaminaE" role="button">Onde encontrá-la?</a>
                                             </p>
                                         </div>
                                     </div>
@@ -460,7 +460,7 @@
                                                  evitando assim hemorragias e facilitando a cicatrização.
                                             </p>
                                             <p><br><br><br><br>
-                                                <a href="#" class="btn btn-primary" id="btnVitaminaK" role="button">Onde encontrá-la?</a>
+                                                <a class="btn btn-primary" id="btnVitaminaK" role="button">Onde encontrá-la?</a>
                                             </p>
                                         </div>
                                     </div>
