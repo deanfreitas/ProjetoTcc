@@ -13,6 +13,7 @@ import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 
+import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
 import br.com.projetotcc.interfaces.InterfaceEntidade;
 
@@ -70,7 +71,10 @@ public class BancoDados {
         
         if(interfaceEntidade instanceof Login) {
         	createQuery.where(criteriaBuilder.equal(rootEntry.get("usuario"), parameterExpression));
-		}
+		} else 
+			if(interfaceEntidade instanceof Nutricionista) {
+				createQuery.where(criteriaBuilder.equal(rootEntry.get("crn"), parameterExpression));
+			}
         
         TypedQuery<InterfaceEntidade> typedQuery = entityManager.createQuery(createQuery);
         typedQuery.setParameter(parameterExpression, informacaoUsuario);

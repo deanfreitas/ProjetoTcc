@@ -91,13 +91,25 @@ public class TelaCadastro {
 		} else {
 			Login loginPessoa = (Login) bancoDadosService.encontrarInformacao(paciente.getLogin(), paciente.getLogin().getUsuario());
 			if(loginPessoa == null) {
-				try {
-					Role role = new Role("ROLE_paciente", paciente);
-					bancoDadosService.adicionarUsuario(role);
-					mensagem = "Usuario Cadastrado com sucesso";
-					codigo = 2;
-				}catch (Exception e) {
-					mensagem = "Erro ao fazer o cadastro";
+				Nutricionista nutricionista = (Nutricionista) bancoDadosService.encontrarInformacao(paciente.getNutricionista(), paciente.getNutricionista().getCrn());
+				if(nutricionista.getCrn().equals(paciente.getNutricionista().getCrn())) {
+					for(Paciente pacienteNutricionista : nutricionista.getPacientes()) {
+						if(pacienteNutricionista.getNomeCompleto().equals(paciente.getNomeCompleto())) {
+							try {
+								Role role = new Role("ROLE_paciente", paciente);
+								bancoDadosService.adicionarUsuario(role);
+								mensagem = "Usuario Cadastrado com sucesso";
+								codigo = 2;
+							}catch (Exception e) {
+								mensagem = "Erro ao fazer o cadastro";
+							}
+							break;
+						} else {
+							mensagem = "Você não é paciente desse medico com esse Crn: " + paciente.getNutricionista().getCrn();
+						}
+					}
+				} else {
+					mensagem = "Esse Crn " + paciente.getNutricionista().getCrn() + " não esta cadastrado no sistema";
 				}
 			} else {
 				mensagem = "Já tem um login Igual a esse";
