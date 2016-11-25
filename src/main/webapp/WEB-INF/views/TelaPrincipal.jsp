@@ -40,7 +40,7 @@
 						<li><a type="button" href="/ProjetoTcc/telaPaciente">Paciente</a></li>
 						<li><a type="button" id="btnAlimentos" href="/ProjetoTcc/telaAlimentos">Alimentos</a></li>
 						<li><a type="button" href="/ProjetoTcc/telaVitaminas">Vitaminas</a></li>
-						<li><a type="button" href="javascript:void(0)">Resultados</a></li>
+						<li><a type="button" href="/ProjetoTcc/telaResultados">Resultados</a></li>
 						<li><a type="button" href="javascript:void(0)">Avaliação</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">

@@ -27,19 +27,22 @@
 
 <body>
 	<div class="navbar navbar-default">
-		<div class="col-md-12">
-			<div class="col-md-4" id="logo">
-				<img src="<c:url value = '/resources/Imagens/imagensTelas/novologotransp.png' />" />
-			</div>
-			<div class="col-md-4" id="titulo">
-				<h1>Alimentos</h1>
-			</div>
-			<div class="col-md-4" id="botao">
-				<a href="/ProjetoTcc/telaPrincipal" id="voltar" class="btn btn-default btn-fab"> 
+		 <div class="col-md-12">
+                            <div class="col-md-4" id="logo">
+                                <img src="<c:url value = '/resources/Imagens/imagensTelas/novologotransp.png' />"
+                                />
+                            </div>
+                            <div class="col-md-4" id="titulo">
+                                <h1>
+                                    Alimentos
+                                </h1>
+                            </div>
+                            <div class="col-md-4" id="botao">
+                                <a href="/ProjetoTcc/telaPrincipal" id="voltar" class="btn btn-default btn-fab"> 
 					<i class="material-icons">reply</i>
 				</a>
-			</div>
-		</div>
+                            </div>
+                        </div>
 	</div>
 	<div class="container-fluid col-md-12">
 		<div class="jumbotron">
