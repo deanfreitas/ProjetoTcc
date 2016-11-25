@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class TelaPaciente {
 
 	@RequestMapping(value = "/telaPaciente", method = RequestMethod.GET)
-	public ModelAndView aparecerTelaCadastro() {
+	public ModelAndView aparecerTelaPaciente() {
 		return new ModelAndView("TelaPaciente");
 	}
 }

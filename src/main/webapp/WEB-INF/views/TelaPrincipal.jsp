@@ -37,11 +37,11 @@
 					<ul class="nav navbar-nav">
 						<!-- Varios botoes -->
 						<li class="active"><a type="button" id="btnPerfil" href="/ProjetoTcc/telaAnamnese">Perfil</a></li>
-						<li><a type="button" href="/ProjetoTcc/telaPaciente">Paciente</a></li>
+						<li><a type="button" id="btnPaciente" href="/ProjetoTcc/telaPaciente">Paciente</a></li>
 						<li><a type="button" id="btnAlimentos" href="/ProjetoTcc/telaAlimentos">Alimentos</a></li>
-						<li><a type="button" href="/ProjetoTcc/telaVitaminas">Vitaminas</a></li>
-						<li><a type="button" href="/ProjetoTcc/telaResultados">Resultados</a></li>
-						<li><a type="button" href="javascript:void(0)">Avaliação</a></li>
+						<li><a type="button" id="btnVitamininas" href="/ProjetoTcc/telaVitaminas">Vitaminas</a></li>
+						<li><a type="button" id="btnResultados" href="/ProjetoTcc/telaResultados">Resultados</a></li>
+						<li><a type="button" id="btnAvaliacao" href="javascript:void(0)">Avaliação</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
