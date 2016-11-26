@@ -267,7 +267,6 @@ $(document).ready(function () {
 		$('#divHistoricoAlimentar').toggle();
 		$('#divExamesBio').toggle();
 		$('#divUsoMedicamentos').toggle();
-		$('#divRecordata').toggle();
 		$('#divFrequenciaAlimentar').toggle();
 	}
 
@@ -280,7 +279,6 @@ $(document).ready(function () {
 		$('#divHistoricoAlimentar').hide();
 		$('#divExamesBio').hide();
 		$('#divUsoMedicamentos').hide();
-		$('#divRecordata').hide();
 		$('#divFrequenciaAlimentar').hide();
 	});
 
@@ -293,7 +291,6 @@ $(document).ready(function () {
 		$('#divHistoricoAlimentar').hide();
 		$('#divExamesBio').hide();
 		$('#divUsoMedicamentos').hide();
-		$('#divRecordata').hide();
 		$('#divFrequenciaAlimentar').hide();
 	});
 
@@ -306,7 +303,6 @@ $(document).ready(function () {
 		$('#divHistoricoAlimentar').hide();
 		$('#divExamesBio').hide();
 		$('#divUsoMedicamentos').hide();
-		$('#divRecordata').hide();
 		$('#divFrequenciaAlimentar').hide();
 	});
 
@@ -319,7 +315,6 @@ $(document).ready(function () {
 		$('#divHistoricoAlimentar').hide();
 		$('#divExamesBio').hide();
 		$('#divUsoMedicamentos').hide();
-		$('#divRecordata').hide();
 		$('#divFrequenciaAlimentar').hide();
 	});
 
@@ -332,7 +327,6 @@ $(document).ready(function () {
 		$('#divHistoricoAlimentar').hide();
 		$('#divExamesBio').hide();
 		$('#divUsoMedicamentos').hide();
-		$('#divRecordata').hide();
 		$('#divFrequenciaAlimentar').hide();
 	});
 
@@ -345,7 +339,6 @@ $(document).ready(function () {
 		$('#divHistoricoAlimentar').show();
 		$('#divExamesBio').hide();
 		$('#divUsoMedicamentos').hide();
-		$('#divRecordata').hide();
 		$('#divFrequenciaAlimentar').hide();
 	});
 
@@ -358,7 +351,6 @@ $(document).ready(function () {
 		$('#divHistoricoAlimentar').hide();
 		$('#divExamesBio').show();
 		$('#divUsoMedicamentos').hide();
-		$('#divRecordata').hide();
 		$('#divFrequenciaAlimentar').hide();
 	});
 
@@ -371,7 +363,6 @@ $(document).ready(function () {
 		$('#divHistoricoAlimentar').hide();
 		$('#divExamesBio').hide();
 		$('#divUsoMedicamentos').show();
-		$('#divRecordata').hide();
 		$('#divFrequenciaAlimentar').hide();
 	});
 
@@ -384,22 +375,10 @@ $(document).ready(function () {
 		$('#divHistoricoAlimentar').hide();
 		$('#divExamesBio').hide();
 		$('#divUsoMedicamentos').hide();
-		$('#divRecordata').show();
-		$('#divFrequenciaAlimentar').hide();
-	});
-
-	$('#btnFrequenciaAlimentar').click(function () {
-		$('#divIdentificacao').hide();
-		$('#divHistoricoFamiliar').hide();
-		$('#divDadosAntropo').hide();
-		$('#divDadosClinicos').hide();
-		$('#divAtividadeFisica').hide();
-		$('#divHistoricoAlimentar').hide();
-		$('#divExamesBio').hide();
-		$('#divUsoMedicamentos').hide();
-		$('#divRecordata').hide();
 		$('#divFrequenciaAlimentar').show();
 	});
+
+
 
 	$('#inputOculto').hide();
 	$('#HabIntestinal').change(function () {
@@ -756,245 +735,7 @@ $(document).ready(function () {
 			}, {
 				type: "control"
 			}]
-		});
-
-	});
-
-	$(function () {
-
-		jsGrid.locale("pt-br");
-
-		$("#jsGrid4").jsGrid({
-			height: "300px",
-			width: "100%",
-			filtering: true,
-			editing: true,
-			inserting: true,
-			sorting: true,
-			paging: true,
-			autoload: true,
-			pageSize: 15,
-			pageButtonCount: 5,
-			deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
-			controller: db,
-			fields: [{
-				name: "Alimento ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				name: "Quantidade ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				type: "control"
-			}]
-		});
-
-	});
-
-	$(function () {
-
-		jsGrid.locale("pt-br");
-
-		$("#jsGrid5").jsGrid({
-			height: "300px",
-			width: "100%",
-			filtering: true,
-			editing: true,
-			inserting: true,
-			sorting: true,
-			paging: true,
-			autoload: true,
-			pageSize: 15,
-			pageButtonCount: 5,
-			deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
-			controller: db,
-			fields: [{
-				name: "Alimento ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				name: "Quantidade ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				type: "control"
-			}]
-		});
-
-	});
-
-	$(function () {
-
-		jsGrid.locale("pt-br");
-
-		$("#jsGrid6").jsGrid({
-			height: "300px",
-			width: "100%",
-			filtering: true,
-			editing: true,
-			inserting: true,
-			sorting: true,
-			paging: true,
-			autoload: true,
-			pageSize: 15,
-			pageButtonCount: 5,
-			deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
-			controller: db,
-			fields: [{
-				name: "Alimento ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				name: "Quantidade ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				type: "control"
-			}]
-		});
-
-	});
-
-	$(function () {
-
-		jsGrid.locale("pt-br");
-
-		$("#jsGrid7").jsGrid({
-			height: "300px",
-			width: "100%",
-			filtering: true,
-			editing: true,
-			inserting: true,
-			sorting: true,
-			paging: true,
-			autoload: true,
-			pageSize: 15,
-			pageButtonCount: 5,
-			deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
-			controller: db,
-			fields: [{
-				name: "Alimento ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				name: "Quantidade ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				type: "control"
-			}]
-		});
-
-	});
-
-	$(function () {
-
-		jsGrid.locale("pt-br");
-
-		$("#jsGrid8").jsGrid({
-			height: "300px",
-			width: "100%",
-			filtering: true,
-			editing: true,
-			inserting: true,
-			sorting: true,
-			paging: true,
-			autoload: true,
-			pageSize: 15,
-			pageButtonCount: 5,
-			deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
-			controller: db,
-			fields: [{
-				name: "Alimento ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				name: "Quantidade ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				type: "control"
-			}]
-		});
-
-	});
-
-	$(function () {
-
-		jsGrid.locale("pt-br");
-
-		$("#jsGrid9").jsGrid({
-			height: "300px",
-			width: "100%",
-			filtering: true,
-			editing: true,
-			inserting: true,
-			sorting: true,
-			paging: true,
-			autoload: true,
-			pageSize: 15,
-			pageButtonCount: 5,
-			deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
-			controller: db,
-			fields: [{
-				name: "Alimento ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				name: "Quantidade ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				type: "control"
-			}]
-		});
-
-	});
-
-	$(function () {
-
-		jsGrid.locale("pt-br");
-
-		$("#jsGrid10").jsGrid({
-			height: "300px",
-			width: "100%",
-			filtering: true,
-			editing: true,
-			inserting: true,
-			sorting: true,
-			paging: true,
-			autoload: true,
-			pageSize: 15,
-			pageButtonCount: 5,
-			deleteConfirm: "Você tem certeza que deseja apagar esse dado?",
-			controller: db,
-			fields: [{
-				name: "Alimento ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				name: "Quantidade ",
-				type: "text",
-				width: 70,
-				validate: "required"
-			}, {
-				type: "control"
-			}]
-		});
+		})
 
 	});
 
