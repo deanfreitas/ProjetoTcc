@@ -465,7 +465,7 @@
 						</select>
 						<!-- ESSA DIV É PARA O PACIENTE COLOCAR A OPÇÃO CASO ELE SELECIONE O CAMPO OUTRO DO SELECT -->
 						<div id="inputOculto">
-  						<input type="text" class="form-control" />
+  						<input type="text" class="form-control" id="observacaoHabitoIntestinal" />
 					</div>
 					</div>
 					
@@ -479,7 +479,7 @@
 							<option>  Outro </option>
 						</select>
 						<div id="inputOculto2">
-  						<input type="text" class="form-control" />
+  						<input type="text" class="form-control" id="observacaoFezes"/>
 					</div>
 						</div>
 						
