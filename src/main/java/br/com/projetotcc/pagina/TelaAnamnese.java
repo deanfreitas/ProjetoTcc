@@ -11,11 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
-import br.com.projetotcc.entidade.paciente.informacao.Identificacao;
-import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
-import br.com.projetotcc.entidade.pessoa.informacao.Login;
-import br.com.projetotcc.entidade.pessoa.informacao.Role;
 import br.com.projetotcc.mensagem.ResultadoServico;
 
 @Controller
