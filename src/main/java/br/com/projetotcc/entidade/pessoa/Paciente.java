@@ -112,6 +112,7 @@ public class Paciente implements InterfacePessoa {
 	@JoinColumn(name = "Id_Login", insertable = true, updatable = true)
 	private Login login;
 	
+	@JsonBackReference(value = "nutricionista-pacientes")
 	@ManyToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.LAZY, targetEntity = Nutricionista.class)
 	@JoinColumn(name = "id_nutricionista", insertable = true, updatable = true)
 	private Nutricionista nutricionista;

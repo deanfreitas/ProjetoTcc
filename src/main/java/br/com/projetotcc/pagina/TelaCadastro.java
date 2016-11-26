@@ -59,7 +59,7 @@ public class TelaCadastro {
 					Role role = new Role("ROLE_nutricionista", nutricionista);
 					bancoDadosService.adicionarUsuario(role);
 					mensagem = "Usuario Cadastrado com sucesso";
-					codigo = 2;
+					codigo = 1;
 				}catch (Exception e) {
 					System.out.println();
 					System.out.println(e);
@@ -99,7 +99,7 @@ public class TelaCadastro {
 								Role role = new Role("ROLE_paciente", paciente);
 								bancoDadosService.adicionarUsuario(role);
 								mensagem = "Usuario Cadastrado com sucesso";
-								codigo = 2;
+								codigo = 1;
 							}catch (Exception e) {
 								mensagem = "Erro ao fazer o cadastro";
 							}
@@ -140,28 +140,35 @@ public class TelaCadastro {
 		return resultadoServico;
 	}
 	
-	@RequestMapping(value = "/pegarCadastroUsuario/{tipoPessoa}/{idUsuario}", method = RequestMethod.POST)
+	@RequestMapping(value = "/pegarCadastroUsuario/{tipoPessoa}/{idUsuario}", method = RequestMethod.GET)
 	public @ResponseBody ResultadoServico pegarCadastroUsuario(@PathVariable(value = "idUsuario") Long id, @PathVariable(value = "tipoPessoa") String tipoPessoa) {
 		String mensagem = null;
+		long codigo = 0;
 		InterfacePessoa interfacePessoa = null;
 
 		if(tipoPessoa.equals("nutricionista")) {
 			interfacePessoa = new Nutricionista();
+			mensagem = "nutricionista";
 		} else 
 			if(tipoPessoa.equals("paciente")) {
 				interfacePessoa = new Paciente();
+				mensagem = "paciente";
 			} else {
-				mensagem = "Não foi encontrado Nenhum tipo de pessoa";
+				codigo = 1;
 			}
 
-		if(mensagem == null) {
+		if(mensagem != null) {
 			try {
 				resultadoServico.setObjeto(bancoDadosService.encontrarInformacaoPorId(interfacePessoa, id));
 			}catch (Exception e) {
+				codigo = 1;
 				mensagem = "Erro no sistema";
 			}
+		} else {
+			mensagem = "Não foi encontrado Nenhum tipo de pessoa";
 		}
 
+		resultadoServico.setCodigo(codigo);
 		resultadoServico.setMensagem(mensagem);
 
 		return resultadoServico;
@@ -181,7 +188,7 @@ public class TelaCadastro {
 			}
 		} catch (Exception e) {
 			mensagem = "Erro ao atualizar o cadastro";
-			codigo = 2;
+			codigo = 1;
 		}
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
@@ -196,6 +203,7 @@ public class TelaCadastro {
 		try {
 			if(context.getAttribute("dadosCadastradosPessoa") instanceof Nutricionista) {
 				Nutricionista dadosCastradoPessoa = (Nutricionista) context.getAttribute("dadosCadastradosPessoa");
+				nutricionista.setId(dadosCastradoPessoa.getId());
 				nutricionista.getLogin().setId(dadosCastradoPessoa.getLogin().getId());
 				bancoDadosService.atualizarCadastroUsuario(nutricionista);
 				mensagem = "Cadastro atualizado com sucesso";
@@ -203,7 +211,7 @@ public class TelaCadastro {
 			}
 		} catch (Exception e) {
 			mensagem = "Erro ao atualizar o cadastro";
-			codigo = 2;
+			codigo = 1;
 		}
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);

@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
@@ -76,11 +76,12 @@ public class Nutricionista implements InterfacePessoa {
 	@JoinColumn(name = "Id_Login", insertable = true, updatable = true)
 	private Login login;
 	
-	@JsonBackReference(value = "nutricionista-role")
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "nutricionista")
 	private Set<Role> roles;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "nutricionista")
+	@JsonManagedReference(value = "nutricionista-pacientes")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "nutricionista")
 	private List<Paciente> pacientes;
 	
 	public Nutricionista() {

@@ -93,6 +93,7 @@
         <security:intercept-url pattern="/telaResultados" access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
         <security:intercept-url pattern="/telaDiarioAlimentar" access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
         <security:intercept-url pattern="/telaUpdateCadastro/**" access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
+        <security:intercept-url pattern="/pegarCadastroUsuario/**" access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
         <security:intercept-url pattern="/sairSistema" access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
         <security:form-login login-page="/telaLogin"
         	default-target-url="/telaPrincipal"

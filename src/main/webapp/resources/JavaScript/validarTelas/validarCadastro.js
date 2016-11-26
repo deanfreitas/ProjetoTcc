@@ -540,19 +540,21 @@ $(document)
 			if (display) {
 				return false;
 			} else {
+				let object;
+
 				if (idCasdastroPessoa == null || idCasdastroPessoa == "") {
 					if (tipoPessoa == 'nutricionista') {
-						let object = {
-							nomeCompleto: nome.val(), sexo: sexo.val(), dataNascimento: dataNascimento.val(), crn: crn.val(),
+						object = {
+							nomeCompleto: nome.val(), sexo: $("input:radio[id='radioSexo']:checked").val(), dataNascimento: dataNascimento.val(), crn: crn.val(),
 							email: email.val(), cpf: cpf.val(), endereco: endereco.val(), numero: numero.val(), complemento: complemento.val(),
 							telefone: telefone.val(), celular: celular.val(), comercial: comercial.val(),
 							login: { usuario: apelido.val(), senha: senha.val() }
 						};
 					} else
 						if (tipoPessoa == 'paciente') {
-							let object = {
+							object = {
 								nomeCompleto: nome.val(), email: email.val(), responsavel: responsavel.val(),
-								identificacao: { sexo: sexo.val() },
+								identificacao: { sexo: $("input:radio[id='radioSexo']:checked").val() },
 								nutricionista: { crn: crn.val() },
 								login: { usuario: apelido.val(), senha: senha.val() }
 							};
@@ -565,7 +567,7 @@ $(document)
 						contentType: "application/json",
 						dataType: 'json',
 						success: function (data, status) {
-							if (data.codigo != 2) {
+							if (data.codigo != 0) {
 								alert(data.mensagem);
 								return false;
 							} else {
@@ -576,16 +578,18 @@ $(document)
 						}
 					});
 				} else {
+					let object;
+		
 					if (tipoPessoa == 'nutricionista') {
-						let object = {
-							nomeCompleto: nome.val(), sexo: sexo.val(), dataNascimento: dataNascimento.val(), estadoCivil: estadoCivilPessoa,
-							crn: crn.val(), email: email.val(), cpf: cpf.val(), endereco: endereco.val(), numero: numero.val(),
+						object = {
+							nomeCompleto: nome.val(), sexo: $("input:radio[id='radioSexo']:checked").val(), dataNascimento: dataNascimento.val(),crn: crn.val(), 
+							email: email.val(), cpf: cpf.val(), endereco: endereco.val(), numero: numero.val(),
 							complemento: complemento.val(), telefone: telefone.val(), celular: celular.val(), comercial: comercial.val(),
 							login: { usuario: apelido.val(), senha: senha.val() }
 						};
 					} else
 						if (tipoPessoa == 'paciente') {
-							let object = {
+							object = {
 								nomeCompleto: nome.val(), email: email.val(), responsavel: responsavel.val(),
 								login: { usuario: apelido.val(), senha: senha.val() }
 							};
@@ -598,7 +602,7 @@ $(document)
 						contentType: "application/json",
 						dataType: 'json',
 						success: function (data, status) {
-							if (data.codigo == 2) {
+							if (data.codigo != 0) {
 								alert(data.mensagem);
 								return false;
 							} else {
@@ -621,41 +625,40 @@ $(document)
 
 				$.ajax({
 					url: "/ProjetoTcc/pegarCadastroUsuario/" + tipoPessoa + "/" + idCasdastroPessoa,
-					type: 'POST',
-					data: JSON.stringify(object),
+					type: 'GET',
 					contentType: "application/json",
 					dataType: 'json',
 					success: function (data, status) {
-						if (data.mensagem != null) {
+						if (data.codigo != 0) {
 							alert(data.mensagem);
 							return false;
 						} else {
-							for (var i in data.listaObjetos) {
-								var nomeCompletoPessoa = $('#cNome').val(data.listaObjetos[i].nomeCompleto.trim()).prop("disabled", true);
-								var sexoPessoa = $("input:radio[id='radioSexo']").prop("disabled", true);
+							nome.val(data.objeto.nomeCompleto.trim()).prop("disabled", true);
+							let sexoPessoa = $("input:radio[id='radioSexo']").prop("disabled", true);
+							if (data.objeto.sexo != null) {
 								if (sexoPessoa.is(':checked') === false) {
-									sexoPessoa.filter('[value=' + data.listaObjetos[i].sexo.trim() + ']').prop('checked', true);
+									sexoPessoa.filter('[value=' + data.objeto.sexo.trim() + ']').prop('checked', true);
 								}
-								var dataNascimentoPessoa = $('input[id="cData"]').val(mudarFormatoData(data.listaObjetos[i].dataNascimento)).prop("disabled", true);
-								var estadoCivilPessoa = $('#selectEcivil').val(data.listaObjetos[i].estadoCivil.trim()).prop("disabled", true);
-								var corPessoa = $('#selectRaca').val(data.listaObjetos[i].cor.trim()).prop("disabled", true);
-								var responsavelPessoa = $('#cResp').val(data.listaObjetos[i].responsavel.trim()).prop("disabled", true);
-								var crnPessoa = $('#cCrn').val(data.listaObjetos[i].crn.trim()).prop("disabled", true);
-
-								var telefonePessoa = $('#cTel').val(data.listaObjetos[i].contato.telefone.trim()).prop("disabled", true);
-								var celularPessoa = $('#cCel').val(data.listaObjetos[i].contato.celular.trim()).prop("disabled", true);
-								var telefoneComercialPessoa = $('#cCom').val(data.listaObjetos[i].contato.telefoneComercial.trim()).prop("disabled", true);
-
-								var enderecoPessoa = $('#cEnd').val(data.listaObjetos[i].endereco.endereco.trim()).prop("disabled", true);
-								var numeroPessoa = $('#cNum').val(data.listaObjetos[i].endereco.numero).prop("disabled", true);
-								var complementoPessoa = $('#cCompl').val(data.listaObjetos[i].endereco.complemento.trim()).prop("disabled", true);
-								var bairroPessoa = $('#cBairro').val(data.listaObjetos[i].endereco.bairro.trim()).prop("disabled", true);
-								var cidadePessoa = $('#cCity').val(data.listaObjetos[i].endereco.cidade.trim()).prop("disabled", true);
-								var estadoPessoa = $('#cUf').val(data.listaObjetos[i].endereco.estado.trim()).prop("disabled", true);
-
-								var usuarioPessoa = $('#cEmail').val(data.listaObjetos[i].login.usuario.trim()).prop("disabled", true);
-								var senhaPessoa = $('#cSenha').val(data.listaObjetos[i].login.senha.trim()).prop("disabled", true);
 							}
+							email.val(data.objeto.email.trim()).prop("disabled", true);
+							apelido.val(data.objeto.login.usuario.trim()).prop("disabled", true);
+							senha.val(data.objeto.login.senha.trim()).prop("disabled", true);
+
+							if (data.mensagem == 'paciente') {
+								responsavel.val(data.objeto.crn.trim()).prop("disabled", true);
+								crn.toggle();
+							} else
+								if (data.mensagem == 'nutricionista') {
+									cpf.val(data.objeto.cpf.trim()).prop("disabled", true);
+									dataNascimento.val(data.objeto.dataNascimento.trim()).prop("disabled", true);
+									endereco.val(data.objeto.endereco.trim()).prop("disabled", true);
+									numero.val(data.objeto.numero.trim()).prop("disabled", true);
+									complemento.val(data.objeto.complemento).prop("disabled", true);
+									telefone.val(data.objeto.telefone.trim()).prop("disabled", true);
+									celular.val(data.objeto.celular.trim()).prop("disabled", true);
+									comercial.val(data.objeto.comercial.trim()).prop("disabled", true);
+									crn.val(data.objeto.crn).prop("disabled", true);
+								}
 							return true;
 						}
 					}
@@ -666,14 +669,14 @@ $(document)
 		$('#verificarSenha').click(function () {
 			let senhaPessoa = $('#validarSenha').val();
 
-			if (senhaPessoa != $('#cSenha').val()) {
+			if (senhaPessoa != senha.val()) {
 				alert("Senha incorreta");
+				$('#validarSenha').val('');
 				return false;
 			} else {
 
 				nome.prop("disabled", false);
 				sexo.prop("disabled", false);
-				crn.prop("disabled", false);
 				email.prop("disabled", false);
 				apelido.prop("disabled", false);
 				senha.prop("disabled", false);
@@ -683,6 +686,7 @@ $(document)
 
 				} else
 					if (tipoPessoa == 'nutricionista') {
+						let sexoPessoa = $("input:radio[id='radioSexo']").prop("disabled", false)
 						cpf.prop("disabled", false);
 						dataNascimento.prop("disabled", false);
 						endereco.prop("disabled", false);
@@ -691,11 +695,16 @@ $(document)
 						telefone.prop("disabled", false);
 						celular.prop("disabled", false);
 						comercial.prop("disabled", false);
+						crn.prop("disabled", false);
 					}
 
 				return true;
 			}
 		});
+
+		$('#cancelarVerificarSenha').click(function () {
+			let senhaPessoa = $('#validarSenha').val('');
+		}); 
 
 		function deixarDivsInvisiveis() {
 			$('#idCadPaciente').toggle();

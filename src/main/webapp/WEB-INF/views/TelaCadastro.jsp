@@ -66,9 +66,9 @@
 			</div>
 			<div class="form-group col-md-6">
 				<label class="radio-inline"> <input type="radio"
-					name="optradio" id="radioSexo" value="Masculino"> Masculino
+					name="radioSexo" id="radioSexo" value="Masculino"> Masculino
 				</label> <label class="radio-inline"> <input type="radio"
-					name="optradio" id="radioSexo" value="Feminino"> Feminino
+					name="radioSexo" id="radioSexo" value="Feminino"> Feminino
 				</label>
 			</div>
 			<div class="form-group col-md-12">
@@ -123,7 +123,7 @@
 						</table>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">
+						<button type="button" id="cancelarVerificarSenha" class="btn btn-default" data-dismiss="modal">
 							Cancelar</button>
 						<button type="button" id="verificarSenha" data-dismiss="modal"
 							class="btn btn-primary">OK</button>
