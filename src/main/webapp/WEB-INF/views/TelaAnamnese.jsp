@@ -107,7 +107,7 @@
 					<legend> Identificação </legend>
 					<div class="form-group col-md-4">
 						<label for="tData"> Data da 1ª Consulta: </label> 
-						<input type="text" class="form-control" id="tData" placeholder="dd/mm/aaaa">
+						<input type="text" class="form-control" id="tData" placeholder="dd/mm/aaaa"  data-toggle="tooltip" title="Digite a data corretamente">
 					</div>
 					<div class="form-group col-md-12">
 						<label for="tNome"> Nome: </label> 
@@ -164,7 +164,7 @@
 					</div>
 					<div class="form-group col-md-6">
 						<label for="tEmail"> E-mail: </label> 
-						<input type="text" class="form-control" id="tEmail">
+						<input type="text" class="form-control" id="tEmail" data-toggle="tooltip" title="Digite o Email corretamente">
 					</div>
 					<div class="form-group col-md-3">
 						<label for="tTel"> Telefone residencial: </label> 
@@ -176,7 +176,7 @@
 					</div>
 					<div class="form-group col-md-4">
 						<label for="tNasc"> Data de Nascimento: </label> 
-						<input type="text" class="form-control" id="tNasc" placeholder="dd/mm/aaaa">
+						<input type="text" class="form-control" id="tNasc" placeholder="dd/mm/aaaa"  data-toggle="tooltip" title="Digite a data corretamente">
 					</div>
 					<div class="form-group col-md-4">
 						<label for="tIdade"> Idade: </label> <input type="number"
