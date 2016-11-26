@@ -181,6 +181,7 @@ public class TelaCadastro {
 		try {
 			if(context.getAttribute("dadosCadastradosPessoa") instanceof Paciente) {
 				Paciente dadosCastradoPessoa = (Paciente) context.getAttribute("dadosCadastradosPessoa");
+				paciente.setId(dadosCastradoPessoa.getId());
 				paciente.getLogin().setId(dadosCastradoPessoa.getLogin().getId());
 				bancoDadosService.atualizarCadastroUsuario(paciente);
 				mensagem = "Cadastro atualizado com sucesso";
