@@ -36,7 +36,7 @@
 				<div class="navbar-collapse collapse navbar-responsive-collapse">
 					<ul class="nav navbar-nav">
 						<!-- Varios botoes -->
-						<li class="active"><a type="button" id="btnPerfil" href="/ProjetoTcc/telaAnamnese">Perfil</a></li>
+						<li class="active"><a type="button" id="btnPerfil" href="#">Perfil</a></li>
 						<li><a type="button" id="btnPaciente" href="/ProjetoTcc/telaPaciente">Paciente</a></li>
 						<li><a type="button" id="btnAlimentos" href="/ProjetoTcc/telaAlimentos">Alimentos</a></li>
 						<li><a type="button" id="btnVitamininas" href="/ProjetoTcc/telaVitaminas">Vitaminas</a></li>

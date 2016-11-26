@@ -16,10 +16,21 @@ $(document).ready(function () {
 			dataType: 'json',
 			success: function (data, status) {
 				tipoUsuario = data.mensagem
-				idUsuario = data.listaObjetos;
+				idUsuario = data.objeto;
+
+				if (tipoUsuario == 'nutricionista') {
+					$('#btnPerfil').toggle();
+				} else
+					if (tipoUsuario == 'paciente') {
+						$('#btnPaciente').toggle();
+					}
 			}
 		});
 	};
+
+	$('#btnPerfil').click(function () {
+		location.href = '/ProjetoTcc/telaAnamnese/' + idUsuario;
+	})
 
 	$('#btnAlterarDados').click(function () {
 		location.href = '/ProjetoTcc/telaUpdateCadastro/' + tipoUsuario + '/' + idUsuario;
