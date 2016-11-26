@@ -73,10 +73,10 @@ public class DadosClinicos implements InterfaceDadosPaciente {
 	private String cirurgia;
 	
 	@Column(name = "Dad_HabitoIntestinal")
-	private boolean habitoIntestinal;
+	private String habitoIntestinal;
 	
 	@Column(name = "Dad_ConsistenciaDasFezes")
-	private boolean fezes;
+	private String fezes;
 	
 	@Column(name = "Dad_DiureseColoracaoQuantidade")
 	private String cor;
@@ -265,22 +265,6 @@ public class DadosClinicos implements InterfaceDadosPaciente {
 		this.cirurgia = cirurgia;
 	}
 
-	public boolean isHabitoIntestinal() {
-		return habitoIntestinal;
-	}
-
-	public void setHabitoIntestinal(boolean habitoIntestinal) {
-		this.habitoIntestinal = habitoIntestinal;
-	}
-
-	public boolean isFezes() {
-		return fezes;
-	}
-
-	public void setFezes(boolean fezes) {
-		this.fezes = fezes;
-	}
-
 	public String getCor() {
 		return cor;
 	}
@@ -423,5 +407,21 @@ public class DadosClinicos implements InterfaceDadosPaciente {
 
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
+	}
+
+	public String getHabitoIntestinal() {
+		return habitoIntestinal;
+	}
+
+	public void setHabitoIntestinal(String habitoIntestinal) {
+		this.habitoIntestinal = habitoIntestinal;
+	}
+
+	public String getFezes() {
+		return fezes;
+	}
+
+	public void setFezes(String fezes) {
+		this.fezes = fezes;
 	}
 }

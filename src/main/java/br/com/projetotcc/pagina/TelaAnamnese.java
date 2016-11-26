@@ -31,8 +31,8 @@ public class TelaAnamnese {
 		return new ModelAndView("TelaAnamnese");
 	}
 	
-	@RequestMapping(value = "/cadastrarIdentificacaoPaciente", method = RequestMethod.PUT)
-	public @ResponseBody ResultadoServico addUser(@RequestBody Paciente paciente) {
+	@RequestMapping(value = "/cadastrarInformacoesPaciente", method = RequestMethod.PUT)
+	public @ResponseBody ResultadoServico addIdentificacaoPaciente(@RequestBody Paciente paciente) {
 		String mensagem = null;
 		long codigo = 0;
 
@@ -42,7 +42,7 @@ public class TelaAnamnese {
 			}catch (Exception e) {
 				System.out.println();
 				System.out.println(e);
-				mensagem = "Erro ao fazer o cadastro da identificação do paciente";
+				mensagem = "Erro ao fazer o cadastro das informações do paciente";
 			}
 		} else {
 			mensagem = "Não foi encontrado uma instancia do objeto";

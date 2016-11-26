@@ -327,119 +327,119 @@
     <td> Vômito </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxVomito"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesVomito"></td>
     
   </tr>
   <tr>
     <td> Náusea </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxNausea"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesNausea"></td>
   </tr>
   <tr>
     <td> Mastigação </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxMastigacao"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesMastigacao"></td>
   </tr>
   <tr>
     <td> Deglutição </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxDegluticao"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesDegluticao"></td>
   </tr>
   <tr>
     <td> Digestão </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxDigestao"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesDigestao"></td>
   </tr>
   <tr>
     <td> Pirose </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxPirose"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesPirose"></td>
   </tr>
   <tr>
     <td> Refluxo </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxRefluxo"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesRefluxo"></td>
   </tr>
     <tr>
     <td> Diarréia  </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxDiarreia"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesDiarreia"></td>
   </tr>
     <tr>
     <td> Obstipação  </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxObstipacao"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesObstipacao"></td>
   </tr>
     <tr>
     <td> Insônia  </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxInsonia"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesInsonia"></td>
   </tr>
     <tr>
     <td> Estresse  </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxEstresse"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesEstresse"></td>
   </tr>
     <tr>
     <td> Cansaço  </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxCansaco"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesCansaco"></td>
   </tr>
     <tr>
     <td> Ansiedade </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxAnsiedade"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesAnsiedade"></td>
   </tr>
   </tbody>
 </table>		

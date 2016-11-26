@@ -23,6 +23,51 @@ $(document).ready(function () {
 	var motivoConsulta = $('#tMotivo');
 	var observacoes = $('#tObs');
 
+	// Historico Social e Familiar
+	var profissao = $('#tProfi');
+	var cargaHoraria = $('#tChor');
+	var composicaoFamiliar = $('#tCfam');
+	var quemCompraAlimentos = $('#tQcomp');
+	var compraFeita = $('#tCompfre');
+	var quemPreparaRefeicoes = $('#tPrepara');
+	var comQuemRealizaRefeicoes = $('#tQuemr');
+	var fazUsoBedidasAlcoolicas = $('#tBeber');
+	var fumaJaFumou = $('#tFumar');
+
+	// Dados Clinicos
+	var vomito = $('#checkboxVomito');
+	var nausea = $('#checkboxNausea');
+	var mastigacao = $('#checkboxMastigacao');
+	var degluticao = $('#checkboxDegluticao');
+	var digestao = $('#checkboxDigestao');
+	var pirose = $('#checkboxPirose');
+	var refluxo = $('#checkboxRefluxo');
+	var diarreia = $('#checkboxDiarreia');
+	var obstipacao = $('#checkboxObstipacao');
+	var insonia = $('#checkboxInsonia');
+	var estresse = $('#checkboxEstresse');
+	var cansaco = $('#checkboxCansaco');
+	var ansiedade = $('#checkboxAnsiedade');
+	var lesoesProblemasPela = $('#PeleCabelo');
+	var cirurgia = $('#CirurgiaQuando');
+	var habitoIntestinal = $('#HabIntestinal');
+	var fezes = $('#ConsFezes');
+	var diureseCor = $('#DiureseQuant');
+	var patologia = $('#PossuiPatologia');
+	var observacoesVomito = $('#observacoesVomito');
+	var observacoesNausea = $('#observacoesNausea');
+	var observacoesMastigacao = $('#observacoesMastigacao');
+	var observacoesDegluticao = $('#observacoesDegluticao');
+	var observacoesDigestao = $('#observacoesDigestao');
+	var observacoesPirose = $('#observacoesPirose');
+	var observacoesRefluxo = $('#observacoesRefluxo');
+	var observacoesDiarreia = $('#observacoesDiarreia');
+	var observacoesObstipacao = $('#observacoesObstipacao');
+	var observacoesInsonia = $('#observacoesInsonia');
+	var observacoesEstresse = $('#observacoesEstresse');
+	var observacoesCansaco = $('#observacoesCansaco');
+	var observacoesAnsiedade = $('#observacoesAnsiedade');
+
 	function onlyNumber(fields) {
 		$(fields).unbind('keyup').bind('keyup', function (e) {
 			let thisVal = $(this).val();
@@ -232,9 +277,37 @@ $(document).ready(function () {
 				corRaca: corRaca.val(), motivoConsulta: motivoConsulta.val(), observacoes: observacoes.val()
 			}
 		};
+		callCadastrarInformacoesPaciente(object);
+	});
 
+	$('#').click(function () {
+
+		let object = {
+			id: idPaciente,
+			historicoSocialFamiliar: {
+				profissao: profissao.val(), cargaHoraria: cargaHoraria.val(),
+				composicaoFamiliar: composicaoFamiliar.val(), quemCompraAlimentos: quemCompraAlimentos.val(),
+				compraFeita: compraFeita.val(), quemPreparaRefeicoes: quemPreparaRefeicoes.val(),
+				fazUsoDeBebidasAlcoolicas: fazUsoBedidasAlcoolicas.val(), fuma: fumaJaFumou.val(),
+				comQuemRealizaRefeicoes: comQuemRealizaRefeicoes.val()
+			}
+		};
+		callCadastrarInformacoesPaciente(object);
+	});
+
+	$('#').click(function () {
+		let object = {
+			id: idPaciente,
+			dadosClinicos: {
+				
+			}
+		};
+		callCadastrarInformacoesPaciente(object);
+	});
+
+	function callCadastrarInformacoesPaciente(object) {
 		$.ajax({
-			url: "/ProjetoTcc/cadastrarIdentificacaoPaciente",
+			url: "/ProjetoTcc/cadastrarInformacoesPaciente",
 			type: 'PUT',
 			data: JSON.stringify(object),
 			contentType: "application/json",
@@ -256,7 +329,7 @@ $(document).ready(function () {
 				return true;
 			}
 		});
-	});
+	}
 
 	function deixarDivsInvisiveis() {
 		$('#divIdentificacao').toggle();
