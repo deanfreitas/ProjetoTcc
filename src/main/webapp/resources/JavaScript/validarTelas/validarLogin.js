@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
 	$.material.init();
-	
-	$('input[id="senha"]').unbind('keyup').bind('keyup', function(e) {
-		var thisVal = $(this).val();
+
+	$('input[id="senha"]').unbind('keyup').bind('keyup', function (e) {
+		let thisVal = $(this).val();
 
 		if (thisVal == null || thisVal == "") {
 			$(this).css("border-color", "#FF0000");
@@ -10,9 +10,9 @@ $(document).ready(function() {
 			$(this).css("border-color", "#FFFFFF");
 		}
 	});
-	
-	$('input[id="usuario"]').unbind('keyup').bind('keyup', function(e) {
-		var thisVal = $(this).val();
+
+	$('input[id="usuario"]').unbind('keyup').bind('keyup', function (e) {
+		let thisVal = $(this).val();
 
 		if (thisVal == null || thisVal == "") {
 			$(this).css("border-color", "#FF0000");
@@ -20,18 +20,18 @@ $(document).ready(function() {
 			$(this).css("border-color", "#FFFFFF");
 		}
 	});
-	
-	$('#btnEntrar').click(function() {
 
-		var usuarioLogin = $('#usuario').val();
-		var senhaLogin = $('#senha').val();
-		var display = false;
+	$('#btnEntrar').click(function () {
+
+		let usuarioLogin = $('#usuario').val();
+		let senhaLogin = $('#senha').val();
+		let display = false;
 
 		if (usuarioLogin == null || usuarioLogin == "") {
 			$('#usuario').css("border-color", "#FF0000");
 			display = true;
 		}
-		
+
 		if (senhaLogin == null || senhaLogin == "") {
 			$('#senha').css("border-color", "#FF0000");
 			display = true;
@@ -39,16 +39,16 @@ $(document).ready(function() {
 
 		if (display) {
 			return false;
-			
+
 		} else {
-			var object = {usuario : usuarioLogin, senha : senhaLogin};
+			let object = { usuario: usuarioLogin, senha: senhaLogin };
 			$.ajax({
 				url: "/ProjetoTcc/entrarTelaPrincipal",
 				type: 'POST',
 				data: JSON.stringify(object),
 				contentType: "application/json",
 				dataType: 'json',
-				success: function(data, status) {
+				success: function (data, status) {
 					if (data.codigo == 0) {
 						/*
 						 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
@@ -69,8 +69,8 @@ $(document).ready(function() {
 		}
 
 	});
-	
-	$('#btnCadastrar').click(function() {
+
+	$('#btnCadastrar').click(function () {
 		window.location.href = '/ProjetoTcc/telaCadastrarUsuario/null';
 	});
 });

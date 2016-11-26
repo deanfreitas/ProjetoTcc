@@ -11,6 +11,7 @@ public class ResultadoServico {
 
 	private long codigo;
 	private String mensagem;
+	private Object objeto;
 	private List<Object> listaObjetos;
 	private Set<Object> listaObjetosUnicos;
 	
@@ -65,11 +66,6 @@ public class ResultadoServico {
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
 	}
-	
-	public void setObjeto(Object objeto) {
-		listaObjetos = new ArrayList<Object>();
-		this.listaObjetos.add(objeto);
-	}
 
 	public List<Object> getListaObjetos() {
 		return listaObjetos;
@@ -85,6 +81,14 @@ public class ResultadoServico {
 
 	public void setListaObjetosUnicos(Set<Object> listaObjetosUnicos) {
 		this.listaObjetosUnicos = listaObjetosUnicos;
+	}
+
+	public Object getObjeto() {
+		return objeto;
+	}
+
+	public void setObjeto(Object objeto) {
+		this.objeto = objeto;
 	}
 
 }

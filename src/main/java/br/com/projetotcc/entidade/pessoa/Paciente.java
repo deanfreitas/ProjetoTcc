@@ -63,56 +63,56 @@ public class Paciente implements InterfacePessoa {
 	private String responsavel;
 	
 	@JsonManagedReference(value = "paciente-antecedentesFamiliares")
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = AntecedentesFamiliares.class)
+	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = AntecedentesFamiliares.class)
 	@JoinColumn(name = "Id_AntecedentesFamiliares", insertable = true, updatable = true)
 	private AntecedentesFamiliares antecedentesFamiliares;
 	
 	@JsonManagedReference(value = "paciente-dadosAntropometricos")
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = DadosAntropometricos.class)
+	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = DadosAntropometricos.class)
 	@JoinColumn(name = "Id_DadosAntropometricos", insertable = true, updatable = true)
 	private DadosAntropometricos dadosAntropometricos;
 	
 	@JsonManagedReference(value = "paciente-atividadeFisica")
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = AtividadeFisica.class)
+	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = AtividadeFisica.class)
 	@JoinColumn(name = "Id_AtividadeFisica", insertable = true, updatable = true)
 	private AtividadeFisica atividadeFisica;
 	
 	@JsonManagedReference(value = "paciente-dadosClinicos")
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = DadosClinicos.class)
+	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = DadosClinicos.class)
 	@JoinColumn(name = "Id_DadosClinicos", insertable = true, updatable = true)
 	private DadosClinicos dadosClinicos;
 	
 	@JsonManagedReference(value = "paciente-frequenciaAlimentar")
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = FrequenciaAlimentar.class)
+	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = FrequenciaAlimentar.class)
 	@JoinColumn(name = "Id_FrequenciaAlimentar", insertable = true, updatable = true)
 	private FrequenciaAlimentar frequenciaAlimentar;
 	
 	@JsonManagedReference(value = "paciente-historicoSocialFamiliar")
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = HistoricoSocialFamiliar.class)
+	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = HistoricoSocialFamiliar.class)
 	@JoinColumn(name = "Id_HistoricoSocialeFamiliar", insertable = true, updatable = true)
 	private HistoricoSocialFamiliar historicoSocialFamiliar;
 	
 	@JsonManagedReference(value = "paciente-historicoAlimentarNutricional")
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = HistoricoAlimentarNutricional.class)
+	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = HistoricoAlimentarNutricional.class)
 	@JoinColumn(name = "Id_HistoricoAlimentarNutricional", insertable = true, updatable = true)
 	private HistoricoAlimentarNutricional historicoAlimentarNutricional;
 	
 	@JsonManagedReference(value = "paciente-examesBioquimicos")
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = ExamesBioquimicos.class)
+	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = ExamesBioquimicos.class)
 	@JoinColumn(name = "Id_ExamesBioquimicos", insertable = true, updatable = true)
 	private ExamesBioquimicos examesBioquimicos;
 	
 	@JsonManagedReference(value = "paciente-identificacao")
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Identificacao.class)
+	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Identificacao.class)
 	@JoinColumn(name = "Id_identificacao", insertable = true, updatable = true)
 	private Identificacao identificacao;
 	
 	@JsonManagedReference(value = "paciente-login")
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Login.class)
+	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Login.class)
 	@JoinColumn(name = "Id_Login", insertable = true, updatable = true)
 	private Login login;
 	
-	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Nutricionista.class)
+	@ManyToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.LAZY, targetEntity = Nutricionista.class)
 	@JoinColumn(name = "id_nutricionista", insertable = true, updatable = true)
 	private Nutricionista nutricionista;
 	
