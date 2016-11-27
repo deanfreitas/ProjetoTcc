@@ -491,9 +491,12 @@
 						<div class="form-group col-md-12">
 						<label for="PossuiPatologia">     Possui alguma patologia? Qual? Desde quando?   </label> 
 						<input type="text" class="form-control" id="PossuiPatologia">
+						<br><br><br>
 					</div>
-					<br>
-					
+					</fieldset>
+				</form>
+					<div class="col-md-3 offset"></div>
+					<div class="row col-md-9">
 					<h4> Antecedentes familiares/Quem:</h4>
 					
 					<table class="table table-striped table-hover ">
@@ -574,9 +577,9 @@
 					
 					
 					
-					</fieldset>
-				</form>
+				</div>	
 			</div>
+			
 			
 			<div id="divAtividadeFisica">
 			<form id="formAtividadeFisica">
