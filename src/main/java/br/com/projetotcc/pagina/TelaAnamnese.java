@@ -36,22 +36,25 @@ public class TelaAnamnese {
 		String mensagem = null;
 		long codigo = 0;
 
-		if(paciente == null) {
+		if(paciente != null) {
 			try {
 				bancoDadosService.atualizarCadastroUsuario(paciente);
+				mensagem = "Anamnese Cadastrada com sucesso";
 			}catch (Exception e) {
 				System.out.println();
 				System.out.println(e);
 				mensagem = "Erro ao fazer o cadastro das informações do paciente";
+				codigo = 1;
 			}
 		} else {
 			mensagem = "Não foi encontrado uma instancia do objeto";
+			codigo = 1;
 		}
-		
+
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
 		resultadoServico.setObjeto(null);
-		
+
 		return resultadoServico;
 	}
 }

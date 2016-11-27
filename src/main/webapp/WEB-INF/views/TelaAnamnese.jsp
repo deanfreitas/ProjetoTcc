@@ -608,7 +608,7 @@
 					
 			<div class="form-group col-md-6">
 						<label for="ConsFezes">   Você pratica as atividades: </label> 
-						<select class="form-control" id="ConsFezes">
+						<select class="form-control" id="vocePreticaAtividades">
 							<option></option>
 							<option> Alimentado  </option>
 							<option> Jejum  </option>
@@ -649,7 +649,7 @@
 							<option> Não  </option>
 						</select>
 						<div id="inputOculto3">
-  						<input type="text" class="form-control" placeholder="Desde quando:" />
+  						<input type="text" class="form-control" placeholder="Desde quando:" id="desdeQuando" />
 					</div>
 						</div>
 						
@@ -675,7 +675,7 @@
 					
 			<div class="form-group col-md-4">
 						<label for="ConsumoAgua"> Consumo de sal / mês:   </label> 
-						<input type="text" class="form-control" id="ConsumoAgua">
+						<input type="text" class="form-control" id="ConsumoSal">
 					</div>
 					
 			<div class="form-group col-md-4">

@@ -70,6 +70,43 @@ $(document).ready(function() {
     var observacaoHabitoIntestinal = $('#observacaoHabitoIntestinal');
     var observacaoFezes = $('#observacaoFezes');
 
+    // Antecendentes familiares/ Quem
+    var dm = $('#checkboxDm');
+    var ha = $('#checkboxHa');
+    var ca = $('#checkboxCa');
+    var dislipidemia = $('#checkboxDislipidemia');
+    var obesidade = $('#checkboxObesidade');
+    var magreza = $('#checkboxMagreza');
+    var outros = $('#checkboxOutros');
+    var observacaoDm = $('#observacoesDm');
+    var observacaoHa = $('#observacoesHa');
+    var observacaoCa = $('#observacoesCa');
+    var observacaoDislipidemia = $('#observacoesDislipidemia');
+    var observacaoObesidade = $('#observacoesObesidade');
+    var observacaoMagreza = $('#observacoesMagreza');
+    var observacaoOutros = $('#observacoesOutros');
+
+    // Atividade Fisica
+    var tipoAtividadeFisica = $('#TipoAtivFisica');
+    var frequencia = $('#FreqAtiv');
+    var duracao = $('#DuracaoAtiv');
+    var vocePraticaAtividades = $('#vocePreticaAtividades');
+    var horarioPreferido = $('#HorarioPref');
+
+    // Historico Alimentar Nutricional 
+    var intolerânciaAlimentar = $('#IntAlimentar');
+    var preferenciaAlimentar = $('#PrefAlimentar');
+    var alteracoesApetite = $('#AltApetite');
+    var desdeQuandoAlteracoesApetite = $('#desdeQuando');
+    var faseQueIniciouObesidadePerdaPeso = $('#ObesidadePerda');
+    var segueAlgumaDietaEspecial = $('#DietaEspecial');
+    var quantasRefeicoesDia = $('#QuantRefeicoes');
+    var consumoAgua = $('#ConsumoAgua');
+    var consumoSal = $('#ConsumoSal');
+    var comsumoOleo = $('#ConsumoOleo');
+    var fazUsoSupremento = $('#UsoSuplemento');
+    var quemInicou = $('#QuemIndicou');
+
     function onlyNumber(fields) {
         $(fields).unbind('keyup').bind('keyup', function(e) {
             let thisVal = $(this).val();
@@ -268,39 +305,23 @@ $(document).ready(function() {
         }
     });
 
-    $('#').click(function() {
-
-        let object = {
+    $('#btnSalvar').click(function() {
+		
+           let object = {
             id: idPaciente,
             identificacao: {
-                dataPrimeiraConsuta: dataPrimeiraConsulta.val(), nome: nome.val(), endereco: endereco.val(), numero: numero.val(),
-                bairro: bairro.val(), cidade: cidade.val(), estado: estado.val(), email: email.val(), telefoneResidencial: telefoneResidencial.val(),
-                celular: celular.val(), dataNascimento: dataNascimento.val(), idade: idade.val(), sexo: sexo.val(), estadoCivil: estadoCivil.val(),
-                corRaca: corRaca.val(), motivoConsulta: motivoConsulta.val(), observacoes: observacoes.val()
-            }
-        };
-        callCadastrarInformacoesPaciente(object);
-    });
-
-    $('#').click(function() {
-
-        let object = {
-            id: idPaciente,
+            	dataPrimeiraConsuta: dataPrimeiraConsulta.val(), nome: nome.val(), email: email.val(), dataNascimento: dataNascimento.val(), idade: idade.val(), 
+				motivoConsulta: motivoConsulta.val(), observacao: observacoes.val(), telefoneResidencial: telefoneResidencial.val(), celular: celular.val(), 
+				endereco : endereco.val(), bairro: bairro.val(), cidade: cidade.val(),sexo: sexo.val(), estadoCivil : estadoCivil.val(), raca: corRaca.val(), 
+				numero: numero.val(), estado: estado.val()
+            },
             historicoSocialFamiliar: {
                 profissao: profissao.val(), cargaHoraria: cargaHoraria.val(),
                 composicaoFamiliar: composicaoFamiliar.val(), quemCompraAlimentos: quemCompraAlimentos.val(),
                 compraFeita: compraFeita.val(), quemPreparaRefeicoes: quemPreparaRefeicoes.val(),
                 fazUsoDeBebidasAlcoolicas: fazUsoBedidasAlcoolicas.val(), fuma: fumaJaFumou.val(),
                 comQuemRealizaRefeicoes: comQuemRealizaRefeicoes.val()
-            }
-        };
-        callCadastrarInformacoesPaciente(object);
-    });
-
-    $('#').click(function() {
-
-        let object = {
-            id: idPaciente,
+            },
             dadosClinicos: {
                 vomito: vomito.is(":checked"), nausea: nausea.is(":checked"), mastigacao: mastigacao.is(":checked"),
                 degluticao: degluticao.is(":checked"), digestao: digestao.is(":checked"), pirose: pirose.is(":checked"),
@@ -313,12 +334,25 @@ $(document).ready(function() {
                 observacaoDigestao: observacoesDigestao.val(), observacaoPirose: observacoesPirose.val(), observacaoRefluxo: observacoesRefluxo.val(),
                 observacaoDiarreia: observacoesDiarreia.val(), observacaoObstipacao: observacoesObstipacao.val(), observacaoInsonia: observacoesInsonia.val(),
                 observacaoEstresse: observacoesEstresse.val(), observacaoCancaso: observacoesCansaco.val(), observacaoAnsiedade: observacoesAnsiedade.val()
-            }
+            },
+            antecedentesFamiliares: {
+                dm: dm.is(":checked"), ha: ha.is(":checked"), ca: ca.is(":checked"), dislipidemia: dislipidemia.is(":checked"),
+                obesidade: obesidade.is(":checked"), magreza: magreza.is(":checked"), outros: outros.is(":checked"), observacaoDm: observacaoDm.val(),
+                observacaoHa: observacaoHa.val(), observacaoCa: observacaoCa.val(), observacaoDislipedemia: observacaoDislipidemia.val(),
+                observacaoObesidade: observacaoObesidade.val(), observacaoMagreza: observacaoMagreza.val(), observacaoOutros: observacaoOutros.val()
+            },
+            atividadeFisica: {
+                tipo: tipoAtividadeFisica.val(), frequencia: frequencia.val(), duracao: duracao.val(), pratica: vocePraticaAtividades.val(),
+                suplemento: false, horaPreferida: horarioPreferido.val(), observacaoSuplemento: null
+            },
+            historicoAlimentarNutricional: {
+                intoleranciaAlimentar: intolerânciaAlimentar.val(), preferenciaAlimentar: preferenciaAlimentar.val(), alteracoesDoApetite: (alteracoesApetite.val() == 'Sim' ? true : false),
+                observacaoAlteracoesDoApetite: desdeQuandoAlteracoesApetite.val(), iniciouObesidadePerdaPeso: faseQueIniciouObesidadePerdaPeso.val(),
+                segueDietaEspecial: segueAlgumaDietaEspecial.val(), refeicoesDia: quantasRefeicoesDia.val(), consumoAgua: consumoAgua.val(), consumoSal: consumoSal.val(),
+                consumoOleo: comsumoOleo.val(), fazUsoSuplemento: fazUsoSupremento.val(), quemInidicou: quemInicou.val()
+            },
+			
         };
-        callCadastrarInformacoesPaciente(object);
-    });
-
-    function callCadastrarInformacoesPaciente(object) {
         $.ajax({
             url: "/ProjetoTcc/cadastrarInformacoesPaciente",
             type: 'PUT',
@@ -326,7 +360,7 @@ $(document).ready(function() {
             contentType: "application/json",
             dataType: 'json',
             success: function(data, status) {
-                if (data.mensagem != null) {
+                if (data.codigo != 0) {
 					/*
 					 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
 					 *  Essa mensagem está escrito "Já tem um login Igual a esse", que aparece quando o usuario coloca um email que já foi colocado.
@@ -338,11 +372,15 @@ $(document).ready(function() {
 					 *  Dar um jeito de aparecer a mensagem antes do "return false"
 					 */
                     return false;
+                } else {
+                	alert(data.mensagem);
+                	window.location.href = '/ProjetoTcc/telaPaciente';
+                	return true;
                 }
-                return true;
+                
             }
         });
-    }
+    });
 
     function deixarDivsInvisiveis() {
         $('#divIdentificacao').toggle();
@@ -452,7 +490,7 @@ $(document).ready(function() {
         $('#divFrequenciaAlimentar').hide();
     });
 
-    $('#btnRecordata').click(function() {
+    $('#btnFrequenciaAlimentar').click(function() {
         $('#divIdentificacao').hide();
         $('#divHistoricoFamiliar').hide();
         $('#divDadosAntropo').hide();

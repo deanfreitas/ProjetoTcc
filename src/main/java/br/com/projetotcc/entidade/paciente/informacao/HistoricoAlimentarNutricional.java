@@ -58,7 +58,7 @@ public class HistoricoAlimentarNutricional implements InterfaceDadosPaciente {
 	private String consumoOleo;
 	
 	@Column(name = "Hist_FazUsoDeSuplemento")
-	private String FazUsoSuplemento;
+	private String fazUsoSuplemento;
 
 	@Column(name = "Hist_QuemIndicou")
 	private String quemInidicou;
@@ -69,7 +69,7 @@ public class HistoricoAlimentarNutricional implements InterfaceDadosPaciente {
 	
 	public HistoricoAlimentarNutricional(String intoleranciaAlimentar, String preferenciaAlimentar, boolean alteracoesDoApetite, String observacaoAlteracoesDoApetite, 
 			String iniciouObesidadePerdaPeso, String segueDietaEspecial, String refeicoesDia, String consumoAgua, String consumoSal, String consumoOleo, 
-			String FazUsoSuplemento, String quemInidicou) {
+			String fazUsoSuplemento, String quemInidicou) {
 		super();
 		this.intoleranciaAlimentar = intoleranciaAlimentar;
 		this.preferenciaAlimentar = preferenciaAlimentar;
@@ -81,13 +81,13 @@ public class HistoricoAlimentarNutricional implements InterfaceDadosPaciente {
 		this.consumoAgua = consumoAgua;
 		this.consumoSal = consumoSal;
 		this.consumoOleo = consumoOleo;
-		this.FazUsoSuplemento = FazUsoSuplemento;
+		this.fazUsoSuplemento = fazUsoSuplemento;
 		this.quemInidicou = quemInidicou;
 	}
 	
 	public HistoricoAlimentarNutricional(Long id, String intoleranciaAlimentar, String preferenciaAlimentar, boolean alteracoesDoApetite, String observacaoAlteracoesDoApetite, 
 			String iniciouObesidadePerdaPeso, String segueDietaEspecial, String refeicoesDia, String consumoAgua, String consumoSal, String consumoOleo, 
-			String FazUsoSuplemento, String quemInidicou) {
+			String fazUsoSuplemento, String quemInidicou) {
 		super();
 		this.id = id;
 		this.intoleranciaAlimentar = intoleranciaAlimentar;
@@ -100,7 +100,7 @@ public class HistoricoAlimentarNutricional implements InterfaceDadosPaciente {
 		this.consumoAgua = consumoAgua;
 		this.consumoSal = consumoSal;
 		this.consumoOleo = consumoOleo;
-		this.FazUsoSuplemento = FazUsoSuplemento;
+		this.fazUsoSuplemento = fazUsoSuplemento;
 		this.quemInidicou = quemInidicou;
 	}
 	
@@ -197,11 +197,11 @@ public class HistoricoAlimentarNutricional implements InterfaceDadosPaciente {
 	}
 
 	public String getFazUsoSuplemento() {
-		return FazUsoSuplemento;
+		return fazUsoSuplemento;
 	}
 
 	public void setFazUsoSuplemento(String fazUsoSuplemento) {
-		FazUsoSuplemento = fazUsoSuplemento;
+		this.fazUsoSuplemento = fazUsoSuplemento;
 	}
 
 	public String getQuemInidicou() {
