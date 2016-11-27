@@ -68,15 +68,6 @@
   </tr>
   </thead>
   <tbody>
-  <tr class="info">
-  	<td><input type="checkbox"></td>
-    <td id="idNome" onclick="location.href = '#';" style="cursor: pointer;">Conteúdo</td> <!-- GILBERTO ONDE ESTÁ O # É PARA COLOCAR O 
-    																			 O LINK DA PAGINA A SER ABERTA AO CLICAR
-    																			 (NÃO SEI SE VC VAI USAR) MAIS COMO VC DISSE
-    																			 QUE ERA PRO NOME SER CLICÁVEL...-->
-    <td id="idIdade">Column content</td>
-    <td id="idSexo">Column content</td>
-  </tr>
   </tbody>
 </table>
 		</div>

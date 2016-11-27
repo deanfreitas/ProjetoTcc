@@ -1,5 +1,8 @@
 package br.com.projetotcc.pagina;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +57,7 @@ public class TelaPaciente {
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
 		resultadoServico.setObjeto(paciente.getId());
+		resultadoServico.setListaObjetos(null);
 
 		return resultadoServico;
 	}
@@ -85,7 +89,33 @@ public class TelaPaciente {
 
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
-		resultadoServico.setObjeto(paciente.getId());
+		resultadoServico.setObjeto(null);
+		resultadoServico.setListaObjetos(null);
+
+		return resultadoServico;
+	}
+	
+	@RequestMapping(value = "/getPacientesNutricionista", method = RequestMethod.GET)
+	public @ResponseBody ResultadoServico getPacientesNutricionista() {
+		String mensagem = null;
+		long codigo = 0;
+		List<Object> listaObjetos = new ArrayList<Object>();
+		
+		if(context.getAttribute("dadosCadastradosPessoa") instanceof Nutricionista) {
+			Nutricionista dadosCastradoPessoa = (Nutricionista) context.getAttribute("dadosCadastradosPessoa");
+			Nutricionista nutricionista = (Nutricionista) bancoDadosService.encontrarInformacaoPorId(dadosCastradoPessoa, dadosCastradoPessoa.getId());
+			if(nutricionista != null) {
+				for(Paciente paciente : nutricionista.getPacientes()) {
+					listaObjetos.add(paciente);
+				}
+			}
+		}
+		
+		
+		resultadoServico.setMensagem(mensagem);
+		resultadoServico.setCodigo(codigo);
+		resultadoServico.setObjeto(null);
+		resultadoServico.setListaObjetos(listaObjetos);
 
 		return resultadoServico;
 	}
