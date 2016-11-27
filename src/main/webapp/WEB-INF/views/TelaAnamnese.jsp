@@ -753,7 +753,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoArroz"></td>
   </tr>
   <tr>
     <td>Macarrão  </td>
@@ -766,7 +766,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoMacarrao"></td>
   </tr>
   <tr>
     <td>Batata / Mandioca  </td>
@@ -779,7 +779,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoBatata"></td>
   </tr>
   <tr>
     <td>Pão </td>
@@ -792,7 +792,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoPao"></td>
   </tr>
   <tr>
     <td>Pão de queijo </td>
@@ -805,7 +805,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoPaoQueijo"></td>
   </tr>
   <tr>
     <td>Farinhas</td>
@@ -818,7 +818,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoFarinhas"></td>
   </tr>
   <tr>
     <td>Cereal matinal</td>
@@ -831,7 +831,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoCereal"></td>
   </tr>
   <tr>
     <td>Hortaliças cruas </td>
@@ -844,7 +844,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoHortalicasCruas"></td>
   </tr>
   <tr>
     <td>Hortaliças cozidas </td>
@@ -857,7 +857,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoHortalicasCozidas"></td>
   </tr>
   <tr>
     <td>Frutas  </td>
@@ -870,7 +870,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoFrutas"></td>
   </tr>
   <tr>
     <td>Leite Integral</td>
@@ -883,7 +883,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoLeiteInt"></td>
   </tr>
   <tr>
     <td>Leite desnatado </td>
@@ -896,7 +896,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoLeiteDes"></td>
   </tr>
   <tr>
     <td>Iogurte</td>
@@ -909,7 +909,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoIogurte"></td>
   </tr>
   <tr>
     <td>Iogurte desnatado</td>
@@ -922,7 +922,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoIogurteDes"></td>
   </tr>
   <tr>
     <td>Queijos</td>
@@ -935,7 +935,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoQueijos"></td>
   </tr>
   <tr>
     <td>Carne vermelha</td>
@@ -948,7 +948,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoCarneVermelha"></td>
   </tr>
   <tr>
     <td>Embutidos</td>
@@ -961,7 +961,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoEmbutidos"></td>
   </tr>
   <tr>
     <td>Enlatados</td>
@@ -974,7 +974,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoEnlatados"></td>
   </tr>
   <tr>
     <td>Ovos</td>
@@ -987,7 +987,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoOvos"></td>
   </tr>
   <tr>
     <td>Leguminosas</td>
@@ -1000,12 +1000,12 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoLeguminosas"></td>
   </tr>
   <tr>
     <td>Margarina comum</td>
     <td>
-						<select id="idMargarinaComun" class="form-control">
+						<select id="idMargarinaComum" class="form-control">
 							<option></option>
 							<option>NULO </option>
 							<option>EVENTUAL </option>
@@ -1013,7 +1013,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoMargarinaComum"></td>
   </tr>
   <tr>
     <td>Margarina light</td>
@@ -1026,7 +1026,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoMargarinaLight"></td>
   </tr>
   <tr>
     <td>Manteiga</td>
@@ -1039,7 +1039,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoManteiga"></td>
   </tr>
   <tr>
     <td>Requeijão comum </td>
@@ -1052,7 +1052,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoRequijaoComum"></td>
   </tr>
   <tr>
     <td>Requeijão light</td>
@@ -1065,7 +1065,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoRequeijaoLight"></td>
   </tr>
   <tr>
     <td>Maionese comum</td>
@@ -1078,7 +1078,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoMaioneseComum"></td>
   </tr>
   <tr>
     <td>Maionese light</td>
@@ -1091,7 +1091,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoMaioneseLight"></td>
   </tr>
   <tr>
     <td>Creme de leite</td>
@@ -1104,7 +1104,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoCremeDeLeite"></td>
   </tr>
   <tr>
     <td>Frituras </td>
@@ -1117,7 +1117,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoFrituras"></td>
   </tr>
    <tr>
     <td>Açúcar</td>
@@ -1130,7 +1130,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoAcucar"></td>
   </tr>
    <tr>
     <td>Adoçante  </td>
@@ -1143,7 +1143,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoAdocante"></td>
   </tr>
    <tr>
     <td>Mel</td>
@@ -1156,7 +1156,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoMel"></td>
   </tr>
    <tr>
     <td>Barra de cereal</td>
@@ -1169,7 +1169,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoBarraDeCereal"></td>
   </tr>
    <tr>
     <td>Doces</td>
@@ -1182,7 +1182,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoDoces"></td>
   </tr>
    <tr>
     <td>Bolacha recheada </td>
@@ -1195,7 +1195,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoBolachaRecheada"></td>
   </tr>
    <tr>
     <td>Bolacha/Bolo/Biscoito</td>
@@ -1208,7 +1208,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoBolachaBoloBiscoito"></td>
   </tr>
    <tr>
     <td>Chiclete / Balas</td>
@@ -1221,7 +1221,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoChicleteBalas"></td>
   </tr>
    <tr>
     <td>Chocolate</td>
@@ -1234,7 +1234,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoChocolate"></td>
   </tr>
    <tr>
     <td>Sanduíche / Pizza</td>
@@ -1247,7 +1247,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoSanduichePizza"></td>
   </tr>
    <tr>
     <td>Salgadinhos</td>
@@ -1260,7 +1260,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoSalgadinhos"></td>
   </tr>
    <tr>
     <td>Salgadinho (pacote)</td>
@@ -1273,7 +1273,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoSalgadinhoPacote"></td>
   </tr>
    <tr>
     <td>Refrigerante comum </td>
@@ -1286,7 +1286,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoRefrigeranteComum"></td>
   </tr>
    <tr>
     <td>Refrigerante diet/light </td>
@@ -1299,7 +1299,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoRefriLightDiet"></td>
   </tr>
    <tr>
     <td>Suco natural </td>
@@ -1312,7 +1312,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoSucoNatural"></td>
   </tr>
      <tr>
     <td>Suco artificial</td>
@@ -1325,7 +1325,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoSucoArtificial"></td>
   </tr>
      <tr>
     <td>Café</td>
@@ -1338,7 +1338,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoCafe"></td>
   </tr>
      <tr>
     <td>Chá</td>
@@ -1351,7 +1351,7 @@
 							<option>DIÁRIA </option>
 						</select>
 					</td>
-	<td><input type="text" class="form-control"></td>
+	<td><input type="text" class="form-control" id="porcaoCha"></td>
   </tr>
   
   
@@ -1374,7 +1374,7 @@
       <label for="textArea">Relato de caso, Orientações Nutricionais e Evolução: </label>
 
       <div class="col-md-12">
-        <textarea class="form-control" rows="10" id="textArea"></textarea>
+        <textarea class="form-control" rows="10" id="textArea" id="idRelatoOrientacoesNutricionaisEvolucao"></textarea>
       </div>
     </div>
 					

@@ -107,6 +107,105 @@ $(document).ready(function() {
     var fazUsoSupremento = $('#UsoSuplemento');
     var quemInicou = $('#QuemIndicou');
 
+    // Frequencia Alimentar
+    var opcaoArroz = $('#idArroz');
+    var opcaoMacarrao = $('#idMacarrao');
+    var opcaoBatataMandioca = $('#idBatata');
+    var opcaoPao = $('#idPao');
+    var opcaoPaoQueijo = $('#idPaoQueijo');
+    var opcaoFarinhas = $('#idFarinhas');
+    var opcaoCerealMatinal = $('#idCereal');
+    var opcaoHortalicasCruas = $('#idHortalicasCruas');
+    var opcaoHortalicasCozidas = $('#idHortalicasCozidas');
+    var opcaoFrutas = $('#idFrutas');
+    var opcaoLeiteIntegral = $('#idLeiteInt');
+    var opcaoLeiteDesnatado = $('#idLeiteDes');
+    var opcaoIogurte = $('#idIogurte');
+    var opcaoIogurteDesnatado = $('#idIogurteDes');
+    var opcaoQueijos = $('#idQueijos');
+    var opcaoCarneVermelha = $('#idCarneVermelha');
+    var opcaoEmbutidos = $('#idEmbutidos');
+    var opcaoEnlatados = $('#idEnlatados');
+    var opcaoOvos = $('#idOvos');
+    var opcaoLeguminosas = $('#idLeguminosas');
+    var opcaoMargarinaComum = $('#idMargarinaComum');
+    var opcaoMargarinaLight = $('#idMargarinaLight');
+    var opcaoManteiga = $('#idManteiga');
+    var opcaoRequeijaoComum = $('#idRequijaoComum');
+    var opcaoRequeijaoLight = $('#idRequeijaoLight');
+    var opcaoMaioneseComum = $('#idMaioneseComum');
+    var opcaoMaioneseLight = $('#idMaioneseLight');
+    var opcaoCremeLeite = $('#idCremeDeLeite');
+    var opcaoFrituras = $('#idFrituras');
+    var opcaoAcucar = $('#idAcucar');
+    var opcaoAdocante = $('#idAdocante');
+    var opcaoMel = $('#idMel');
+    var opcaoBarraCereal = $('#idBarraDeCereal');
+    var opcaoDoces = $('#idDoces');
+    var opcaoBolachaRecheada = $('#idBolachaRecheada');
+    var opcaoBolachaBoloBiscoito = $('#idBolachaBoloBiscoito');
+    var opcaoChicleteBalas = $('#idChicleteBalas');
+    var opcaoChocolate = $('#idChocolate');
+    var opcaoSanduichePizza = $('#idSanduichePizza');
+    var opcaoSalgadinhos = $('#idSalgadinhos');
+    var opcaoSalgadinhoPacote = $('#idSalgadinhoPacote');
+    var opcaoRefrigeranteComum = $('#idRefrigeranteComum');
+    var opcaoRefrigeranteDietLight = $('#idRefriLightDiet');
+    var opcaoSucoNatural = $('#idSucoNatural');
+    var opcaoSucoArtificial = $('#idSucoArtificial');
+    var opcaoCafe = $('#idCafe');
+    var opcaoCha = $('#idCha');
+    var diagnosticoNutricional = $('#idDiagnostico');
+    var condutaDietoterapica = $('#idConduta');
+    var RelatoOrientacoesNutricionaisEvolucao = $('#');
+    var porcaoArroz = $('#porcaoArroz');
+    var porcaoMacarrao = $('#porcaoMacarrao');
+    var porcaoBatataMandioca = $('#porcaoBatata');
+    var porcaoPao = $('#porcaoPao');
+    var porcaoPaoQueijo = $('#porcaoPaoQueijo');
+    var porcaoFarinhas = $('#porcaoFarinhas');
+    var porcaoCerealMatinal = $('#porcaoCereal');
+    var porcaoHortalicasCruas = $('#porcaoHortalicasCruas');
+    var porcaoHortalicasCozidas = $('#porcaoHortalicasCozidas');
+    var porcaoFrutas = $('#porcaoFrutas');
+    var porcaoLeiteIntegral = $('#porcaoLeiteInt');
+    var porcaoLeiteDesnatado = $('#porcaoLeiteDes');
+    var porcaoIogurte = $('#porcaoIogurte');
+    var porcaoIogurteDesnatado = $('#porcaoIogurteDes');
+    var porcaoQueijos = $('#porcaoQueijos');
+    var porcaoCarneVermelha = $('#porcaoCarneVermelha');
+    var porcaoEmbutidos = $('#porcaoEmbutidos');
+    var porcaoEnlatados = $('#porcaoEnlatados');
+    var porcaoOvos = $('#porcaoOvos');
+    var porcaoLeguminosas = $('#porcaoLeguminosas');
+    var porcaoMargarinaComum = $('#porcaoMargarinaComum');
+    var porcaoMargarinaLight = $('#porcaoMargarinaLight');
+    var porcaoManteiga = $('#porcaoManteiga');
+    var porcaoRequeijaoComum = $('#porcaoRequijaoComum');
+    var porcaoRequeijaoLight = $('#porcaoRequeijaoLight');
+    var porcaoMaioneseComum = $('#porcaoMaioneseComum');
+    var porcaoMaioneseLight = $('#porcaoMaioneseLight');
+    var porcaoCremeLeite = $('#porcaoCremeDeLeite');
+    var porcaoFrituras = $('#porcaoFrituras');
+    var porcaoAcucar = $('#porcaoAcucar');
+    var porcaoAdocante = $('#porcaoAdocante');
+    var porcaoMel = $('#porcaoMel');
+    var porcaoBarraCereal = $('#porcaoBarraDeCereal');
+    var porcaoDoces = $('#porcaoDoces');
+    var porcaoBolachaRecheada = $('#porcaoBolachaRecheada');
+    var porcaoBolachaBoloBiscoito = $('#porcaoBolachaBoloBiscoito');
+    var porcaoChicleteBalas = $('#porcaoChicleteBalas');
+    var porcaoChocolate = $('#porcaoChocolate');
+    var porcaoSanduichePizza = $('#porcaoSanduichePizza');
+    var porcaoSalgadinhos = $('#porcaoSalgadinhos');
+    var porcaoSalgadinhoPacote = $('#porcaoSalgadinhoPacote');
+    var porcaoRefrigeranteComum = $('#porcaoRefrigeranteComum');
+    var porcaoRefrigeranteDietLight = $('#porcaoRefriLightDiet');
+    var porcaoSucoNatural = $('#porcaoSucoNatural');
+    var porcaoSucoArtificial = $('#porcaoSucoArtificial');
+    var porcaoCafe = $('#porcaoCafe');
+    var porcaoCha = $('#porcaoCha');
+
     function onlyNumber(fields) {
         $(fields).unbind('keyup').bind('keyup', function(e) {
             let thisVal = $(this).val();
@@ -351,6 +450,9 @@ $(document).ready(function() {
                 segueDietaEspecial: segueAlgumaDietaEspecial.val(), refeicoesDia: quantasRefeicoesDia.val(), consumoAgua: consumoAgua.val(), consumoSal: consumoSal.val(),
                 consumoOleo: comsumoOleo.val(), fazUsoSuplemento: fazUsoSupremento.val(), quemInidicou: quemInicou.val()
             },
+            frequenciaAlimentar: {
+
+            }
 			
         };
         $.ajax({
