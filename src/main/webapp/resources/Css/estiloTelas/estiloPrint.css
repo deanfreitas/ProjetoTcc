@@ -47,4 +47,6 @@
  .col-md-1 {
   width: 8.333333333333332%;
  }
-
+#logoRelatorio , #titulo2 {
+	visibility: visible;
+}

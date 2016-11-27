@@ -22,6 +22,14 @@
 #titulo{
 	text-align:center;
 }
-.input-group-addon{
+.input-group{
 	font-weight: bold;
+	font-size:14px;
+}
+
+#logoRelatorio  {
+	visibility: hidden;
+}
+#DadosDoPaciente {
+	margin-top:-40px;
 }

@@ -95,6 +95,11 @@
 				<li>
 					<a type="button" id="btnFrequenciaAlimentar" href="javascript:void(0)">Frequência Alimentar </a>
 				</li>
+				<li>
+				<a type="button" id="btnSalvar" class="btn btn-raised btn-success" href="javascript:void(0)">Salvar</a>
+				</li>
+				
+				
 			</ul>
 		</div>
 		<div id="divIdentificacao">
@@ -512,65 +517,65 @@
     <td> DM  </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxDm"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesDm"></td>
     
   </tr>
   <tr>
     <td> HA </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxHa"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesHa"></td>
   </tr>
   <tr>
     <td> CA </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxCa"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesCa"></td>
   </tr>
     <tr>
     <td> Dislipidemia  </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxDislipidemia"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesDislipidemia"></td>
   </tr>
     <tr>
     <td> Obesidade  </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxObesidade"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesObesidade"></td>
   </tr>
     <tr>
     <td> Magreza </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxMagreza"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesMagreza"></td>
   </tr>
     <tr>
     <td> Outros: </td>
     <td> <div class="togglebutton">
           <label>
-            <input type="checkbox"> 
+            <input type="checkbox" id="checkboxOutros"> 
           </label></div>
     </td>
-    <td><input type="text" size="30"></td>
+    <td><input type="text" size="30" id="observacoesOutros"></td>
   </tr>
     </tbody>
 </table>

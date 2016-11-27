@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/bootstrap-material-design.min.css' />" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/ripples.min.css' />" />
 <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelas/estiloTelaResultados.css' />" />
-<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelas/estiloPrint.css' />" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelas/estiloPrint.css' />" media="print"/>
 <link rel="stylesheet" type="text/css" href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />" />
 <script src="<c:url value ='/resources/JavaScript/angular/angular.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />" /></script>
@@ -56,7 +56,7 @@
             <h2>Relatório Médico</h2>
                 </div>
         <div class="col-md-2">
-                <a  onclick="print();" id="btnPrint" class="btn btn-success">Imprimir</a>
+                <a  onclick="print();" id="btnPrint" class="btn btn-default btn-fab btn-lg"><i class="material-icons">print</i></a>
                 
         </div>
         </div>
@@ -64,66 +64,66 @@
         <div class="row col-md-12" id="DadosDoPaciente">
            
    <div class="col-md-10">        
-  <span class="input-group-addon" id="">NOME:</span>
+  <span class="input-group" id="">NOME:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"></output>
   </div>
   <div class="col-md-2"> 
-  <span class="input-group-addon" id="">IDADE:</span>
+  <span class="input-group" id="">IDADE:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"></output>
    </div>     
       <div class="col-md-3">        
-  <span class="input-group-addon" id="">SEXO:</span>
+  <span class="input-group" id="">SEXO:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"></output>
   </div>
       <div class="col-md-3">        
-  <span class="input-group-addon" id="">CELULAR:</span>
+  <span class="input-group" id="">CELULAR:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
   </div>
  <div class="col-md-6">        
-  <span class="input-group-addon" id="">E-MAIL:</span>
+  <span class="input-group" id="">E-MAIL:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
   </div>
 
      <div class="col-md-6">        
-  <span class="input-group-addon" id="">FAZ USO DE BEBIDAS ALCOÓLICAS:</span>
+  <span class="input-group" id="">FAZ USO DE BEBIDAS ALCOÓLICAS:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
   </div>
      <div class="col-md-6">        
-  <span class="input-group-addon" id="">FUMA OU JÁ FUMOU:</span>
+  <span class="input-group" id="">FUMA OU JÁ FUMOU:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
   </div>
        <div class="col-md-4">        
-  <span class="input-group-addon" id="">ATIVIDADE FÍSICA:</span>
+  <span class="input-group" id="">ATIVIDADE FÍSICA:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
   </div>
        <div class="col-md-2">        
-  <span class="input-group-addon" id="">PESO:</span>
+  <span class="input-group" id="">PESO:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
   </div>       
     <div class="col-md-6">        
-  <span class="input-group-addon" id="">POSSUI PATOLOGIA:</span>
+  <span class="input-group" id="">POSSUI PATOLOGIA:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
   </div>
        <div class="col-md-4">        
-  <span class="input-group-addon" id="">INTOLERÂNCIA ALIMENTAR:</span>
+  <span class="input-group" id="">INTOLERÂNCIA ALIMENTAR:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
   </div>
        <div class="col-md-4">        
-  <span class="input-group-addon" id="">SEGUE ALGUMA DIETA:</span>
+  <span class="input-group" id="">SEGUE ALGUMA DIETA:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
   </div>
          <div class="col-md-4">        
-  <span class="input-group-addon" id="">SUPLEMENTOS:</span>
+  <span class="input-group" id="">SUPLEMENTOS:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"></output>
   </div>
                  <div class="col-md-12">        
-  <span class="input-group-addon" id="">DIAGNÓSTICO NUTRICIONAL:</span>
+  <span class="input-group" id="">DIAGNÓSTICO NUTRICIONAL:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2"></output> 
   </div>
 
                      <div class="col-md-12">        
-  <span class="input-group-addon" id="">RELATO DE CASO, ORIENTAÇÕES E EVOLUÇÃO:</span>
-  <output type="text" class="form-control" rows="10" aria-describedby="sizing-addon2"></output>
+  <span class="input-group" id="">RELATO DE CASO, ORIENTAÇÕES E EVOLUÇÃO:</span>
+  <output type="text" class="form-control" rows="20" aria-describedby="sizing-addon2"></output>
   </div>
 
 
