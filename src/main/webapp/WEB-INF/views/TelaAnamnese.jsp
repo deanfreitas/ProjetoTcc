@@ -1374,7 +1374,7 @@
       <label for="textArea">Relato de caso, Orientações Nutricionais e Evolução: </label>
 
       <div class="col-md-12">
-        <textarea class="form-control" rows="10" id="textArea" id="idRelatoOrientacoesNutricionaisEvolucao"></textarea>
+        <textarea class="form-control" rows="10" id="idRelatoOrientacoesNutricionaisEvolucao"></textarea>
       </div>
     </div>
 					

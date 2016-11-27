@@ -109,7 +109,7 @@ public class FrequenciaAlimentar implements InterfaceDadosPaciente {
 	private String maioneseLight;
 	
 	@Column(name = "Freq_Cremedeleite")
-	private String cremedeleite;
+	private String cremeLeite;
 	
 	@Column(name = "Freq_Frituras")
 	private String frituras;
@@ -409,14 +409,6 @@ public class FrequenciaAlimentar implements InterfaceDadosPaciente {
 		this.maioneseLight = maioneseLight;
 	}
 
-	public String getCremedeleite() {
-		return cremedeleite;
-	}
-
-	public void setCremedeleite(String cremedeleite) {
-		this.cremedeleite = cremedeleite;
-	}
-
 	public String getFrituras() {
 		return frituras;
 	}
@@ -599,5 +591,13 @@ public class FrequenciaAlimentar implements InterfaceDadosPaciente {
 
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
+	}
+
+	public String getCremeLeite() {
+		return cremeLeite;
+	}
+
+	public void setCremeLeite(String cremeLeite) {
+		this.cremeLeite = cremeLeite;
 	}
 }
