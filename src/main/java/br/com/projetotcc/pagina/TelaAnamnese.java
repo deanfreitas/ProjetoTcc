@@ -26,8 +26,18 @@ public class TelaAnamnese {
 	@Autowired
     private ServletContext context;
 	
-	@RequestMapping(value = "/telaAnamnese/{idPaciente}", method = RequestMethod.GET)
-	public ModelAndView cadastrarUsuario() {
+	@RequestMapping(value = "/telaAnamnese/cadastrar/{idPaciente}", method = RequestMethod.GET)
+	public ModelAndView cadastrarAnamnese() {
+		return new ModelAndView("TelaAnamnese");
+	}
+	
+	@RequestMapping(value = "/telaAnamnese/atualizar/{idPaciente}", method = RequestMethod.GET)
+	public ModelAndView atualizarAnamnese() {
+		return new ModelAndView("TelaAnamnese");
+	}
+	
+	@RequestMapping(value = "/telaAnamnese/visualizar/{idPaciente}", method = RequestMethod.GET)
+	public ModelAndView visualizarAnamnese() {
 		return new ModelAndView("TelaAnamnese");
 	}
 	

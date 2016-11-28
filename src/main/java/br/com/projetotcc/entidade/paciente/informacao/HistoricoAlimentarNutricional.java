@@ -34,7 +34,7 @@ public class HistoricoAlimentarNutricional implements InterfaceDadosPaciente {
 	private String preferenciaAlimentar;
 	
 	@Column(name = "Hist_AlteracoesDoApetite")
-	private boolean alteracoesDoApetite;
+	private String alteracoesDoApetite;
 	
 	@Column(name = "Hist_OBSAlteracoesDoApetite")
 	private String observacaoAlteracoesDoApetite;
@@ -67,7 +67,7 @@ public class HistoricoAlimentarNutricional implements InterfaceDadosPaciente {
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "historicoAlimentarNutricional")
 	private Paciente paciente;
 	
-	public HistoricoAlimentarNutricional(String intoleranciaAlimentar, String preferenciaAlimentar, boolean alteracoesDoApetite, String observacaoAlteracoesDoApetite, 
+	public HistoricoAlimentarNutricional(String intoleranciaAlimentar, String preferenciaAlimentar, String alteracoesDoApetite, String observacaoAlteracoesDoApetite, 
 			String iniciouObesidadePerdaPeso, String segueDietaEspecial, String refeicoesDia, String consumoAgua, String consumoSal, String consumoOleo, 
 			String fazUsoSuplemento, String quemInidicou) {
 		super();
@@ -85,7 +85,7 @@ public class HistoricoAlimentarNutricional implements InterfaceDadosPaciente {
 		this.quemInidicou = quemInidicou;
 	}
 	
-	public HistoricoAlimentarNutricional(Long id, String intoleranciaAlimentar, String preferenciaAlimentar, boolean alteracoesDoApetite, String observacaoAlteracoesDoApetite, 
+	public HistoricoAlimentarNutricional(Long id, String intoleranciaAlimentar, String preferenciaAlimentar, String alteracoesDoApetite, String observacaoAlteracoesDoApetite, 
 			String iniciouObesidadePerdaPeso, String segueDietaEspecial, String refeicoesDia, String consumoAgua, String consumoSal, String consumoOleo, 
 			String fazUsoSuplemento, String quemInidicou) {
 		super();
@@ -130,14 +130,6 @@ public class HistoricoAlimentarNutricional implements InterfaceDadosPaciente {
 
 	public void setPreferenciaAlimentar(String preferenciaAlimentar) {
 		this.preferenciaAlimentar = preferenciaAlimentar;
-	}
-
-	public boolean isAlteracoesDoApetite() {
-		return alteracoesDoApetite;
-	}
-
-	public void setAlteracoesDoApetite(boolean alteracoesDoApetite) {
-		this.alteracoesDoApetite = alteracoesDoApetite;
 	}
 
 	public String getObservacaoAlteracoesDoApetite() {

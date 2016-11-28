@@ -445,7 +445,7 @@ $(document).ready(function () {
                 suplemento: false, horaPreferida: horarioPreferido.val(), observacaoSuplemento: null
             },
             historicoAlimentarNutricional: {
-                intoleranciaAlimentar: intolerânciaAlimentar.val(), preferenciaAlimentar: preferenciaAlimentar.val(), alteracoesDoApetite: (alteracoesApetite.val() == 'Sim' ? true : false),
+                intoleranciaAlimentar: intolerânciaAlimentar.val(), preferenciaAlimentar: preferenciaAlimentar.val(), alteracoesDoApetite: alteracoesApetite.val(),
                 observacaoAlteracoesDoApetite: desdeQuandoAlteracoesApetite.val(), iniciouObesidadePerdaPeso: faseQueIniciouObesidadePerdaPeso.val(),
                 segueDietaEspecial: segueAlgumaDietaEspecial.val(), refeicoesDia: quantasRefeicoesDia.val(), consumoAgua: consumoAgua.val(), consumoSal: consumoSal.val(),
                 consumoOleo: comsumoOleo.val(), fazUsoSuplemento: fazUsoSupremento.val(), quemInidicou: quemInicou.val()

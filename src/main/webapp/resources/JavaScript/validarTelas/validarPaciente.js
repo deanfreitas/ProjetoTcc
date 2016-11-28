@@ -30,7 +30,7 @@ $(document).ready(function () {
     														<td id="idSexo`+ i + `">` + (data.listaObjetos[i].identificacao != null ? data.listaObjetos[i].identificacao.sexo : 'null') + `</td>
   														</tr>`);
 						$("#tr" + i).click(function () {
-							location.href = '/ProjetoTcc/telaAnamnese/' + data.listaObjetos[i].id
+							location.href = '/ProjetoTcc/telaAnamnese/atualizar/' + data.listaObjetos[i].id
 						});
 					}
 					$('#pacientes').DataTable();
@@ -86,7 +86,7 @@ $(document).ready(function () {
 								 */
 								return false;
 							} else {
-								location.href = '/ProjetoTcc/telaAnamnese/' + idPaciente;
+								location.href = '/ProjetoTcc/telaAnamnese/cadastrar/' + idPaciente;
 								return true;
 							}
 						}
