@@ -50,6 +50,16 @@ $(document)
 			});
 		}
 
+		function lettersOnly(fields) {
+			$(fields).keypress(function (event) {
+				var inputValue = event.which;
+				if (!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) {
+					event.preventDefault();
+				}
+			});
+		}
+
+
 		cpf.blur(
 			function () {
 				let cpf = $(this).val();
@@ -757,6 +767,7 @@ $(document)
 		validarCamposDigitados(apelido);
 		validarCamposDigitados(senha);
 		colocarMascaraCep($('input[id="cCep"]'));
+		// chamar função que aceita apenas numeros (variavel do campo)
 		onlyNumber(dataNascimento);
 		onlyNumber($('input[id="cCep"]'));
 		onlyNumber(celular);
@@ -764,6 +775,8 @@ $(document)
 		onlyNumber(telefone);
 		onlyNumber(comercial);
 		onlyNumber(numero);
+		// chamar função que aceita apenas letras e o espaço (variavel do campo)
+		lettersOnly(nome);
 		$('[data-toggle="tooltip"]').tooltip();
 		cpf.tooltip("disable");
 		dataNascimento.tooltip("disable");

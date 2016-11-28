@@ -232,6 +232,15 @@ $(document).ready(function () {
         });
     }
 
+    function lettersOnly(fields) {
+        $(fields).keypress(function (event) {
+            var inputValue = event.which;
+            if (!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) {
+                event.preventDefault();
+            }
+        });
+    }
+
     //	Identificacao
     function validarData(fields) {
         fields.blur(function () {
@@ -1473,12 +1482,15 @@ $(document).ready(function () {
     getDadosPaciente();
     validarData(dataPrimeiraConsulta);
     validarData(dataNascimento);
+    // chamar função que aceita apenas numeros (variavel do campo)
     onlyNumber(dataNascimento);
     onlyNumber(dataPrimeiraConsulta);
     onlyNumber(celular);
     onlyNumber(idade);
     onlyNumber(telefoneResidencial);
     onlyNumber(numero);
+    // chamar função que aceita apenas letras e o espaço (variavel do campo)
+    lettersOnly(nome);
     deixarDivsInvisiveis();
     $('[data-toggle="tooltip"]').tooltip();
     dataPrimeiraConsulta.tooltip("disable");

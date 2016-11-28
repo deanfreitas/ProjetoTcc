@@ -22,6 +22,7 @@
 <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
+<script src="<c:url value ='/resources/JavaScript/validarTelas/validarTelaResultados.js' />" /></script>
 
 
 </head>
