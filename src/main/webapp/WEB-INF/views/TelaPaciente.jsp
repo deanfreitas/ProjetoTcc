@@ -44,20 +44,16 @@
                             </div>
                         </div>
 	</div>
-	<div class="container-fluid col-md-4">
-		<div  class="jumbotron">
-	
-	<a href="#" id="adicionarPaciente" class="btn btn-raised btn-success btn-lg">Adicionar</a>
-	<a href="#" id="apagarPaciente" class="btn btn-raised btn-danger btn-lg">Apagar</a>
-	
-	
-		</div>
-	</div>
+
 	
 	
 	
-	<div class="container-fluid col-md-8">
+	<div class="container-fluid col-md-12">
 		<div class="jumbotron">
+		
+	<a href="#" id="adicionarPaciente" class="btn btn-raised btn-success btn-lg">Adicionar</a>
+	<a href="#" id="apagarPaciente" class="btn btn-raised btn-danger btn-lg">Apagar</a>		
+		
 		<table id="pacientes" class="table table-striped table-bordered" cellspacing="0" width="100%">
   <thead>
   <tr>

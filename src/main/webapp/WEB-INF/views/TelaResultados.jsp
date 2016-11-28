@@ -62,6 +62,7 @@
         </div>
         <br><br>
         <div class="row col-md-12" id="DadosDoPaciente">
+        <br><br><br>
            
    <div class="col-md-10">        
   <span class="input-group" id="">NOME:</span>
