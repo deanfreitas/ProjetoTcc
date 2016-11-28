@@ -29,7 +29,15 @@ $(document).ready(function () {
     														<td id="idIdade`+ i + `">` + (data.listaObjetos[i].identificacao != null ? data.listaObjetos[i].identificacao.idade : 'null') + `</td>
     														<td id="idSexo`+ i + `">` + (data.listaObjetos[i].identificacao != null ? data.listaObjetos[i].identificacao.sexo : 'null') + `</td>
   														</tr>`);
-						$("#tr" + i).click(function () {
+						$("#idNome" + i).click(function () {
+							location.href = '/ProjetoTcc/telaAnamnese/atualizar/' + data.listaObjetos[i].id
+						});
+
+						$("#idIdade" + i).click(function () {
+							location.href = '/ProjetoTcc/telaAnamnese/atualizar/' + data.listaObjetos[i].id
+						});
+
+						$("#idSexo" + i).click(function () {
 							location.href = '/ProjetoTcc/telaAnamnese/atualizar/' + data.listaObjetos[i].id
 						});
 					}
