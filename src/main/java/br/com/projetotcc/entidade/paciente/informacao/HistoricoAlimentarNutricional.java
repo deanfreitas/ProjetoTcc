@@ -211,4 +211,12 @@ public class HistoricoAlimentarNutricional implements InterfaceDadosPaciente {
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
+
+	public String getAlteracoesDoApetite() {
+		return alteracoesDoApetite;
+	}
+
+	public void setAlteracoesDoApetite(String alteracoesDoApetite) {
+		this.alteracoesDoApetite = alteracoesDoApetite;
+	}
 }

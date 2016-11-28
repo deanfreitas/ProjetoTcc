@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $.material.init();
 
     var url = window.location.href;
@@ -206,8 +206,20 @@ $(document).ready(function () {
     var porcaoCafe = $('#porcaoCafe');
     var porcaoCha = $('#porcaoCha');
 
+    var tipoAcaoTelaAnamnese = null;
+
+    if (url.indexOf("cadastrar") > -1) {
+        tipoAcaoTelaAnamnese = "cadastrar";
+    } else
+        if (url.indexOf("atualizar") > -1) {
+            tipoAcaoTelaAnamnese = "atualizar";
+        } else
+            if (url.indexOf("visualizar") > -1) {
+                tipoAcaoTelaAnamnese = "visualizar";
+            }
+
     function onlyNumber(fields) {
-        $(fields).unbind('keyup').bind('keyup', function (e) {
+        $(fields).unbind('keyup').bind('keyup', function(e) {
             let thisVal = $(this).val();
             let tempVal = "";
 
@@ -222,7 +234,7 @@ $(document).ready(function () {
 
     //	Identificacao
     function validarData(fields) {
-        fields.blur(function () {
+        fields.blur(function() {
             let data = $(this).val();
             let tamanhoData = data.length;
             let dataCerta = true;
@@ -342,7 +354,7 @@ $(document).ready(function () {
         });
     }
 
-    celular.blur(function () {
+    celular.blur(function() {
         let celular = $(this).val();
 
         celular = celular.replace(/\W/g, "");
@@ -355,7 +367,7 @@ $(document).ready(function () {
     });
 
     telefoneResidencial.blur(
-        function () {
+        function() {
             let telefoneResidencial = $(this).val();
 
             telefoneResidencial = telefoneResidencial
@@ -369,7 +381,7 @@ $(document).ready(function () {
             $(this).val(telefoneResidencial);
         });
 
-    email.blur(function () {
+    email.blur(function() {
         let emailValidar = $(this).val();
         let emailInvalido = false;
         let i;
@@ -404,7 +416,7 @@ $(document).ready(function () {
         }
     });
 
-    $('#btnSalvar').click(function () {
+    $('#btnSalvar').click(function() {
 
         let object = {
             id: idPaciente,
@@ -473,7 +485,7 @@ $(document).ready(function () {
             data: JSON.stringify(object),
             contentType: "application/json",
             dataType: 'json',
-            success: function (data, status) {
+            success: function(data, status) {
                 if (data.codigo != 0) {
 					/*
 					 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
@@ -496,6 +508,121 @@ $(document).ready(function () {
         });
     });
 
+    function getDadosPaciente() {
+
+        if (tipoAcaoTelaAnamnese != "cadastrar") {
+            let object;
+
+            $.ajax({
+                url: "/ProjetoTcc/pegarDadosPaciente/" + idPaciente,
+                type: 'GET',
+                data: JSON.stringify(object),
+                contentType: "application/json",
+                dataType: 'json',
+                success: function(data, status) {
+                    if (data.mensagem != null) {
+                        /*
+                         *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
+                         *  Essa mensagem está escrito "Já tem um login Igual a esse", que aparece quando o usuario coloca um email que já foi colocado.
+                         */
+
+                        alert(data.mensagem);
+
+                        /*
+                         *  Dar um jeito de aparecer a mensagem antes do "return false"
+                         */
+                        return false;
+                    } else {
+                        if (data.objeto.identificacao != null) {
+                            dataPrimeiraConsulta.val(data.objeto.identificacao.dataPrimeiraConsuta);
+                            nome.val(data.objeto.identificacao.nome);
+                            endereco.val(data.objeto.identificacao.endereco);
+                            numero.val(data.objeto.identificacao.numero);
+                            bairro.val(data.objeto.identificacao.bairro);
+                            cidade.val(data.objeto.identificacao.cidade);
+                            estado.val(data.objeto.identificacao.estado);
+                            email.val(data.objeto.identificacao.email);
+                            telefoneResidencial.val(data.objeto.identificacao.telefoneResidencial);
+                            celular.val(data.objeto.identificacao.celular);
+                            dataNascimento.val(data.objeto.identificacao.dataNascimento);
+                            idade.val(data.objeto.identificacao.idade);
+                            sexo.val(data.objeto.identificacao.sexo);
+                            estadoCivil.val(data.objeto.identificacao.estadoCivil);
+                            corRaca.val(data.objeto.identificacao.raca);
+                            motivoConsulta.val(data.objeto.identificacao.motivoConsulta);
+                            observacoes.val(data.objeto.identificacao.observacao);
+                        }
+                        if (data.objeto.historicoSocialFamiliar != null) {
+                            profissao.val(data.objeto.historicoSocialFamiliar.profissao);
+                            cargaHoraria.val(data.objeto.historicoSocialFamiliar.cargaHoraria);
+                            composicaoFamiliar.val(data.objeto.historicoSocialFamiliar.composicaoFamiliar);
+                            quemCompraAlimentos.val(data.objeto.historicoSocialFamiliar.quemCompraAlimentos);
+                            compraFeita.val(data.objeto.historicoSocialFamiliar.compraFeita);
+                            quemPreparaRefeicoes.val(data.objeto.historicoSocialFamiliar.quemPreparaRefeicoes);
+                            comQuemRealizaRefeicoes.val(data.objeto.historicoSocialFamiliar.comQuemRealizaRefeicoes);
+                            fazUsoBedidasAlcoolicas.val(data.objeto.historicoSocialFamiliar.fazUsoDeBebidasAlcoolicas);
+                            fumaJaFumou.val(data.objeto.historicoSocialFamiliar.fuma);
+                        }
+
+                        if (data.objeto.dadosClinicos != null) {
+
+                        }
+
+                        if (data.objeto.antecedentesFamiliares != null) {
+
+                        }
+
+                        if (data.objeto.atividadeFisica != null) {
+                            tipoAtividadeFisica.val(data.objeto.atividadeFisica.tipo);
+                            frequencia.val(data.objeto.atividadeFisica.frequencia);
+                            duracao.val(data.objeto.atividadeFisica.duracao);
+                            vocePraticaAtividades.val(data.objeto.atividadeFisica.pratica);
+                            horarioPreferido.val(data.objeto.atividadeFisica.horaPreferida);
+                        }
+
+                        if (tipoAcaoTelaAnamnese == "visualizar") {
+                            dataPrimeiraConsulta.prop("disabled", true);
+                            nome.prop("disabled", true);
+                            endereco.prop("disabled", true);
+                            numero.prop("disabled", true);
+                            bairro.prop("disabled", true);
+                            cidade.prop("disabled", true);
+                            estado.prop("disabled", true);
+                            email.prop("disabled", true);
+                            telefoneResidencial.prop("disabled", true);
+                            celular.prop("disabled", true);
+                            dataNascimento.prop("disabled", true);
+                            idade.prop("disabled", true);
+                            sexo.prop("disabled", true);
+                            estadoCivil.prop("disabled", true);
+                            corRaca.prop("disabled", true);
+                            motivoConsulta.prop("disabled", true);
+                            observacoes.prop("disabled", true);
+
+                            profissao.prop("disabled", true);
+                            cargaHoraria.prop("disabled", true);
+                            composicaoFamiliar.prop("disabled", true);
+                            quemCompraAlimentos.prop("disabled", true);
+                            compraFeita.prop("disabled", true);
+                            quemPreparaRefeicoes.prop("disabled", true);
+                            comQuemRealizaRefeicoes.prop("disabled", true);
+                            fazUsoBedidasAlcoolicas.prop("disabled", true);
+                            fumaJaFumou.prop("disabled", true);
+
+
+                            tipoAtividadeFisica.prop("disabled", true);
+                            frequencia.prop("disabled", true);
+                            duracao.prop("disabled", true);
+                            vocePraticaAtividades.prop("disabled", true);
+                            horarioPreferido.prop("disabled", true);
+                        }
+                        return true;
+                    }
+                }
+            });
+        }
+    };
+
     function deixarDivsInvisiveis() {
         $('#divIdentificacao').toggle();
         $('#divHistoricoFamiliar').toggle();
@@ -506,9 +633,9 @@ $(document).ready(function () {
         $('#divExamesBio').toggle();
         $('#divUsoMedicamentos').toggle();
         $('#divFrequenciaAlimentar').toggle();
-    }
+    };
 
-    $('#btnIdentificacao').click(function () {
+    $('#btnIdentificacao').click(function() {
         $('#divIdentificacao').show();
         $('#divHistoricoFamiliar').hide();
         $('#divDadosAntropo').hide();
@@ -520,7 +647,7 @@ $(document).ready(function () {
         $('#divFrequenciaAlimentar').hide();
     });
 
-    $('#btnHistoricoFamiliar').click(function () {
+    $('#btnHistoricoFamiliar').click(function() {
         $('#divIdentificacao').hide();
         $('#divHistoricoFamiliar').show();
         $('#divDadosAntropo').hide();
@@ -532,7 +659,7 @@ $(document).ready(function () {
         $('#divFrequenciaAlimentar').hide();
     });
 
-    $('#btnDadosAntropo').click(function () {
+    $('#btnDadosAntropo').click(function() {
         $('#divIdentificacao').hide();
         $('#divHistoricoFamiliar').hide();
         $('#divDadosAntropo').show();
@@ -544,7 +671,7 @@ $(document).ready(function () {
         $('#divFrequenciaAlimentar').hide();
     });
 
-    $('#btnDadosClinicos').click(function () {
+    $('#btnDadosClinicos').click(function() {
         $('#divIdentificacao').hide();
         $('#divHistoricoFamiliar').hide();
         $('#divDadosAntropo').hide();
@@ -556,7 +683,7 @@ $(document).ready(function () {
         $('#divFrequenciaAlimentar').hide();
     });
 
-    $('#btnAtividadeFisica').click(function () {
+    $('#btnAtividadeFisica').click(function() {
         $('#divIdentificacao').hide();
         $('#divHistoricoFamiliar').hide();
         $('#divDadosAntropo').hide();
@@ -568,7 +695,7 @@ $(document).ready(function () {
         $('#divFrequenciaAlimentar').hide();
     });
 
-    $('#btnHistoricoAlimentar').click(function () {
+    $('#btnHistoricoAlimentar').click(function() {
         $('#divIdentificacao').hide();
         $('#divHistoricoFamiliar').hide();
         $('#divDadosAntropo').hide();
@@ -580,7 +707,7 @@ $(document).ready(function () {
         $('#divFrequenciaAlimentar').hide();
     });
 
-    $('#btnExamesBio').click(function () {
+    $('#btnExamesBio').click(function() {
         $('#divIdentificacao').hide();
         $('#divHistoricoFamiliar').hide();
         $('#divDadosAntropo').hide();
@@ -592,7 +719,7 @@ $(document).ready(function () {
         $('#divFrequenciaAlimentar').hide();
     });
 
-    $('#btnUsoMedicamentos').click(function () {
+    $('#btnUsoMedicamentos').click(function() {
         $('#divIdentificacao').hide();
         $('#divHistoricoFamiliar').hide();
         $('#divDadosAntropo').hide();
@@ -604,7 +731,7 @@ $(document).ready(function () {
         $('#divFrequenciaAlimentar').hide();
     });
 
-    $('#btnFrequenciaAlimentar').click(function () {
+    $('#btnFrequenciaAlimentar').click(function() {
         $('#divIdentificacao').hide();
         $('#divHistoricoFamiliar').hide();
         $('#divDadosAntropo').hide();
@@ -616,10 +743,8 @@ $(document).ready(function () {
         $('#divFrequenciaAlimentar').show();
     });
 
-
-
     $('#inputOculto').hide();
-    $('#HabIntestinal').change(function () {
+    $('#HabIntestinal').change(function() {
         if ($('#HabIntestinal').val() == 'Outro') {
             $('#inputOculto').show();
         } else {
@@ -628,7 +753,7 @@ $(document).ready(function () {
     });
 
     $('#inputOculto2').hide();
-    $('#ConsFezes').change(function () {
+    $('#ConsFezes').change(function() {
         if ($('#ConsFezes').val() == 'Outro') {
             $('#inputOculto2').show();
         } else {
@@ -637,7 +762,7 @@ $(document).ready(function () {
     });
 
     $('#inputOculto3').hide();
-    $('#AltApetite').change(function () {
+    $('#AltApetite').change(function() {
         if ($('#AltApetite').val() == 'Sim') {
             $('#inputOculto3').show();
         } else {
@@ -645,7 +770,7 @@ $(document).ready(function () {
         }
     });
 
-    $(function () {
+    $(function() {
 
         jsGrid.locale("pt-br");
 
@@ -794,7 +919,7 @@ $(document).ready(function () {
 
     });
 
-    $(function () {
+    $(function() {
 
         jsGrid.locale("pt-br");
 
@@ -928,7 +1053,7 @@ $(document).ready(function () {
 
     });
 
-    $(function () {
+    $(function() {
 
         jsGrid.locale("pt-br");
 
@@ -977,6 +1102,7 @@ $(document).ready(function () {
 
     });
 
+    getDadosPaciente();
     validarData(dataPrimeiraConsulta);
     validarData(dataNascimento);
     onlyNumber(dataNascimento);

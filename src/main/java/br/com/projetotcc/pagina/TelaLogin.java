@@ -76,6 +76,8 @@ public class TelaLogin {
 
 		resultadoServico.setCodigo(codigo);
 		resultadoServico.setMensagem(mensagem);
+		resultadoServico.setObjeto(null);
+		resultadoServico.setListaObjetos(null);
 
 		return resultadoServico;
 	}

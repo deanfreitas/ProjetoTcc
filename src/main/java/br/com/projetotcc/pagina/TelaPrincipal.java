@@ -53,6 +53,8 @@ public class TelaPrincipal {
 		}
 		
 		resultadoServico.setMensagem(mensagem);
+		resultadoServico.setObjeto(null);
+		resultadoServico.setListaObjetos(null);
 		
 		return resultadoServico;
 	}

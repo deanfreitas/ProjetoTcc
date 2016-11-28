@@ -73,6 +73,7 @@ public class TelaCadastro {
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
 		resultadoServico.setObjeto(null);
+		resultadoServico.setListaObjetos(null);
 		
 		return resultadoServico;
 	}
@@ -119,6 +120,7 @@ public class TelaCadastro {
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
 		resultadoServico.setObjeto(null);
+		resultadoServico.setListaObjetos(null);
 		
 		return resultadoServico;
 	}
@@ -136,6 +138,7 @@ public class TelaCadastro {
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
 		resultadoServico.setObjeto(null);
+		resultadoServico.setListaObjetos(null);
 		
 		return resultadoServico;
 	}
@@ -170,7 +173,8 @@ public class TelaCadastro {
 
 		resultadoServico.setCodigo(codigo);
 		resultadoServico.setMensagem(mensagem);
-
+		resultadoServico.setListaObjetos(null);
+		
 		return resultadoServico;
 	}
 	
@@ -194,6 +198,8 @@ public class TelaCadastro {
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
 		resultadoServico.setObjeto(null);
+		resultadoServico.setListaObjetos(null);
+		
 		return resultadoServico;
 	}
 	
@@ -217,6 +223,8 @@ public class TelaCadastro {
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
 		resultadoServico.setObjeto(null);
+		resultadoServico.setListaObjetos(null);
+		
 		return resultadoServico;
 	}
 }
