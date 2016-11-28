@@ -94,7 +94,7 @@ $(document).ready(function () {
     var horarioPreferido = $('#HorarioPref');
 
     // Historico Alimentar Nutricional 
-    var intolerânciaAlimentar = $('#IntAlimentar');
+    var intoleranciaAlimentar = $('#IntAlimentar');
     var preferenciaAlimentar = $('#PrefAlimentar');
     var alteracoesApetite = $('#AltApetite');
     var desdeQuandoAlteracoesApetite = $('#desdeQuando');
@@ -457,7 +457,7 @@ $(document).ready(function () {
                 suplemento: false, horaPreferida: horarioPreferido.val(), observacaoSuplemento: null
             },
             historicoAlimentarNutricional: {
-                intoleranciaAlimentar: intolerânciaAlimentar.val(), preferenciaAlimentar: preferenciaAlimentar.val(), alteracoesDoApetite: alteracoesApetite.val(),
+                intoleranciaAlimentar: intoleranciaAlimentar.val(), preferenciaAlimentar: preferenciaAlimentar.val(), alteracoesDoApetite: alteracoesApetite.val(),
                 observacaoAlteracoesDoApetite: desdeQuandoAlteracoesApetite.val(), iniciouObesidadePerdaPeso: faseQueIniciouObesidadePerdaPeso.val(),
                 segueDietaEspecial: segueAlgumaDietaEspecial.val(), refeicoesDia: quantasRefeicoesDia.val(), consumoAgua: consumoAgua.val(), consumoSal: consumoSal.val(),
                 consumoOleo: comsumoOleo.val(), fazUsoSuplemento: fazUsoSupremento.val(), quemInidicou: quemInicou.val()
@@ -687,7 +687,7 @@ $(document).ready(function () {
                         }
 
                         if (data.objeto.historicoAlimentarNutricional != null) {
-                            intolerânciaAlimentar.val(data.objeto.historicoAlimentarNutricional.intoleranciaAlimentar);
+                            intoleranciaAlimentar.val(data.objeto.historicoAlimentarNutricional.intoleranciaAlimentar);
                             preferenciaAlimentar.val(data.objeto.historicoAlimentarNutricional.preferenciaAlimentar);
                             alteracoesApetite.val(data.objeto.historicoAlimentarNutricional.alteracoesDoApetite);
                             desdeQuandoAlteracoesApetite.val(data.objeto.historicoAlimentarNutricional.observacaoAlteracoesDoApetite);

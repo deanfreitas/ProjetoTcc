@@ -65,65 +65,65 @@
            
    <div class="col-md-10">        
   <span class="input-group" id="">NOME:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"></output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idNome"></output>
   </div>
   <div class="col-md-2"> 
   <span class="input-group" id="">IDADE:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"></output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idIdade"></output>
    </div>     
       <div class="col-md-3">        
   <span class="input-group" id="">SEXO:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"></output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idSexo"></output>
   </div>
       <div class="col-md-3">        
   <span class="input-group" id="">CELULAR:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idCelular"> </output>
   </div>
  <div class="col-md-6">        
   <span class="input-group" id="">E-MAIL:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idEmail"> </output>
   </div>
 
      <div class="col-md-6">        
   <span class="input-group" id="">FAZ USO DE BEBIDAS ALCOÓLICAS:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idBebidasAlcoolicas"> </output>
   </div>
      <div class="col-md-6">        
   <span class="input-group" id="">FUMA OU JÁ FUMOU:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idFuma"> </output>
   </div>
        <div class="col-md-4">        
   <span class="input-group" id="">ATIVIDADE FÍSICA:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idAtividadeFisica"> </output>
   </div>
        <div class="col-md-2">        
   <span class="input-group" id="">PESO:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idPeso"> </output>
   </div>       
     <div class="col-md-6">        
   <span class="input-group" id="">POSSUI PATOLOGIA:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idPossuiPatologia"> </output>
   </div>
        <div class="col-md-4">        
   <span class="input-group" id="">INTOLERÂNCIA ALIMENTAR:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idIntoleranciaAlimentar"> </output>
   </div>
        <div class="col-md-4">        
   <span class="input-group" id="">SEGUE ALGUMA DIETA:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"> </output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idDieta"> </output>
   </div>
          <div class="col-md-4">        
   <span class="input-group" id="">SUPLEMENTOS:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"></output>
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idSuplementos"></output>
   </div>
                  <div class="col-md-12">        
   <span class="input-group" id="">DIAGNÓSTICO NUTRICIONAL:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2"></output> 
+  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idDiagnosticoNutricional"></output> 
   </div>
 
                      <div class="col-md-12">        
   <span class="input-group" id="">RELATO DE CASO, ORIENTAÇÕES E EVOLUÇÃO:</span>
-  <output type="text" class="form-control" rows="20" aria-describedby="sizing-addon2"></output>
+  <output type="text" class="form-control" rows="20" aria-describedby="sizing-addon2" id="idRelatoCasoOrientacoesEvolucao"></output>
   </div>
 
 

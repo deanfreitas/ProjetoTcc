@@ -579,10 +579,10 @@ $(document)
 					});
 				} else {
 					let object;
-		
+
 					if (tipoPessoa == 'nutricionista') {
 						object = {
-							nomeCompleto: nome.val(), sexo: $("input:radio[id='radioSexo']:checked").val(), dataNascimento: dataNascimento.val(),crn: crn.val(), 
+							nomeCompleto: nome.val(), sexo: $("input:radio[id='radioSexo']:checked").val(), dataNascimento: dataNascimento.val(), crn: crn.val(),
 							email: email.val(), cpf: cpf.val(), endereco: endereco.val(), numero: numero.val(),
 							complemento: complemento.val(), telefone: telefone.val(), celular: celular.val(), comercial: comercial.val(),
 							login: { usuario: apelido.val(), senha: senha.val() }
@@ -704,7 +704,7 @@ $(document)
 
 		$('#cancelarVerificarSenha').click(function () {
 			let senhaPessoa = $('#validarSenha').val('');
-		}); 
+		});
 
 		function deixarDivsInvisiveis() {
 			$('#idCadPaciente').toggle();
