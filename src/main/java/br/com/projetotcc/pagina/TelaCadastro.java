@@ -190,6 +190,9 @@ public class TelaCadastro {
 				bancoDadosService.atualizarCadastroUsuario(paciente);
 				mensagem = "Cadastro atualizado com sucesso";
 				context.setAttribute("loginUsuario", paciente.getLogin().getUsuario());
+			} else {
+				mensagem = "Erro no Sistema";
+				codigo = 2;
 			}
 		} catch (Exception e) {
 			mensagem = "Erro ao atualizar o cadastro";
@@ -215,6 +218,9 @@ public class TelaCadastro {
 				bancoDadosService.atualizarCadastroUsuario(nutricionista);
 				mensagem = "Cadastro atualizado com sucesso";
 				context.setAttribute("loginUsuario", nutricionista.getLogin().getUsuario());
+			} else {
+				mensagem = "Erro no sistema";
+				codigo = 2;
 			}
 		} catch (Exception e) {
 			mensagem = "Erro ao atualizar o cadastro";

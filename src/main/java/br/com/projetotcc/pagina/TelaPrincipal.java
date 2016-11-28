@@ -34,6 +34,7 @@ public class TelaPrincipal {
 	@RequestMapping(value = "/pegarIdUsuarioCadastrado", method = RequestMethod.POST)
 	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Login login) {
 		String mensagem = null;
+		long codigo = 0;
 
 		Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, context.getAttribute("loginUsuario").toString());
 		
@@ -50,9 +51,13 @@ public class TelaPrincipal {
 					
 					resultadoServico.setObjeto(loginCadastrado.getPaciente().getId());
 				}
+		} else {
+			mensagem = "Erro no sistema";
+			codigo = 2;
 		}
 		
 		resultadoServico.setMensagem(mensagem);
+		resultadoServico.setCodigo(codigo);
 		resultadoServico.setObjeto(null);
 		resultadoServico.setListaObjetos(null);
 		

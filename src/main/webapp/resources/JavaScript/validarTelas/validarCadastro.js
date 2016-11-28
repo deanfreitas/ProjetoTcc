@@ -612,14 +612,18 @@ $(document)
 						contentType: "application/json",
 						dataType: 'json',
 						success: function (data, status) {
-							if (data.codigo != 0) {
+							if (data.codigo == 1) {
 								alert(data.mensagem);
 								return false;
-							} else {
-								alert(data.mensagem);
-								window.location.href = '/ProjetoTcc/telaPrincipal';
-								return true;
-							}
+							} else
+								if (data.codigo == 2) {
+									alert(data.mensagem);
+									location.href = '/ProjetoTcc/sairSistema';
+								} else {
+									alert(data.mensagem);
+									window.location.href = '/ProjetoTcc/telaPrincipal';
+									return true;
+								}
 						}
 					});
 				}

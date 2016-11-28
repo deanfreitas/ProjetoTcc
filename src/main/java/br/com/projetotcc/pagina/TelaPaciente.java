@@ -78,6 +78,9 @@ public class TelaPaciente {
 					} else {
 						mensagem = "Erro Sistema";
 					}
+				} else {
+					codigo = 2;
+					mensagem = "Erro no sistema";
 				}
 			}catch (Exception e) {
 				System.out.println();
@@ -112,7 +115,7 @@ public class TelaPaciente {
 				}
 			}
 		} else {
-			codigo = 0;
+			codigo = 2;
 			mensagem = "Erro no sistema";
 		}
 		

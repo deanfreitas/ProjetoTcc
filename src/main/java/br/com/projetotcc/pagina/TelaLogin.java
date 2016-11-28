@@ -75,7 +75,7 @@ public class TelaLogin {
 				}
 			}
 
-		if(mensagem == null) {
+		if(mensagem != null) {
 			codigo = 1;
 		}
 

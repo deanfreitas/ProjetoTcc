@@ -15,15 +15,20 @@ $(document).ready(function () {
 			contentType: "application/json",
 			dataType: 'json',
 			success: function (data, status) {
-				tipoUsuario = data.mensagem
-				idUsuario = data.objeto;
+				if (data.codigo == 2) {
+					alert(data.mensagem);
+					location.href = '/ProjetoTcc/sairSistema';
+				} else {
+					tipoUsuario = data.mensagem
+					idUsuario = data.objeto;
 
-				if (tipoUsuario == 'nutricionista') {
-					$('#btnPerfil').toggle();
-				} else
-					if (tipoUsuario == 'paciente') {
-						$('#btnPaciente').toggle();
-					}
+					if (tipoUsuario == 'nutricionista') {
+						$('#btnPerfil').toggle();
+					} else
+						if (tipoUsuario == 'paciente') {
+							$('#btnPaciente').toggle();
+						}
+				}
 			}
 		});
 	};
