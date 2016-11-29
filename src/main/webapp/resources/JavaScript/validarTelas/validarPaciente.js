@@ -116,7 +116,7 @@ $(document).ready(function () {
 									alert(data.mensagem);
 									location.href = '/ProjetoTcc/sairSistema';
 								} else {
-									location.href = '/ProjetoTcc/telaAnamnese/' + idPaciente;
+									location.href = '/ProjetoTcc/telaAnamnese/cadastrar/' + idPaciente;
 									return true;
 								}
 						}

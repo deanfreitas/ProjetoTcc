@@ -60,22 +60,24 @@
 
 		<div class="jumbotron col-md-12" id="idDadosComuns">
 
-			<div class="form-group col-md-6">
+			<div class="form-group col-md-8">
 				<input type="text" class="form-control" id="idNome"
 					placeholder="Nome">
 			</div>
-			<div class="form-group col-md-6">
+			<div class="form-group col-md-4">
 				<label class="radio-inline"> <input type="radio"
 					name="radioSexo" id="radioSexo" value="Masculino"> Masculino
 				</label> <label class="radio-inline"> <input type="radio"
 					name="radioSexo" id="radioSexo" value="Feminino"> Feminino
 				</label>
 			</div>
-			<div class="form-group col-md-12">
+			<div class="form-group col-md-6">
 				<input type="email" class="form-control" id="idEmail"
 					placeholder="E-mail" data-toggle="tooltip"
 					title="Digite o Email corretamente" required />
 			</div>
+			
+			
 
 			<div class="form-group col-md-6">
 				<input type="text" class="form-control" id="idApelido"
@@ -85,7 +87,14 @@
 				<input type="password" class="form-control" id="idSenha"
 					placeholder="Senha" required />
 			</div>
+			
+			<div class="form-group col-md-6">
+				<input type="text" class="form-control" id="idCRN" placeholder="CRN">
+			</div>
+			
 		</div>
+		
+		
 
 		<div class="jumbotron col-md-12" id="idCadPaciente">
 			<fieldset>
@@ -137,15 +146,13 @@
 				<legend> </legend>
 
 			</fieldset>
-			<div class="form-group col-md-4">
+			<div class="form-group col-md-6">
 				<input type="text" class="form-control" id="idCPF" placeholder="CPF" data-toggle="tooltip"
 					title="Digite o cpf corretamente"
 					required />
 			</div>
-			<div class="form-group col-md-4">
-				<input type="text" class="form-control" id="idCRN" placeholder="CRN">
-			</div>
-			<div class="form-group col-md-4">
+			
+			<div class="form-group col-md-6">
 				<input type="text" class="form-control" id="idDataNascimento" data-toggle="tooltip" title="Digite a data corretamente"
 					placeholder="Data de Nascimento" />
 			</div>
