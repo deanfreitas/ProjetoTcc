@@ -50,6 +50,16 @@ $(document)
 			});
 		}
 
+		function lettersOnly(fields) {
+			$(fields).keypress(function (event) {
+				var inputValue = event.which;
+				if (!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) {
+					event.preventDefault();
+				}
+			});
+		}
+
+
 		cpf.blur(
 			function () {
 				let cpf = $(this).val();
@@ -579,10 +589,10 @@ $(document)
 					});
 				} else {
 					let object;
-		
+
 					if (tipoPessoa == 'nutricionista') {
 						object = {
-							nomeCompleto: nome.val(), sexo: $("input:radio[id='radioSexo']:checked").val(), dataNascimento: dataNascimento.val(),crn: crn.val(), 
+							nomeCompleto: nome.val(), sexo: $("input:radio[id='radioSexo']:checked").val(), dataNascimento: dataNascimento.val(), crn: crn.val(),
 							email: email.val(), cpf: cpf.val(), endereco: endereco.val(), numero: numero.val(),
 							complemento: complemento.val(), telefone: telefone.val(), celular: celular.val(), comercial: comercial.val(),
 							login: { usuario: apelido.val(), senha: senha.val() }
@@ -602,14 +612,18 @@ $(document)
 						contentType: "application/json",
 						dataType: 'json',
 						success: function (data, status) {
-							if (data.codigo != 0) {
+							if (data.codigo == 1) {
 								alert(data.mensagem);
 								return false;
-							} else {
-								alert(data.mensagem);
-								window.location.href = '/ProjetoTcc/telaPrincipal';
-								return true;
-							}
+							} else
+								if (data.codigo == 2) {
+									alert(data.mensagem);
+									location.href = '/ProjetoTcc/sairSistema';
+								} else {
+									alert(data.mensagem);
+									window.location.href = '/ProjetoTcc/telaPrincipal';
+									return true;
+								}
 						}
 					});
 				}
@@ -704,7 +718,7 @@ $(document)
 
 		$('#cancelarVerificarSenha').click(function () {
 			let senhaPessoa = $('#validarSenha').val('');
-		}); 
+		});
 
 		function deixarDivsInvisiveis() {
 			$('#idCadPaciente').toggle();
@@ -757,6 +771,7 @@ $(document)
 		validarCamposDigitados(apelido);
 		validarCamposDigitados(senha);
 		colocarMascaraCep($('input[id="cCep"]'));
+		// chamar função que aceita apenas numeros (variavel do campo)
 		onlyNumber(dataNascimento);
 		onlyNumber($('input[id="cCep"]'));
 		onlyNumber(celular);
@@ -764,6 +779,8 @@ $(document)
 		onlyNumber(telefone);
 		onlyNumber(comercial);
 		onlyNumber(numero);
+		// chamar função que aceita apenas letras e o espaço (variavel do campo)
+		lettersOnly(nome);
 		$('[data-toggle="tooltip"]').tooltip();
 		cpf.tooltip("disable");
 		dataNascimento.tooltip("disable");

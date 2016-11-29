@@ -64,10 +64,10 @@ public class FrequenciaAlimentar implements InterfaceDadosPaciente {
 	private String leiteDesnatado;
 	
 	@Column(name = "Freq_Iorgute")
-	private String iorgute;
+	private String iorgurte;
 	
 	@Column(name = "Freq_IorguteDesnatado")
-	private String iorguteDesnatado;
+	private String iorgurteDesnatado;
 
 	@Column(name = "Freq_Queijos")
 	private String queijos;
@@ -288,21 +288,13 @@ public class FrequenciaAlimentar implements InterfaceDadosPaciente {
 	public void setLeiteDesnatado(String leiteDesnatado) {
 		this.leiteDesnatado = leiteDesnatado;
 	}
-
-	public String getIorgute() {
-		return iorgute;
+	
+	public String getIorgurteDesnatado() {
+		return iorgurteDesnatado;
 	}
 
-	public void setIorgute(String iorgute) {
-		this.iorgute = iorgute;
-	}
-
-	public String getIorguteDesnatado() {
-		return iorguteDesnatado;
-	}
-
-	public void setIorguteDesnatado(String iorguteDesnatado) {
-		this.iorguteDesnatado = iorguteDesnatado;
+	public void setIorgurteDesnatado(String iorgurteDesnatado) {
+		this.iorgurteDesnatado = iorgurteDesnatado;
 	}
 
 	public String getQueijos() {
@@ -599,5 +591,13 @@ public class FrequenciaAlimentar implements InterfaceDadosPaciente {
 
 	public void setCremeLeite(String cremeLeite) {
 		this.cremeLeite = cremeLeite;
+	}
+
+	public String getIorgurte() {
+		return iorgurte;
+	}
+
+	public void setIorgurte(String iorgurte) {
+		this.iorgurte = iorgurte;
 	}
 }

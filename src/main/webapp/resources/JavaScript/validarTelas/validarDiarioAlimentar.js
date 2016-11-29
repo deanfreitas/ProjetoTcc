@@ -1,5 +1,6 @@
+$(document).ready(function () {
 
-
+});
 
 function resetActive(event, percent, step) {
     $(".progress-bar").css("width", percent + "%").attr("aria-valuenow", percent);
@@ -60,7 +61,6 @@ $(function () {
             { type: "control" }
         ]
     });
-
 });
 
 
@@ -88,7 +88,6 @@ $(function () {
             { type: "control" }
         ]
     });
-
 });
 
 $(function () {
@@ -115,7 +114,6 @@ $(function () {
             { type: "control" }
         ]
     });
-
 });
 
 $(function () {
@@ -142,7 +140,6 @@ $(function () {
             { type: "control" }
         ]
     });
-
 });
 
 $(function () {
@@ -169,7 +166,6 @@ $(function () {
             { type: "control" }
         ]
     });
-
 });
 
 $(function () {
@@ -196,7 +192,4 @@ $(function () {
             { type: "control" }
         ]
     });
-
 });
-
-

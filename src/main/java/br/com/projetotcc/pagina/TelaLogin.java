@@ -30,6 +30,11 @@ public class TelaLogin {
 	@Autowired
     private ServletContext context;
 	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView aparecerTelaLoginComBarra() {
+		return new ModelAndView("TelaLogin");
+	}
+	
 	@RequestMapping(value = "/telaLogin", method = RequestMethod.GET)
 	public ModelAndView aparecerTelaLogin() {
 		return new ModelAndView("TelaLogin");
@@ -70,7 +75,7 @@ public class TelaLogin {
 				}
 			}
 
-		if(mensagem == null) {
+		if(mensagem != null) {
 			codigo = 1;
 		}
 

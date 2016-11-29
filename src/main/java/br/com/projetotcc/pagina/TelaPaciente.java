@@ -49,6 +49,7 @@ public class TelaPaciente {
 				System.out.println();
 				System.out.println(e);
 				mensagem = "Erro ao inserir medico ao paciente";
+				codigo = 1;
 			}
 		} else {
 			mensagem = "Não foi encontrado uma instancia do objeto";
@@ -77,11 +78,15 @@ public class TelaPaciente {
 					} else {
 						mensagem = "Erro Sistema";
 					}
+				} else {
+					codigo = 2;
+					mensagem = "Erro no sistema";
 				}
 			}catch (Exception e) {
 				System.out.println();
 				System.out.println(e);
 				mensagem = "Erro ao inserir medico ao paciente";
+				codigo = 1;
 			}
 		} else {
 			mensagem = "Não foi encontrado uma instancia do objeto";
@@ -109,6 +114,9 @@ public class TelaPaciente {
 					listaObjetos.add(paciente);
 				}
 			}
+		} else {
+			codigo = 2;
+			mensagem = "Erro no sistema";
 		}
 		
 		
@@ -116,6 +124,30 @@ public class TelaPaciente {
 		resultadoServico.setCodigo(codigo);
 		resultadoServico.setObjeto(null);
 		resultadoServico.setListaObjetos(listaObjetos);
+
+		return resultadoServico;
+	}
+	
+	@RequestMapping(value = "/detelarPacientes", method = RequestMethod.DELETE)
+	public @ResponseBody ResultadoServico detelarPacientes(@RequestBody List<Paciente> pacientes) {
+		String mensagem = null;
+		long codigo = 0;
+		List<Object> mensagens = new ArrayList<Object>();
+		
+		for(Paciente paciente : pacientes) {
+			try {
+				bancoDadosService.removerCadastroUsuario(paciente);
+			}catch (Exception e) {
+				codigo = 1;
+				mensagens.add("Erro ao remover o cadastro do paciente: " + paciente.getIdentificacao().getNome());
+			} 
+			mensagem = "Cadastros Revovidos com Sucesso";
+		}
+
+		resultadoServico.setMensagem(mensagem);
+		resultadoServico.setCodigo(codigo);
+		resultadoServico.setObjeto(null);
+		resultadoServico.setListaObjetos(mensagens);
 
 		return resultadoServico;
 	}
