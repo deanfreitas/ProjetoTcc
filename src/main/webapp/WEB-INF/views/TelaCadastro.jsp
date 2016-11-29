@@ -64,7 +64,7 @@
 				<input type="text" class="form-control" id="idNome"
 					placeholder="Nome">
 			</div>
-			<div class="form-group col-md-4">
+			<div class="form-group col-md-4" id="divRadioSexo">
 				<label class="radio-inline"> <input type="radio"
 					name="radioSexo" id="radioSexo" value="Masculino"> Masculino
 				</label> <label class="radio-inline"> <input type="radio"

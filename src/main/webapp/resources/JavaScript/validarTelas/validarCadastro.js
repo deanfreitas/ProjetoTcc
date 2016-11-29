@@ -577,7 +577,7 @@ $(document)
 						contentType: "application/json",
 						dataType: 'json',
 						success: function (data, status) {
-							if (data.codigo != 0) {
+							if (data.codigo == 1) {
 								alert(data.mensagem);
 								return false;
 							} else {
@@ -600,7 +600,8 @@ $(document)
 					} else
 						if (tipoPessoa == 'paciente') {
 							object = {
-								nomeCompleto: nome.val(), email: email.val(), responsavel: responsavel.val(),
+								responsavel: responsavel.val(),
+								identificacao: { email: email.val() },
 								login: { usuario: apelido.val(), senha: senha.val() }
 							};
 						}
@@ -647,30 +648,34 @@ $(document)
 							alert(data.mensagem);
 							return false;
 						} else {
-							nome.val(data.objeto.nomeCompleto.trim()).prop("disabled", true);
-							let sexoPessoa = $("input:radio[id='radioSexo']").prop("disabled", true);
-							if (data.objeto.sexo != null) {
-								if (sexoPessoa.is(':checked') === false) {
-									sexoPessoa.filter('[value=' + data.objeto.sexo.trim() + ']').prop('checked', true);
-								}
-							}
-							email.val(data.objeto.email.trim()).prop("disabled", true);
+
 							apelido.val(data.objeto.login.usuario.trim()).prop("disabled", true);
 							senha.val(data.objeto.login.senha.trim()).prop("disabled", true);
 
 							if (data.mensagem == 'paciente') {
-								responsavel.val(data.objeto.crn.trim()).prop("disabled", true);
+								responsavel.val(data.objeto.responsavel).prop("disabled", true);
+								email.val(data.objeto.identificacao.email).prop("disabled", true);
 								crn.toggle();
+								nome.toggle();
+								$('#divRadioSexo').toggle();
 							} else
 								if (data.mensagem == 'nutricionista') {
-									cpf.val(data.objeto.cpf.trim()).prop("disabled", true);
+									nome.val(data.objeto.nomeCompleto.trim()).prop("disabled", true);
+									let sexoPessoa = $("input:radio[id='radioSexo']").prop("disabled", true);
+									if (data.objeto.sexo != null) {
+										if (sexoPessoa.is(':checked') === false) {
+											sexoPessoa.filter('[value=' + data.objeto.sexo.trim() + ']').prop('checked', true);
+										}
+									}
+									email.val(data.objeto.email).prop("disabled", true);
+									cpf.val(data.objeto.cpf).prop("disabled", true);
 									dataNascimento.val(data.objeto.dataNascimento.trim()).prop("disabled", true);
-									endereco.val(data.objeto.endereco.trim()).prop("disabled", true);
-									numero.val(data.objeto.numero.trim()).prop("disabled", true);
+									endereco.val(data.objeto.endereco).prop("disabled", true);
+									numero.val(data.objeto.numero).prop("disabled", true);
 									complemento.val(data.objeto.complemento).prop("disabled", true);
-									telefone.val(data.objeto.telefone.trim()).prop("disabled", true);
-									celular.val(data.objeto.celular.trim()).prop("disabled", true);
-									comercial.val(data.objeto.comercial.trim()).prop("disabled", true);
+									telefone.val(data.objeto.telefone).prop("disabled", true);
+									celular.val(data.objeto.celular).prop("disabled", true);
+									comercial.val(data.objeto.comercial).prop("disabled", true);
 									crn.val(data.objeto.crn).prop("disabled", true);
 								}
 							return true;

@@ -85,10 +85,13 @@ public class TelaCadastro {
 
 		if(paciente.getIdentificacao().getNome() == null || paciente.getIdentificacao().getNome().equals("")) {
 			mensagem = "Digite um nome";
+			codigo = 1;
 		} else if(paciente.getLogin().getUsuario() == null || paciente.getLogin().getUsuario().equals("")) {
 			mensagem = "Digite um Email";
+			codigo = 1;
 		}else if(paciente.getLogin().getSenha() == null || paciente.getLogin().getSenha().equals("")) {
 			mensagem = "Digite uma senha";
+			codigo = 1;
 		} else {
 			Login loginPessoa = (Login) bancoDadosService.encontrarInformacao(paciente.getLogin(), paciente.getLogin().getUsuario());
 			if(loginPessoa == null) {
@@ -97,26 +100,33 @@ public class TelaCadastro {
 					for(Paciente pacienteNutricionista : nutricionista.getPacientes()) {
 						if(pacienteNutricionista.getIdentificacao().getNome().equals(paciente.getIdentificacao().getNome())) {
 							if(pacienteNutricionista.getIdentificacao().getSexo().equals(paciente.getIdentificacao().getSexo())) {
-							try {
-								paciente.setId(pacienteNutricionista.getId());
-								Role role = new Role("ROLE_paciente", paciente);
-								bancoDadosService.adicionarUsuario(role);
-								mensagem = "Usuario Cadastrado com sucesso";
-								codigo = 1;
-							}catch (Exception e) {
-								mensagem = "Erro ao fazer o cadastro";
-							}
-							break;
+								try {
+									paciente.getLogin().setPaciente(null);
+									pacienteNutricionista.setResponsavel(paciente.getResponsavel());
+									pacienteNutricionista.setLogin(paciente.getLogin());
+									Role role = new Role("ROLE_paciente", pacienteNutricionista);
+									bancoDadosService.atualizarCadastroUsuario(role);
+									mensagem = "Usuario Cadastrado com sucesso";
+								}catch (Exception e) {
+									System.out.println();
+									System.out.println(e);
+									mensagem = "Erro ao fazer o cadastro";
+									codigo = 1;
+								}
+								break;
 							}
 						} else {
 							mensagem = "Você não é paciente desse medico com esse Crn: " + paciente.getNutricionista().getCrn();
+							codigo = 1;
 						}
 					}
 				} else {
 					mensagem = "Esse Crn " + paciente.getNutricionista().getCrn() + " não esta cadastrado no sistema";
+					codigo = 1;
 				}
 			} else {
 				mensagem = "Já tem um login Igual a esse";
+				codigo = 1;
 			}
 		}
 
@@ -124,7 +134,7 @@ public class TelaCadastro {
 		resultadoServico.setCodigo(codigo);
 		resultadoServico.setObjeto(null);
 		resultadoServico.setListaObjetos(null);
-		
+
 		return resultadoServico;
 	}
 	

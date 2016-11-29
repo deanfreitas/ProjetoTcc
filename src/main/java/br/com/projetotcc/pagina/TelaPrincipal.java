@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
+import br.com.projetotcc.interfaces.InterfacePessoa;
 import br.com.projetotcc.mensagem.ResultadoServico;
 
 @Controller
@@ -35,7 +36,8 @@ public class TelaPrincipal {
 	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Login login) {
 		String mensagem = null;
 		long codigo = 0;
-
+		Object object = null;
+		
 		Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, context.getAttribute("loginUsuario").toString());
 		
 		if(loginCadastrado != null) {
@@ -43,13 +45,13 @@ public class TelaPrincipal {
 				context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getNutricionista());
 				mensagem = "nutricionista";
 				
-				resultadoServico.setObjeto(loginCadastrado.getNutricionista().getId());
+				object = loginCadastrado.getNutricionista().getId();
 			} else 
 				if(loginCadastrado.getPaciente() != null) {
 					context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getPaciente());
 					mensagem = "paciente";
 					
-					resultadoServico.setObjeto(loginCadastrado.getPaciente().getId());
+					object = loginCadastrado.getPaciente().getId();
 				}
 		} else {
 			mensagem = "Erro no sistema";
@@ -58,7 +60,7 @@ public class TelaPrincipal {
 		
 		resultadoServico.setMensagem(mensagem);
 		resultadoServico.setCodigo(codigo);
-		resultadoServico.setObjeto(null);
+		resultadoServico.setObjeto(object);
 		resultadoServico.setListaObjetos(null);
 		
 		return resultadoServico;

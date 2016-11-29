@@ -34,7 +34,7 @@ $(document).ready(function () {
 	};
 
 	$('#btnPerfil').click(function () {
-		location.href = '/ProjetoTcc/telaAnamnese/' + idUsuario;
+		location.href = '/ProjetoTcc/telaAnamnese/visualizar/' + idUsuario;
 	})
 
 	$('#btnAlterarDados').click(function () {

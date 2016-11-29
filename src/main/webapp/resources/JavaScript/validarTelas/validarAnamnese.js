@@ -875,7 +875,7 @@ $(document).ready(function () {
                             observacaoFezes.prop("disabled", true);
 
                             dm.prop("disabled", true);
-                            HashChangeEventInit.prop("disabled", true);
+                            ha.prop("disabled", true);
                             ca.prop("disabled", true);
                             dislipidemia.prop("disabled", true);
                             obesidade.prop("disabled", true);
@@ -894,6 +894,19 @@ $(document).ready(function () {
                             duracao.prop("disabled", true);
                             vocePraticaAtividades.prop("disabled", true);
                             horarioPreferido.prop("disabled", true);
+
+                            intoleranciaAlimentar.prop("disabled", true);
+                            preferenciaAlimentar.prop("disabled", true);
+                            alteracoesApetite.prop("disabled", true);
+                            desdeQuandoAlteracoesApetite.prop("disabled", true);
+                            faseQueIniciouObesidadePerdaPeso.prop("disabled", true);
+                            segueAlgumaDietaEspecial.prop("disabled", true);
+                            quantasRefeicoesDia.prop("disabled", true);
+                            consumoAgua.prop("disabled", true);
+                            consumoSal.prop("disabled", true);
+                            comsumoOleo.prop("disabled", true);
+                            fazUsoSupremento.prop("disabled", true);
+                            quemInicou.prop("disabled", true);
 
                             opcaoArroz.prop("disabled", true);
                             opcaoMacarrao.prop("disabled", true);
@@ -992,6 +1005,8 @@ $(document).ready(function () {
                             porcaoSucoArtificial.prop("disabled", true);
                             porcaoCafe.prop("disabled", true);
                             porcaoCha.prop("disabled", true);
+
+                            $('#btnSalvar').toggle();
                         }
                         return true;
                     }
