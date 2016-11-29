@@ -747,10 +747,10 @@
     <td>
 						<select id="idArroz" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoArroz"></td>
@@ -760,10 +760,10 @@
     <td>
 						<select id="idMacarrao" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoMacarrao"></td>
@@ -773,10 +773,10 @@
     <td>
 						<select id="idBatata" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoBatata"></td>
@@ -786,10 +786,10 @@
     <td>
 						<select id="idPao" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoPao"></td>
@@ -799,10 +799,10 @@
     <td>
 						<select id="idPaoQueijo" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoPaoQueijo"></td>
@@ -812,10 +812,10 @@
     <td>
 						<select id="idFarinhas" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoFarinhas"></td>
@@ -825,10 +825,10 @@
     <td>
 						<select id="idCereal" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoCereal"></td>
@@ -838,10 +838,10 @@
     <td>
 						<select id="idHortalicasCruas" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoHortalicasCruas"></td>
@@ -851,10 +851,10 @@
     <td>
 						<select id="idHortalicasCozidas" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoHortalicasCozidas"></td>
@@ -864,10 +864,10 @@
     <td>
 						<select id="idFrutas" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoFrutas"></td>
@@ -877,10 +877,10 @@
     <td>
 						<select id="idLeiteInt" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoLeiteInt"></td>
@@ -890,10 +890,10 @@
     <td>
 						<select id="idLeiteDes" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoLeiteDes"></td>
@@ -903,10 +903,10 @@
     <td>
 						<select id="idIogurte" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoIogurte"></td>
@@ -916,10 +916,10 @@
     <td>
 						<select id="idIogurteDes" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoIogurteDes"></td>
@@ -929,10 +929,10 @@
     <td>
 						<select id="idQueijos" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoQueijos"></td>
@@ -942,10 +942,10 @@
     <td>
 						<select id="idCarneVermelha" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoCarneVermelha"></td>
@@ -955,10 +955,10 @@
     <td>
 						<select id="idEmbutidos" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoEmbutidos"></td>
@@ -968,10 +968,10 @@
     <td>
 						<select id="idEnlatados" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoEnlatados"></td>
@@ -981,10 +981,10 @@
     <td>
 						<select id="idOvos" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoOvos"></td>
@@ -994,10 +994,10 @@
     <td>
 						<select id="idLeguminosas" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoLeguminosas"></td>
@@ -1007,10 +1007,10 @@
     <td>
 						<select id="idMargarinaComum" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoMargarinaComum"></td>
@@ -1020,10 +1020,10 @@
     <td>
 						<select id="idMargarinaLight" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoMargarinaLight"></td>
@@ -1033,10 +1033,10 @@
     <td>
 						<select id="idManteiga" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoManteiga"></td>
@@ -1046,10 +1046,10 @@
     <td>
 						<select id="idRequijaoComum" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoRequijaoComum"></td>
@@ -1059,10 +1059,10 @@
     <td>
 						<select id="idRequeijaoLight" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoRequeijaoLight"></td>
@@ -1072,10 +1072,10 @@
     <td>
 						<select id="idMaioneseComum" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoMaioneseComum"></td>
@@ -1085,10 +1085,10 @@
     <td>
 						<select id="idMaioneseLight" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoMaioneseLight"></td>
@@ -1098,10 +1098,10 @@
     <td>
 						<select id="idCremeDeLeite" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoCremeDeLeite"></td>
@@ -1111,10 +1111,10 @@
     <td>
 						<select id="idFrituras" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoFrituras"></td>
@@ -1124,10 +1124,10 @@
     <td>
 						<select id="idAcucar" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoAcucar"></td>
@@ -1137,10 +1137,10 @@
     <td>
 						<select id="idAdocante" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoAdocante"></td>
@@ -1150,10 +1150,10 @@
     <td>
 						<select id="idMel" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoMel"></td>
@@ -1163,10 +1163,10 @@
     <td>
 						<select id="idBarraDeCereal" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoBarraDeCereal"></td>
@@ -1176,10 +1176,10 @@
     <td>
 						<select id="idDoces" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoDoces"></td>
@@ -1189,10 +1189,10 @@
     <td>
 						<select id="idBolachaRecheada" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoBolachaRecheada"></td>
@@ -1202,10 +1202,10 @@
     <td>
 						<select id="idBolachaBoloBiscoito" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoBolachaBoloBiscoito"></td>
@@ -1215,10 +1215,10 @@
     <td>
 						<select id="idChicleteBalas" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoChicleteBalas"></td>
@@ -1228,10 +1228,10 @@
     <td>
 						<select id="idChocolate" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoChocolate"></td>
@@ -1241,10 +1241,10 @@
     <td>
 						<select id="idSanduichePizza" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoSanduichePizza"></td>
@@ -1254,10 +1254,10 @@
     <td>
 						<select id="idSalgadinhos" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoSalgadinhos"></td>
@@ -1267,10 +1267,10 @@
     <td>
 						<select id="idSalgadinhoPacote" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoSalgadinhoPacote"></td>
@@ -1280,10 +1280,10 @@
     <td>
 						<select id="idRefrigeranteComum" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoRefrigeranteComum"></td>
@@ -1293,10 +1293,10 @@
     <td>
 						<select id="idRefriLightDiet" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoRefriLightDiet"></td>
@@ -1306,10 +1306,10 @@
     <td>
 						<select id="idSucoNatural" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoSucoNatural"></td>
@@ -1319,10 +1319,10 @@
     <td>
 						<select id="idSucoArtificial" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoSucoArtificial"></td>
@@ -1332,10 +1332,10 @@
     <td>
 						<select id="idCafe" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoCafe"></td>
@@ -1345,10 +1345,10 @@
     <td>
 						<select id="idCha" class="form-control">
 							<option></option>
-							<option>NULO </option>
-							<option>EVENTUAL </option>
-							<option>SEMANAL </option>
-							<option>DIÁRIA </option>
+							<option>Nulo </option>
+							<option>Eventual </option>
+							<option>Semanal </option>
+							<option>Diária </option>
 						</select>
 					</td>
 	<td><input type="text" class="form-control" id="porcaoCha"></td>
