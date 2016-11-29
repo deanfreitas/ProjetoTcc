@@ -53,7 +53,7 @@
 		
 	<a href="#" id="adicionarPaciente" class="btn btn-raised btn-success btn-lg">Adicionar</a>
 	<a href="#" id="apagarPaciente" class="btn btn-raised btn-danger btn-lg">Apagar</a>
-	<a href="#" id="apagarPaciente" class="btn btn-raised btn-info btn-lg">Gerar relatório</a>				
+	<a href="#" id="gerarRelatorio" class="btn btn-raised btn-info btn-lg">Gerar relatório</a>				
 		
 		<table id="pacientes" class="table table-striped table-bordered" cellspacing="0" width="100%">
   <thead>
