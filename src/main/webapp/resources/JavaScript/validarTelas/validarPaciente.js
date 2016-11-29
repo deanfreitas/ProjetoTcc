@@ -171,6 +171,16 @@ $(document).ready(function () {
 		}
 	});
 
+	$("#gerarRelatorio").click(function () {
+		if(listIdPaciente.length == 1) {
+			location.href = '/ProjetoTcc/telaResultados/' + listIdPaciente[0];
+		} else 
+		if(listIdPaciente.length == 0) {
+			alert('Selecione um Paciente para gerar o relatorio');
+		} else {
+			alert('Selecione apenas um Paciente para gerar o relatorio');
+		}
+	});
 	getPacientes();
 
 });

@@ -563,8 +563,8 @@ $(document)
 					} else
 						if (tipoPessoa == 'paciente') {
 							object = {
-								nomeCompleto: nome.val(), email: email.val(), responsavel: responsavel.val(),
-								identificacao: { sexo: $("input:radio[id='radioSexo']:checked").val() },
+								responsavel: responsavel.val(),
+								identificacao: { nome: nome.val(), email: email.val(), sexo: $("input:radio[id='radioSexo']:checked").val() },
 								nutricionista: { crn: crn.val() },
 								login: { usuario: apelido.val(), senha: senha.val() }
 							};

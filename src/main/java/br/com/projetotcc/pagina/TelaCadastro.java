@@ -95,7 +95,8 @@ public class TelaCadastro {
 				Nutricionista nutricionista = (Nutricionista) bancoDadosService.encontrarInformacao(paciente.getNutricionista(), paciente.getNutricionista().getCrn());
 				if(nutricionista.getCrn().equals(paciente.getNutricionista().getCrn())) {
 					for(Paciente pacienteNutricionista : nutricionista.getPacientes()) {
-						if(pacienteNutricionista.getNomeCompleto().equals(paciente.getNomeCompleto())) {
+						if(pacienteNutricionista.getIdentificacao().getNome().equals(paciente.getIdentificacao().getNome())) {
+							if(pacienteNutricionista.getIdentificacao().getSexo().equals(paciente.getIdentificacao().getSexo())) {
 							try {
 								Role role = new Role("ROLE_paciente", paciente);
 								bancoDadosService.adicionarUsuario(role);
@@ -105,6 +106,7 @@ public class TelaCadastro {
 								mensagem = "Erro ao fazer o cadastro";
 							}
 							break;
+							}
 						} else {
 							mensagem = "Você não é paciente desse medico com esse Crn: " + paciente.getNutricionista().getCrn();
 						}
