@@ -83,7 +83,7 @@ public class TelaCadastro {
 		String mensagem = null;
 		long codigo = 0;
 
-		if(paciente.getNomeCompleto() == null || paciente.getNomeCompleto().equals("")) {
+		if(paciente.getIdentificacao().getNome() == null || paciente.getIdentificacao().getNome().equals("")) {
 			mensagem = "Digite um nome";
 		} else if(paciente.getLogin().getUsuario() == null || paciente.getLogin().getUsuario().equals("")) {
 			mensagem = "Digite um Email";
@@ -98,6 +98,7 @@ public class TelaCadastro {
 						if(pacienteNutricionista.getIdentificacao().getNome().equals(paciente.getIdentificacao().getNome())) {
 							if(pacienteNutricionista.getIdentificacao().getSexo().equals(paciente.getIdentificacao().getSexo())) {
 							try {
+								paciente.setId(pacienteNutricionista.getId());
 								Role role = new Role("ROLE_paciente", paciente);
 								bancoDadosService.adicionarUsuario(role);
 								mensagem = "Usuario Cadastrado com sucesso";
