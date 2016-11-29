@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.mensagem.ResultadoServico;
 
@@ -48,13 +49,40 @@ public class TelaAnamnese {
 		long codigo = 0;
 
 		if(paciente != null) {
-			try {
-				bancoDadosService.atualizarCadastroUsuario(paciente);
-				mensagem = "Anamnese Cadastrada com sucesso";
-			}catch (Exception e) {
-				System.out.println();
-				System.out.println(e);
-				mensagem = "Erro ao fazer o cadastro das informações do paciente";
+			if(paciente.getIdentificacao().getNome() != null || !paciente.getIdentificacao().getNome().equals("")) {
+				if(paciente.getIdentificacao().getIdade() != null) {
+					if(paciente.getIdentificacao().getSexo() != null || !paciente.getIdentificacao().getSexo().equals("")) {
+						try {
+							if(context.getAttribute("dadosCadastradosPessoa") instanceof Nutricionista) {
+								Nutricionista dadosCastradoPessoa = (Nutricionista) context.getAttribute("dadosCadastradosPessoa");
+								if(dadosCastradoPessoa != null) {
+									paciente.setNutricionista(dadosCastradoPessoa);
+									bancoDadosService.atualizarCadastroUsuario(paciente);
+									mensagem = "Anamnese Cadastrada com sucesso";
+								} else {
+									mensagem = "Erro Sistema";
+									codigo = 2;
+								}
+							} else {
+								codigo = 2;
+								mensagem = "Erro no sistema";
+							}
+						}catch (Exception e) {
+							System.out.println();
+							System.out.println(e);
+							mensagem = "Erro ao fazer o cadastro das informações do paciente";
+							codigo = 1;
+						}
+					} else {
+						mensagem = "O campo de sexo precisa ser inserido na identificação";
+						codigo = 1;
+					}
+				} else {
+					mensagem = "O campo de idade precisa ser inserido na identificação";
+					codigo = 1;
+				}
+			} else {
+				mensagem = "O campo de Nome precisa ser inserido na identificação";
 				codigo = 1;
 			}
 		} else {

@@ -114,7 +114,7 @@ public class Paciente implements InterfacePessoa {
 	
 	@JsonBackReference(value = "nutricionista-pacientes")
 	@ManyToOne(optional = true, fetch = FetchType.LAZY, targetEntity = Nutricionista.class)
-	@JoinColumn(name = "id_nutricionista", insertable = false, updatable = false)
+	@JoinColumn(name = "id_nutricionista", insertable = true, updatable = true)
 	private Nutricionista nutricionista;
 	
 	@JsonBackReference(value = "almoco-paciente")

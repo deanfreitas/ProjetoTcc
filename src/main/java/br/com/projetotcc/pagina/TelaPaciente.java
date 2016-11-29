@@ -62,43 +62,6 @@ public class TelaPaciente {
 
 		return resultadoServico;
 	}
-
-	@RequestMapping(value = "/inserirMedicoAoPaciente", method = RequestMethod.PUT)
-	public @ResponseBody ResultadoServico inserirMedicoParaPaciente(@RequestBody Paciente paciente) {
-		String mensagem = null;
-		long codigo = 0;
-
-		if(paciente != null) {
-			try {
-				if(context.getAttribute("dadosCadastradosPessoa") instanceof Nutricionista) {
-					Nutricionista dadosCastradoPessoa = (Nutricionista) context.getAttribute("dadosCadastradosPessoa");
-					if(dadosCastradoPessoa != null) {
-						paciente.setNutricionista(dadosCastradoPessoa);
-						bancoDadosService.atualizarCadastroUsuario(paciente);
-					} else {
-						mensagem = "Erro Sistema";
-					}
-				} else {
-					codigo = 2;
-					mensagem = "Erro no sistema";
-				}
-			}catch (Exception e) {
-				System.out.println();
-				System.out.println(e);
-				mensagem = "Erro ao inserir medico ao paciente";
-				codigo = 1;
-			}
-		} else {
-			mensagem = "Não foi encontrado uma instancia do objeto";
-		}
-
-		resultadoServico.setMensagem(mensagem);
-		resultadoServico.setCodigo(codigo);
-		resultadoServico.setObjeto(null);
-		resultadoServico.setListaObjetos(null);
-
-		return resultadoServico;
-	}
 	
 	@RequestMapping(value = "/getPacientesNutricionista", method = RequestMethod.GET)
 	public @ResponseBody ResultadoServico getPacientesNutricionista() {
