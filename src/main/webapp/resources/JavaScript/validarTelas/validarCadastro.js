@@ -53,7 +53,7 @@ $(document)
 		function lettersOnly(fields) {
 			$(fields).keypress(function (event) {
 				var inputValue = event.which;
-				if (!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) {
+				if (!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0 && inputValue != 180 && inputValue != 126) || inputValue == 95 || inputValue == 91 || inputValue == 93) {
 					event.preventDefault();
 				}
 			});
@@ -785,7 +785,9 @@ $(document)
 		onlyNumber(comercial);
 		onlyNumber(numero);
 		// chamar função que aceita apenas letras e o espaço (variavel do campo)
+		lettersOnly(responsavel);
 		lettersOnly(nome);
+		lettersOnly(endereco);
 		$('[data-toggle="tooltip"]').tooltip();
 		cpf.tooltip("disable");
 		dataNascimento.tooltip("disable");

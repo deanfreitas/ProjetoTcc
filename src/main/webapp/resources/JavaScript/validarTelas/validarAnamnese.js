@@ -235,7 +235,7 @@ $(document).ready(function () {
     function lettersOnly(fields) {
         $(fields).keypress(function (event) {
             var inputValue = event.which;
-            if (!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) {
+            if (!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0 && inputValue != 180 && inputValue != 126) || inputValue == 95 || inputValue == 91 || inputValue == 93) {
                 event.preventDefault();
             }
         });
@@ -1506,6 +1506,9 @@ $(document).ready(function () {
     onlyNumber(numero);
     // chamar função que aceita apenas letras e o espaço (variavel do campo)
     lettersOnly(nome);
+    lettersOnly(endereco);
+    lettersOnly(bairro);
+    lettersOnly(cidade);
     deixarDivsInvisiveis();
     $('[data-toggle="tooltip"]').tooltip();
     dataPrimeiraConsulta.tooltip("disable");
