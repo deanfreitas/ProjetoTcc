@@ -303,7 +303,7 @@
 					<div id="jsGrid"></div>
 					
 					<div class="form-group col-md-6">
-						<label for="tPusual"> Peso usual: </label> 
+						<label for="tPusual"> Peso atual: </label> 
 						<input type="text" class="form-control" id="tPusual">
 					</div>
 					<div class="form-group col-md-6">

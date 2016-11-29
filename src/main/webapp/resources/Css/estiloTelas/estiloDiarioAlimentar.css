@@ -87,15 +87,15 @@ p {
 }
 
 .step .col-md-2:hover {
-    color: #ffca99;
+    color: #ff9999;
     cursor: pointer;
 }
 
 .step .activestep {
-    color: #f97c1b;
+    color: #ff0000;
     height: 100px;
     margin-top: -7px;
-    padding-top: 7px;
+    padding-top: 9px;
     border-left: 6px solid #009688 !important;
     border-right: 6px solid #009688 !important;
     border-top: 3px solid #009688 !important;
