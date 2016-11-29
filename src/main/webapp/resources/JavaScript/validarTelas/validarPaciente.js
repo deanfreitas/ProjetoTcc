@@ -129,42 +129,46 @@ $(document).ready(function () {
 	$("#apagarPaciente").click(function () {
 		let object = [];
 
-		for (let i in listIdPaciente) {
-			object.push(
-				{
-					id: listIdPaciente[i],
-					identificacao: { nome: listNomePaciente[i] }
-				}
-			)
-		}
-
-		$.ajax({
-			url: "/ProjetoTcc/detelarPacientes",
-			type: 'DELETE',
-			data: JSON.stringify(object),
-			contentType: "application/json",
-			dataType: 'json',
-			success: function (data, status) {
-				if (data.codigo != 0) {
-					/*
-					 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
-					 *  Essa mensagem está escrito "Já tem um login Igual a esse", que aparece quando o usuario coloca um email que já foi colocado.
-					 */
-					for (let i in data.listaObjetos) {
-						alert(data.mensagem[i]);
+		if (listIdPaciente.length > 0) {
+			for (let i in listIdPaciente) {
+				object.push(
+					{
+						id: listIdPaciente[i],
+						identificacao: { nome: listNomePaciente[i] }
 					}
-
-					/*
-					 *  Dar um jeito de aparecer a mensagem antes do "return false"
-					 */
-					return false;
-				} else {
-					alert(data.mensagem);
-					location.href = '/ProjetoTcc/telaPaciente/';
-					return true;
-				}
+				)
 			}
-		});
+
+			$.ajax({
+				url: "/ProjetoTcc/detelarPacientes",
+				type: 'DELETE',
+				data: JSON.stringify(object),
+				contentType: "application/json",
+				dataType: 'json',
+				success: function (data, status) {
+					if (data.codigo != 0) {
+						/*
+						 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
+						 *  Essa mensagem está escrito "Já tem um login Igual a esse", que aparece quando o usuario coloca um email que já foi colocado.
+						 */
+						for (let i in data.listaObjetos) {
+							alert(data.mensagem[i]);
+						}
+
+						/*
+						 *  Dar um jeito de aparecer a mensagem antes do "return false"
+						 */
+						return false;
+					} else {
+						alert(data.mensagem);
+						location.href = '/ProjetoTcc/telaPaciente/';
+						return true;
+					}
+				}
+			});
+		} else {
+			alert('Selecione um Paciente para deletar');
+		}
 	});
 
 	getPacientes();
