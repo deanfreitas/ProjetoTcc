@@ -43,10 +43,10 @@ $(document).ready(function () {
                         fuma.val(data.objeto.historicoSocialFamiliar.fuma);
                     }
 
-                    // Qual informação é essa "tipo de atividade fisica"
+                    // Qual informação é essa "tipo de atividade fisica" (é a a atividade fisica que ele pratica: futebol, caminhada, etc
                     atividadeFisica.val();
 
-                    // Essa informação esta na tabela filha da ...
+                    // Essa informação esta na tabela filha da ... NÃO TEM UM INPUT NA TELA DE ANAMNESE EM DADOS ANTROPOMETRICO QUE TEM LÁ PESO USUAL(ATUAL) É PRA PUXAR DE LÁ
                     peso.val();
 
                     if (data.objeto.dadosClinicos != null) {
@@ -58,7 +58,7 @@ $(document).ready(function () {
                         segueAlgumaDieta.val(data.objeto.historicoAlimentarNutricional.segueDietaEspecial);
                     }
 
-                    // Não encontrei essa informação na tela 
+                    // Não encontrei essa informação na tela ESTA ESCRITO "FAZ USO DE SUPLEMENTOS?QUAL? É UM INPUT TEXT
                     suplementos.val();
 
                     if (data.objeto.frequenciaAlimentar != null) {
