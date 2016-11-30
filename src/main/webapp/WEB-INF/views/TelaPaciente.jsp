@@ -72,6 +72,7 @@
   </tr>
   </thead>
   <tbody>
+  <!-- O corpo da tabela está sendo renderizada no javaScript -->
   </tbody>
 </table>
 		</div>

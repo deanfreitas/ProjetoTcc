@@ -157,6 +157,17 @@ $(document).ready(function () {
 				alert('Selecione apenas um Paciente para gerar o relatorio');
 			}
 	});
-	getPacientes();
 
+	$("#telaAcompanhamento").click(function () {
+		if (listIdPaciente.length == 1) {
+			location.href = '/ProjetoTcc/telaAcompanhamento/' + listIdPaciente[0];
+		} else
+			if (listIdPaciente.length == 0) {
+				alert('Selecione um Paciente para acompanhar');
+			} else {
+				alert('Selecione apenas um Paciente para acompanhar');
+			}
+	});
+
+	getPacientes();
 });
