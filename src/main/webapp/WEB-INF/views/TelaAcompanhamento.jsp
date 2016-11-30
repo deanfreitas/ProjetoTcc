@@ -22,6 +22,7 @@
 <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 <script src="<c:url value ='/resources/JavaScript/validarTelas/validarPaciente.js' />" /></script>
 </head>
 
@@ -49,6 +50,15 @@
 	
 	
 	<div class="container-fluid col-md-12">
+	
+	<div>
+            <section>
+                <article>
+                    <canvas id="myChart" width="400" height="400">
+                    </canvas>
+                </article>
+            </section>
+        </div>
 	
 	
 	</div>
