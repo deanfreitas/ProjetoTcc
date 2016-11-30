@@ -98,10 +98,7 @@
   <span class="input-group" id="">ATIVIDADE FÍSICA:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idAtividadeFisica"> </output>
   </div>
-       <div class="col-md-2">        
-  <span class="input-group" id="">PESO:</span>
-  <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idPeso"> </output>
-  </div>       
+      
     <div class="col-md-6">        
   <span class="input-group" id="">POSSUI PATOLOGIA:</span>
   <output type="text" class="form-control" aria-describedby="sizing-addon2" id="idPossuiPatologia"> </output>

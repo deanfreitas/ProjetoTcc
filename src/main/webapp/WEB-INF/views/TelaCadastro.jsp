@@ -181,30 +181,22 @@
 					placeholder="Comercial" />
 			</div>
 		</div>
+	<div class="col-md-12">
+	
+	<div class="col-md-2"></div>
+	
+		<div class="row col-md-8" id="botoes">
 
-		<div class="row col-md-12" id="botoes">
-			<label class="col-md-5"> </label>
-			<div class="form-group col-md-7" id="salvar">
-				<form class="form-inline">
-					<!-- Transferir para tela de Login -->
-					<a type="button" id="btnSalvarUsuario"
-						class="btn btn-raised btn-success">Salvar</a>
-					<!-- Apagar dados -->
-					<a type="button" id="btnLimparFormulario"
-						class="btn btn-raised btn-danger">Apagar</a>
-					<!-- Alterar dados -->
-					<a type="button" id="btnAlterarDados"
-						class="btn btn-raised btn-info" data-toggle="modal"
-						href="#mymodal2">Alterar</a>
-				</form>
-			</div>
-			<label class="col-md-4"> </label>
-		</div>
+	<div class="btn-group btn-group-justified btn-group-raised">
+  <a class="btn btn-lg btn-success " href="#" id="btnSalvarUsuario">Salvar</a>
+  <a class="btn btn-lg btn-danger" href="#" id="btnLimparFormulario">Apagar</a>	
+  <a class="btn btn-lg btn-warning" href="#" id="btnCancelar">Cancelar</a>
+  <a class="btn btn-lg btn-warning" id="btnAlterarDados" data-toggle="modal" href="#mymodal2">Alterar</a>	
+ 
+</div>
 
-
-
-
-
+	</div>
+	<div class="col-md-2"></div>
 	</div>
 </body>
 

@@ -49,11 +49,18 @@
 	
 	
 	<div class="container-fluid col-md-12">
+	
+	<div class="btn-group btn-group-justified btn-group-raised" id="menuPaciente">
+  <a class="btn btn-lg btn-success " href="#" id="adicionarPaciente">Adicionar</a>
+  <a class="btn btn-lg btn-success" href="#" id="apagarPaciente">Apagar</a>
+  <a class="btn btn-lg btn-success" href="#" id="gerarRelatorio">Gerar relatório</a>	
+  <a class="btn btn-lg btn-success" href="#" id="telaAcompanhamento">Acompanhamento</a>	
+</div>
 		<div class="jumbotron">
 		
-	<a href="#" id="adicionarPaciente" class="btn btn-raised btn-success btn-lg">Adicionar</a>
-	<a href="#" id="apagarPaciente" class="btn btn-raised btn-danger btn-lg">Apagar</a>
-	<a href="#" id="gerarRelatorio" class="btn btn-raised btn-info btn-lg">Gerar relatório</a>				
+		
+
+	
 		
 		<table id="pacientes" class="table table-striped table-bordered" cellspacing="0" width="100%">
   <thead>
