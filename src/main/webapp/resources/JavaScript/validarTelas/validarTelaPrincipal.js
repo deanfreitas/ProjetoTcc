@@ -1,9 +1,24 @@
 $(document).ready(function () {
 	$.material.init();
 
+	var altura = $('#altura');
+	var peso = $('#peso');
 	var idUsuario;
 	var tipoUsuario;
-	pegarDadosUsuario();
+
+	function onlyNumber(fields) {
+		$(fields).unbind('keyup').bind('keyup', function (e) {
+			let thisVal = $(this).val();
+			let tempVal = "";
+
+			for (let i = 0; i < thisVal.length; i++) {
+				if (RegExp(/^[0-9]$/).test(thisVal.charAt(i))) {
+					tempVal += thisVal.charAt(i);
+				}
+			}
+			$(this).val(tempVal);
+		});
+	}
 
 	function pegarDadosUsuario() {
 		let object = {};
@@ -40,32 +55,57 @@ $(document).ready(function () {
 	$('#btnAlterarDados').click(function () {
 		location.href = '/ProjetoTcc/telaUpdateCadastro/' + tipoUsuario + '/' + idUsuario;
 	});
+
+	$('#btnCalcular').click(function () {
+		let sexo = $("input:radio[id='radioSexo']:checked").val();
+		let calculo = (peso.val() / (altura.val() * altura.val()));
+
+		if (calculo < 18.5) {
+			alert("Você está magro com esse indice: " + calculo);
+		}
+		else
+			if (calculo >= 18.5 && calculo < 24.9) {
+				alert("Você está normal com esse indice: " + calculo);
+			}
+			else
+				if (calculo >= 25 && calculo < 29.9) {
+					alert("Você está com sobre peso com esse indice: " + calculo);
+				}
+				else
+					if (calculo >= 30 && calculo < 39.9) {
+						alert("Você está com obesidade com esse indice: " + calculo);
+					}
+					else
+						if (calculo > 40)
+							alert("Você estácom obesidade grave com esse indice: " + calculo);
+
+		$('#ModalIMC').modal('toggle');
+	});
+
+	function init() {
+		var ctx = $("#myChart").get(0).getContext("2d");
+
+		var data = {
+			labels: ["January", "February", "March", "April", "May", "June", "July"],
+			datasets: [
+				{
+					fillColor: "rgba(151,187,205,0.5)",
+					strokeColor: "rgba(151,187,205,1)",
+					pointColor: "rgba(151,187,205,1)",
+					pointStrokeColor: "#fff",
+					data: [28, 48, 40, 19, 96, 27, 100]
+				}
+			]
+		}
+
+		var myNewChart = new Chart(ctx).Line(data);
+	}
+
+	init();
+	pegarDadosUsuario();
+	onlyNumber(altura);
+	onlyNumber(peso);
 });
-
-function calcula_imc() {
-	let altura = document.imcForm.altura.value;
-	let peso = document.imcForm.peso.value;
-
-	let quadrado = (altura * altura);
-
-	let calculo = (peso / quadrado);
-
-	if (calculo < 18.5) {
-		alert("Você está magro com esse indice: " + calculo);
-	}
-	else if (calculo >= 18.5 && calculo < 24.9) {
-		alert("Você está normal com esse indice: " + calculo);
-	}
-
-	else if (calculo >= 25 && calculo < 29.9) {
-		alert("Você está com sobre peso com esse indice: " + calculo);
-	}
-	else if (calculo >= 30 && calculo < 39.9) {
-		alert("Você está com obesidade com esse indice: " + calculo);
-	}
-	else if (calculo > 40)
-		alert("Você estácom obesidade grave com esse indice: " + calculo);
-}
 
 function maxDays(mm, yyyy) {
 	let mDay;
@@ -88,11 +128,13 @@ function maxDays(mm, yyyy) {
 function changeBg(id) {
 	if (eval(id).style.backgroundColor != "yellow") {
 		eval(id).style.backgroundColor = "yellow"
+		location.href = '/ProjetoTcc/telaDiarioAlimentar';
 	}
 	else {
 		eval(id).style.backgroundColor = "#ffffff"
 	}
 }
+
 function writeCalendar() {
 	let now = new Date
 	let dd = now.getDate()

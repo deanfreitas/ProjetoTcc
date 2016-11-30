@@ -16,10 +16,12 @@
 <link rel="stylesheet" type="text/css" href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />" />
 <script src="<c:url value ='/resources/JavaScript/angular/angular.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />" /></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />" /></script>
 <script src="<c:url value ='/resources/JavaScript/validarTelas/validarTelaPrincipal.js' />" /></script>
+
 </head>
 
 <body>
@@ -138,7 +140,7 @@
 		<div class="col-md-4" id="three">
 			<div class="jumbotron">
 			<h3>Eventos:</h3>
-			<script type="text/javascript">writeCalendar()</script>
+			<script type="text/javascript">writeCalendar();</script>
 			</div>
 		</div>
 		<div class="modal" id="ModalIMC">
@@ -161,15 +163,15 @@
 
 	<div class="form-group col-md-6">
 							<label class="radio-inline"> 
-								<input type="radio" name="sexo" id="sexo_0" value="opção"> Masculino
+								<input type="radio" name="sexo" id="radioSexo" value="Masculino"> Masculino
 							</label> 
 							<label class="radio-inline"> 
-								<input type="radio" name="sexo" id="sexo_1" value="opção"> Feminino 
+								<input type="radio" name="sexo" id="radioSexo" value="Feminino"> Feminino 
 							</label>
 						</div>
 
 
-<p><input name="Enviar" type="submit" class="btn btn-raised btn-default" value="Calcular" onclick="calcula_imc()" />
+<p><input name="Enviar" type="button" id="btnCalcular" class="btn btn-raised btn-default" value="Calcular" />
 </p>
 </form>
 					</div>
@@ -180,5 +182,15 @@
 			</div>
 		</div>
 	</div>
+	<!-- Começo do grafico -->
+        <div>
+            <section>
+                <article>
+                    <canvas id="myChart" width="400" height="400">
+                    </canvas>
+                </article>
+            </section>
+        </div>
+    </body>
 </body>
 </html>
