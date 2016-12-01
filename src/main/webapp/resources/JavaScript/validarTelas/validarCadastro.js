@@ -6,7 +6,7 @@ $(document)
 		var url = window.location.href;
 		var idCasdastroPessoa = url.replace(/(\/)(\d{1,})/, "$1 $2").replace(/(^[^ ]*)/, "").trim();
 
-		//					Campos para as duas pessoas
+		// Campos para as duas pessoas
 		var nome = $('#idNome');
 		var sexo = $("input:radio[id='radioSexo']:checked");
 		var crn = $('#idCRN');
@@ -14,10 +14,10 @@ $(document)
 		var apelido = $('#idApelido');
 		var senha = $('#idSenha');
 
-		//					Campo para paciente
+		// Campo para paciente
 		var responsavel = $('#idResp');
 
-		//					Campos para o nutricionista
+		// Campos para o nutricionista
 		var cpf = $('#idCPF');
 		var dataNascimento = $('#idDataNascimento');
 		var endereco = $('#idEndereco');
@@ -53,7 +53,9 @@ $(document)
 		function lettersOnly(fields) {
 			$(fields).keypress(function (event) {
 				var inputValue = event.which;
-				if (!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0 && inputValue != 180 && inputValue != 126) || inputValue == 95 || inputValue == 91 || inputValue == 93) {
+				if (!(inputValue >= 65 && inputValue <= 120)
+					&& (inputValue != 32 && inputValue != 0 && inputValue != 122 && inputValue != 225 && inputValue != 227 && inputValue != 245 && inputValue != 243 && inputValue != 250 && inputValue != 237 && inputValue != 233)
+					|| inputValue == 95 || inputValue == 91 || inputValue == 93 || inputValue == 92) {
 					event.preventDefault();
 				}
 			});
@@ -235,10 +237,11 @@ $(document)
 			$(fields).unbind('keyup').bind('keyup', function (e) {
 				let thisVal = $(this).val();
 				/*
-				 *  Essa função de se o campo esta vazio. No if valida se o campo esta vazio ou não.
-				 *  Caso esteja, escolhe algum ação para o campo
-				 *  
-				 *  else é para caso o campo não esteja mais vazio.
+				 * Essa função de se o campo esta vazio. No if valida se o campo
+				 * esta vazio ou não. Caso esteja, escolhe algum ação para o
+				 * campo
+				 * 
+				 * else é para caso o campo não esteja mais vazio.
 				 */
 
 				if (thisVal == null || thisVal == "") {
@@ -469,7 +472,7 @@ $(document)
 					comercial.val('');
 				}
 			/*
-			 *  Mostra a mensagem de formurario apagado
+			 * Mostra a mensagem de formurario apagado
 			 */
 
 			alert("Formulario Apagado");
@@ -487,14 +490,18 @@ $(document)
 				success: function (data, status) {
 					if (data.mensagem != null) {
 						/*
-						 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
-						 *  Essa mensagem está escrito "Já tem um login Igual a esse", que aparece quando o usuario coloca um email que já foi colocado.
+						 * Uanderson a mensagem que você vai que aparece no
+						 * alert está na variavel "data.mensagem" Essa mensagem
+						 * está escrito "Já tem um login Igual a esse", que
+						 * aparece quando o usuario coloca um email que já foi
+						 * colocado.
 						 */
 
 						alert(data.mensagem);
 
 						/*
-						 *  Dar um jeito de aparecer a mensagem antes do "return false"
+						 * Dar um jeito de aparecer a mensagem antes do "return
+						 * false"
 						 */
 						return false;
 					}
@@ -508,41 +515,45 @@ $(document)
 
 			if (nome.val() == null || nome.val() == "") {
 				/*
-				 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite o nome
+				 * Precisamos decidir oque vamos mostrar caso o o usuario não
+				 * digite o nome
 				 */
 				nome.css("border-color", "#DC143C");
 				/*
-				 *  decide oque vamos mostrar antes desse comentario
+				 * decide oque vamos mostrar antes desse comentario
 				 */
 				display = true;
 			} else
 				if (apelido.val() == null || apelido.val() == "") {
 					/*
-					 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite o apelido
+					 * Precisamos decidir oque vamos mostrar caso o o usuario
+					 * não digite o apelido
 					 */
 					apelido.css("border-color", "#DC143C");
 					/*
-					 *  decide oque vamos mostrar antes desse comentario
+					 * decide oque vamos mostrar antes desse comentario
 					 */
 					display = true;
 				} else
 					if (email.val() == null || email.val() == "") {
 						/*
-						 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite o email
+						 * Precisamos decidir oque vamos mostrar caso o o
+						 * usuario não digite o email
 						 */
 						email.css("border-color", "#DC143C");
 						/*
-						 *  decide oque vamos mostrar antes desse comentario
+						 * decide oque vamos mostrar antes desse comentario
 						 */
 						display = true;
 					} else
 						if (senha.val() == null || senha.val() == "") {
 							/*
-							 *  Precisamos decidir oque vamos mostrar caso o o usuario não digite a senha
+							 * Precisamos decidir oque vamos mostrar caso o o
+							 * usuario não digite a senha
 							 */
 							senha.css("border-color", "#DC143C");
 							/*
-							 *  decide oque vamos mostrar antes desse comentario
+							 * decide oque vamos mostrar antes desse comentario
 							 */
 							display = true;
 						}
@@ -770,6 +781,14 @@ $(document)
 					$('#idCadPaciente').hide();
 					$('#idCadNutricionista').show();
 				}
+
+		$('#btnCancelar').click(function () {
+			if (idCasdastroPessoa == null) {
+				location.href = '/ProjetoTcc/telaLogin';
+			} else {
+				location.href = '/ProjetoTcc/telaPrincipal';
+			}
+		});
 
 		carregarDadosUsuario();
 		validarCamposDigitados(email);

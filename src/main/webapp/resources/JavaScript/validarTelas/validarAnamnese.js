@@ -235,7 +235,9 @@ $(document).ready(function () {
     function lettersOnly(fields) {
         $(fields).keypress(function (event) {
             var inputValue = event.which;
-            if (!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0 && inputValue != 180 && inputValue != 126) || inputValue == 95 || inputValue == 91 || inputValue == 93) {
+            if (!(inputValue >= 65 && inputValue <= 120)
+                && (inputValue != 32 && inputValue != 0 && inputValue != 122 && inputValue != 225 && inputValue != 227 && inputValue != 245 && inputValue != 243 && inputValue != 250 && inputValue != 237 && inputValue != 233)
+                || inputValue == 95 || inputValue == 91 || inputValue == 93 || inputValue == 92) {
                 event.preventDefault();
             }
         });
