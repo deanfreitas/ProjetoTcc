@@ -108,7 +108,7 @@ function maxDays(mm, yyyy) {
 function changeBg(id) {
 	if (eval(id).style.backgroundColor != "yellow") {
 		eval(id).style.backgroundColor = "yellow"
-		location.href = '/ProjetoTcc/telaDiarioAlimentar';
+		location.href = '/ProjetoTcc/telaDiarioAlimentar/' + $('#' + id).text() + '/' + $('#selMonth').val() + '/' + $('#selYear').val();
 	}
 	else {
 		eval(id).style.backgroundColor = "#ffffff"
@@ -134,7 +134,7 @@ function writeCalendar() {
 	text += "<tr><td>"
 	text += "<table width=100%><tr>"
 	text += "<td align=left>"
-	text += "<select name=selMonth onChange='changeCal()' class='form-control'>"
+	text += "<select id='selMonth' name='selMonth' onChange='changeCal()' class='form-control'>"
 
 	for (ii = 0; ii <= 11; ii++) {
 		if (ii == mm) {
@@ -147,7 +147,7 @@ function writeCalendar() {
 	text += "</select>"
 	text += "</td>"
 	text += "<td align=right>"
-	text += "<select name=selYear onChange='changeCal()' class='form-control'>"
+	text += "<select id='selYear' name='selYear' onChange='changeCal()' class='form-control'>"
 	for (ii = 0; ii <= 4; ii++) {
 		if (ii == 2) {
 			text += "<option value= " + arrY[ii] + " Selected>" + arrY[ii] + "</option>"

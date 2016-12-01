@@ -12,4 +12,9 @@ public class TelaDiarioAlimentar {
 	public ModelAndView aparecerTelaDiarioAlimentar() {
 		return new ModelAndView("TelaDiarioAlimentar");
 	}
+	
+	@RequestMapping(value = "/telaDiarioAlimentar/{dia}/{mes}/{ano}", method = RequestMethod.GET)
+	public ModelAndView aparecerTelaDiarioAlimentarComData() {
+		return new ModelAndView("TelaDiarioAlimentar");
+	}
 }
