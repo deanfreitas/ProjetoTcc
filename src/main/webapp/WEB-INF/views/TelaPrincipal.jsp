@@ -160,15 +160,6 @@
 <input type="text" class="form-control" id="peso" name="peso" placeholder="Peso"/>
 </div>
 
-	<div class="form-group col-md-6">
-							<label class="radio-inline"> 
-								<input type="radio" name="sexo" id="radioSexo" value="Masculino"> Masculino
-							</label> 
-							<label class="radio-inline"> 
-								<input type="radio" name="sexo" id="radioSexo" value="Feminino"> Feminino 
-							</label>
-						</div>
-
 
 <p><input name="Enviar" type="button" id="btnCalcular" class="btn btn-raised btn-default" value="Calcular" />
 </p>

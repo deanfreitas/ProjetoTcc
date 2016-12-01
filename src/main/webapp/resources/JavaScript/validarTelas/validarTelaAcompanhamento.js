@@ -14,8 +14,8 @@ $(document).ready(function () {
 		});
 
 	var data = {
-		labels: ['Bananas', 'Apples', 'Grapes'],
-		series: [20, 15, 40]
+		labels: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+		series: [1300, 890, 1040,1400, 980, 1350, 732,]
 	};
 
 	var options = {

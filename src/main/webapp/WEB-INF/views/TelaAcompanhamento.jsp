@@ -51,7 +51,7 @@
 	</div>
 	
 	<div class="col-md-6">
-	<h2></h2>
+	<h2>Consumo diário em Calorias</h2>
 	<div class="ct-chart2 ct-perfect-fourth"></div>
 	
 		</div>
