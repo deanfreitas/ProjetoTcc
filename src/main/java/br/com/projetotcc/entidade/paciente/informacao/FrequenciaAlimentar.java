@@ -177,6 +177,147 @@ public class FrequenciaAlimentar implements InterfaceDadosPaciente {
 	@Column(name = "Freq_RelatosDeCaso")
 	private String relatosDeCaso;
 	
+	@Column(name = "OBSFreq_Arroz")
+	private String observacaoArroz;
+	
+	@Column(name = "OBSFreq_Macarrao")
+	private String observacaoMacarrao;
+	
+	@Column(name = "OBSFreq_BatataMandioca")
+	private String observacaoBatataMandioca;
+	
+	@Column(name = "OBSFreq_Pao")
+	private String observacaoPao;
+	
+	@Column(name = "OBSFreq_PaodeQueijo")
+	private String observacaoPaoQueijo;
+	
+	@Column(name = "OBSFreq_Farinhas")
+	private String observacaoFarinhas;
+	
+	@Column(name = "OBSFreq_CerealMatinal")
+	private String observacaoCerealMatinal;
+	
+	@Column(name = "OBSFreq_HortalicasCruas")
+	private String observacaoHortalicasCruas;
+	
+	@Column(name = "OBSFreq_HortalicasCozidas")
+	private String observacaoHortalicasCozidas;
+	
+	@Column(name = "OBSFreq_Frutas")
+	private String observacaoFrutas;
+	
+	@Column(name = "OBSFreq_LeiteIntegral")
+	private String observacaoLeiteIntegral;
+	
+	@Column(name = "OBSFreq_LeiteDesnatado")
+	private String observacaoLeiteDesnatado;
+	
+	@Column(name = "OBSFreq_Iorgute")
+	private String observacaoIorgute;
+	
+	@Column(name = "OBSFreq_IorguteDesnatado")
+	private String observacaoIorguteDesnatado;
+	
+	@Column(name = "OBSFreq_Queijos")
+	private String observacaoQueijos;
+	
+	@Column(name = "OBSFreq_CarneVermelha")
+	private String observacaoCarneVermelha;
+	
+	@Column(name = "OBSFreq_Embutidos")
+	private String observacaoEmbutidos;
+	
+	@Column(name = "OBSFreq_Enlatados")
+	private String observacaoEnlatados;
+	
+	@Column(name = "OBSFreq_Ovos")
+	private String observacaoOvos;
+	
+	@Column(name = "OBSFreq_Leguminosas")
+	private String observacaoLeguminosas;
+	
+	@Column(name = "OBSFreq_MargarinaComum")
+	private String observacaoMargarinaComum;
+	
+	@Column(name = "OBSFreq_MargarinaLight")
+	private String observacaoMargarinaLight;
+	
+	@Column(name = "OBSFreq_Manteiga")
+	private String observacaoManteiga;
+	
+	@Column(name = "OBSFreq_RequeijaoComum")
+	private String observacaoRequeijaoComum;
+	
+	@Column(name = "OBSFreq_RequeijaoLight")
+	private String observacaoRequeijaoLight;
+	
+	@Column(name = "OBSFreq_MaioneseComum")
+	private String observacaoMaioneseComum;
+	
+	@Column(name = "OBSFreq_MaioneseLight")
+	private String observacaoMaioneseLight;
+	
+	@Column(name = "OBSFreq_Cremedeleite")
+	private String observacaoCremeLeite;
+	
+	@Column(name = "OBSFreq_Frituras")
+	private String observacaoFrituras;
+	
+	@Column(name = "OBSFreq_Acucar")
+	private String observacaoAcucar;
+	
+	@Column(name = "OBSFreq_Adocante")
+	private String observacaoAdocante;
+	
+	@Column(name = "OBSFreq_Mel")
+	private String observacaoMel;
+	
+	@Column(name = "OBSFreq_BarradeCereal")
+	private String observacaoBarradeCereal;
+	
+	@Column(name = "OBSFreq_Doces")
+	private String observacaoDoces;
+	
+	@Column(name = "OBSFreq_BolachaRecheada")
+	private String observacaoBolachaRecheada;
+	
+	@Column(name = "OBSFreq_BoloBiscoito")
+	private String observacaoBoloBiscoito;
+	
+	@Column(name = "OBSFreq_ChicleteBalas")
+	private String observacaoChicleteBalas;
+	
+	@Column(name = "OBSFreq_Chocolate")
+	private String observacaoChocolate;
+	
+	@Column(name = "OBSFreq_Sanduichepizza")
+	private String observacaoSanduichepizza;
+	
+	@Column(name = "OBSFreq_Salgadinhos")
+	private String observacaoSalgadinhos;
+	
+	@Column(name = "OBSFreq_SalgadinhosPacote")
+	private String observacaoSalgadinhosPacote;
+	
+	@Column(name = "OBSFreq_RefrigeranteComum")
+	private String observacaoRefrigeranteComum;
+	
+	@Column(name = "OBSFreq_RefrigeranteDietLight")
+	private String observacaoRefrigeranteDietLight;
+	
+	@Column(name = "OBSFreq_SucoNatural")
+	private String observacaoSucoNatural;
+	
+	@Column(name = "OBSFreq_SucoArtificial")
+	private String observacaoSucoArtificial;
+	
+	@Column(name = "OBSFreq_Cafe")
+	private String observacaoCafe;
+	
+	@Column(name = "OBSFreq_Cha")
+	private String observacaoCha;
+	
 	@JsonBackReference(value = "paciente-frequenciaAlimentar")
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "frequenciaAlimentar")
 	private Paciente paciente;
@@ -599,5 +740,381 @@ public class FrequenciaAlimentar implements InterfaceDadosPaciente {
 
 	public void setIorgurte(String iorgurte) {
 		this.iorgurte = iorgurte;
+	}
+
+	public String getObservacaoArroz() {
+		return observacaoArroz;
+	}
+
+	public void setObservacaoArroz(String observacaoArroz) {
+		this.observacaoArroz = observacaoArroz;
+	}
+
+	public String getObservacaoMacarrao() {
+		return observacaoMacarrao;
+	}
+
+	public void setObservacaoMacarrao(String observacaoMacarrao) {
+		this.observacaoMacarrao = observacaoMacarrao;
+	}
+
+	public String getObservacaoBatataMandioca() {
+		return observacaoBatataMandioca;
+	}
+
+	public void setObservacaoBatataMandioca(String observacaoBatataMandioca) {
+		this.observacaoBatataMandioca = observacaoBatataMandioca;
+	}
+
+	public String getObservacaoPao() {
+		return observacaoPao;
+	}
+
+	public void setObservacaoPao(String observacaoPao) {
+		this.observacaoPao = observacaoPao;
+	}
+
+	public String getObservacaoPaoQueijo() {
+		return observacaoPaoQueijo;
+	}
+
+	public void setObservacaoPaoQueijo(String observacaoPaoQueijo) {
+		this.observacaoPaoQueijo = observacaoPaoQueijo;
+	}
+
+	public String getObservacaoFarinhas() {
+		return observacaoFarinhas;
+	}
+
+	public void setObservacaoFarinhas(String observacaoFarinhas) {
+		this.observacaoFarinhas = observacaoFarinhas;
+	}
+
+	public String getObservacaoCerealMatinal() {
+		return observacaoCerealMatinal;
+	}
+
+	public void setObservacaoCerealMatinal(String observacaoCerealMatinal) {
+		this.observacaoCerealMatinal = observacaoCerealMatinal;
+	}
+
+	public String getObservacaoHortalicasCruas() {
+		return observacaoHortalicasCruas;
+	}
+
+	public void setObservacaoHortalicasCruas(String observacaoHortalicasCruas) {
+		this.observacaoHortalicasCruas = observacaoHortalicasCruas;
+	}
+
+	public String getObservacaoHortalicasCozidas() {
+		return observacaoHortalicasCozidas;
+	}
+
+	public void setObservacaoHortalicasCozidas(String observacaoHortalicasCozidas) {
+		this.observacaoHortalicasCozidas = observacaoHortalicasCozidas;
+	}
+
+	public String getObservacaoFrutas() {
+		return observacaoFrutas;
+	}
+
+	public void setObservacaoFrutas(String observacaoFrutas) {
+		this.observacaoFrutas = observacaoFrutas;
+	}
+
+	public String getObservacaoLeiteIntegral() {
+		return observacaoLeiteIntegral;
+	}
+
+	public void setObservacaoLeiteIntegral(String observacaoLeiteIntegral) {
+		this.observacaoLeiteIntegral = observacaoLeiteIntegral;
+	}
+
+	public String getObservacaoLeiteDesnatado() {
+		return observacaoLeiteDesnatado;
+	}
+
+	public void setObservacaoLeiteDesnatado(String observacaoLeiteDesnatado) {
+		this.observacaoLeiteDesnatado = observacaoLeiteDesnatado;
+	}
+
+	public String getObservacaoIorgute() {
+		return observacaoIorgute;
+	}
+
+	public void setObservacaoIorgute(String observacaoIorgute) {
+		this.observacaoIorgute = observacaoIorgute;
+	}
+
+	public String getObservacaoIorguteDesnatado() {
+		return observacaoIorguteDesnatado;
+	}
+
+	public void setObservacaoIorguteDesnatado(String observacaoIorguteDesnatado) {
+		this.observacaoIorguteDesnatado = observacaoIorguteDesnatado;
+	}
+
+	public String getObservacaoQueijos() {
+		return observacaoQueijos;
+	}
+
+	public void setObservacaoQueijos(String observacaoQueijos) {
+		this.observacaoQueijos = observacaoQueijos;
+	}
+
+	public String getObservacaoCarneVermelha() {
+		return observacaoCarneVermelha;
+	}
+
+	public void setObservacaoCarneVermelha(String observacaoCarneVermelha) {
+		this.observacaoCarneVermelha = observacaoCarneVermelha;
+	}
+
+	public String getObservacaoEmbutidos() {
+		return observacaoEmbutidos;
+	}
+
+	public void setObservacaoEmbutidos(String observacaoEmbutidos) {
+		this.observacaoEmbutidos = observacaoEmbutidos;
+	}
+
+	public String getObservacaoEnlatados() {
+		return observacaoEnlatados;
+	}
+
+	public void setObservacaoEnlatados(String observacaoEnlatados) {
+		this.observacaoEnlatados = observacaoEnlatados;
+	}
+
+	public String getObservacaoOvos() {
+		return observacaoOvos;
+	}
+
+	public void setObservacaoOvos(String observacaoOvos) {
+		this.observacaoOvos = observacaoOvos;
+	}
+
+	public String getObservacaoLeguminosas() {
+		return observacaoLeguminosas;
+	}
+
+	public void setObservacaoLeguminosas(String observacaoLeguminosas) {
+		this.observacaoLeguminosas = observacaoLeguminosas;
+	}
+
+	public String getObservacaoMargarinaComum() {
+		return observacaoMargarinaComum;
+	}
+
+	public void setObservacaoMargarinaComum(String observacaoMargarinaComum) {
+		this.observacaoMargarinaComum = observacaoMargarinaComum;
+	}
+
+	public String getObservacaoMargarinaLight() {
+		return observacaoMargarinaLight;
+	}
+
+	public void setObservacaoMargarinaLight(String observacaoMargarinaLight) {
+		this.observacaoMargarinaLight = observacaoMargarinaLight;
+	}
+
+	public String getObservacaoManteiga() {
+		return observacaoManteiga;
+	}
+
+	public void setObservacaoManteiga(String observacaoManteiga) {
+		this.observacaoManteiga = observacaoManteiga;
+	}
+
+	public String getObservacaoRequeijaoComum() {
+		return observacaoRequeijaoComum;
+	}
+
+	public void setObservacaoRequeijaoComum(String observacaoRequeijaoComum) {
+		this.observacaoRequeijaoComum = observacaoRequeijaoComum;
+	}
+
+	public String getObservacaoRequeijaoLight() {
+		return observacaoRequeijaoLight;
+	}
+
+	public void setObservacaoRequeijaoLight(String observacaoRequeijaoLight) {
+		this.observacaoRequeijaoLight = observacaoRequeijaoLight;
+	}
+
+	public String getObservacaoMaioneseComum() {
+		return observacaoMaioneseComum;
+	}
+
+	public void setObservacaoMaioneseComum(String observacaoMaioneseComum) {
+		this.observacaoMaioneseComum = observacaoMaioneseComum;
+	}
+
+	public String getObservacaoMaioneseLight() {
+		return observacaoMaioneseLight;
+	}
+
+	public void setObservacaoMaioneseLight(String observacaoMaioneseLight) {
+		this.observacaoMaioneseLight = observacaoMaioneseLight;
+	}
+
+	public String getObservacaoCremeLeite() {
+		return observacaoCremeLeite;
+	}
+
+	public void setObservacaoCremeLeite(String observacaoCremeLeite) {
+		this.observacaoCremeLeite = observacaoCremeLeite;
+	}
+
+	public String getObservacaoFrituras() {
+		return observacaoFrituras;
+	}
+
+	public void setObservacaoFrituras(String observacaoFrituras) {
+		this.observacaoFrituras = observacaoFrituras;
+	}
+
+	public String getObservacaoAcucar() {
+		return observacaoAcucar;
+	}
+
+	public void setObservacaoAcucar(String observacaoAcucar) {
+		this.observacaoAcucar = observacaoAcucar;
+	}
+
+	public String getObservacaoAdocante() {
+		return observacaoAdocante;
+	}
+
+	public void setObservacaoAdocante(String observacaoAdocante) {
+		this.observacaoAdocante = observacaoAdocante;
+	}
+
+	public String getObservacaoMel() {
+		return observacaoMel;
+	}
+
+	public void setObservacaoMel(String observacaoMel) {
+		this.observacaoMel = observacaoMel;
+	}
+
+	public String getObservacaoBarradeCereal() {
+		return observacaoBarradeCereal;
+	}
+
+	public void setObservacaoBarradeCereal(String observacaoBarradeCereal) {
+		this.observacaoBarradeCereal = observacaoBarradeCereal;
+	}
+
+	public String getObservacaoDoces() {
+		return observacaoDoces;
+	}
+
+	public void setObservacaoDoces(String observacaoDoces) {
+		this.observacaoDoces = observacaoDoces;
+	}
+
+	public String getObservacaoBolachaRecheada() {
+		return observacaoBolachaRecheada;
+	}
+
+	public void setObservacaoBolachaRecheada(String observacaoBolachaRecheada) {
+		this.observacaoBolachaRecheada = observacaoBolachaRecheada;
+	}
+
+	public String getObservacaoBoloBiscoito() {
+		return observacaoBoloBiscoito;
+	}
+
+	public void setObservacaoBoloBiscoito(String observacaoBoloBiscoito) {
+		this.observacaoBoloBiscoito = observacaoBoloBiscoito;
+	}
+
+	public String getObservacaoChicleteBalas() {
+		return observacaoChicleteBalas;
+	}
+
+	public void setObservacaoChicleteBalas(String observacaoChicleteBalas) {
+		this.observacaoChicleteBalas = observacaoChicleteBalas;
+	}
+
+	public String getObservacaoChocolate() {
+		return observacaoChocolate;
+	}
+
+	public void setObservacaoChocolate(String observacaoChocolate) {
+		this.observacaoChocolate = observacaoChocolate;
+	}
+
+	public String getObservacaoSanduichepizza() {
+		return observacaoSanduichepizza;
+	}
+
+	public void setObservacaoSanduichepizza(String observacaoSanduichepizza) {
+		this.observacaoSanduichepizza = observacaoSanduichepizza;
+	}
+
+	public String getObservacaoSalgadinhos() {
+		return observacaoSalgadinhos;
+	}
+
+	public void setObservacaoSalgadinhos(String observacaoSalgadinhos) {
+		this.observacaoSalgadinhos = observacaoSalgadinhos;
+	}
+
+	public String getObservacaoSalgadinhosPacote() {
+		return observacaoSalgadinhosPacote;
+	}
+
+	public void setObservacaoSalgadinhosPacote(String observacaoSalgadinhosPacote) {
+		this.observacaoSalgadinhosPacote = observacaoSalgadinhosPacote;
+	}
+
+	public String getObservacaoRefrigeranteComum() {
+		return observacaoRefrigeranteComum;
+	}
+
+	public void setObservacaoRefrigeranteComum(String observacaoRefrigeranteComum) {
+		this.observacaoRefrigeranteComum = observacaoRefrigeranteComum;
+	}
+
+	public String getObservacaoRefrigeranteDietLight() {
+		return observacaoRefrigeranteDietLight;
+	}
+
+	public void setObservacaoRefrigeranteDietLight(String observacaoRefrigeranteDietLight) {
+		this.observacaoRefrigeranteDietLight = observacaoRefrigeranteDietLight;
+	}
+
+	public String getObservacaoSucoNatural() {
+		return observacaoSucoNatural;
+	}
+
+	public void setObservacaoSucoNatural(String observacaoSucoNatural) {
+		this.observacaoSucoNatural = observacaoSucoNatural;
+	}
+
+	public String getObservacaoSucoArtificial() {
+		return observacaoSucoArtificial;
+	}
+
+	public void setObservacaoSucoArtificial(String observacaoSucoArtificial) {
+		this.observacaoSucoArtificial = observacaoSucoArtificial;
+	}
+
+	public String getObservacaoCafe() {
+		return observacaoCafe;
+	}
+
+	public void setObservacaoCafe(String observacaoCafe) {
+		this.observacaoCafe = observacaoCafe;
+	}
+
+	public String getObservacaoCha() {
+		return observacaoCha;
+	}
+
+	public void setObservacaoCha(String observacaoCha) {
+		this.observacaoCha = observacaoCha;
 	}
 }

@@ -15,7 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import br.com.projetotcc.entidade.paciente.alimentacao.Almoco;
@@ -53,12 +57,6 @@ public class Paciente implements InterfacePessoa {
 	@Column(name = "id_Paciente", nullable = false)
 	private Long id;
 	
-	@Column(name = "Pac_NomeCompleto")
-	private String nomeCompleto;
-	
-	@Column(name = "Pac_Email")
-	private String email;
-	
 	@Column(name = "Pac_Responsavel")
 	private String responsavel;
 	
@@ -66,11 +64,6 @@ public class Paciente implements InterfacePessoa {
 	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = AntecedentesFamiliares.class)
 	@JoinColumn(name = "Id_AntecedentesFamiliares", insertable = true, updatable = true)
 	private AntecedentesFamiliares antecedentesFamiliares;
-	
-	@JsonManagedReference(value = "paciente-dadosAntropometricos")
-	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = DadosAntropometricos.class)
-	@JoinColumn(name = "Id_DadosAntropometricos", insertable = true, updatable = true)
-	private DadosAntropometricos dadosAntropometricos;
 	
 	@JsonManagedReference(value = "paciente-atividadeFisica")
 	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = AtividadeFisica.class)
@@ -97,11 +90,6 @@ public class Paciente implements InterfacePessoa {
 	@JoinColumn(name = "Id_HistoricoAlimentarNutricional", insertable = true, updatable = true)
 	private HistoricoAlimentarNutricional historicoAlimentarNutricional;
 	
-	@JsonManagedReference(value = "paciente-examesBioquimicos")
-	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = ExamesBioquimicos.class)
-	@JoinColumn(name = "Id_ExamesBioquimicos", insertable = true, updatable = true)
-	private ExamesBioquimicos examesBioquimicos;
-	
 	@JsonManagedReference(value = "paciente-identificacao")
 	@OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Identificacao.class)
 	@JoinColumn(name = "Id_identificacao", insertable = true, updatable = true)
@@ -117,39 +105,57 @@ public class Paciente implements InterfacePessoa {
 	@JoinColumn(name = "id_nutricionista", insertable = true, updatable = true)
 	private Nutricionista nutricionista;
 	
-	@JsonBackReference(value = "almoco-paciente")
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
+	@JsonManagedReference(value = "paciente-dadosAntropometricos")
+	@OneToMany(mappedBy = "paciente")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<DadosAntropometricos> dadosAntropometricos;
+	
+	@JsonManagedReference(value = "paciente-examesBioquimicos")
+	@OneToMany(mappedBy = "paciente")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<ExamesBioquimicos> examesBioquimicos;
+	
+	@JsonManagedReference(value = "almoco-paciente")
+	@OneToMany(mappedBy = "paciente")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Almoco> almocos;
 	
-	@JsonBackReference(value = "ceia-paciente")
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
+	@JsonManagedReference(value = "ceia-paciente")
+	@OneToMany(mappedBy = "paciente")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Ceia> ceias;
 	
-	@JsonBackReference(value = "colacao-paciente")
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
+	@JsonManagedReference(value = "colacao-paciente")
+	@OneToMany(mappedBy = "paciente")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Colacao> colacoes;
 	
-	@JsonBackReference(value = "desjejum-paciente")
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
+	@JsonManagedReference(value = "desjejum-paciente")
+	@OneToMany(mappedBy = "paciente")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Desjejum> desjejums;
 	
-	@JsonBackReference(value = "jantar-paciente")
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
+	@JsonManagedReference(value = "jantar-paciente")
+	@OneToMany(mappedBy = "paciente")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Jantar> jantares;
 	
-	@JsonBackReference(value = "lanche-paciente")
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
+	@JsonManagedReference(value = "lanche-paciente")
+	@OneToMany(mappedBy = "paciente")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Lanche> lanches;
 	
-	@JsonBackReference(value = "foraHora-paciente")
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
+	@JsonManagedReference(value = "foraHora-paciente")
+	@OneToMany(mappedBy = "paciente")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<ForaHora> foraHoras;
 	
-	@JsonBackReference(value = "usoMedicamento-paciente")
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
+	@JsonManagedReference(value = "usoMedicamento-paciente")
+	@OneToMany(mappedBy = "paciente")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<UsoMedicamento> usoMedicamentos;
 	
-	@JsonBackReference(value = "paciente-role")
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente")
 	private Set<Role> roles;
 	
@@ -163,22 +169,6 @@ public class Paciente implements InterfacePessoa {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getNomeCompleto() {
-		return nomeCompleto;
-	}
-
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getResponsavel() {
@@ -195,14 +185,6 @@ public class Paciente implements InterfacePessoa {
 
 	public void setAntecedentesFamiliares(AntecedentesFamiliares antecedentesFamiliares) {
 		this.antecedentesFamiliares = antecedentesFamiliares;
-	}
-
-	public DadosAntropometricos getDadosAntropometricos() {
-		return dadosAntropometricos;
-	}
-
-	public void setDadosAntropometricos(DadosAntropometricos dadosAntropometricos) {
-		this.dadosAntropometricos = dadosAntropometricos;
 	}
 
 	public AtividadeFisica getAtividadeFisica() {
@@ -341,11 +323,19 @@ public class Paciente implements InterfacePessoa {
 		this.nutricionista = nutricionista;
 	}
 
-	public ExamesBioquimicos getExamesBioquimicos() {
+	public List<DadosAntropometricos> getDadosAntropometricos() {
+		return dadosAntropometricos;
+	}
+
+	public void setDadosAntropometricos(List<DadosAntropometricos> dadosAntropometricos) {
+		this.dadosAntropometricos = dadosAntropometricos;
+	}
+
+	public List<ExamesBioquimicos> getExamesBioquimicos() {
 		return examesBioquimicos;
 	}
 
-	public void setExamesBioquimicos(ExamesBioquimicos examesBioquimicos) {
+	public void setExamesBioquimicos(List<ExamesBioquimicos> examesBioquimicos) {
 		this.examesBioquimicos = examesBioquimicos;
-	}
+	}	
 }

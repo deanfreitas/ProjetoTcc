@@ -593,7 +593,11 @@ $(document)
 								return false;
 							} else {
 								alert(data.mensagem);
-								window.location.href = '/ProjetoTcc/telaLogin';
+								if (idCasdastroPessoa == null) {
+									location.href = '/ProjetoTcc/telaLogin';
+								} else {
+									location.href = '/ProjetoTcc/telaPrincipal';
+								}
 								return true;
 							}
 						}

@@ -5,7 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -97,7 +98,8 @@ public class ExamesBioquimicos implements InterfaceDadosPaciente {
 	private String acidourico;
 	
 	@JsonBackReference(value = "paciente-examesBioquimicos")
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "examesBioquimicos")
+	@ManyToOne(optional = true, fetch = FetchType.LAZY, targetEntity = Paciente.class)
+	@JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
 	private Paciente paciente;
 	
 	public ExamesBioquimicos() {
