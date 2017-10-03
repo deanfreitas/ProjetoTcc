@@ -1,1 +1,7 @@
-/target/
+.idea/
+target/
+.classpath
+.project
+.springBeans
+.settings/
+projetotcc.iml

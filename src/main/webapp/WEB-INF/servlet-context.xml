@@ -42,7 +42,6 @@
 	<context:component-scan base-package="br.com.projetotcc.mensagem" />
 	<context:component-scan base-package="br.com.projetotcc.pagina" />
 	<context:component-scan base-package="br.com.projetotcc.seguranca" />
-	
 	<context:component-scan base-package="br.com.projetotcc.entidade.pessoa.dados" />
 
 	<context:annotation-config />
@@ -56,9 +55,9 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url"
-			value="jdbc:mysql://localhost:3306/*" />
-		<beans:property name="username" value="*" />
-		<beans:property name="password" value="*" />
+			value="jdbc:mysql://localhost:3306/tcc" />
+		<beans:property name="username" value="root" />
+		<beans:property name="password" value="root" />
 	</beans:bean>
 
 	<beans:bean id="entityManagerFactory"
