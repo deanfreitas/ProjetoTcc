@@ -33,16 +33,6 @@
 	</beans:bean>
 
 	<context:component-scan base-package="br.com.projetotcc" />
-	<context:component-scan base-package="br.com.projetotcc.bancodados" />
-	<context:component-scan base-package="br.com.projetotcc.entidade.paciente.alimentacao" />
-	<context:component-scan base-package="br.com.projetotcc.entidade.paciente.informacao" />
-	<context:component-scan base-package="br.com.projetotcc.entidade.pessoa" />
-	<context:component-scan base-package="br.com.projetotcc.entidade.pessoa.informacao" />
-	<context:component-scan base-package="br.com.projetotcc.interfaces" />
-	<context:component-scan base-package="br.com.projetotcc.mensagem" />
-	<context:component-scan base-package="br.com.projetotcc.pagina" />
-	<context:component-scan base-package="br.com.projetotcc.seguranca" />
-	<context:component-scan base-package="br.com.projetotcc.entidade.pessoa.dados" />
 
 	<context:annotation-config />
 
@@ -55,7 +45,7 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url"
-			value="jdbc:mysql://localhost:3306/tcc" />
+			value="jdbc:mysql://localhost:3306/projetotcc" />
 		<beans:property name="username" value="root" />
 		<beans:property name="password" value="root" />
 	</beans:bean>
