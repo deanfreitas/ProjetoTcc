@@ -1,7 +1,7 @@
 package br.com.projetotcc.entidade.paciente.alimentacao;
 
 import br.com.projetotcc.interfaces.InterfaceAlimentaresPaciente;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
@@ -34,7 +34,7 @@ public class Colacao implements InterfaceAlimentaresPaciente {
     @Column(name = "Colac_Quantidade")
     private String quantidade;
 
-    @JsonManagedReference(value = "data-colacao")
+    @JsonBackReference(value = "data-colacao")
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "colacao")
     private Data data;
 
