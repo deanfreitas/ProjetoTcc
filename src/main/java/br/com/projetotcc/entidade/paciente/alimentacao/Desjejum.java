@@ -44,11 +44,6 @@ public class Desjejum implements InterfaceAlimentaresPaciente {
 	@Column(name = "Desj_Quantidade")
 	private String quantidade;
 
-	@JsonBackReference(value = "desjejum-paciente")
-	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Paciente.class)
-	@JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
-	private Paciente paciente;
-	
 	public Desjejum(String horario, String local, String humor, String alimentos, String quantidade) {
 		super();
 		this.horario = horario;
@@ -66,27 +61,6 @@ public class Desjejum implements InterfaceAlimentaresPaciente {
 		this.humor = humor;
 		this.quantidade = quantidade;
 		this.alimentos = alimentos;
-	}
-	
-	public Desjejum(String horario, String local, String humor, String alimentos, String quantidade, Paciente paciente) {
-		super();
-		this.horario = horario;
-		this.local = local;
-		this.humor = humor;
-		this.alimentos = alimentos;
-		this.quantidade = quantidade;
-		this.paciente = paciente;
-	}
-	
-	public Desjejum(Long id, String horario, String local, String humor, String alimentos, String quantidade, Paciente paciente) {
-		super();
-		this.id = id;
-		this.horario = horario;
-		this.local = local;
-		this.humor = humor;
-		this.alimentos = alimentos;
-		this.quantidade = quantidade;
-		this.paciente = paciente;
 	}
 	
 	public Desjejum() {
@@ -138,13 +112,5 @@ public class Desjejum implements InterfaceAlimentaresPaciente {
 
 	public void setQuantidade(String quantidade) {
 		this.quantidade = quantidade;
-	}
-
-	public Paciente getPaciente() {
-		return paciente;
-	}
-
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
 	}
 }

@@ -1,150 +1,118 @@
 package br.com.projetotcc.entidade.paciente.alimentacao;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.interfaces.InterfaceAlimentaresPaciente;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Almoco")
 public class Almoco implements InterfaceAlimentaresPaciente {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3802919552426199975L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 3802919552426199975L;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "Id_Almoco", nullable = false)
-	private Long id;
-	
-	@Column(name = "Alm_Horario")
-	private String horario;
-	
-	@Column(name = "Alm_Local")
-	private String local;
-	
-	@Column(name = "Alm_Humor")
-	private String humor;
-	
-	@Column(name = "Alm_Alimento")
-	private String alimentos;
-	
-	@Column(name = "Alm_Quantidade")
-	private String quantidade;
+    @Id
+    @GeneratedValue
+    @Column(name = "Id_Almoco", nullable = false)
+    private Long id;
 
-	@JsonBackReference(value = "almoco-paciente")
-	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Paciente.class)
-	@JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
-	private Paciente paciente;
-	
-	public Almoco(String horario, String local, String humor, String alimentos, String quantidade) {
-		super();
-		this.horario = horario;
-		this.local = local;
-		this.humor = humor;
-		this.alimentos = alimentos;
-		this.quantidade = quantidade;
-	}
-	
-	public Almoco(Long id, String horario, String local, String humor, String alimentos, String quantidade) {
-		super();
-		this.id = id;
-		this.horario = horario;
-		this.local = local;
-		this.humor = humor;
-		this.quantidade = quantidade;
-		this.alimentos = alimentos;
-	}
-	
-	public Almoco(String horario, String local, String humor, String alimentos, String quantidade, Paciente paciente) {
-		super();
-		this.horario = horario;
-		this.local = local;
-		this.humor = humor;
-		this.alimentos = alimentos;
-		this.quantidade = quantidade;
-		this.paciente = paciente;
-	}
-	
-	public Almoco(Long id, String horario, String local, String humor, String alimentos, String quantidade, Paciente paciente) {
-		super();
-		this.id = id;
-		this.horario = horario;
-		this.local = local;
-		this.humor = humor;
-		this.alimentos = alimentos;
-		this.quantidade = quantidade;
-		this.paciente = paciente;
-	}
-	
-	public Almoco() {
-	}
-	
-	public Long getId() {
-		return id;
-	}
+    @Column(name = "Alm_Horario")
+    private String horario;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(name = "Alm_Local")
+    private String local;
 
-	public String getHorario() {
-		return horario;
-	}
+    @Column(name = "Alm_Humor")
+    private String humor;
 
-	public void setHorario(String horario) {
-		this.horario = horario;
-	}
+    @Column(name = "Alm_Alimento")
+    private String alimentos;
 
-	public String getLocal() {
-		return local;
-	}
+    @Column(name = "Alm_Quantidade")
+    private String quantidade;
 
-	public void setLocal(String local) {
-		this.local = local;
-	}
+    @JsonManagedReference(value = "data-almoco")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "almoco")
+    private Data data;
 
-	public String getHumor() {
-		return humor;
-	}
+    public Almoco(String horario, String local, String humor, String alimentos, String quantidade) {
+        super();
+        this.horario = horario;
+        this.local = local;
+        this.humor = humor;
+        this.alimentos = alimentos;
+        this.quantidade = quantidade;
+    }
 
-	public void setHumor(String humor) {
-		this.humor = humor;
-	}
+    public Almoco(Long id, String horario, String local, String humor, String alimentos, String quantidade) {
+        super();
+        this.id = id;
+        this.horario = horario;
+        this.local = local;
+        this.humor = humor;
+        this.quantidade = quantidade;
+        this.alimentos = alimentos;
+    }
 
-	public String getAlimentos() {
-		return alimentos;
-	}
+    public Almoco() {
+    }
 
-	public void setAlimentos(String alimentos) {
-		this.alimentos = alimentos;
-	}
-	
-	public String getQuantidade() {
-		return quantidade;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setQuantidade(String quantidade) {
-		this.quantidade = quantidade;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Paciente getPaciente() {
-		return paciente;
-	}
+    public String getHorario() {
+        return horario;
+    }
 
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
+    public String getHumor() {
+        return humor;
+    }
+
+    public void setHumor(String humor) {
+        this.humor = humor;
+    }
+
+    public String getAlimentos() {
+        return alimentos;
+    }
+
+    public void setAlimentos(String alimentos) {
+        this.alimentos = alimentos;
+    }
+
+    public String getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(String quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Data getData() {
+        return data;
+    }
+
+    public void setData(Data data) {
+        this.data = data;
+    }
 }

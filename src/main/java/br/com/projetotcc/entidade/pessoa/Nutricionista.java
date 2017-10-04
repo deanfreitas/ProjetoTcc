@@ -25,194 +25,194 @@ import br.com.projetotcc.interfaces.InterfacePessoa;
 @Table(name = "Nutricionista")
 public class Nutricionista implements InterfacePessoa {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 2607052727091168557L;
-	
-	@Id
-	@GeneratedValue
-	@Column(name = "id_nutricionista", nullable = false)
-	private Long id;
-	
-	@Column(name = "Nutri_NomeCompleto")
-	private String nomeCompleto;
-	
-	@Column(name = "Nutri_Crn")
-	private String crn;
-	
-	@Column(name = "Nutri_CPF")
-	private String cpf;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 2607052727091168557L;
 
-	@Column(name = "Nutri_DataDeNascimento")
-	private String dataNascimento;
-	
-	@Column(name = "Nutri_Endereco")
-	private String endereco;
-	
-	@Column(name = "Nutri_Numero")
-	private String numero;
-	
-	@Column(name = "Nutri_Complemento")
-	private String complemento;
-	
-	@Column(name = "Nutri_Telefone")
-	private String telefone;
-	
-	@Column(name = "Nutri_Celular")
-	private String celular;
-	
-	@Column(name = "Nutri_Comercial")
-	private String comercial;	
-	
-	@Column(name = "Nutri_Email")
-	private String email;
-	
-	@Column(name = "Nutri_Sexo")
-	private String sexo;
-	
-	@JsonManagedReference(value = "nutricionista-login")
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Login.class)
-	@JoinColumn(name = "Id_Login", insertable = true, updatable = true)
-	private Login login;
-	
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "nutricionista")
-	private Set<Role> roles;
-	
-	@JsonManagedReference(value = "nutricionista-pacientes")
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "nutricionista")
-	private List<Paciente> pacientes;
-	
-	public Nutricionista() {
-		super();
-	}
+    @Id
+    @GeneratedValue
+    @Column(name = "id_nutricionista", nullable = false)
+    private Long id;
 
-	public Long getId() {
-		return id;
-	}
+    @Column(name = "Nutri_NomeCompleto")
+    private String nomeCompleto;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(name = "Nutri_Crn")
+    private String crn;
 
-	public String getNomeCompleto() {
-		return nomeCompleto;
-	}
+    @Column(name = "Nutri_CPF")
+    private String cpf;
 
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
-	}
+    @Column(name = "Nutri_DataDeNascimento")
+    private String dataNascimento;
 
-	public String getCrn() {
-		return crn;
-	}
+    @Column(name = "Nutri_Endereco")
+    private String endereco;
 
-	public void setCrn(String crn) {
-		this.crn = crn;
-	}
+    @Column(name = "Nutri_Numero")
+    private String numero;
 
-	public String getCpf() {
-		return cpf;
-	}
+    @Column(name = "Nutri_Complemento")
+    private String complemento;
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+    @Column(name = "Nutri_Telefone")
+    private String telefone;
 
-	public String getDataNascimento() {
-		return dataNascimento;
-	}
+    @Column(name = "Nutri_Celular")
+    private String celular;
 
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+    @Column(name = "Nutri_Comercial")
+    private String comercial;
 
-	public String getEndereco() {
-		return endereco;
-	}
+    @Column(name = "Nutri_Email")
+    private String email;
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+    @Column(name = "Nutri_Sexo")
+    private String sexo;
 
-	public String getNumero() {
-		return numero;
-	}
+    @JsonManagedReference(value = "nutricionista-login")
+    @OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Login.class)
+    @JoinColumn(name = "Id_Login", insertable = true, updatable = true)
+    private Login login;
 
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "nutricionista")
+    private Set<Role> roles;
 
-	public String getComplemento() {
-		return complemento;
-	}
+    @JsonManagedReference(value = "pacientes-nutricionista")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "nutricionista")
+    private List<Paciente> pacientes;
 
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
+    public Nutricionista() {
+        super();
+    }
 
-	public String getTelefone() {
-		return telefone;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getCelular() {
-		return celular;
-	}
+    public String getNomeCompleto() {
+        return nomeCompleto;
+    }
 
-	public void setCelular(String celular) {
-		this.celular = celular;
-	}
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
+    }
 
-	public String getComercial() {
-		return comercial;
-	}
+    public String getCrn() {
+        return crn;
+    }
 
-	public void setComercial(String comercial) {
-		this.comercial = comercial;
-	}
+    public void setCrn(String crn) {
+        this.crn = crn;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getCpf() {
+        return cpf;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-	public String getSexo() {
-		return sexo;
-	}
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
 
-	public Login getLogin() {
-		return login;
-	}
+    public String getEndereco() {
+        return endereco;
+    }
 
-	public void setLogin(Login login) {
-		this.login = login;
-	}
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
-	public Set<Role> getRoles() {
-		return roles;
-	}
+    public String getNumero() {
+        return numero;
+    }
 
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
 
-	public List<Paciente> getPacientes() {
-		return pacientes;
-	}
+    public String getComplemento() {
+        return complemento;
+    }
 
-	public void setPacientes(List<Paciente> pacientes) {
-		this.pacientes = pacientes;
-	}
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getComercial() {
+        return comercial;
+    }
+
+    public void setComercial(String comercial) {
+        this.comercial = comercial;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public Login getLogin() {
+        return login;
+    }
+
+    public void setLogin(Login login) {
+        this.login = login;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public List<Paciente> getPacientes() {
+        return pacientes;
+    }
+
+    public void setPacientes(List<Paciente> pacientes) {
+        this.pacientes = pacientes;
+    }
 }

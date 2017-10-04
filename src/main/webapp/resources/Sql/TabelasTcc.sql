@@ -333,7 +333,6 @@ CREATE TABLE Role
     ON UPDATE CASCADE
 );
 
-
 CREATE TABLE Ceia
 (
   Id_Ceia         INTEGER     NOT NULL AUTO_INCREMENT,
@@ -344,11 +343,7 @@ CREATE TABLE Ceia
   Ceia_Quantidade VARCHAR(20) NULL,
   id_Paciente     INTEGER     NOT NULL,
 
-  PRIMARY KEY (Id_Ceia),
-
-  CONSTRAINT foreign_Ceia_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
+  PRIMARY KEY (Id_Ceia)
 );
 
 CREATE TABLE Colacao
@@ -361,9 +356,110 @@ CREATE TABLE Colacao
   Colac_Quantidade VARCHAR(20) NULL,
   id_Paciente      INTEGER     NOT NULL,
 
-  PRIMARY KEY (Id_Colacao),
+  PRIMARY KEY (Id_Colacao)
+);
 
-  CONSTRAINT foreign_Colacao_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
+CREATE TABLE Jantar
+(
+  Id_Jant         INTEGER     NOT NULL AUTO_INCREMENT,
+  Jant_Horario    VARCHAR(10) NULL,
+  Jant_Local      VARCHAR(50) NULL,
+  Jant_Humor      VARCHAR(20) NULL,
+  Jant_Alimento   VARCHAR(20) NULL,
+  Jant_Quantidade VARCHAR(20) NULL,
+  id_Paciente     INTEGER     NOT NULL,
+
+  PRIMARY KEY (Id_Jant)
+);
+
+CREATE TABLE Lanche
+(
+  Id_Lanche      INTEGER     NOT NULL AUTO_INCREMENT,
+  Lan_Horario    VARCHAR(10) NULL,
+  Lan_Local      VARCHAR(50) NULL,
+  Lan_Humor      VARCHAR(20) NULL,
+  Lan_Alimento   VARCHAR(20) NULL,
+  Lan_Quantidade VARCHAR(20) NULL,
+  id_Paciente    INTEGER     NOT NULL,
+
+  PRIMARY KEY (Id_Lanche)
+);
+
+CREATE TABLE Almoco
+(
+  Id_Almoco      INTEGER     NOT NULL AUTO_INCREMENT,
+  Alm_Horario    VARCHAR(10) NULL,
+  Alm_Local      VARCHAR(50) NULL,
+  Alm_Humor      VARCHAR(20) NULL,
+  Alm_Alimento   VARCHAR(20) NULL,
+  Alm_Quantidade VARCHAR(20) NULL,
+  id_Paciente    INTEGER     NOT NULL,
+
+  PRIMARY KEY (Id_Almoco)
+);
+
+CREATE TABLE Desjejum
+(
+  Id_Desj         INTEGER     NOT NULL AUTO_INCREMENT,
+  Desj_Horario    VARCHAR(10) NULL,
+  Desj_Local      VARCHAR(50) NULL,
+  Desj_Humor      VARCHAR(20) NULL,
+  Desj_Alimento   VARCHAR(20) NULL,
+  Desj_Quantidade VARCHAR(20) NULL,
+  id_Paciente     INTEGER     NOT NULL,
+
+  PRIMARY KEY (Id_Desj)
+);
+
+CREATE TABLE Data
+(
+  id_data     INTEGER NOT NULL AUTO_INCREMENT,
+  Id_Ceia     INTEGER NULL      UNIQUE,
+  Id_Colacao  INTEGER NULL      UNIQUE,
+  Id_Jant     INTEGER NULL      UNIQUE,
+  Id_Lanche   INTEGER NULL      UNIQUE,
+  Id_Almoco   INTEGER NULL      UNIQUE,
+  Id_Desj     INTEGER NULL      UNIQUE,
+  id_Paciente INTEGER NOT NULL,
+
+  PRIMARY KEY (id_data),
+
+  CONSTRAINT foreign_Data_Id_Ceia FOREIGN KEY (Id_Ceia) REFERENCES Ceia (Id_Ceia)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT foreign_Data_Id_Colacao FOREIGN KEY (Id_Colacao) REFERENCES Colacao (Id_Colacao)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT foreign_Data_Id_Jant FOREIGN KEY (Id_Jant) REFERENCES Jantar (Id_Jant)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT foreign_Data_Id_Lanche FOREIGN KEY (Id_Lanche) REFERENCES Lanche (Id_Lanche)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT foreign_Data_Id_Almoco FOREIGN KEY (Id_Almoco) REFERENCES Almoco (Id_Almoco)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT foreign_Data_Id_Desj FOREIGN KEY (Id_Desj) REFERENCES Desjejum (Id_Desj)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT foreign_Data_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+CREATE TABLE Fora_de_Hora
+(
+  Id_Foradehora  INTEGER     NOT NULL AUTO_INCREMENT,
+  For_Horario    VARCHAR(10) NULL,
+  For_Local      VARCHAR(20) NULL,
+  For_Humor      VARCHAR(20) NULL,
+  For_Alimento   VARCHAR(50) NULL,
+  For_Quantidade INTEGER     NULL,
+  id_Paciente    INTEGER     NOT NULL,
+
+  PRIMARY KEY (Id_Foradehora),
+
+  CONSTRAINT foreign_Fora_de_Hora_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
@@ -381,93 +477,6 @@ CREATE TABLE Faz_uso_de_medicamento
   PRIMARY KEY (Id_FazUsodeMedicamento),
 
   CONSTRAINT foreign_Faz_uso_de_medicamento_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
-);
-
-
-CREATE TABLE Jantar
-(
-  Id_Jant         INTEGER     NOT NULL AUTO_INCREMENT,
-  Jant_Horario    VARCHAR(10) NULL,
-  Jant_Local      VARCHAR(50) NULL,
-  Jant_Humor      VARCHAR(20) NULL,
-  Jant_Alimento   VARCHAR(20) NULL,
-  Jant_Quantidade VARCHAR(20) NULL,
-  id_Paciente     INTEGER     NOT NULL,
-
-  PRIMARY KEY (Id_Jant),
-
-  CONSTRAINT foreign_Jantar_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
-);
-
-CREATE TABLE Lanche
-(
-  Id_Lanche      INTEGER     NOT NULL AUTO_INCREMENT,
-  Lan_Horario    VARCHAR(10) NULL,
-  Lan_Local      VARCHAR(50) NULL,
-  Lan_Humor      VARCHAR(20) NULL,
-  Lan_Alimento   VARCHAR(20) NULL,
-  Lan_Quantidade VARCHAR(20) NULL,
-  id_Paciente    INTEGER     NOT NULL,
-
-  PRIMARY KEY (Id_Lanche),
-
-  CONSTRAINT foreign_Lanche_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
-);
-
-CREATE TABLE Almoco
-(
-  Id_Almoco      INTEGER     NOT NULL AUTO_INCREMENT,
-  Alm_Horario    VARCHAR(10) NULL,
-  Alm_Local      VARCHAR(50) NULL,
-  Alm_Humor      VARCHAR(20) NULL,
-  Alm_Alimento   VARCHAR(20) NULL,
-  Alm_Quantidade VARCHAR(20) NULL,
-  id_Paciente    INTEGER     NOT NULL,
-
-  PRIMARY KEY (Id_Almoco),
-
-  CONSTRAINT foreign_Almoco_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
-);
-
-CREATE TABLE Desjejum
-(
-  Id_Desj         INTEGER     NOT NULL AUTO_INCREMENT,
-  Desj_Horario    VARCHAR(10) NULL,
-  Desj_Local      VARCHAR(50) NULL,
-  Desj_Humor      VARCHAR(20) NULL,
-  Desj_Alimento   VARCHAR(20) NULL,
-  Desj_Quantidade VARCHAR(20) NULL,
-  id_Paciente     INTEGER     NOT NULL,
-
-  PRIMARY KEY (Id_Desj),
-
-  CONSTRAINT foreign_Desjejum_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
-);
-
-
-CREATE TABLE Fora_de_Hora
-(
-  Id_Foradehora  INTEGER     NOT NULL AUTO_INCREMENT,
-  For_Horario    VARCHAR(10) NULL,
-  For_Local      VARCHAR(20) NULL,
-  For_Humor      VARCHAR(20) NULL,
-  For_Alimento   VARCHAR(50) NULL,
-  For_Quantidade INTEGER     NULL,
-  id_Paciente    INTEGER     NOT NULL,
-
-  PRIMARY KEY (Id_Foradehora),
-
-  CONSTRAINT foreign_Fora_de_Hora_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );

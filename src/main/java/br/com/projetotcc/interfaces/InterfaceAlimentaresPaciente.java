@@ -1,6 +1,6 @@
 package br.com.projetotcc.interfaces;
 
-public interface InterfaceAlimentaresPaciente extends InterfaceDadosPaciente {
+public interface InterfaceAlimentaresPaciente extends InterfaceEntidade {
 	
 	String getHorario();
 	void setHorario(String horario);

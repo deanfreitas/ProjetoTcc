@@ -100,7 +100,7 @@ public class DadosAntropometricos implements InterfaceDadosPaciente {
 	@Column(name = "Ant_porcentMM")
 	private Double mm;
 	
-	@JsonBackReference(value = "paciente-dadosAntropometricos")
+	@JsonBackReference(value = "dadosAntropometricos-paciente")
 	@ManyToOne(optional = true, fetch = FetchType.LAZY, targetEntity = Paciente.class)
 	@JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
 	private Paciente paciente;
