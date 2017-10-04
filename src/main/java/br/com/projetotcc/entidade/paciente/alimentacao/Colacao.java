@@ -19,13 +19,13 @@ public class Colacao implements InterfaceAlimentaresPaciente {
     @Column(name = "Id_Colacao", nullable = false)
     private Long id;
 
-    @Column(name = "Ceia_Horario")
+    @Column(name = "Colac_Horario")
     private String horario;
 
-    @Column(name = "Ceia_Local")
+    @Column(name = "Colac_Local")
     private String local;
 
-    @Column(name = "Ceia_Humor")
+    @Column(name = "Colac_Humor")
     private String humor;
 
     @Column(name = "Colac_Alimento")
