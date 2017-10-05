@@ -22,7 +22,13 @@ import br.com.projetotcc.mensagem.ResultadoServico;
 public class TelaAnamnese {
 
     @Autowired
+    private BancoDadosService bancoDadosService;
+
+    @Autowired
     private ResultadoServico resultadoServico;
+
+    @Autowired
+    private ServletContext context;
 
     @RequestMapping(value = "/telaAnamnese/cadastrar/{idPaciente}", method = RequestMethod.GET)
     public ModelAndView cadastrarAnamnese() {
@@ -43,7 +49,7 @@ public class TelaAnamnese {
     public @ResponseBody
     ResultadoServico cadastrarInformacoesPaciente(@RequestBody Paciente paciente) {
         Atualizar atualizar = new Atualizar();
-        resultadoServico = atualizar.atualizarCadastro(paciente);
+        resultadoServico = atualizar.atualizarCadastro(paciente, bancoDadosService, resultadoServico, context);
 
         return resultadoServico;
     }
@@ -52,7 +58,7 @@ public class TelaAnamnese {
     public @ResponseBody
     ResultadoServico pegarCadastroUsuario(@PathVariable(value = "idUsuario") Long id) {
         Obter obter = new Obter();
-        resultadoServico = obter.obterCadastro(id);
+        resultadoServico = obter.obterCadastro(id, bancoDadosService, resultadoServico);
 
         return resultadoServico;
     }

@@ -2,14 +2,10 @@ package br.com.projetotcc.validar;
 
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.mensagem.ResultadoServico;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class Usuario {
 
-    @Autowired
-    private ResultadoServico resultadoServico;
-
-    public ResultadoServico parametrosObrigatoriosAtualizacao(Paciente paciente) {
+    public ResultadoServico parametrosObrigatoriosAtualizacao(Paciente paciente, ResultadoServico resultadoServico) {
         String mensagem = null;
         long codigo = 0;
 

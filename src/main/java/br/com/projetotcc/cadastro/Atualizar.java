@@ -5,24 +5,14 @@ import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.mensagem.ResultadoServico;
 import br.com.projetotcc.validar.Usuario;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletContext;
 
 public class Atualizar {
 
-    @Autowired
-    private BancoDadosService bancoDadosService;
-
-    @Autowired
-    private ResultadoServico resultadoServico;
-
-    @Autowired
-    private ServletContext context;
-
-    public ResultadoServico atualizarCadastro(Paciente paciente) {
+    public ResultadoServico atualizarCadastro(Paciente paciente, BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
         Usuario usuario = new Usuario();
-        resultadoServico = usuario.parametrosObrigatoriosAtualizacao(paciente);
+        resultadoServico = usuario.parametrosObrigatoriosAtualizacao(paciente, resultadoServico);
 
         if (resultadoServico.getCodigo() == 0) {
             String mensagem = null;

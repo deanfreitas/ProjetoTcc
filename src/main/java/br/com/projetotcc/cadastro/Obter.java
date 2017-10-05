@@ -3,19 +3,10 @@ package br.com.projetotcc.cadastro;
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.mensagem.ResultadoServico;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.servlet.ServletContext;
 
 public class Obter {
 
-    @Autowired
-    private BancoDadosService bancoDadosService;
-
-    @Autowired
-    private ResultadoServico resultadoServico;
-
-    public ResultadoServico obterCadastro(Long id) {
+    public ResultadoServico obterCadastro(Long id, BancoDadosService bancoDadosService, ResultadoServico resultadoServico) {
         Paciente paciente = new Paciente();
 
         try {
