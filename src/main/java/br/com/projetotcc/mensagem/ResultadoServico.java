@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(value = "request")
+@Scope(value = "prototype")
 public class ResultadoServico {
 
 	private long codigo;
