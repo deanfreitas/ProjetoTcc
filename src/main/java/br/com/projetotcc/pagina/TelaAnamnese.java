@@ -3,6 +3,7 @@ package br.com.projetotcc.pagina;
 import javax.servlet.ServletContext;
 
 import br.com.projetotcc.cadastro.Atualizar;
+import br.com.projetotcc.cadastro.Obter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,13 +22,7 @@ import br.com.projetotcc.mensagem.ResultadoServico;
 public class TelaAnamnese {
 
     @Autowired
-    private BancoDadosService bancoDadosService;
-
-    @Autowired
     private ResultadoServico resultadoServico;
-
-    @Autowired
-    private ServletContext context;
 
     @RequestMapping(value = "/telaAnamnese/cadastrar/{idPaciente}", method = RequestMethod.GET)
     public ModelAndView cadastrarAnamnese() {
@@ -56,20 +51,8 @@ public class TelaAnamnese {
     @RequestMapping(value = "/pegarDadosPaciente/{idUsuario}", method = RequestMethod.GET)
     public @ResponseBody
     ResultadoServico pegarCadastroUsuario(@PathVariable(value = "idUsuario") Long id) {
-        String mensagem = null;
-        long codigo = 0;
-        Paciente paciente = new Paciente();
-        try {
-            paciente = (Paciente) bancoDadosService.encontrarInformacaoPorId(paciente, id);
-        } catch (Exception e) {
-            codigo = 1;
-            mensagem = "Erro no sistema";
-        }
-
-        resultadoServico.setMensagem(mensagem);
-        resultadoServico.setCodigo(codigo);
-        resultadoServico.setObjeto(paciente);
-        resultadoServico.setListaObjetos(null);
+        Obter obter = new Obter();
+        resultadoServico = obter.obterCadastro(id);
 
         return resultadoServico;
     }
