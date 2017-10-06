@@ -20,7 +20,7 @@ public class Obter {
         try {
             paciente = (Paciente) bancoDadosService.encontrarInformacaoPorId(paciente, id);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
             resultadoServico.setCodigo(1);
             resultadoServico.setMensagem("Erro no sistema");
         }

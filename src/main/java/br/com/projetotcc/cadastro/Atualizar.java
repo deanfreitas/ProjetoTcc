@@ -4,7 +4,7 @@ import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.mensagem.ResultadoServico;
-import br.com.projetotcc.validar.Usuario;
+import br.com.projetotcc.utils.Usuario;
 
 import javax.servlet.ServletContext;
 
@@ -22,7 +22,7 @@ public class Atualizar {
 
     public ResultadoServico atualizarCadastro(Paciente paciente) {
         Usuario usuario = new Usuario(resultadoServico);
-        resultadoServico = usuario.parametrosObrigatoriosPaciente(paciente);
+        resultadoServico = usuario.parametrosObrigatoriosAtualizacaoPaciente(paciente);
 
         if (resultadoServico.getCodigo() != 0) {
             return resultadoServico;
@@ -47,7 +47,7 @@ public class Atualizar {
                 codigo = 2;
             }
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
             mensagem = "Erro ao atualizar o cadastro das informações do paciente";
             codigo = 1;
         }

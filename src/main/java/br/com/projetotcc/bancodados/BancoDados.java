@@ -82,6 +82,7 @@ public class BancoDados {
         try {
         	return typedQuery.getSingleResult();
         } catch (NoResultException e) {
+			System.err.println(e);
 			return null;
 		}
 	}

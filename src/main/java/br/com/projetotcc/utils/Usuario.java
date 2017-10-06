@@ -1,7 +1,8 @@
-package br.com.projetotcc.validar;
+package br.com.projetotcc.utils;
 
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
+import br.com.projetotcc.interfaces.InterfacePessoa;
 import br.com.projetotcc.mensagem.ResultadoServico;
 
 public class Usuario {
@@ -14,7 +15,22 @@ public class Usuario {
         this.resultadoServico = resultadoServico;
     }
 
-    public ResultadoServico parametrosObrigatoriosPaciente(Paciente paciente) {
+    private ResultadoServico validarLogin(InterfacePessoa pessoa) {
+        if (pessoa.getLogin().getUsuario() == null || pessoa.getLogin().getUsuario().equals("")) {
+            mensagem = "Digite um Email";
+        } else if (pessoa.getLogin().getSenha() == null || pessoa.getLogin().getSenha().equals("")) {
+            mensagem = "Digite uma senha";
+        } else {
+            codigo = 0;
+        }
+
+        resultadoServico.setMensagem(mensagem);
+        resultadoServico.setCodigo(codigo);
+
+        return resultadoServico;
+    }
+
+    public ResultadoServico parametrosObrigatoriosAtualizacaoPaciente(Paciente paciente) {
         if (paciente == null) {
             mensagem = "Não foi encontrado uma instancia do objeto";
         } else if (paciente.getIdentificacao().getNome() == null || paciente.getIdentificacao().getNome().equals("")) {
@@ -33,19 +49,26 @@ public class Usuario {
         return resultadoServico;
     }
 
-    public ResultadoServico parametrosObrigatoriosNutricionista(Nutricionista nutricionista) {
+    public ResultadoServico parametrosObrigatoriosSalvarNutricionista(Nutricionista nutricionista) {
         if (nutricionista.getNomeCompleto() == null || nutricionista.getNomeCompleto().equals("")) {
             mensagem = "Digite um nome";
-        } else if (nutricionista.getLogin().getUsuario() == null || nutricionista.getLogin().getUsuario().equals("")) {
-            mensagem = "Digite um Email";
-        } else if (nutricionista.getLogin().getSenha() == null || nutricionista.getLogin().getSenha().equals("")) {
-            mensagem = "Digite uma senha";
         } else {
-            codigo = 0;
+            resultadoServico = validarLogin(nutricionista);
         }
 
         resultadoServico.setMensagem(mensagem);
-        resultadoServico.setCodigo(codigo);
+
+        return resultadoServico;
+    }
+
+    public ResultadoServico parametrosObrigatoriosSalvarPaciente(Paciente paciente) {
+        if (paciente.getIdentificacao().getNome() == null || paciente.getIdentificacao().getNome().equals("")) {
+            mensagem = "Digite um nome";
+        } else {
+            resultadoServico = validarLogin(paciente);
+        }
+
+        resultadoServico.setMensagem(mensagem);
 
         return resultadoServico;
     }
