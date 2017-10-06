@@ -11,86 +11,85 @@ import org.springframework.stereotype.Component;
 @Scope(value = "prototype")
 public class ResultadoServico {
 
-	private long codigo;
-	private String mensagem;
-	private Object objeto;
-	private List<Object> listaObjetos;
-	private Set<Object> listaObjetosUnicos;
-	
-	public ResultadoServico(long codigo, String mensagem) {
-		super();
-		this.codigo = codigo;
-		this.mensagem = mensagem;
-	}
-	
-	public ResultadoServico(long codigo, String mensagem, List<Object> listaObjetos) {
-		super();
-		this.codigo = codigo;
-		this.mensagem = mensagem;
-		this.listaObjetos = listaObjetos;
-	}
-	
-	public ResultadoServico(long codigo, String mensagem, Object objeto) {
-		super();
-		this.codigo = codigo;
-		this.mensagem = mensagem;
-		this.listaObjetos = new ArrayList<Object>();
-		this.listaObjetos.add(objeto);
-	}
-	
-	public ResultadoServico(List<Object> listaObjetos) {
-		super();
-		this.listaObjetos = listaObjetos;
-	}
-	
-	public ResultadoServico(Object objeto) {
-		super();
-		listaObjetos = new ArrayList<Object>();
-		this.listaObjetos.add(objeto);
-	}
-	
-	public ResultadoServico() {
-		super();
-	}
-	
-	public long getCodigo() {
-		return codigo;
-	}
-	
-	public void setCodigo(long codigo) {
-		this.codigo = codigo;
-	}
-	
-	public String getMensagem() {
-		return mensagem;
-	}
-	
-	public void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
-	}
+    private long codigo;
+    private String mensagem;
+    private Object objeto;
+    private List<Object> listaObjetos;
+    private Set<Object> listaObjetosUnicos;
 
-	public List<Object> getListaObjetos() {
-		return listaObjetos;
-	}
+    public ResultadoServico(long codigo, String mensagem) {
+        super();
+        this.codigo = codigo;
+        this.mensagem = mensagem;
+    }
 
-	public void setListaObjetos(List<Object> listaPessoas) {
-		this.listaObjetos = listaPessoas;
-	}
+    public ResultadoServico(long codigo, String mensagem, List<Object> listaObjetos) {
+        super();
+        this.codigo = codigo;
+        this.mensagem = mensagem;
+        this.listaObjetos = listaObjetos;
+    }
 
-	public Set<Object> getListaObjetosUnicos() {
-		return listaObjetosUnicos;
-	}
+    public ResultadoServico(long codigo, String mensagem, Object objeto) {
+        super();
+        this.codigo = codigo;
+        this.mensagem = mensagem;
+        this.listaObjetos = new ArrayList<Object>();
+        this.listaObjetos.add(objeto);
+    }
 
-	public void setListaObjetosUnicos(Set<Object> listaObjetosUnicos) {
-		this.listaObjetosUnicos = listaObjetosUnicos;
-	}
+    public ResultadoServico(List<Object> listaObjetos) {
+        super();
+        this.listaObjetos = listaObjetos;
+    }
 
-	public Object getObjeto() {
-		return objeto;
-	}
+    public ResultadoServico(Object objeto) {
+        super();
+        listaObjetos = new ArrayList<Object>();
+        this.listaObjetos.add(objeto);
+    }
 
-	public void setObjeto(Object objeto) {
-		this.objeto = objeto;
-	}
+    public ResultadoServico() {
+        super();
+    }
 
+    public long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(long codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public List<Object> getListaObjetos() {
+        return listaObjetos;
+    }
+
+    public void setListaObjetos(List<Object> listaPessoas) {
+        this.listaObjetos = listaPessoas;
+    }
+
+    public Set<Object> getListaObjetosUnicos() {
+        return listaObjetosUnicos;
+    }
+
+    public void setListaObjetosUnicos(Set<Object> listaObjetosUnicos) {
+        this.listaObjetosUnicos = listaObjetosUnicos;
+    }
+
+    public Object getObjeto() {
+        return objeto;
+    }
+
+    public void setObjeto(Object objeto) {
+        this.objeto = objeto;
+    }
 }

@@ -2,6 +2,7 @@ package br.com.projetotcc.pagina;
 
 import javax.servlet.ServletContext;
 
+import br.com.projetotcc.cadastro.Salvar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,37 +44,8 @@ public class TelaCadastro {
 	
 	@RequestMapping(value = "/salvarUsuario/nutricionista", method = RequestMethod.POST)
 	public @ResponseBody ResultadoServico addUser(@RequestBody Nutricionista nutricionista) {
-		String mensagem = null;
-		long codigo = 0;
-
-		if(nutricionista.getNomeCompleto() == null || nutricionista.getNomeCompleto().equals("")) {
-			mensagem = "Digite um nome";
-		} else if(nutricionista.getLogin().getUsuario() == null || nutricionista.getLogin().getUsuario().equals("")) {
-			mensagem = "Digite um Email";
-		}else if(nutricionista.getLogin().getSenha() == null || nutricionista.getLogin().getSenha().equals("")) {
-			mensagem = "Digite uma senha";
-		} else {
-			Login loginPessoa = (Login) bancoDadosService.encontrarInformacao(nutricionista.getLogin(), nutricionista.getLogin().getUsuario());
-			if(loginPessoa == null) {
-				try {
-					Role role = new Role("ROLE_nutricionista", nutricionista);
-					bancoDadosService.adicionarUsuario(role);
-					mensagem = "Usuario Cadastrado com sucesso";
-					codigo = 1;
-				}catch (Exception e) {
-					System.out.println();
-					System.out.println(e);
-					mensagem = "Erro ao fazer o cadastro";
-				}
-			} else {
-				mensagem = "Já tem um login Igual a esse";
-			}
-		}
-
-		resultadoServico.setMensagem(mensagem);
-		resultadoServico.setCodigo(codigo);
-		resultadoServico.setObjeto(null);
-		resultadoServico.setListaObjetos(null);
+        Salvar salvar = new Salvar(bancoDadosService, resultadoServico, context);
+        resultadoServico = salvar.adicionarNutricionista(nutricionista);
 		
 		return resultadoServico;
 	}
@@ -108,7 +80,6 @@ public class TelaCadastro {
 									bancoDadosService.atualizarCadastroUsuario(role);
 									mensagem = "Usuario Cadastrado com sucesso";
 								}catch (Exception e) {
-									System.out.println();
 									System.out.println(e);
 									mensagem = "Erro ao fazer o cadastro";
 									codigo = 1;
