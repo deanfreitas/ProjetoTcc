@@ -1,6 +1,7 @@
 package br.com.projetotcc.pagina;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.cadastro.Atualizar;
 import br.com.projetotcc.cadastro.Obter;
 import br.com.projetotcc.cadastro.Salvar;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
@@ -76,28 +77,8 @@ public class TelaCadastro {
     @RequestMapping(value = "/atualizarCadastro/paciente", method = RequestMethod.PUT)
     public @ResponseBody
     ResultadoServico atualizarCadastroUsuario(@RequestBody Paciente paciente) {
-        String mensagem = null;
-        long codigo = 0;
-        try {
-            if (context.getAttribute("dadosCadastradosPessoa") instanceof Paciente) {
-                Paciente dadosCastradoPessoa = (Paciente) context.getAttribute("dadosCadastradosPessoa");
-                paciente.setId(dadosCastradoPessoa.getId());
-                paciente.getLogin().setId(dadosCastradoPessoa.getLogin().getId());
-                bancoDadosService.atualizarCadastroUsuario(paciente);
-                mensagem = "Cadastro atualizado com sucesso";
-                context.setAttribute("loginUsuario", paciente.getLogin().getUsuario());
-            } else {
-                mensagem = "Erro no Sistema";
-                codigo = 2;
-            }
-        } catch (Exception e) {
-            mensagem = "Erro ao atualizar o cadastro";
-            codigo = 1;
-        }
-        resultadoServico.setMensagem(mensagem);
-        resultadoServico.setCodigo(codigo);
-        resultadoServico.setObjeto(null);
-        resultadoServico.setListaObjetos(null);
+        Atualizar atualizar = new Atualizar(bancoDadosService, resultadoServico, context);
+        resultadoServico = atualizar.atualizarInformacoesPessoa(paciente, "paciente");
 
         return resultadoServico;
     }
@@ -105,28 +86,8 @@ public class TelaCadastro {
     @RequestMapping(value = "/atualizarCadastro/nutricionista", method = RequestMethod.PUT)
     public @ResponseBody
     ResultadoServico atualizarCadastroUsuario(@RequestBody Nutricionista nutricionista) {
-        String mensagem = null;
-        long codigo = 0;
-        try {
-            if (context.getAttribute("dadosCadastradosPessoa") instanceof Nutricionista) {
-                Nutricionista dadosCastradoPessoa = (Nutricionista) context.getAttribute("dadosCadastradosPessoa");
-                nutricionista.setId(dadosCastradoPessoa.getId());
-                nutricionista.getLogin().setId(dadosCastradoPessoa.getLogin().getId());
-                bancoDadosService.atualizarCadastroUsuario(nutricionista);
-                mensagem = "Cadastro atualizado com sucesso";
-                context.setAttribute("loginUsuario", nutricionista.getLogin().getUsuario());
-            } else {
-                mensagem = "Erro no sistema";
-                codigo = 2;
-            }
-        } catch (Exception e) {
-            mensagem = "Erro ao atualizar o cadastro";
-            codigo = 1;
-        }
-        resultadoServico.setMensagem(mensagem);
-        resultadoServico.setCodigo(codigo);
-        resultadoServico.setObjeto(null);
-        resultadoServico.setListaObjetos(null);
+        Atualizar atualizar = new Atualizar(bancoDadosService, resultadoServico, context);
+        resultadoServico = atualizar.atualizarInformacoesPessoa(nutricionista, "nutricionista");
 
         return resultadoServico;
     }

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
-import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.mensagem.ResultadoServico;
 
@@ -49,7 +48,7 @@ public class TelaAnamnese {
     public @ResponseBody
     ResultadoServico cadastrarInformacoesPaciente(@RequestBody Paciente paciente) {
         Atualizar atualizar = new Atualizar(bancoDadosService, resultadoServico, context);
-        resultadoServico = atualizar.atualizarCadastro(paciente);
+        resultadoServico = atualizar.atualizarAnamnesePaciente(paciente);
 
         return resultadoServico;
     }
