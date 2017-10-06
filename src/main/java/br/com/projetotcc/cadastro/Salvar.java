@@ -31,7 +31,7 @@ public class Salvar {
         }
 
         BancoDadosUtils bancoDadosUtils = new BancoDadosUtils(bancoDadosService, resultadoServico);
-        resultadoServico = bancoDadosUtils.checkLoginIgual(nutricionista);
+        resultadoServico = bancoDadosUtils.checkLoginIgual(nutricionista.getLogin());
 
         if (resultadoServico.getCodigo() != 0) {
             return resultadoServico;
@@ -59,7 +59,7 @@ public class Salvar {
         }
 
         BancoDadosUtils bancoDadosUtils = new BancoDadosUtils(bancoDadosService, resultadoServico);
-        resultadoServico = bancoDadosUtils.checkLoginIgual(paciente);
+        resultadoServico = bancoDadosUtils.checkLoginIgual(paciente.getLogin());
 
         if (resultadoServico.getCodigo() != 0) {
             return resultadoServico;

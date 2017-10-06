@@ -1,24 +1,19 @@
 package br.com.projetotcc.pagina;
 
-import javax.servlet.ServletContext;
-
-import br.com.projetotcc.cadastro.Salvar;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
 import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.cadastro.Obter;
+import br.com.projetotcc.cadastro.Salvar;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
-import br.com.projetotcc.entidade.pessoa.informacao.Role;
-import br.com.projetotcc.interfaces.InterfacePessoa;
 import br.com.projetotcc.mensagem.ResultadoServico;
+import br.com.projetotcc.utils.BancoDadosUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.ServletContext;
 
 @Controller
 public class TelaCadastro {
@@ -63,18 +58,8 @@ public class TelaCadastro {
     @RequestMapping(value = "/validarLoginExiste", method = RequestMethod.POST)
     public @ResponseBody
     ResultadoServico validarLoginExiste(@RequestBody Login login) {
-        String mensagem = null;
-        long codigo = 0;
-
-        Login LoginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, login.getUsuario());
-        if (LoginCadastrado != null) {
-            mensagem = "Já tem um login Igual a esse";
-        }
-
-        resultadoServico.setMensagem(mensagem);
-        resultadoServico.setCodigo(codigo);
-        resultadoServico.setObjeto(null);
-        resultadoServico.setListaObjetos(null);
+        BancoDadosUtils bancoDadosUtils = new BancoDadosUtils(bancoDadosService, resultadoServico);
+        resultadoServico = bancoDadosUtils.checkLoginIgual(login);
 
         return resultadoServico;
     }
@@ -82,34 +67,8 @@ public class TelaCadastro {
     @RequestMapping(value = "/pegarCadastroUsuario/{tipoPessoa}/{idUsuario}", method = RequestMethod.GET)
     public @ResponseBody
     ResultadoServico pegarCadastroUsuario(@PathVariable(value = "idUsuario") Long id, @PathVariable(value = "tipoPessoa") String tipoPessoa) {
-        String mensagem = null;
-        long codigo = 0;
-        InterfacePessoa interfacePessoa = null;
-
-        if (tipoPessoa.equals("nutricionista")) {
-            interfacePessoa = new Nutricionista();
-            mensagem = "nutricionista";
-        } else if (tipoPessoa.equals("paciente")) {
-            interfacePessoa = new Paciente();
-            mensagem = "paciente";
-        } else {
-            codigo = 1;
-        }
-
-        if (mensagem != null) {
-            try {
-                resultadoServico.setObjeto(bancoDadosService.encontrarInformacaoPorId(interfacePessoa, id));
-            } catch (Exception e) {
-                codigo = 1;
-                mensagem = "Erro no sistema";
-            }
-        } else {
-            mensagem = "Não foi encontrado Nenhum tipo de pessoa";
-        }
-
-        resultadoServico.setCodigo(codigo);
-        resultadoServico.setMensagem(mensagem);
-        resultadoServico.setListaObjetos(null);
+        Obter obter = new Obter(bancoDadosService, resultadoServico);
+        resultadoServico = obter.obterCadastro(id, tipoPessoa);
 
         return resultadoServico;
     }

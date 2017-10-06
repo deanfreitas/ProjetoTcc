@@ -58,7 +58,7 @@ public class TelaAnamnese {
     public @ResponseBody
     ResultadoServico pegarCadastroUsuario(@PathVariable(value = "idUsuario") Long id) {
         Obter obter = new Obter(bancoDadosService, resultadoServico);
-        resultadoServico = obter.obterCadastro(id);
+        resultadoServico = obter.obterCadastro(id, "paciente");
 
         return resultadoServico;
     }
