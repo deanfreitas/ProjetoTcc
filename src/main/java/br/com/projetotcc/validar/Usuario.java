@@ -1,11 +1,18 @@
 package br.com.projetotcc.validar;
 
+import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.mensagem.ResultadoServico;
 
 public class Usuario {
 
-    public ResultadoServico parametrosObrigatoriosAtualizacao(Paciente paciente, ResultadoServico resultadoServico) {
+    private ResultadoServico resultadoServico;
+
+    public Usuario(ResultadoServico resultadoServico) {
+        this.resultadoServico = resultadoServico;
+    }
+
+    public ResultadoServico parametrosObrigatoriosPaciente(Paciente paciente) {
         String mensagem = null;
         long codigo = 0;
 
@@ -25,6 +32,11 @@ public class Usuario {
 
         resultadoServico.setMensagem(mensagem);
         resultadoServico.setCodigo(codigo);
+
+        return resultadoServico;
+    }
+
+    public ResultadoServico parametrosObrigatoriosNutricionista(Nutricionista nutricionista) {
 
         return resultadoServico;
     }

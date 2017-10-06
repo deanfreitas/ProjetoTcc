@@ -6,18 +6,26 @@ import br.com.projetotcc.mensagem.ResultadoServico;
 
 public class Obter {
 
-    public ResultadoServico obterCadastro(Long id, BancoDadosService bancoDadosService, ResultadoServico resultadoServico) {
+    private BancoDadosService bancoDadosService;
+    private ResultadoServico resultadoServico;
+
+    public Obter(BancoDadosService bancoDadosService, ResultadoServico resultadoServico) {
+        this.bancoDadosService = bancoDadosService;
+        this.resultadoServico = resultadoServico;
+    }
+
+    public ResultadoServico obterCadastro(Long id) {
         Paciente paciente = new Paciente();
 
         try {
             paciente = (Paciente) bancoDadosService.encontrarInformacaoPorId(paciente, id);
         } catch (Exception e) {
+            System.out.println(e);
             resultadoServico.setCodigo(1);
             resultadoServico.setMensagem("Erro no sistema");
         }
 
         resultadoServico.setObjeto(paciente);
-
         return resultadoServico;
     }
 }

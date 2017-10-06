@@ -48,8 +48,8 @@ public class TelaAnamnese {
     @RequestMapping(value = "/cadastrarInformacoesPaciente", method = RequestMethod.PUT)
     public @ResponseBody
     ResultadoServico cadastrarInformacoesPaciente(@RequestBody Paciente paciente) {
-        Atualizar atualizar = new Atualizar();
-        resultadoServico = atualizar.atualizarCadastro(paciente, bancoDadosService, resultadoServico, context);
+        Atualizar atualizar = new Atualizar(bancoDadosService, resultadoServico, context);
+        resultadoServico = atualizar.atualizarCadastro(paciente);
 
         return resultadoServico;
     }
@@ -57,8 +57,8 @@ public class TelaAnamnese {
     @RequestMapping(value = "/pegarDadosPaciente/{idUsuario}", method = RequestMethod.GET)
     public @ResponseBody
     ResultadoServico pegarCadastroUsuario(@PathVariable(value = "idUsuario") Long id) {
-        Obter obter = new Obter();
-        resultadoServico = obter.obterCadastro(id, bancoDadosService, resultadoServico);
+        Obter obter = new Obter(bancoDadosService, resultadoServico);
+        resultadoServico = obter.obterCadastro(id);
 
         return resultadoServico;
     }
