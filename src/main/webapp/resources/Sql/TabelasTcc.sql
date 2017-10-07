@@ -296,6 +296,9 @@ CREATE TABLE Paciente
   CONSTRAINT foreign_Paciente_Id_HistoricoAlimentarNutricional FOREIGN KEY (Id_HistoricoAlimentarNutricional) REFERENCES Historico_Alimentar_Nutricional (Id_HistoricoAlimentarNutricional)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
+  CONSTRAINT foreign_Paciente_Id_DadosAntropometricos FOREIGN KEY (Id_DadosAntropometricos) REFERENCES Dados_Antropometricos (Id_DadosAntropometricos)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT foreign_Paciente_Id_DadosClinicos FOREIGN KEY (Id_DadosClinicos) REFERENCES Dados_Clinicos (Id_DadosClinicos)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
@@ -341,7 +344,6 @@ CREATE TABLE Ceia
   Ceia_Humor      VARCHAR(20) NULL,
   Ceia_Alimento   VARCHAR(20) NULL,
   Ceia_Quantidade VARCHAR(20) NULL,
-  id_Paciente     INTEGER     NOT NULL,
 
   PRIMARY KEY (Id_Ceia)
 );
@@ -354,7 +356,6 @@ CREATE TABLE Colacao
   Colac_Humor      VARCHAR(20) NULL,
   Colac_Alimento   VARCHAR(20) NULL,
   Colac_Quantidade VARCHAR(20) NULL,
-  id_Paciente      INTEGER     NOT NULL,
 
   PRIMARY KEY (Id_Colacao)
 );
@@ -367,7 +368,6 @@ CREATE TABLE Jantar
   Jant_Humor      VARCHAR(20) NULL,
   Jant_Alimento   VARCHAR(20) NULL,
   Jant_Quantidade VARCHAR(20) NULL,
-  id_Paciente     INTEGER     NOT NULL,
 
   PRIMARY KEY (Id_Jant)
 );
@@ -380,7 +380,6 @@ CREATE TABLE Lanche
   Lan_Humor      VARCHAR(20) NULL,
   Lan_Alimento   VARCHAR(20) NULL,
   Lan_Quantidade VARCHAR(20) NULL,
-  id_Paciente    INTEGER     NOT NULL,
 
   PRIMARY KEY (Id_Lanche)
 );
@@ -393,7 +392,6 @@ CREATE TABLE Almoco
   Alm_Humor      VARCHAR(20) NULL,
   Alm_Alimento   VARCHAR(20) NULL,
   Alm_Quantidade VARCHAR(20) NULL,
-  id_Paciente    INTEGER     NOT NULL,
 
   PRIMARY KEY (Id_Almoco)
 );
@@ -406,7 +404,6 @@ CREATE TABLE Desjejum
   Desj_Humor      VARCHAR(20) NULL,
   Desj_Alimento   VARCHAR(20) NULL,
   Desj_Quantidade VARCHAR(20) NULL,
-  id_Paciente     INTEGER     NOT NULL,
 
   PRIMARY KEY (Id_Desj)
 );
