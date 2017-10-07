@@ -278,7 +278,6 @@ CREATE TABLE Paciente
   Id_Login                         INTEGER      NULL     UNIQUE,
   id_nutricionista                 INTEGER      NULL,
   Id_HistoricoAlimentarNutricional INTEGER      NULL     UNIQUE,
-  Id_DadosAntropometricos          INTEGER      NULL,
   Id_DadosClinicos                 INTEGER      NULL     UNIQUE,
   Id_AntecedentesFamiliares        INTEGER      NULL     UNIQUE,
   Id_AtividadeFisica               INTEGER      NULL     UNIQUE,
@@ -295,9 +294,6 @@ CREATE TABLE Paciente
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT foreign_Paciente_Id_HistoricoAlimentarNutricional FOREIGN KEY (Id_HistoricoAlimentarNutricional) REFERENCES Historico_Alimentar_Nutricional (Id_HistoricoAlimentarNutricional)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT foreign_Paciente_Id_DadosAntropometricos FOREIGN KEY (Id_DadosAntropometricos) REFERENCES Dados_Antropometricos (Id_DadosAntropometricos)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT foreign_Paciente_Id_DadosClinicos FOREIGN KEY (Id_DadosClinicos) REFERENCES Dados_Clinicos (Id_DadosClinicos)
