@@ -45,7 +45,12 @@ public class Data {
     @JoinColumn(name = "Id_Desj", insertable = true, updatable = true)
     private Desjejum desjejum;
 
-    @JsonBackReference(value = "data-paciente")
+    @JsonManagedReference(value = "data-foraHora")
+    @OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = ForaHora.class)
+    @JoinColumn(name = "Id_Foradehora", insertable = true, updatable = true)
+    private ForaHora foraHora;
+
+    @JsonBackReference(value = "paciente-data")
     @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Paciente.class)
     @JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
     private Paciente paciente;

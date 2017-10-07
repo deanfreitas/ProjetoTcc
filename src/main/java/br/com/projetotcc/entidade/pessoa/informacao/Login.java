@@ -11,8 +11,6 @@ import javax.persistence.*;
 @Table(name = "login")
 public class Login implements InterfaceDadosPessoa {
 
-	private static final long serialVersionUID = 7405967516600314828L;
-
 	@Id
 	@GeneratedValue
 	@Column(name = "Id_Login", nullable = false)

@@ -10,8 +10,6 @@ import javax.persistence.*;
 @Table(name = "role")
 public class Role implements InterfaceDadosPessoa {
 
-	private static final long serialVersionUID = 1089552982627127898L;
-	
 	@Id
 	@GeneratedValue
 	@Column(name = "Id_Role", nullable = false)

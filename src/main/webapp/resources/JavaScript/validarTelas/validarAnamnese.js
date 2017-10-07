@@ -429,8 +429,8 @@ $(document).ready(function () {
     });
 
     $('#btnSalvar').click(function () {
-        if (nome.val() === '') {
-            if (idade.val() === '') {
+        if (nome.val() && nome.val() !== '') {
+            if (idade.val() && idade.val() !== '') {
                 let object = {
                     id: idPaciente,
                     identificacao: {
@@ -516,9 +516,7 @@ $(document).ready(function () {
                         frequencia: frequencia.val(),
                         duracao: duracao.val(),
                         pratica: vocePraticaAtividades.val(),
-                        suplemento: false,
                         horaPreferida: horarioPreferido.val(),
-                        observacaoSuplemento: null
                     },
                     historicoAlimentarNutricional: {
                         intoleranciaAlimentar: intoleranciaAlimentar.val(),
@@ -1236,8 +1234,8 @@ $(document).ready(function () {
     });
 
     $('#inputOculto').hide();
-    $('#HabIntestinal').change(function () {
-        if ($('#HabIntestinal').val() == 'Outro') {
+    habitoIntestinal.change(function () {
+        if (habitoIntestinal.val() === 'Outro') {
             $('#inputOculto').show();
         } else {
             $('#inputOculto').hide();
@@ -1245,8 +1243,8 @@ $(document).ready(function () {
     });
 
     $('#inputOculto2').hide();
-    $('#ConsFezes').change(function () {
-        if ($('#ConsFezes').val() == 'Outro') {
+    fezes.change(function () {
+        if (fezes.val() === 'Outro') {
             $('#inputOculto2').show();
         } else {
             $('#inputOculto2').hide();
@@ -1254,8 +1252,8 @@ $(document).ready(function () {
     });
 
     $('#inputOculto3').hide();
-    $('#AltApetite').change(function () {
-        if ($('#AltApetite').val() == 'Sim') {
+    alteracoesApetite.change(function () {
+        if (alteracoesApetite.val() === 'Sim') {
             $('#inputOculto3').show();
         } else {
             $('#inputOculto3').hide();

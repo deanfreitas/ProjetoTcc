@@ -33,7 +33,7 @@ CREATE TABLE Historico_Social_e_Familiar
   Hist_QuemCompraOsAlimentos     VARCHAR(100) NULL,
   Hist_ACompraFeita              ENUM ('Diariamente', 'Semanalmente', 'Mensalmente', ''),
   Hist_QuemPreparaRefeicoes      VARCHAR(100) NULL,
-  Hist_FazUsoDeBebidasAlcoolicas ENUM ('NÃO', 'Sim, uma vez por mês ou menos', 'Sim, 2 a 4 vezes por mês', 'Sim, 2 a 3 vezes por semana', 'Sim, 4 ou mais vezes por semana', ''),
+  Hist_FazUsoDeBebidasAlcoolicas ENUM ('Não', 'Sim, uma vez por mês ou menos', 'Sim, 2 a 4 vezes por mês', 'Sim, 2 a 3 vezes por semana', 'Sim, 4 ou mais vezes por semana', ''),
   Hist_FumaOuJaFumou             ENUM ('Não', 'Sim, já fumei mas parei', 'Sim, até 5 cigarros por dia', 'Sim, até 3 maços por semana', 'Sim, até 7 maços por semana', 'Sim, mais de 7 maços por semana', ''),
   Hist_ComQuemRealizaRefeicoes   VARCHAR(100) NULL,
 
@@ -46,6 +46,7 @@ CREATE TABLE Historico_Alimentar_Nutricional
   Hist_IntoleranciaAlimentar       VARCHAR(50) NOT NULL,
   Hist_PreferenciaAlimentar        VARCHAR(50) NOT NULL,
   Hist_AlteracoesDoApetite         ENUM ('Sim', 'Não', ''),
+  Hist_OBSAlteracoesDoApetite      VARCHAR(50) NULL,
   Hist_IniciouObesidadePerdaDePeso VARCHAR(50) NULL,
   Hist_SegueDietaEspecial          VARCHAR(50) NULL,
   Hist_RefeicoesPorDia             VARCHAR(20) NULL,
@@ -80,6 +81,8 @@ CREATE TABLE Dados_Clinicos
   Dad_ConsistenciaDasFezes           ENUM ('Normal', 'Amolecidas', 'Duras', 'Outro', ''),
   Dad_DiureseColoracaoQuantidade     VARCHAR(20) NULL,
   Dad_PossuiAlgumaPatologia          VARCHAR(20) NULL,
+  Dad_OBSHabitoIntestinal            VARCHAR(20) NULL,
+  Dad_OBSConsistenciaDasFezes        VARCHAR(20) NULL,
   Dad_OBSvomito                      VARCHAR(20) NULL,
   Dad_OBSnausea                      VARCHAR(20) NULL,
   Dad_OBSmastigacao                  VARCHAR(20) NULL,
@@ -126,8 +129,6 @@ CREATE TABLE Atividade_Fisica
   Ativ_Duracao                 VARCHAR(20)  NULL,
   Ativ_VocePraticaAsAtividades ENUM ('Alimentado', 'Jejum', ''),
   Ativ_HoraPreferido           VARCHAR(20)  NOT NULL,
-  Ativ_Suplemento              ENUM ('Sim', 'Não', ''),
-  Ativ_OBSsuplemento           VARCHAR(50)  NULL,
 
   PRIMARY KEY (Id_AtividadeFisica)
 );
@@ -274,16 +275,16 @@ CREATE TABLE Paciente
   id_Paciente                      INTEGER      NOT NULL AUTO_INCREMENT,
   Pac_Responsavel                  VARCHAR(100) NULL,
   Pac_Sexo                         ENUM ('Masculino', 'Feminino', ''),
-  Id_Login                         INTEGER      NULL      UNIQUE,
+  Id_Login                         INTEGER      NULL     UNIQUE,
   id_nutricionista                 INTEGER      NULL,
-  Id_HistoricoAlimentarNutricional INTEGER      NULL      UNIQUE,
+  Id_HistoricoAlimentarNutricional INTEGER      NULL     UNIQUE,
   Id_DadosAntropometricos          INTEGER      NULL,
-  Id_DadosClinicos                 INTEGER      NULL      UNIQUE,
-  Id_AntecedentesFamiliares        INTEGER      NULL      UNIQUE,
-  Id_AtividadeFisica               INTEGER      NULL      UNIQUE,
-  Id_FrequenciaAlimentar           INTEGER      NULL      UNIQUE,
-  Id_HistoricoSocialeFamiliar      INTEGER      NULL      UNIQUE,
-  Id_identificacao                 INTEGER      NULL      UNIQUE,
+  Id_DadosClinicos                 INTEGER      NULL     UNIQUE,
+  Id_AntecedentesFamiliares        INTEGER      NULL     UNIQUE,
+  Id_AtividadeFisica               INTEGER      NULL     UNIQUE,
+  Id_FrequenciaAlimentar           INTEGER      NULL     UNIQUE,
+  Id_HistoricoSocialeFamiliar      INTEGER      NULL     UNIQUE,
+  Id_identificacao                 INTEGER      NULL     UNIQUE,
 
   PRIMARY KEY (id_Paciente),
 
@@ -328,10 +329,10 @@ CREATE TABLE Role
 
   PRIMARY KEY (Id_Role),
 
-  CONSTRAINT foreign_Role_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
+  CONSTRAINT foreign_Role_id_Paciente FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT foreign_Role_Id_Nutricionista FOREIGN KEY (id_nutricionista) REFERENCES Nutricionista (id_nutricionista)
+  CONSTRAINT foreign_Role_id_Nutricionista FOREIGN KEY (id_nutricionista) REFERENCES Nutricionista (id_nutricionista)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
@@ -408,16 +409,29 @@ CREATE TABLE Desjejum
   PRIMARY KEY (Id_Desj)
 );
 
+CREATE TABLE Fora_de_Hora
+(
+  Id_Foradehora  INTEGER     NOT NULL AUTO_INCREMENT,
+  For_Horario    VARCHAR(10) NULL,
+  For_Local      VARCHAR(20) NULL,
+  For_Humor      VARCHAR(20) NULL,
+  For_Alimento   VARCHAR(50) NULL,
+  For_Quantidade INTEGER     NULL,
+
+  PRIMARY KEY (Id_Foradehora)
+);
+
 CREATE TABLE Data
 (
-  id_data     INTEGER NOT NULL AUTO_INCREMENT,
-  Id_Ceia     INTEGER NULL      UNIQUE,
-  Id_Colacao  INTEGER NULL      UNIQUE,
-  Id_Jant     INTEGER NULL      UNIQUE,
-  Id_Lanche   INTEGER NULL      UNIQUE,
-  Id_Almoco   INTEGER NULL      UNIQUE,
-  Id_Desj     INTEGER NULL      UNIQUE,
-  id_Paciente INTEGER NOT NULL,
+  id_data       INTEGER NOT NULL AUTO_INCREMENT,
+  Id_Ceia       INTEGER NULL     UNIQUE,
+  Id_Colacao    INTEGER NULL     UNIQUE,
+  Id_Jant       INTEGER NULL     UNIQUE,
+  Id_Lanche     INTEGER NULL     UNIQUE,
+  Id_Almoco     INTEGER NULL     UNIQUE,
+  Id_Desj       INTEGER NULL     UNIQUE,
+  Id_Foradehora INTEGER NULL     UNIQUE,
+  id_Paciente   INTEGER NOT NULL,
 
   PRIMARY KEY (id_data),
 
@@ -439,24 +453,10 @@ CREATE TABLE Data
   CONSTRAINT foreign_Data_Id_Desj FOREIGN KEY (Id_Desj) REFERENCES Desjejum (Id_Desj)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT foreign_Data_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
+  CONSTRAINT foreign_Data_id_Paciente FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
     ON DELETE CASCADE
-    ON UPDATE CASCADE
-);
-
-CREATE TABLE Fora_de_Hora
-(
-  Id_Foradehora  INTEGER     NOT NULL AUTO_INCREMENT,
-  For_Horario    VARCHAR(10) NULL,
-  For_Local      VARCHAR(20) NULL,
-  For_Humor      VARCHAR(20) NULL,
-  For_Alimento   VARCHAR(50) NULL,
-  For_Quantidade INTEGER     NULL,
-  id_Paciente    INTEGER     NOT NULL,
-
-  PRIMARY KEY (Id_Foradehora),
-
-  CONSTRAINT foreign_Fora_de_Hora_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
+    ON UPDATE CASCADE,
+  CONSTRAINT foreign_Data_Id_Foradehora FOREIGN KEY (Id_Foradehora) REFERENCES Fora_de_Hora (Id_Foradehora)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
@@ -473,7 +473,7 @@ CREATE TABLE Faz_uso_de_medicamento
 
   PRIMARY KEY (Id_FazUsodeMedicamento),
 
-  CONSTRAINT foreign_Faz_uso_de_medicamento_Id_Login FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
+  CONSTRAINT foreign_Faz_uso_de_medicamento_id_Paciente FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
@@ -508,7 +508,7 @@ CREATE TABLE Exames_Bioquimicos
 
   PRIMARY KEY (Id_ExamesBioquimicos),
 
-  CONSTRAINT foreign_Exames_Bioquimicos_Id_Paciente FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
+  CONSTRAINT foreign_Exames_Bioquimicos_id_Paciente FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
@@ -546,7 +546,7 @@ CREATE TABLE Dados_Antropometricos
 
   PRIMARY KEY (Id_DadosAntropometricos),
 
-  CONSTRAINT foreign_Dados_Antropometricos_Id_Paciente FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
+  CONSTRAINT foreign_Dados_Antropometricos_id_Paciente FOREIGN KEY (id_Paciente) REFERENCES Paciente (id_Paciente)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );

@@ -1,5 +1,7 @@
 package br.com.projetotcc.interfaces;
 
+import br.com.projetotcc.entidade.paciente.alimentacao.Data;
+
 public interface InterfaceAlimentaresPaciente extends InterfaceEntidade {
 	
 	String getHorario();
@@ -16,4 +18,7 @@ public interface InterfaceAlimentaresPaciente extends InterfaceEntidade {
 	
 	String getQuantidade();
 	void setQuantidade(String quantidade);
+
+	Data getData();
+	void setData(Data data);
 }

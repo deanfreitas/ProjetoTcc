@@ -10,11 +10,6 @@ import javax.persistence.*;
 @Table(name = "Dados_Antropometricos")
 public class DadosAntropometricos implements InterfaceDadosPaciente {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4520477081037211361L;
-
 	@Id
 	@GeneratedValue
 	@Column(name = "Id_DadosAntropometricos", nullable = false)
@@ -92,7 +87,7 @@ public class DadosAntropometricos implements InterfaceDadosPaciente {
 	@Column(name = "Ant_porcentMM")
 	private Double mm;
 	
-	@JsonBackReference(value = "dadosAntropometricos-paciente")
+	@JsonBackReference(value = "paciente-dadosAntropometricos")
 	@ManyToOne(optional = true, fetch = FetchType.LAZY, targetEntity = Paciente.class)
 	@JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
 	private Paciente paciente;

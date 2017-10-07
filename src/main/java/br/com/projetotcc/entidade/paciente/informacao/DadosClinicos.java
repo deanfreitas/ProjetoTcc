@@ -10,11 +10,6 @@ import javax.persistence.*;
 @Table(name = "Dados_Clinicos")
 public class DadosClinicos implements InterfaceDadosPaciente {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8031997504782785984L;
-
 	@Id
 	@GeneratedValue
 	@Column(name = "Id_DadosClinicos", nullable = false)
@@ -80,7 +75,7 @@ public class DadosClinicos implements InterfaceDadosPaciente {
 	@Column(name = "Dad_OBSHabitoIntestinal")
 	private String observacaoHabitoIntestinal;
 	
-	@Column(name = "Dad_OBSConsistênciaDasFezes")
+	@Column(name = "Dad_OBSConsistenciaDasFezes")
 	private String observacaoFezes;
 	
 	@Column(name = "Dad_OBSvomito")

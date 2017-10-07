@@ -10,11 +10,6 @@ import javax.persistence.*;
 @Table(name = "Exames_Bioquimicos")
 public class ExamesBioquimicos implements InterfaceDadosPaciente {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = -2706038260617615651L;
-
     @Id
     @GeneratedValue
     @Column(name = "Id_ExamesBioquimicos", nullable = false)
@@ -89,7 +84,7 @@ public class ExamesBioquimicos implements InterfaceDadosPaciente {
     @Column(name = "Bio_Acidourico")
     private String acidourico;
 
-    @JsonBackReference(value = "examesBioquimicos-paciente")
+    @JsonBackReference(value = "paciente-examesBioquimicos")
     @ManyToOne(optional = true, fetch = FetchType.LAZY, targetEntity = Paciente.class)
     @JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
     private Paciente paciente;

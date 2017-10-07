@@ -1,7 +1,6 @@
 package br.com.projetotcc.entidade.pessoa;
 
 import br.com.projetotcc.entidade.paciente.alimentacao.Data;
-import br.com.projetotcc.entidade.paciente.alimentacao.ForaHora;
 import br.com.projetotcc.entidade.paciente.informacao.*;
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
 import br.com.projetotcc.entidade.pessoa.informacao.Role;
@@ -19,11 +18,6 @@ import java.util.Set;
 @Entity
 @Table(name = "Paciente")
 public class Paciente implements InterfacePessoa {
-
-    /**
-     *
-     */
-    private static final long serialVersionUID = 646335462231584348L;
 
     @Id
     @GeneratedValue
@@ -73,32 +67,27 @@ public class Paciente implements InterfacePessoa {
     @JoinColumn(name = "Id_Login", insertable = true, updatable = true)
     private Login login;
 
-    @JsonBackReference(value = "pacientes-nutricionista")
+    @JsonBackReference(value = "nutricionista-paciente")
     @ManyToOne(optional = true, fetch = FetchType.LAZY, targetEntity = Nutricionista.class)
     @JoinColumn(name = "id_nutricionista", insertable = true, updatable = true)
     private Nutricionista nutricionista;
 
-    @JsonManagedReference(value = "dadosAntropometricos-paciente")
+    @JsonManagedReference(value = "paciente-dadosAntropometricos")
     @OneToMany(mappedBy = "paciente")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<DadosAntropometricos> dadosAntropometricos;
 
-    @JsonManagedReference(value = "examesBioquimicos-paciente")
+    @JsonManagedReference(value = "paciente-examesBioquimicos")
     @OneToMany(mappedBy = "paciente")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<ExamesBioquimicos> examesBioquimicos;
 
-    @JsonManagedReference(value = "data-paciente")
+    @JsonManagedReference(value = "paciente-data")
     @OneToMany(mappedBy = "paciente")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Data> data;
 
-    @JsonManagedReference(value = "foraHora-paciente")
-    @OneToMany(mappedBy = "paciente")
-    @LazyCollection(LazyCollectionOption.FALSE)
-    private List<ForaHora> foraHoras;
-
-    @JsonManagedReference(value = "usoMedicamento-paciente")
+    @JsonManagedReference(value = "paciente-usoMedicamento")
     @OneToMany(mappedBy = "paciente")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<UsoMedicamento> usoMedicamentos;
@@ -189,14 +178,6 @@ public class Paciente implements InterfacePessoa {
 
     public void setLogin(Login login) {
         this.login = login;
-    }
-
-    public List<ForaHora> getForaHoras() {
-        return foraHoras;
-    }
-
-    public void setForaHoras(List<ForaHora> foraHoras) {
-        this.foraHoras = foraHoras;
     }
 
     public List<UsoMedicamento> getUsoMedicamentos() {

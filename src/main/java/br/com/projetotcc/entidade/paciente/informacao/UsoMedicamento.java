@@ -10,11 +10,6 @@ import javax.persistence.*;
 @Table(name = "Faz_uso_de_medicamento")
 public class UsoMedicamento implements InterfaceDadosPaciente {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7750011230304534243L;
-
 	@Id
 	@GeneratedValue
 	@Column(name = "Id_FazUsodeMedicamento", nullable = false)
@@ -35,7 +30,7 @@ public class UsoMedicamento implements InterfaceDadosPaciente {
 	@Column(name = "Med_Inter")
 	private String inter;
 	
-	@JsonBackReference(value = "usoMedicamento-paciente")
+	@JsonBackReference(value = "paciente-usoMedicamento")
 	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Paciente.class)
 	@JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
 	private Paciente paciente;

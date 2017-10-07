@@ -1,6 +1,5 @@
 package br.com.projetotcc.entidade.paciente.alimentacao;
 
-import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.interfaces.InterfaceAlimentaresPaciente;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -9,11 +8,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Lanche")
 public class Lanche implements InterfaceAlimentaresPaciente {
-
-    /**
-     *
-     */
-    private static final long serialVersionUID = -4145562536736975343L;
 
     @Id
     @GeneratedValue
@@ -56,25 +50,6 @@ public class Lanche implements InterfaceAlimentaresPaciente {
         this.humor = humor;
         this.quantidade = quantidade;
         this.alimentos = alimentos;
-    }
-
-    public Lanche(String horario, String local, String humor, String alimentos, String quantidade, Paciente paciente) {
-        super();
-        this.horario = horario;
-        this.local = local;
-        this.humor = humor;
-        this.alimentos = alimentos;
-        this.quantidade = quantidade;
-    }
-
-    public Lanche(Long id, String horario, String local, String humor, String alimentos, String quantidade, Paciente paciente) {
-        super();
-        this.id = id;
-        this.horario = horario;
-        this.local = local;
-        this.humor = humor;
-        this.alimentos = alimentos;
-        this.quantidade = quantidade;
     }
 
     public Lanche() {

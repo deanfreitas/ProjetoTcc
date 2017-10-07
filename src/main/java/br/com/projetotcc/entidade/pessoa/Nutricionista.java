@@ -14,11 +14,6 @@ import java.util.Set;
 @Table(name = "Nutricionista")
 public class Nutricionista implements InterfacePessoa {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = 2607052727091168557L;
-
     @Id
     @GeneratedValue
     @Column(name = "id_nutricionista", nullable = false)
@@ -69,7 +64,7 @@ public class Nutricionista implements InterfacePessoa {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "nutricionista")
     private Set<Role> roles;
 
-    @JsonManagedReference(value = "pacientes-nutricionista")
+    @JsonManagedReference(value = "nutricionista-paciente")
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "nutricionista")
     private List<Paciente> pacientes;
 

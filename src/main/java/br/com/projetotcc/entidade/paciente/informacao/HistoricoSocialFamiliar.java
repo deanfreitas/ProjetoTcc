@@ -10,11 +10,6 @@ import javax.persistence.*;
 @Table(name = "Historico_Social_e_Familiar")
 public class HistoricoSocialFamiliar implements InterfaceDadosPaciente {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1628632153413447479L;
-
 	@Id
 	@GeneratedValue
 	@Column(name = "Id_HistoricoSocialeFamiliar", nullable = false)

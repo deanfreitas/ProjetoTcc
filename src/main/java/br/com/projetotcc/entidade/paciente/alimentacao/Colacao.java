@@ -9,11 +9,6 @@ import javax.persistence.*;
 @Table(name = "Colacao")
 public class Colacao implements InterfaceAlimentaresPaciente {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = 4718173892623915758L;
-
     @Id
     @GeneratedValue
     @Column(name = "Id_Colacao", nullable = false)
