@@ -251,7 +251,7 @@ $(document).ready(function () {
             if (data === "") {
                 return false;
             } else {
-                for (i = 0; i < data.length; i++) {
+                for (let i = 0; i < tamanhoData; i++) {
                     if (data.charAt(i) === "-") {
                         return false;
                     }
@@ -268,91 +268,91 @@ $(document).ready(function () {
                 dataCerta = false;
             }
 
-            else if (mes === 1) {
+            else if (mes === '01') {
                 if (dia > 31) {
                     dataCerta = false;
                 }
             }
 
-            else if (mes === 2) {
+            else if (mes === '02') {
                 if (dia > 28) {
                     dataCerta = false;
                 }
             }
 
-            else if (mes === 3) {
+            else if (mes === '03') {
                 if (dia > 31) {
                     dataCerta = false;
                 }
             }
 
-            else if (mes === 4) {
+            else if (mes === '04') {
                 if (dia > 30) {
                     dataCerta = false;
                 }
             }
 
-            else if (mes === 5) {
+            else if (mes === '05') {
                 if (dia > 31) {
                     dataCerta = false;
                 }
             }
 
-            else if (mes === 6) {
+            else if (mes === '06') {
                 if (dia > 30) {
                     dataCerta = false;
                 }
             }
 
-            else if (mes === 7) {
+            else if (mes === '07') {
                 if (dia > 31) {
                     dataCerta = false;
                 }
             }
 
-            else if (mes === 8) {
+            else if (mes === '08') {
                 if (dia > 31) {
                     dataCerta = false;
                 }
             }
 
-            else if (mes === 9) {
+            else if (mes === '09') {
                 if (dia > 30) {
                     dataCerta = false;
                 }
             }
 
-            else if (mes === 10) {
+            else if (mes === '10') {
                 if (dia > 31) {
                     dataCerta = false;
                 }
             }
 
-            else if (mes === 11) {
+            else if (mes === '11') {
                 if (dia > 30) {
                     dataCerta = false;
                 }
             }
 
-            else if (mes === 12) {
+            else if (mes === '12') {
                 if (dia > 31) {
                     dataCerta = false;
                 }
             }
 
-            else if (mes > 12) {
+            else if (mes > '12') {
                 dataCerta = false
             }
 
             if (dataCerta === false) {
-                $(this).css("border-color", "#FFFFFF");
+                $(this).css("color", "#FF0000");
                 $(this).tooltip("enable");
                 data = data.replace(/(\d{2})(\d)/, "$1/$2");
                 data = data.replace(/(\d{2})(\d)/, "$1/$2");
                 $(this).val(data);
                 return false;
             } else {
-                $(this).css("border-color", "#FF0000");
+                $(this).css("color", "#FFFFFF");
                 $(this).tooltip("disable");
                 data = data.replace(/(\d{2})(\d)/, "$1/$2");
                 data = data.replace(/(\d{2})(\d)/, "$1/$2");
@@ -395,39 +395,42 @@ $(document).ready(function () {
         let emailInvalido = false;
         let i;
 
-        for (i = 0; i < emailValidar.length; i++) {
-            if (emailValidar.charAt(i) !== "@") {
-                emailInvalido = true;
-            }
-
-            if (emailValidar.charAt(i) === "@" && emailValidar.charAt(i) !== " ") {
-                emailInvalido = false;
-
-                i = emailValidar.length + 1;
-
-                for (i = 0; i < emailValidar.length; i++) {
-                    if (emailValidar.charAt(i) === " ") {
-                        emailInvalido = true;
-                    }
+        if (emailValidar === '') {
+            emailInvalido = true;
+        } else {
+            for (i = 0; i < emailValidar.length; i++) {
+                if (emailValidar.charAt(i) !== "@") {
+                    emailInvalido = true;
                 }
 
+                if (emailValidar.charAt(i) === "@" && emailValidar.charAt(i) !== " ") {
+                    emailInvalido = false;
+
+                    i = emailValidar.length + 1;
+
+                    for (i = 0; i < emailValidar.length; i++) {
+                        if (emailValidar.charAt(i) === " ") {
+                            emailInvalido = true;
+                        }
+                    }
+                }
             }
         }
 
         if (emailInvalido === true) {
-            $(this).css("border-color", "#FF0000");
+            $(this).css("color", "#FF0000");
             $(this).tooltip("enable");
             return false;
         } else {
-            $(this).css("border-color", "#FFFFFF");
+            $(this).css("color", "#FFFFFF");
             $(this).tooltip("disable");
             return true;
         }
     });
 
     $('#btnSalvar').click(function () {
-        if (nome.val()) {
-            if (idade.val()) {
+        if (nome.val() === '') {
+            if (idade.val() === '') {
                 let object = {
                     id: idPaciente,
                     identificacao: {
@@ -616,7 +619,6 @@ $(document).ready(function () {
     });
 
     function getDadosPaciente() {
-
         if (tipoAcaoTelaAnamnese !== "cadastrar") {
             let object;
 
@@ -859,53 +861,53 @@ $(document).ready(function () {
                             diagnosticoNutricional.val(data.objeto.frequenciaAlimentar.diagnosticoNutricional);
                             condutaDietoterapica.val(data.objeto.frequenciaAlimentar.condutaDietoterapica);
                             relatoOrientacoesNutricionaisEvolucao.val(data.objeto.frequenciaAlimentar.relatosDeCaso);
-                            porcaoArroz.val('');
-                            porcaoMacarrao.val('');
-                            porcaoBatataMandioca.val('');
-                            porcaoPao.val('');
-                            porcaoPaoQueijo.val('');
-                            porcaoFarinhas.val('');
-                            porcaoCerealMatinal.val('');
-                            porcaoHortalicasCruas.val('');
-                            porcaoHortalicasCozidas.val('');
-                            porcaoFrutas.val('');
-                            porcaoLeiteIntegral.val('');
-                            porcaoLeiteDesnatado.val('');
-                            porcaoIogurte.val('');
-                            porcaoIogurteDesnatado.val('');
-                            porcaoQueijos.val('');
-                            porcaoCarneVermelha.val('');
-                            porcaoEmbutidos.val('');
-                            porcaoEnlatados.val('');
-                            porcaoOvos.val('');
-                            porcaoLeguminosas.val('');
-                            porcaoMargarinaComum.val('');
-                            porcaoMargarinaLight.val('');
-                            porcaoManteiga.val('');
-                            porcaoRequeijaoComum.val('');
-                            porcaoRequeijaoLight.val('');
-                            porcaoMaioneseComum.val('');
-                            porcaoMaioneseLight.val('');
-                            porcaoCremeLeite.val('');
-                            porcaoFrituras.val('');
-                            porcaoAcucar.val('');
-                            porcaoAdocante.val('');
-                            porcaoMel.val('');
-                            porcaoBarraCereal.val('');
-                            porcaoDoces.val('');
-                            porcaoBolachaRecheada.val('');
-                            porcaoBolachaBoloBiscoito.val('');
-                            porcaoChicleteBalas.val('');
-                            porcaoChocolate.val('');
-                            porcaoSanduichePizza.val('');
-                            porcaoSalgadinhos.val('');
-                            porcaoSalgadinhoPacote.val('');
-                            porcaoRefrigeranteComum.val('');
-                            porcaoRefrigeranteDietLight.val('');
-                            porcaoSucoNatural.val('');
-                            porcaoSucoArtificial.val('');
-                            porcaoCafe.val('');
-                            porcaoCha.val('');
+                            porcaoArroz.val(data.objeto.frequenciaAlimentar.observacaoArroz);
+                            porcaoMacarrao.val(data.objeto.frequenciaAlimentar.observacaoMacarrao);
+                            porcaoBatataMandioca.val(data.objeto.frequenciaAlimentar.observacaoBatataMandioca);
+                            porcaoPao.val(data.objeto.frequenciaAlimentar.observacaoPao);
+                            porcaoPaoQueijo.val(data.objeto.frequenciaAlimentar.observacaoPaoQueijo);
+                            porcaoFarinhas.val(data.objeto.frequenciaAlimentar.observacaoFarinhas);
+                            porcaoCerealMatinal.val(data.objeto.frequenciaAlimentar.observacaoCerealMatinal);
+                            porcaoHortalicasCruas.val(data.objeto.frequenciaAlimentar.observacaoHortalicasCruas);
+                            porcaoHortalicasCozidas.val(data.objeto.frequenciaAlimentar.observacaoHortalicasCozidas);
+                            porcaoFrutas.val(data.objeto.frequenciaAlimentar.observacaoFrutas);
+                            porcaoLeiteIntegral.val(data.objeto.frequenciaAlimentar.observacaoLeiteIntegral);
+                            porcaoLeiteDesnatado.val(data.objeto.frequenciaAlimentar.observacaoLeiteDesnatado);
+                            porcaoIogurte.val(data.objeto.frequenciaAlimentar.observacaoIorgute);
+                            porcaoIogurteDesnatado.val(data.objeto.frequenciaAlimentar.observacaoLeiteDesnatado);
+                            porcaoQueijos.val(data.objeto.frequenciaAlimentar.observacaoQueijos);
+                            porcaoCarneVermelha.val(data.objeto.frequenciaAlimentar.observacaoCarneVermelha);
+                            porcaoEmbutidos.val(data.objeto.frequenciaAlimentar.observacaoEmbutidos);
+                            porcaoEnlatados.val(data.objeto.frequenciaAlimentar.observacaoEnlatados);
+                            porcaoOvos.val(data.objeto.frequenciaAlimentar.observacaoOvos);
+                            porcaoLeguminosas.val(data.objeto.frequenciaAlimentar.observacaoLeguminosas);
+                            porcaoMargarinaComum.val(data.objeto.frequenciaAlimentar.observacaoMargarinaComum);
+                            porcaoMargarinaLight.val(data.objeto.frequenciaAlimentar.observacaoMargarinaLight);
+                            porcaoManteiga.val(data.objeto.frequenciaAlimentar.observacaoManteiga);
+                            porcaoRequeijaoComum.val(data.objeto.frequenciaAlimentar.observacaoRequeijaoComum);
+                            porcaoRequeijaoLight.val(data.objeto.frequenciaAlimentar.observacaoRequeijaoLight);
+                            porcaoMaioneseComum.val(data.objeto.frequenciaAlimentar.observacaoMaioneseComum);
+                            porcaoMaioneseLight.val(data.objeto.frequenciaAlimentar.observacaoMaioneseLight);
+                            porcaoCremeLeite.val(data.objeto.frequenciaAlimentar.observacaoCremeLeite);
+                            porcaoFrituras.val(data.objeto.frequenciaAlimentar.observacaoFrituras);
+                            porcaoAcucar.val(data.objeto.frequenciaAlimentar.observacaoAcucar);
+                            porcaoAdocante.val(data.objeto.frequenciaAlimentar.observacaoAdocante);
+                            porcaoMel.val(data.objeto.frequenciaAlimentar.observacaoMel);
+                            porcaoBarraCereal.val(data.objeto.frequenciaAlimentar.observacaoBarradeCereal);
+                            porcaoDoces.val(data.objeto.frequenciaAlimentar.observacaoDoces);
+                            porcaoBolachaRecheada.val(data.objeto.frequenciaAlimentar.observacaoBolachaRecheada);
+                            porcaoBolachaBoloBiscoito.val(data.objeto.frequenciaAlimentar.observacaoBoloBiscoito);
+                            porcaoChicleteBalas.val(data.objeto.frequenciaAlimentar.observacaoChicleteBalas);
+                            porcaoChocolate.val(data.objeto.frequenciaAlimentar.observacaoChocolate);
+                            porcaoSanduichePizza.val(data.objeto.frequenciaAlimentar.observacaoSanduichepizza);
+                            porcaoSalgadinhos.val(data.objeto.frequenciaAlimentar.observacaoSalgadinhos);
+                            porcaoSalgadinhoPacote.val(data.objeto.frequenciaAlimentar.observacaoSalgadinhosPacote);
+                            porcaoRefrigeranteComum.val(data.objeto.frequenciaAlimentar.observacaoRefrigeranteComum);
+                            porcaoRefrigeranteDietLight.val(data.objeto.frequenciaAlimentar.observacaoRefrigeranteDietLight);
+                            porcaoSucoNatural.val(data.objeto.frequenciaAlimentar.observacaoSucoNatural);
+                            porcaoSucoArtificial.val(data.objeto.frequenciaAlimentar.observacaoSucoArtificial);
+                            porcaoCafe.val(data.objeto.frequenciaAlimentar.observacaoCafe);
+                            porcaoCha.val(data.objeto.frequenciaAlimentar.observacaoCha);
                         }
 
                         if (tipoAcaoTelaAnamnese === "visualizar") {

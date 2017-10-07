@@ -74,35 +74,3 @@ $(document).ready(function () {
 		window.location.href = '/ProjetoTcc/telaCadastrarUsuario/null';
 	});
 });
-
-//var validarLoginApp = angular.module("validarLoginApp", []);
-//
-//validarLoginApp.controller("validarLogin", function($scope, $window, $http) {
-//
-//	$scope.usuario = null;
-//	$scope.senha = null;
-//
-//	$scope.btnEntrar = function() {
-//
-//		var login = new Object();
-//		login.usuario = $scope.usuario, login.senha = $scope.senha;
-//
-//		var response = $http.post("entrarTelaPrincipal", login);
-//
-//		response.success(function(data, status, headers, config) {
-//			if (data.codigo == 2) {
-//				$window.alert(data.mensagem);
-//				return false;
-//			} else {
-//				$window.location.href = '/ProjetoTcc/telaPrincipal';
-//				return true;
-//			}
-//		});
-//
-//		response.error(function(data, status, headers, config) {
-//			$window.alert(data);
-//			return false;
-//		});
-//
-//	};
-//});
