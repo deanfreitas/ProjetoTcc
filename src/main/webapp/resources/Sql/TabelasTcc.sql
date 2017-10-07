@@ -5,7 +5,7 @@ CREATE TABLE Identificacao
   Id_identificacao             INTEGER      NOT NULL AUTO_INCREMENT,
   Ident_DATADAPRIMEIRACONSULTA VARCHAR(10)  NULL,
   Ident_Nome                   VARCHAR(50)  NOT NULL,
-  Ident_Email                  VARCHAR(50)  NULL,
+  Ident_Email                  VARCHAR(50)  NULL     UNIQUE,
   Ident_Datanascimento         VARCHAR(10)  NULL,
   Ident_Idade                  INTEGER      NOT NULL,
   Ident_MotivodaConsulta       VARCHAR(100) NULL,
@@ -240,7 +240,7 @@ CREATE TABLE Frequencia_Alimentar
 CREATE TABLE Login
 (
   Id_Login    INTEGER      NOT NULL AUTO_INCREMENT,
-  Log_Usuario VARCHAR(100) NULL,
+  Log_Usuario VARCHAR(100) NULL     UNIQUE,
   Log_Senha   VARCHAR(100) NULL,
 
   PRIMARY KEY (Id_Login)
