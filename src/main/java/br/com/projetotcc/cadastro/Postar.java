@@ -3,23 +3,59 @@ package br.com.projetotcc.cadastro;
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
+import br.com.projetotcc.entidade.pessoa.informacao.Login;
 import br.com.projetotcc.entidade.pessoa.informacao.Role;
 import br.com.projetotcc.mensagem.ResultadoServico;
+import br.com.projetotcc.seguranca.SegurancaSistema;
 import br.com.projetotcc.utils.BancoDadosUtils;
 import br.com.projetotcc.utils.Usuario;
+import org.springframework.security.authentication.BadCredentialsException;
 
 import javax.servlet.ServletContext;
 
-public class Salvar {
+public class Postar {
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
     private ServletContext context;
+    private String mensagem = null;
+    private long codigo = 0;
 
-    public Salvar(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
+    public Postar(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
         this.bancoDadosService = bancoDadosService;
         this.resultadoServico = resultadoServico;
         this.context = context;
+    }
+
+    public ResultadoServico autenticarUsuario(Login login, SegurancaSistema segurancaSistema) {
+        Usuario usuario = new Usuario(resultadoServico);
+        resultadoServico = usuario.validarLogin(login);
+
+        if (resultadoServico.getCodigo() != 0) {
+            return resultadoServico;
+        }
+
+        try {
+            segurancaSistema.autenticarlogin(login);
+            context.setAttribute("loginUsuario", login.getUsuario());
+        } catch (NullPointerException e) {
+            System.err.println(e);
+            mensagem = "Não Existe esse usuario";
+            codigo = 1;
+        } catch (BadCredentialsException e) {
+            System.err.println(e);
+            mensagem = "Usuário e/ou senha inválidos";
+            codigo = 1;
+        } catch (Exception e) {
+            System.err.println(e);
+            mensagem = "Error Sistema";
+            codigo = 2;
+        }
+
+        resultadoServico.setMensagem(mensagem);
+        resultadoServico.setCodigo(codigo);
+
+        return resultadoServico;
     }
 
     public ResultadoServico adicionarNutricionista(Nutricionista nutricionista) {
@@ -40,12 +76,15 @@ public class Salvar {
         try {
             Role role = new Role("ROLE_nutricionista", nutricionista);
             bancoDadosService.adicionarUsuario(role);
-            resultadoServico.setMensagem("Usuario Cadastrado com sucesso");
+            mensagem = "Usuario Cadastrado com sucesso";
         } catch (Exception e) {
             System.err.println(e);
-            resultadoServico.setMensagem("Erro ao fazer o cadastro");
-            resultadoServico.setCodigo(1);
+            mensagem = "Erro ao fazer o cadastro";
+            codigo = 1;
         }
+
+        resultadoServico.setMensagem(mensagem);
+        resultadoServico.setCodigo(codigo);
 
         return resultadoServico;
     }
@@ -64,9 +103,6 @@ public class Salvar {
         if (resultadoServico.getCodigo() != 0) {
             return resultadoServico;
         }
-
-        String mensagem = null;
-        long codigo = 0;
 
         Nutricionista nutricionista = (Nutricionista) bancoDadosService.encontrarInformacao(paciente.getNutricionista(), paciente.getNutricionista().getCrn());
         if (nutricionista.getCrn().equals(paciente.getNutricionista().getCrn())) {

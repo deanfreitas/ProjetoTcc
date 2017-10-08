@@ -2,6 +2,7 @@ package br.com.projetotcc.utils;
 
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
+import br.com.projetotcc.entidade.pessoa.informacao.Login;
 import br.com.projetotcc.interfaces.InterfacePessoa;
 import br.com.projetotcc.mensagem.ResultadoServico;
 
@@ -15,10 +16,10 @@ public class Usuario {
         this.resultadoServico = resultadoServico;
     }
 
-    private ResultadoServico validarLogin(InterfacePessoa pessoa) {
-        if (pessoa.getLogin().getUsuario() == null || pessoa.getLogin().getUsuario().equals("")) {
+    public ResultadoServico validarLogin(Login login) {
+        if (login.getUsuario() == null || login.getUsuario().equals("")) {
             mensagem = "Digite um Email";
-        } else if (pessoa.getLogin().getSenha() == null || pessoa.getLogin().getSenha().equals("")) {
+        } else if (login.getSenha() == null || login.getSenha().equals("")) {
             mensagem = "Digite uma senha";
         } else {
             codigo = 0;
@@ -53,7 +54,7 @@ public class Usuario {
         if (nutricionista.getNomeCompleto() == null || nutricionista.getNomeCompleto().equals("")) {
             mensagem = "Digite um nome";
         } else {
-            resultadoServico = validarLogin(nutricionista);
+            resultadoServico = validarLogin(nutricionista.getLogin());
         }
 
         resultadoServico.setMensagem(mensagem);
@@ -65,7 +66,7 @@ public class Usuario {
         if (paciente.getIdentificacao().getNome() == null || paciente.getIdentificacao().getNome().equals("")) {
             mensagem = "Digite um nome";
         } else {
-            resultadoServico = validarLogin(paciente);
+            resultadoServico = validarLogin(paciente.getLogin());
         }
 
         resultadoServico.setMensagem(mensagem);

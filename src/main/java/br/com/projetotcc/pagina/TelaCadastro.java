@@ -3,7 +3,7 @@ package br.com.projetotcc.pagina;
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.cadastro.Atualizar;
 import br.com.projetotcc.cadastro.Obter;
-import br.com.projetotcc.cadastro.Salvar;
+import br.com.projetotcc.cadastro.Postar;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
@@ -41,8 +41,8 @@ public class TelaCadastro {
     @RequestMapping(value = "/salvarUsuario/nutricionista", method = RequestMethod.POST)
     public @ResponseBody
     ResultadoServico addUser(@RequestBody Nutricionista nutricionista) {
-        Salvar salvar = new Salvar(bancoDadosService, resultadoServico, context);
-        resultadoServico = salvar.adicionarNutricionista(nutricionista);
+        Postar postar = new Postar(bancoDadosService, resultadoServico, context);
+        resultadoServico = postar.adicionarNutricionista(nutricionista);
 
         return resultadoServico;
     }
@@ -50,8 +50,8 @@ public class TelaCadastro {
     @RequestMapping(value = "/salvarUsuario/paciente", method = RequestMethod.POST)
     public @ResponseBody
     ResultadoServico addUser(@RequestBody Paciente paciente) {
-        Salvar salvar = new Salvar(bancoDadosService, resultadoServico, context);
-        resultadoServico = salvar.adicionarPaciente(paciente);
+        Postar postar = new Postar(bancoDadosService, resultadoServico, context);
+        resultadoServico = postar.adicionarPaciente(paciente);
 
         return resultadoServico;
     }

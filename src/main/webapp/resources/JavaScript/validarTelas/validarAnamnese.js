@@ -206,6 +206,34 @@ $(document).ready(function () {
     const porcaoCafe = $('#porcaoCafe');
     const porcaoCha = $('#porcaoCha');
 
+    // Botoes
+    const btnSalvar = $('#btnSalvar');
+    const btnIdentificacao = $('#btnIdentificacao');
+    const btnHistoricoFamiliar = $('#btnHistoricoFamiliar');
+    const btnDadosAntropo = $('#btnDadosAntropo');
+    const btnDadosClinicos = $('#btnDadosClinicos');
+    const btnAtividadeFisica = $('#btnAtividadeFisica');
+    const btnHistoricoAlimentar = $('#btnHistoricoAlimentar');
+    const btnExamesBio = $('#btnExamesBio');
+    const btnUsoMedicamentos = $('#btnUsoMedicamentos');
+    const btnFrequenciaAlimentar = $('#btnFrequenciaAlimentar');
+
+    // Divs
+    const divIdentificacao = $('#divIdentificacao');
+    const divHistoricoFamiliar = $('#divHistoricoFamiliar');
+    const divDadosAntropo = $('#divDadosAntropo');
+    const divDadosClinicos = $('#divDadosClinicos');
+    const divAtividadeFisica = $('#divAtividadeFisica');
+    const divHistoricoAlimentar = $('#divHistoricoAlimentar');
+    const divExamesBio = $('#divExamesBio');
+    const divUsoMedicamentos = $('#divUsoMedicamentos');
+    const divFrequenciaAlimentar = $('#divFrequenciaAlimentar');
+
+    //div ocultas
+    const ocultoObservacaoHabitoIntestinal = $('#inputOculto');
+    const ocultoObservacaoFezes = $('#inputOculto2');
+    const ocultoAlteracoesApetiteDesdeQuando = $('#inputOculto3');
+
     let tipoAcaoTelaAnamnese = null;
 
     if (url.indexOf("cadastrar") > -1) {
@@ -216,9 +244,13 @@ $(document).ready(function () {
         tipoAcaoTelaAnamnese = "visualizar";
     }
 
+    function deixarDivsInvisiveis(fields) {
+        fields.toggle();
+    }
+
     function onlyNumber(fields) {
         $(fields).unbind('keyup').bind('keyup', function (e) {
-            let thisVal = $(this).val();
+            const thisVal = $(this).val();
             let tempVal = "";
 
             for (let i = 0; i < thisVal.length; i++) {
@@ -237,6 +269,16 @@ $(document).ready(function () {
                 && (inputValue !== 32 && inputValue !== 0 && inputValue !== 122 && inputValue !== 225 && inputValue !== 227 && inputValue !== 245 && inputValue !== 243 && inputValue !== 250 && inputValue !== 237 && inputValue !== 233)
                 || inputValue === 95 || inputValue === 91 || inputValue === 93 || inputValue === 92) {
                 event.preventDefault();
+            }
+        });
+    }
+
+    function aparecerDesaparecerDivsOcultas(campo, divOculta, mensagem) {
+        campo.change(function () {
+            if (campo.val() === mensagem) {
+                divOculta.show();
+            } else {
+                divOculta.hide();
             }
         });
     }
@@ -264,7 +306,7 @@ $(document).ready(function () {
             let mes = data.substr(2, 2);
             let ano = data.substr(4, 4);
 
-            if (ano < 1900 || ano > 2016) {
+            if (ano < 1900 || ano > 2018) {
                 dataCerta = false;
             }
 
@@ -344,277 +386,338 @@ $(document).ready(function () {
                 dataCerta = false
             }
 
+            data = data.replace(/(\d{2})(\d)/, "$1/$2");
+            data = data.replace(/(\d{2})(\d)/, "$1/$2");
+            $(this).val(data);
+
             if (dataCerta === false) {
+                $(this).css("border-color", "#FF0000");
                 $(this).css("color", "#FF0000");
                 $(this).tooltip("enable");
-                data = data.replace(/(\d{2})(\d)/, "$1/$2");
-                data = data.replace(/(\d{2})(\d)/, "$1/$2");
-                $(this).val(data);
                 return false;
             } else {
-                $(this).css("color", "#FFFFFF");
+                $(this).css("border-color", "#FFFFFF");
+                $(this).css("color", "#000000");
                 $(this).tooltip("disable");
-                data = data.replace(/(\d{2})(\d)/, "$1/$2");
-                data = data.replace(/(\d{2})(\d)/, "$1/$2");
-                $(this).val(data);
                 return true;
             }
 
         });
     }
 
-    celular.blur(function () {
-        let celular = $(this).val();
+    function colocarMascaraCelular(fields) {
+        fields.blur(function () {
+            let celular = $(this).val();
 
-        celular = celular.replace(/\W/g, "");
+            celular = celular.replace(/\W/g, "");
 
-        celular = celular.replace(/(\d{2})(\d)/, "$1 $2");
-        celular = celular.replace(/(\d{0})(\d)/, "$1($2");
-        celular = celular.replace(/(\d{2})(\D)/, "$1)$2");
-        celular = celular.replace(/(\d{5})(\d)/, "$1-$2");
-        $(this).val(celular);
-    });
-
-    telefoneResidencial.blur(
-        function () {
-            let telefoneResidencial = $(this).val();
-
-            telefoneResidencial = telefoneResidencial
-                .replace(/\W/g, "");
-
-            telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\d)/, "$1 $2");
-            telefoneResidencial = telefoneResidencial.replace(/(\d{0})(\d)/, "$1($2");
-            telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\D)/, "$1)$2");
-            telefoneResidencial = telefoneResidencial.replace(/(\d{4})(\d)/, "$1-$2");
-
-            $(this).val(telefoneResidencial);
+            celular = celular.replace(/(\d{2})(\d)/, "$1 $2");
+            celular = celular.replace(/(\d{0})(\d)/, "$1($2");
+            celular = celular.replace(/(\d{2})(\D)/, "$1)$2");
+            celular = celular.replace(/(\d{5})(\d)/, "$1-$2");
+            $(this).val(celular);
         });
+    }
 
-    email.blur(function () {
-        let emailValidar = $(this).val();
-        let emailInvalido = false;
-        let i;
+    function colocarMascaraTelefoneResidencial(fields) {
+        fields.blur(
+            function () {
+                let telefoneResidencial = $(this).val();
 
-        if (emailValidar === '') {
-            emailInvalido = true;
-        } else {
-            for (i = 0; i < emailValidar.length; i++) {
-                if (emailValidar.charAt(i) !== "@") {
-                    emailInvalido = true;
-                }
+                telefoneResidencial = telefoneResidencial
+                    .replace(/\W/g, "");
 
-                if (emailValidar.charAt(i) === "@" && emailValidar.charAt(i) !== " ") {
-                    emailInvalido = false;
+                telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\d)/, "$1 $2");
+                telefoneResidencial = telefoneResidencial.replace(/(\d{0})(\d)/, "$1($2");
+                telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\D)/, "$1)$2");
+                telefoneResidencial = telefoneResidencial.replace(/(\d{4})(\d)/, "$1-$2");
 
-                    i = emailValidar.length + 1;
+                $(this).val(telefoneResidencial);
+            });
+    }
 
-                    for (i = 0; i < emailValidar.length; i++) {
-                        if (emailValidar.charAt(i) === " ") {
-                            emailInvalido = true;
+    function validarEmail(fields) {
+        fields.blur(function () {
+            let emailValidar = $(this).val();
+            let emailInvalido = false;
+            let i;
+
+            if (emailValidar === '') {
+                emailInvalido = true;
+            } else {
+                for (i = 0; i < emailValidar.length; i++) {
+                    if (emailValidar.charAt(i) !== "@") {
+                        emailInvalido = true;
+                    }
+
+                    if (emailValidar.charAt(i) === "@" && emailValidar.charAt(i) !== " ") {
+                        emailInvalido = false;
+
+                        i = emailValidar.length + 1;
+
+                        for (i = 0; i < emailValidar.length; i++) {
+                            if (emailValidar.charAt(i) === " ") {
+                                emailInvalido = true;
+                            }
                         }
                     }
                 }
             }
-        }
 
-        if (emailInvalido === true) {
-            $(this).css("color", "#FF0000");
-            $(this).tooltip("enable");
-            return false;
-        } else {
-            $(this).css("color", "#FFFFFF");
-            $(this).tooltip("disable");
-            return true;
-        }
-    });
-
-    $('#btnSalvar').click(function () {
-        if (nome.val() && nome.val() !== '') {
-            if (idade.val() && idade.val() !== '') {
-                let object = {
-                    id: idPaciente,
-                    identificacao: {
-                        dataPrimeiraConsuta: dataPrimeiraConsulta.val(),
-                        nome: nome.val(),
-                        email: email.val(),
-                        dataNascimento: dataNascimento.val(),
-                        idade: idade.val(),
-                        motivoConsulta: motivoConsulta.val(),
-                        observacao: observacoes.val(),
-                        telefoneResidencial: telefoneResidencial.val(),
-                        celular: celular.val(),
-                        endereco: endereco.val(),
-                        bairro: bairro.val(),
-                        cidade: cidade.val(),
-                        sexo: sexo.val(),
-                        estadoCivil: estadoCivil.val(),
-                        raca: corRaca.val(),
-                        numero: numero.val(),
-                        estado: estado.val()
-                    },
-                    historicoSocialFamiliar: {
-                        profissao: profissao.val(), cargaHoraria: cargaHoraria.val(),
-                        composicaoFamiliar: composicaoFamiliar.val(), quemCompraAlimentos: quemCompraAlimentos.val(),
-                        compraFeita: compraFeita.val(), quemPreparaRefeicoes: quemPreparaRefeicoes.val(),
-                        fazUsoDeBebidasAlcoolicas: fazUsoBedidasAlcoolicas.val(), fuma: fumaJaFumou.val(),
-                        comQuemRealizaRefeicoes: comQuemRealizaRefeicoes.val()
-                    },
-                    dadosClinicos: {
-                        vomito: vomito.is(":checked"),
-                        nausea: nausea.is(":checked"),
-                        mastigacao: mastigacao.is(":checked"),
-                        degluticao: degluticao.is(":checked"),
-                        digestao: digestao.is(":checked"),
-                        pirose: pirose.is(":checked"),
-                        refluxo: refluxo.is(":checked"),
-                        diarreia: diarreia.is(":checked"),
-                        obstipacao: obstipacao.is(":checked"),
-                        insonia: insonia.is(":checked"),
-                        estresse: estresse.is(":checked"),
-                        cancaso: cansaco.is(":checked"),
-                        ansiedade: ansiedade.is(":checked"),
-                        lesoesProblemasPele: lesoesProblemasPele.val(),
-                        cirurgia: cirurgia.val(),
-                        habitoIntestinal: habitoIntestinal.val(),
-                        fezes: fezes.val(),
-                        cor: diureseCor.val(),
-                        patologia: patologia.val(),
-                        observacaoHabitoIntestinal: observacaoHabitoIntestinal.val(),
-                        observacaoFezes: observacaoFezes.val(),
-                        observacaoVomito: observacoesVomito.val(),
-                        observacaoNausea: observacoesNausea.val(),
-                        observacaoMastigacao: observacoesMastigacao.val(),
-                        observacaoDegluticao: observacoesDegluticao.val(),
-                        observacaoDigestao: observacoesDigestao.val(),
-                        observacaoPirose: observacoesPirose.val(),
-                        observacaoRefluxo: observacoesRefluxo.val(),
-                        observacaoDiarreia: observacoesDiarreia.val(),
-                        observacaoObstipacao: observacoesObstipacao.val(),
-                        observacaoInsonia: observacoesInsonia.val(),
-                        observacaoEstresse: observacoesEstresse.val(),
-                        observacaoCancaso: observacoesCansaco.val(),
-                        observacaoAnsiedade: observacoesAnsiedade.val()
-                    },
-                    antecedentesFamiliares: {
-                        dm: dm.is(":checked"),
-                        ha: ha.is(":checked"),
-                        ca: ca.is(":checked"),
-                        dislipidemia: dislipidemia.is(":checked"),
-                        obesidade: obesidade.is(":checked"),
-                        magreza: magreza.is(":checked"),
-                        outros: outros.is(":checked"),
-                        observacaoDm: observacaoDm.val(),
-                        observacaoHa: observacaoHa.val(),
-                        observacaoCa: observacaoCa.val(),
-                        observacaoDislipedemia: observacaoDislipidemia.val(),
-                        observacaoObesidade: observacaoObesidade.val(),
-                        observacaoMagreza: observacaoMagreza.val(),
-                        observacaoOutros: observacaoOutros.val()
-                    },
-                    atividadeFisica: {
-                        tipo: tipoAtividadeFisica.val(),
-                        frequencia: frequencia.val(),
-                        duracao: duracao.val(),
-                        pratica: vocePraticaAtividades.val(),
-                        horaPreferida: horarioPreferido.val(),
-                    },
-                    historicoAlimentarNutricional: {
-                        intoleranciaAlimentar: intoleranciaAlimentar.val(),
-                        preferenciaAlimentar: preferenciaAlimentar.val(),
-                        alteracoesDoApetite: alteracoesApetite.val(),
-                        observacaoAlteracoesDoApetite: desdeQuandoAlteracoesApetite.val(),
-                        iniciouObesidadePerdaPeso: faseQueIniciouObesidadePerdaPeso.val(),
-                        segueDietaEspecial: segueAlgumaDietaEspecial.val(),
-                        refeicoesDia: quantasRefeicoesDia.val(),
-                        consumoAgua: consumoAgua.val(),
-                        consumoSal: consumoSal.val(),
-                        consumoOleo: comsumoOleo.val(),
-                        fazUsoSuplemento: fazUsoSupremento.val(),
-                        quemInidicou: quemInicou.val()
-                    },
-                    frequenciaAlimentar: {
-                        arroz: opcaoArroz.val(),
-                        macarrao: opcaoMacarrao.val(),
-                        batataMandioca: opcaoBatataMandioca.val(),
-                        pao: opcaoPao.val(),
-                        paoQueijo: opcaoPaoQueijo.val(),
-                        farinhas: opcaoFarinhas.val(),
-                        cerealMatinal: opcaoCerealMatinal.val(),
-                        hortalicasCruas: opcaoHortalicasCruas.val(),
-                        hortalicasCozidas: opcaoHortalicasCozidas.val(),
-                        frutas: opcaoFrutas.val(),
-                        leiteIntegral: opcaoLeiteIntegral.val(),
-                        leiteDesnatado: opcaoLeiteDesnatado.val(),
-                        iorgurte: opcaoIogurte.val(),
-                        iorgurteDesnatado: opcaoIogurteDesnatado.val(),
-                        queijos: opcaoQueijos.val(),
-                        carneVermelha: opcaoCarneVermelha.val(),
-                        embutidos: opcaoEmbutidos.val(),
-                        enlatados: opcaoEnlatados.val(),
-                        ovos: opcaoOvos.val(),
-                        leguminosas: opcaoLeguminosas.val(),
-                        margarinaComum: opcaoMargarinaComum.val(),
-                        margarinaLight: opcaoMargarinaLight.val(),
-                        manteiga: opcaoManteiga.val(),
-                        requeijaoComum: opcaoRequeijaoComum.val(),
-                        requeijaoLight: opcaoRequeijaoLight.val(),
-                        maioneseComum: opcaoMaioneseComum.val(),
-                        maioneseLight: opcaoMaioneseLight.val(),
-                        cremeLeite: opcaoCremeLeite.val(),
-                        frituras: opcaoFrituras.val(),
-                        acucar: opcaoAcucar.val(),
-                        adocante: opcaoAdocante.val(),
-                        mel: opcaoMel.val(),
-                        barraCereal: opcaoBarraCereal.val(),
-                        doces: opcaoDoces.val(),
-                        bolachaRecheada: opcaoBolachaRecheada.val(),
-                        boloBiscoito: opcaoBolachaBoloBiscoito.val(),
-                        chicleteBalas: opcaoChicleteBalas.val(),
-                        chocolate: opcaoChocolate.val(),
-                        sanduichePizza: opcaoSanduichePizza.val(),
-                        salgadinhos: opcaoSalgadinhos.val(),
-                        salgadinhosPacote: opcaoSalgadinhoPacote.val(),
-                        refrigeranteComum: opcaoRefrigeranteComum.val(),
-                        refrigeranteDietLight: opcaoRefrigeranteDietLight.val(),
-                        sucoNatural: opcaoSucoNatural.val(),
-                        sucoArtificial: opcaoSucoArtificial.val(),
-                        cafe: opcaoCafe.val(),
-                        cha: opcaoCha.val(),
-                        diagnosticoNutricional: diagnosticoNutricional.val(),
-                        condutaDietoterapica: condutaDietoterapica.val(),
-                        relatosDeCaso: relatoOrientacoesNutricionaisEvolucao.val()
-                    }
-                };
-                $.ajax({
-                    url: "/ProjetoTcc/cadastrarInformacoesPaciente",
-                    type: 'PUT',
-                    data: JSON.stringify(object),
-                    contentType: "application/json",
-                    dataType: 'json',
-                    success: function (data, status) {
-                        if (data.codigo !== 0) {
-                            /*
-                             *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
-                             *  Essa mensagem está escrito "Já tem um login Igual a esse", que aparece quando o usuario coloca um email que já foi colocado.
-                             */
-
-                            alert(data.mensagem);
-
-                            /*
-                             *  Dar um jeito de aparecer a mensagem antes do "return false"
-                             */
-                            return false;
-                        } else {
-                            alert(data.mensagem);
-                            window.location.href = '/ProjetoTcc/telaPaciente';
-                            return true;
-                        }
-
-                    }
-                });
+            if (emailInvalido === true) {
+                $(this).css("border-color", "#FF0000");
+                $(this).css("color", "#FF0000");
+                $(this).tooltip("enable");
+                return false;
+            } else {
+                $(this).css("border-color", "#FFFFFF");
+                $(this).css("color", "#000000");
+                $(this).tooltip("disable");
+                return true;
             }
-        }
-    });
+        });
+    }
+
+    function salvarCadastro(fields) {
+        fields.click(function () {
+            if (nome.val() && nome.val() !== '') {
+                if (idade.val() && idade.val() !== '') {
+                    let object = {
+                        id: idPaciente,
+                        identificacao: {
+                            dataPrimeiraConsuta: dataPrimeiraConsulta.val(),
+                            nome: nome.val(),
+                            email: email.val(),
+                            dataNascimento: dataNascimento.val(),
+                            idade: idade.val(),
+                            motivoConsulta: motivoConsulta.val(),
+                            observacao: observacoes.val(),
+                            telefoneResidencial: telefoneResidencial.val(),
+                            celular: celular.val(),
+                            endereco: endereco.val(),
+                            bairro: bairro.val(),
+                            cidade: cidade.val(),
+                            sexo: sexo.val(),
+                            estadoCivil: estadoCivil.val(),
+                            raca: corRaca.val(),
+                            numero: numero.val(),
+                            estado: estado.val()
+                        },
+                        historicoSocialFamiliar: {
+                            profissao: profissao.val(),
+                            cargaHoraria: cargaHoraria.val(),
+                            composicaoFamiliar: composicaoFamiliar.val(),
+                            quemCompraAlimentos: quemCompraAlimentos.val(),
+                            compraFeita: compraFeita.val(),
+                            quemPreparaRefeicoes: quemPreparaRefeicoes.val(),
+                            fazUsoDeBebidasAlcoolicas: fazUsoBedidasAlcoolicas.val(),
+                            fuma: fumaJaFumou.val(),
+                            comQuemRealizaRefeicoes: comQuemRealizaRefeicoes.val()
+                        },
+                        dadosClinicos: {
+                            vomito: vomito.is(":checked"),
+                            nausea: nausea.is(":checked"),
+                            mastigacao: mastigacao.is(":checked"),
+                            degluticao: degluticao.is(":checked"),
+                            digestao: digestao.is(":checked"),
+                            pirose: pirose.is(":checked"),
+                            refluxo: refluxo.is(":checked"),
+                            diarreia: diarreia.is(":checked"),
+                            obstipacao: obstipacao.is(":checked"),
+                            insonia: insonia.is(":checked"),
+                            estresse: estresse.is(":checked"),
+                            cancaso: cansaco.is(":checked"),
+                            ansiedade: ansiedade.is(":checked"),
+                            lesoesProblemasPele: lesoesProblemasPele.val(),
+                            cirurgia: cirurgia.val(),
+                            habitoIntestinal: habitoIntestinal.val(),
+                            fezes: fezes.val(),
+                            cor: diureseCor.val(),
+                            patologia: patologia.val(),
+                            observacaoHabitoIntestinal: observacaoHabitoIntestinal.val(),
+                            observacaoFezes: observacaoFezes.val(),
+                            observacaoVomito: observacoesVomito.val(),
+                            observacaoNausea: observacoesNausea.val(),
+                            observacaoMastigacao: observacoesMastigacao.val(),
+                            observacaoDegluticao: observacoesDegluticao.val(),
+                            observacaoDigestao: observacoesDigestao.val(),
+                            observacaoPirose: observacoesPirose.val(),
+                            observacaoRefluxo: observacoesRefluxo.val(),
+                            observacaoDiarreia: observacoesDiarreia.val(),
+                            observacaoObstipacao: observacoesObstipacao.val(),
+                            observacaoInsonia: observacoesInsonia.val(),
+                            observacaoEstresse: observacoesEstresse.val(),
+                            observacaoCancaso: observacoesCansaco.val(),
+                            observacaoAnsiedade: observacoesAnsiedade.val()
+                        },
+                        antecedentesFamiliares: {
+                            dm: dm.is(":checked"),
+                            ha: ha.is(":checked"),
+                            ca: ca.is(":checked"),
+                            dislipidemia: dislipidemia.is(":checked"),
+                            obesidade: obesidade.is(":checked"),
+                            magreza: magreza.is(":checked"),
+                            outros: outros.is(":checked"),
+                            observacaoDm: observacaoDm.val(),
+                            observacaoHa: observacaoHa.val(),
+                            observacaoCa: observacaoCa.val(),
+                            observacaoDislipedemia: observacaoDislipidemia.val(),
+                            observacaoObesidade: observacaoObesidade.val(),
+                            observacaoMagreza: observacaoMagreza.val(),
+                            observacaoOutros: observacaoOutros.val()
+                        },
+                        atividadeFisica: {
+                            tipo: tipoAtividadeFisica.val(),
+                            frequencia: frequencia.val(),
+                            duracao: duracao.val(),
+                            pratica: vocePraticaAtividades.val(),
+                            horaPreferida: horarioPreferido.val()
+                        },
+                        historicoAlimentarNutricional: {
+                            intoleranciaAlimentar: intoleranciaAlimentar.val(),
+                            preferenciaAlimentar: preferenciaAlimentar.val(),
+                            alteracoesDoApetite: alteracoesApetite.val(),
+                            observacaoAlteracoesDoApetite: desdeQuandoAlteracoesApetite.val(),
+                            iniciouObesidadePerdaPeso: faseQueIniciouObesidadePerdaPeso.val(),
+                            segueDietaEspecial: segueAlgumaDietaEspecial.val(),
+                            refeicoesDia: quantasRefeicoesDia.val(),
+                            consumoAgua: consumoAgua.val(),
+                            consumoSal: consumoSal.val(),
+                            consumoOleo: comsumoOleo.val(),
+                            fazUsoSuplemento: fazUsoSupremento.val(),
+                            quemInidicou: quemInicou.val()
+                        },
+                        frequenciaAlimentar: {
+                            arroz: opcaoArroz.val(),
+                            macarrao: opcaoMacarrao.val(),
+                            batataMandioca: opcaoBatataMandioca.val(),
+                            pao: opcaoPao.val(),
+                            paoQueijo: opcaoPaoQueijo.val(),
+                            farinhas: opcaoFarinhas.val(),
+                            cerealMatinal: opcaoCerealMatinal.val(),
+                            hortalicasCruas: opcaoHortalicasCruas.val(),
+                            hortalicasCozidas: opcaoHortalicasCozidas.val(),
+                            frutas: opcaoFrutas.val(),
+                            leiteIntegral: opcaoLeiteIntegral.val(),
+                            leiteDesnatado: opcaoLeiteDesnatado.val(),
+                            iorgurte: opcaoIogurte.val(),
+                            iorgurteDesnatado: opcaoIogurteDesnatado.val(),
+                            queijos: opcaoQueijos.val(),
+                            carneVermelha: opcaoCarneVermelha.val(),
+                            embutidos: opcaoEmbutidos.val(),
+                            enlatados: opcaoEnlatados.val(),
+                            ovos: opcaoOvos.val(),
+                            leguminosas: opcaoLeguminosas.val(),
+                            margarinaComum: opcaoMargarinaComum.val(),
+                            margarinaLight: opcaoMargarinaLight.val(),
+                            manteiga: opcaoManteiga.val(),
+                            requeijaoComum: opcaoRequeijaoComum.val(),
+                            requeijaoLight: opcaoRequeijaoLight.val(),
+                            maioneseComum: opcaoMaioneseComum.val(),
+                            maioneseLight: opcaoMaioneseLight.val(),
+                            cremeLeite: opcaoCremeLeite.val(),
+                            frituras: opcaoFrituras.val(),
+                            acucar: opcaoAcucar.val(),
+                            adocante: opcaoAdocante.val(),
+                            mel: opcaoMel.val(),
+                            barraCereal: opcaoBarraCereal.val(),
+                            doces: opcaoDoces.val(),
+                            bolachaRecheada: opcaoBolachaRecheada.val(),
+                            boloBiscoito: opcaoBolachaBoloBiscoito.val(),
+                            chicleteBalas: opcaoChicleteBalas.val(),
+                            chocolate: opcaoChocolate.val(),
+                            sanduichePizza: opcaoSanduichePizza.val(),
+                            salgadinhos: opcaoSalgadinhos.val(),
+                            salgadinhosPacote: opcaoSalgadinhoPacote.val(),
+                            refrigeranteComum: opcaoRefrigeranteComum.val(),
+                            refrigeranteDietLight: opcaoRefrigeranteDietLight.val(),
+                            sucoNatural: opcaoSucoNatural.val(),
+                            sucoArtificial: opcaoSucoArtificial.val(),
+                            cafe: opcaoCafe.val(),
+                            cha: opcaoCha.val(),
+                            diagnosticoNutricional: diagnosticoNutricional.val(),
+                            condutaDietoterapica: condutaDietoterapica.val(),
+                            relatosDeCaso: relatoOrientacoesNutricionaisEvolucao.val(),
+                            observacaoArroz: porcaoArroz.val(),
+                            observacaoMacarrao: porcaoMacarrao.val(),
+                            observacaoBatataMandioca: porcaoBatataMandioca.val(),
+                            observacaoPao: porcaoPao.val(),
+                            observacaoPaoQueijo: porcaoPaoQueijo.val(),
+                            observacaoFarinhas: porcaoFarinhas.val(),
+                            observacaoCerealMatinal: porcaoCerealMatinal.val(),
+                            observacaoHortalicasCruas: porcaoHortalicasCruas.val(),
+                            observacaoHortalicasCozidas: porcaoHortalicasCozidas.val(),
+                            observacaoFrutas: porcaoFrutas.val(),
+                            observacaoLeiteIntegral: porcaoLeiteIntegral.val(),
+                            observacaoLeiteDesnatado: porcaoLeiteDesnatado.val(),
+                            observacaoIorgute: porcaoIogurte.val(),
+                            observacaoIorguteDesnatado: porcaoIogurteDesnatado.val(),
+                            observacaoQueijos: porcaoQueijos.val(),
+                            observacaoCarneVermelha: porcaoCarneVermelha.val(),
+                            observacaoEmbutidos: porcaoEmbutidos.val(),
+                            observacaoEnlatados: porcaoEnlatados.val(),
+                            observacaoOvos: porcaoOvos.val(),
+                            observacaoLeguminosas: porcaoLeguminosas.val(),
+                            observacaoMargarinaComum: porcaoMargarinaComum.val(),
+                            observacaoMargarinaLight: porcaoMargarinaLight.val(),
+                            observacaoManteiga: porcaoManteiga.val(),
+                            observacaoRequeijaoComum: porcaoRequeijaoComum.val(),
+                            observacaoRequeijaoLight: porcaoRequeijaoLight.val(),
+                            observacaoMaioneseComum: porcaoMaioneseComum.val(),
+                            observacaoMaioneseLight: porcaoMaioneseLight.val(),
+                            observacaoCremeLeite: porcaoCremeLeite.val(),
+                            observacaoFrituras: porcaoFrituras.val(),
+                            observacaoAcucar: porcaoAcucar.val(),
+                            observacaoAdocante: porcaoAdocante.val(),
+                            observacaoMel: porcaoMel.val(),
+                            observacaoBarradeCereal: porcaoBarraCereal.val(),
+                            observacaoDoces: porcaoDoces.val(),
+                            observacaoBolachaRecheada: porcaoBolachaRecheada.val(),
+                            observacaoBoloBiscoito: porcaoBolachaBoloBiscoito.val(),
+                            observacaoChicleteBalas: porcaoChicleteBalas.val(),
+                            observacaoChocolate: porcaoChocolate.val(),
+                            observacaoSanduichepizza: porcaoSanduichePizza.val(),
+                            observacaoSalgadinhos: porcaoSalgadinhos.val(),
+                            observacaoSalgadinhosPacote: porcaoSalgadinhoPacote.val(),
+                            observacaoRefrigeranteComum: porcaoRefrigeranteComum.val(),
+                            observacaoRefrigeranteDietLight: porcaoRefrigeranteDietLight.val(),
+                            observacaoSucoNatural: porcaoSucoNatural.val(),
+                            observacaoSucoArtificial: porcaoSucoArtificial.val(),
+                            observacaoCafe: porcaoCafe.val(),
+                            observacaoCha: porcaoCha.val()
+                        }
+                    };
+                    $.ajax({
+                        url: "/ProjetoTcc/cadastrarInformacoesPaciente",
+                        type: 'PUT',
+                        data: JSON.stringify(object),
+                        contentType: "application/json",
+                        dataType: 'json',
+                        success: function (data, status) {
+                            if (data.codigo !== 0) {
+                                /*
+                                 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
+                                 *  Essa mensagem está escrito "Já tem um login Igual a esse", que aparece quando o usuario coloca um email que já foi colocado.
+                                 */
+
+                                alert(data.mensagem);
+
+                                /*
+                                 *  Dar um jeito de aparecer a mensagem antes do "return false"
+                                 */
+                                return false;
+                            } else {
+                                alert(data.mensagem);
+                                window.location.href = '/ProjetoTcc/telaPaciente';
+                                return true;
+                            }
+
+                        }
+                    });
+                }
+            }
+        });
+    }
 
     function getDadosPaciente() {
         if (tipoAcaoTelaAnamnese !== "cadastrar") {
@@ -872,7 +975,7 @@ $(document).ready(function () {
                             porcaoLeiteIntegral.val(data.objeto.frequenciaAlimentar.observacaoLeiteIntegral);
                             porcaoLeiteDesnatado.val(data.objeto.frequenciaAlimentar.observacaoLeiteDesnatado);
                             porcaoIogurte.val(data.objeto.frequenciaAlimentar.observacaoIorgute);
-                            porcaoIogurteDesnatado.val(data.objeto.frequenciaAlimentar.observacaoLeiteDesnatado);
+                            porcaoIogurteDesnatado.val(data.objeto.frequenciaAlimentar.observacaoIorguteDesnatado);
                             porcaoQueijos.val(data.objeto.frequenciaAlimentar.observacaoQueijos);
                             porcaoCarneVermelha.val(data.objeto.frequenciaAlimentar.observacaoCarneVermelha);
                             porcaoEmbutidos.val(data.objeto.frequenciaAlimentar.observacaoEmbutidos);
@@ -1103,162 +1206,140 @@ $(document).ready(function () {
                             porcaoSucoArtificial.prop("disabled", true);
                             porcaoCafe.prop("disabled", true);
                             porcaoCha.prop("disabled", true);
-
-                            $('#btnSalvar').toggle();
+                            salvar.toggle();
                         }
                         return true;
                     }
                 }
             });
         }
-    };
+    }
 
-    function deixarDivsInvisiveis() {
-        $('#divIdentificacao').toggle();
-        $('#divHistoricoFamiliar').toggle();
-        $('#divDadosAntropo').toggle();
-        $('#divDadosClinicos').toggle();
-        $('#divAtividadeFisica').toggle();
-        $('#divHistoricoAlimentar').toggle();
-        $('#divExamesBio').toggle();
-        $('#divUsoMedicamentos').toggle();
-        $('#divFrequenciaAlimentar').toggle();
-    };
+    function aparecerCamposIdentificacao(fields) {
+        fields.click(function () {
+            divIdentificacao.show();
+            divHistoricoFamiliar.hide();
+            divDadosAntropo.hide();
+            divDadosClinicos.hide();
+            divAtividadeFisica.hide();
+            divHistoricoAlimentar.hide();
+            divExamesBio.hide();
+            divUsoMedicamentos.hide();
+            divFrequenciaAlimentar.hide();
+        });
+    }
 
-    $('#btnIdentificacao').click(function () {
-        $('#divIdentificacao').show();
-        $('#divHistoricoFamiliar').hide();
-        $('#divDadosAntropo').hide();
-        $('#divDadosClinicos').hide();
-        $('#divAtividadeFisica').hide();
-        $('#divHistoricoAlimentar').hide();
-        $('#divExamesBio').hide();
-        $('#divUsoMedicamentos').hide();
-        $('#divFrequenciaAlimentar').hide();
-    });
+    function aparecerCamposHistoricoFamiliar(fields) {
+        fields.click(function () {
+            divIdentificacao.hide();
+            divHistoricoFamiliar.show();
+            divDadosAntropo.hide();
+            divDadosClinicos.hide();
+            divAtividadeFisica.hide();
+            divHistoricoAlimentar.hide();
+            divExamesBio.hide();
+            divUsoMedicamentos.hide();
+            divFrequenciaAlimentar.hide();
+        });
+    }
 
-    $('#btnHistoricoFamiliar').click(function () {
-        $('#divIdentificacao').hide();
-        $('#divHistoricoFamiliar').show();
-        $('#divDadosAntropo').hide();
-        $('#divDadosClinicos').hide();
-        $('#divAtividadeFisica').hide();
-        $('#divHistoricoAlimentar').hide();
-        $('#divExamesBio').hide();
-        $('#divUsoMedicamentos').hide();
-        $('#divFrequenciaAlimentar').hide();
-    });
+    function aparecerCamposDadosAntropo(fields) {
+        fields.click(function () {
+            divIdentificacao.hide();
+            divHistoricoFamiliar.hide();
+            divDadosAntropo.show();
+            divDadosClinicos.hide();
+            divAtividadeFisica.hide();
+            divHistoricoAlimentar.hide();
+            divExamesBio.hide();
+            divUsoMedicamentos.hide();
+            divFrequenciaAlimentar.hide();
+        });
+    }
 
-    $('#btnDadosAntropo').click(function () {
-        $('#divIdentificacao').hide();
-        $('#divHistoricoFamiliar').hide();
-        $('#divDadosAntropo').show();
-        $('#divDadosClinicos').hide();
-        $('#divAtividadeFisica').hide();
-        $('#divHistoricoAlimentar').hide();
-        $('#divExamesBio').hide();
-        $('#divUsoMedicamentos').hide();
-        $('#divFrequenciaAlimentar').hide();
-    });
+    function aparecerCamposDadosClinicos(fields) {
+        fields.click(function () {
+            divIdentificacao.hide();
+            divHistoricoFamiliar.hide();
+            divDadosAntropo.hide();
+            divDadosClinicos.show();
+            divAtividadeFisica.hide();
+            divHistoricoAlimentar.hide();
+            divExamesBio.hide();
+            divUsoMedicamentos.hide();
+            divFrequenciaAlimentar.hide();
+        });
+    }
 
-    $('#btnDadosClinicos').click(function () {
-        $('#divIdentificacao').hide();
-        $('#divHistoricoFamiliar').hide();
-        $('#divDadosAntropo').hide();
-        $('#divDadosClinicos').show();
-        $('#divAtividadeFisica').hide();
-        $('#divHistoricoAlimentar').hide();
-        $('#divExamesBio').hide();
-        $('#divUsoMedicamentos').hide();
-        $('#divFrequenciaAlimentar').hide();
-    });
+    function aparecerCamposAtividadeFisica(fields) {
+        fields.click(function () {
+            divIdentificacao.hide();
+            divHistoricoFamiliar.hide();
+            divDadosAntropo.hide();
+            divDadosClinicos.hide();
+            divAtividadeFisica.show();
+            divHistoricoAlimentar.hide();
+            divExamesBio.hide();
+            divUsoMedicamentos.hide();
+            divFrequenciaAlimentar.hide();
+        });
+    }
 
-    $('#btnAtividadeFisica').click(function () {
-        $('#divIdentificacao').hide();
-        $('#divHistoricoFamiliar').hide();
-        $('#divDadosAntropo').hide();
-        $('#divDadosClinicos').hide();
-        $('#divAtividadeFisica').show();
-        $('#divHistoricoAlimentar').hide();
-        $('#divExamesBio').hide();
-        $('#divUsoMedicamentos').hide();
-        $('#divFrequenciaAlimentar').hide();
-    });
+    function aparecerCamposHistoricoAlimentar(fields) {
+        fields.click(function () {
+            divIdentificacao.hide();
+            divHistoricoFamiliar.hide();
+            divDadosAntropo.hide();
+            divDadosClinicos.hide();
+            divAtividadeFisica.hide();
+            divHistoricoAlimentar.show();
+            divExamesBio.hide();
+            divUsoMedicamentos.hide();
+            divFrequenciaAlimentar.hide();
+        });
+    }
 
-    $('#btnHistoricoAlimentar').click(function () {
-        $('#divIdentificacao').hide();
-        $('#divHistoricoFamiliar').hide();
-        $('#divDadosAntropo').hide();
-        $('#divDadosClinicos').hide();
-        $('#divAtividadeFisica').hide();
-        $('#divHistoricoAlimentar').show();
-        $('#divExamesBio').hide();
-        $('#divUsoMedicamentos').hide();
-        $('#divFrequenciaAlimentar').hide();
-    });
+    function aparecerCamposExamesBio(fields) {
+        fields.click(function () {
+            divIdentificacao.hide();
+            divHistoricoFamiliar.hide();
+            divDadosAntropo.hide();
+            divDadosClinicos.hide();
+            divAtividadeFisica.hide();
+            divHistoricoAlimentar.hide();
+            divExamesBio.show();
+            divUsoMedicamentos.hide();
+            divFrequenciaAlimentar.hide();
+        });
+    }
 
-    $('#btnExamesBio').click(function () {
-        $('#divIdentificacao').hide();
-        $('#divHistoricoFamiliar').hide();
-        $('#divDadosAntropo').hide();
-        $('#divDadosClinicos').hide();
-        $('#divAtividadeFisica').hide();
-        $('#divHistoricoAlimentar').hide();
-        $('#divExamesBio').show();
-        $('#divUsoMedicamentos').hide();
-        $('#divFrequenciaAlimentar').hide();
-    });
+    function aparecerCamposUsoMedicamentos(fields) {
+        fields.click(function () {
+            divIdentificacao.hide();
+            divHistoricoFamiliar.hide();
+            divDadosAntropo.hide();
+            divDadosClinicos.hide();
+            divAtividadeFisica.hide();
+            divHistoricoAlimentar.hide();
+            divExamesBio.hide();
+            divUsoMedicamentos.show();
+            divFrequenciaAlimentar.hide();
+        });
+    }
 
-    $('#btnUsoMedicamentos').click(function () {
-        $('#divIdentificacao').hide();
-        $('#divHistoricoFamiliar').hide();
-        $('#divDadosAntropo').hide();
-        $('#divDadosClinicos').hide();
-        $('#divAtividadeFisica').hide();
-        $('#divHistoricoAlimentar').hide();
-        $('#divExamesBio').hide();
-        $('#divUsoMedicamentos').show();
-        $('#divFrequenciaAlimentar').hide();
-    });
-
-    $('#btnFrequenciaAlimentar').click(function () {
-        $('#divIdentificacao').hide();
-        $('#divHistoricoFamiliar').hide();
-        $('#divDadosAntropo').hide();
-        $('#divDadosClinicos').hide();
-        $('#divAtividadeFisica').hide();
-        $('#divHistoricoAlimentar').hide();
-        $('#divExamesBio').hide();
-        $('#divUsoMedicamentos').hide();
-        $('#divFrequenciaAlimentar').show();
-    });
-
-    $('#inputOculto').hide();
-    habitoIntestinal.change(function () {
-        if (habitoIntestinal.val() === 'Outro') {
-            $('#inputOculto').show();
-        } else {
-            $('#inputOculto').hide();
-        }
-    });
-
-    $('#inputOculto2').hide();
-    fezes.change(function () {
-        if (fezes.val() === 'Outro') {
-            $('#inputOculto2').show();
-        } else {
-            $('#inputOculto2').hide();
-        }
-    });
-
-    $('#inputOculto3').hide();
-    alteracoesApetite.change(function () {
-        if (alteracoesApetite.val() === 'Sim') {
-            $('#inputOculto3').show();
-        } else {
-            $('#inputOculto3').hide();
-        }
-    });
+    function aparecerCamposFrequenciaAlimentar(fields) {
+        fields.click(function () {
+            divIdentificacao.hide();
+            divHistoricoFamiliar.hide();
+            divDadosAntropo.hide();
+            divDadosClinicos.hide();
+            divAtividadeFisica.hide();
+            divHistoricoAlimentar.hide();
+            divExamesBio.hide();
+            divUsoMedicamentos.hide();
+            divFrequenciaAlimentar.show();
+        });
+    }
 
     $(function () {
 
@@ -1593,21 +1674,54 @@ $(document).ready(function () {
     });
 
     getDadosPaciente();
+    salvarCadastro(btnSalvar);
+
+    aparecerCamposIdentificacao(btnIdentificacao);
+    aparecerCamposAtividadeFisica(btnAtividadeFisica);
+    aparecerCamposDadosAntropo(btnDadosAntropo);
+    aparecerCamposDadosClinicos(btnDadosClinicos);
+    aparecerCamposExamesBio(btnExamesBio);
+    aparecerCamposFrequenciaAlimentar(btnFrequenciaAlimentar);
+    aparecerCamposUsoMedicamentos(btnUsoMedicamentos);
+    aparecerCamposHistoricoAlimentar(btnHistoricoAlimentar);
+    aparecerCamposHistoricoFamiliar(btnHistoricoFamiliar);
+
+    colocarMascaraCelular(celular);
+    colocarMascaraTelefoneResidencial(telefoneResidencial);
+
+    validarEmail(email);
     validarData(dataPrimeiraConsulta);
     validarData(dataNascimento);
-    // chamar função que aceita apenas numeros (variavel do campo)
+
     onlyNumber(dataNascimento);
     onlyNumber(dataPrimeiraConsulta);
     onlyNumber(celular);
     onlyNumber(idade);
     onlyNumber(telefoneResidencial);
     onlyNumber(numero);
-    // chamar função que aceita apenas letras e o espaço (variavel do campo)
+
     lettersOnly(nome);
     lettersOnly(endereco);
     lettersOnly(bairro);
     lettersOnly(cidade);
-    deixarDivsInvisiveis();
+
+    deixarDivsInvisiveis(divIdentificacao);
+    deixarDivsInvisiveis(divHistoricoFamiliar);
+    deixarDivsInvisiveis(divDadosAntropo);
+    deixarDivsInvisiveis(divDadosClinicos);
+    deixarDivsInvisiveis(divAtividadeFisica);
+    deixarDivsInvisiveis(divHistoricoAlimentar);
+    deixarDivsInvisiveis(divExamesBio);
+    deixarDivsInvisiveis(divUsoMedicamentos);
+    deixarDivsInvisiveis(divFrequenciaAlimentar);
+    deixarDivsInvisiveis(ocultoObservacaoHabitoIntestinal);
+    deixarDivsInvisiveis(ocultoObservacaoFezes);
+    deixarDivsInvisiveis(ocultoAlteracoesApetiteDesdeQuando);
+
+    aparecerDesaparecerDivsOcultas(habitoIntestinal, ocultoObservacaoHabitoIntestinal, 'Outro');
+    aparecerDesaparecerDivsOcultas(fezes, ocultoObservacaoFezes, 'Outro');
+    aparecerDesaparecerDivsOcultas(alteracoesApetite, ocultoAlteracoesApetiteDesdeQuando, 'Sim');
+
     $('[data-toggle="tooltip"]').tooltip();
     dataPrimeiraConsulta.tooltip("disable");
     dataNascimento.tooltip("disable");
