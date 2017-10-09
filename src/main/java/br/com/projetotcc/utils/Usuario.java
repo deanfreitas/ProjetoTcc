@@ -18,7 +18,7 @@ public class Usuario {
 
     public ResultadoServico validarLogin(Login login) {
         if (login.getUsuario() == null || login.getUsuario().equals("")) {
-            mensagem = "Digite um Email";
+            mensagem = "Digite um login";
         } else if (login.getSenha() == null || login.getSenha().equals("")) {
             mensagem = "Digite uma senha";
         } else {

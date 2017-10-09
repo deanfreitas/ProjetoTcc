@@ -9,6 +9,8 @@ public class BancoDadosUtils {
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
+    private String mensagem = null;
+    private long codigo = 0;
 
     public BancoDadosUtils(BancoDadosService bancoDadosService, ResultadoServico resultadoServico) {
         this.bancoDadosService = bancoDadosService;
@@ -19,9 +21,12 @@ public class BancoDadosUtils {
         Login loginPessoa = (Login) bancoDadosService.encontrarInformacao(login, login.getUsuario());
 
         if (loginPessoa != null) {
-            resultadoServico.setMensagem("Já tem um login Igual a esse");
-            resultadoServico.setCodigo(1);
+            mensagem = "Já tem um login Igual a esse";
+            codigo = 1;
         }
+
+        resultadoServico.setMensagem(mensagem);
+        resultadoServico.setCodigo(codigo);
 
         return resultadoServico;
     }

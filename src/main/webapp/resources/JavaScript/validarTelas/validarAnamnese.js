@@ -249,7 +249,7 @@ $(document).ready(function () {
     }
 
     function onlyNumber(fields) {
-        $(fields).unbind('keyup').bind('keyup', function (e) {
+        fields.unbind('keyup').bind('keyup', function (e) {
             const thisVal = $(this).val();
             let tempVal = "";
 
@@ -263,7 +263,7 @@ $(document).ready(function () {
     }
 
     function lettersOnly(fields) {
-        $(fields).keypress(function (event) {
+        fields.keypress(function (event) {
             const inputValue = event.which;
             if (!(inputValue >= 65 && inputValue <= 120)
                 && (inputValue !== 32 && inputValue !== 0 && inputValue !== 122 && inputValue !== 225 && inputValue !== 227 && inputValue !== 245 && inputValue !== 243 && inputValue !== 250 && inputValue !== 237 && inputValue !== 233)
@@ -420,20 +420,15 @@ $(document).ready(function () {
     }
 
     function colocarMascaraTelefoneResidencial(fields) {
-        fields.blur(
-            function () {
-                let telefoneResidencial = $(this).val();
-
-                telefoneResidencial = telefoneResidencial
-                    .replace(/\W/g, "");
-
-                telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\d)/, "$1 $2");
-                telefoneResidencial = telefoneResidencial.replace(/(\d{0})(\d)/, "$1($2");
-                telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\D)/, "$1)$2");
-                telefoneResidencial = telefoneResidencial.replace(/(\d{4})(\d)/, "$1-$2");
-
-                $(this).val(telefoneResidencial);
-            });
+        fields.blur(function () {
+            let telefoneResidencial = $(this).val();
+            telefoneResidencial = telefoneResidencial.replace(/\W/g, "");
+            telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\d)/, "$1 $2");
+            telefoneResidencial = telefoneResidencial.replace(/(\d{0})(\d)/, "$1($2");
+            telefoneResidencial = telefoneResidencial.replace(/(\d{2})(\D)/, "$1)$2");
+            telefoneResidencial = telefoneResidencial.replace(/(\d{4})(\d)/, "$1-$2");
+            $(this).val(telefoneResidencial);
+        });
     }
 
     function validarEmail(fields) {
@@ -693,7 +688,7 @@ $(document).ready(function () {
                         data: JSON.stringify(object),
                         contentType: "application/json",
                         dataType: 'json',
-                        success: function (data, status) {
+                        success: function (data) {
                             if (data.codigo !== 0) {
                                 /*
                                  *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
@@ -729,7 +724,7 @@ $(document).ready(function () {
                 data: JSON.stringify(object),
                 contentType: "application/json",
                 dataType: 'json',
-                success: function (data, status) {
+                success: function (data) {
                     if (data.codigo !== 0) {
                         /*
                          *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"

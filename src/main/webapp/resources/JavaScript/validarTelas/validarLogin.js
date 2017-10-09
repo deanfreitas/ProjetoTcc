@@ -48,7 +48,7 @@ $(document).ready(function () {
 				data: JSON.stringify(object),
 				contentType: "application/json",
 				dataType: 'json',
-				success: function (data, status) {
+				success: function (data,) {
 					if (data.codigo !== 0) {
 						/*
 						 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
