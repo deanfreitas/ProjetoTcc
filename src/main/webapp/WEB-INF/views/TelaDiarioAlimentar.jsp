@@ -16,7 +16,7 @@
           href="<c:url value ='/resources/Css/bootstrap/bootstrap-material-design.min.css' />"/>
     <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/ripples.min.css' />"/>
     <link rel="stylesheet" type="text/css"
-          href="<c:url value ='/resources/Css/estiloTelas/estiloTelaAlimentos.css' />"/>
+          href="<c:url value ='/resources/Css/estiloTelas/estiloDiarioAlimentar.css' />"/>
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />"/>
     <script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />"></script>
@@ -54,13 +54,19 @@
             <thead>
             <tr>
                 <th>REFEIÇÃO</th>
+                <th>HORÁRIO</th>
+                <th>HUMOR</th>
+                <th>LOCAL</th>
                 <th>ALIMENTO</th>
                 <th>QUANTIDADE</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr class="success">
                 <td>CAFÉ DA MANHÃ:</td>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
                 <td><input type="text" class="form-control"></td>
                 <td><input type="text" class="form-control"></td>
             </tr>
@@ -68,9 +74,15 @@
                 <td>LANCHE DA MANHÃ:</td>
                 <td><input type="text" class="form-control"></td>
                 <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
             </tr>
-            <tr>
+            <tr class="success">
                 <td>ALMOÇO:</td>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
                 <td><input type="text" class="form-control"></td>
                 <td><input type="text" class="form-control"></td>
             </tr>
@@ -78,14 +90,23 @@
                 <td>LANCHE DA TARDE:</td>
                 <td><input type="text" class="form-control"></td>
                 <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
             </tr>
-            <tr>
+            <tr class="success">
                 <td>JANTAR:</td>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
                 <td><input type="text" class="form-control"></td>
                 <td><input type="text" class="form-control"></td>
             </tr>
             <tr>
                 <td>CEIA:</td>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
                 <td><input type="text" class="form-control"></td>
                 <td><input type="text" class="form-control"></td>
             </tr>
