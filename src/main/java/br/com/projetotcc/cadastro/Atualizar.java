@@ -9,7 +9,7 @@ import br.com.projetotcc.utils.Usuario;
 
 import javax.servlet.ServletContext;
 
-public class Atualizar {
+public class Atualizar extends Http {
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
@@ -18,6 +18,7 @@ public class Atualizar {
     private long codigo = 0;
 
     public Atualizar(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
+        super(resultadoServico);
         this.bancoDadosService = bancoDadosService;
         this.resultadoServico = resultadoServico;
         this.context = context;

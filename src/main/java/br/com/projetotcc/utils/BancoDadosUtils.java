@@ -2,7 +2,6 @@ package br.com.projetotcc.utils;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
-import br.com.projetotcc.interfaces.InterfacePessoa;
 import br.com.projetotcc.mensagem.ResultadoServico;
 
 public class BancoDadosUtils {

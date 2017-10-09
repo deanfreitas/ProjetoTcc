@@ -13,7 +13,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 
 import javax.servlet.ServletContext;
 
-public class Postar {
+public class Postar extends Http {
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
@@ -22,6 +22,7 @@ public class Postar {
     private long codigo = 0;
 
     public Postar(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
+        super(resultadoServico);
         this.bancoDadosService = bancoDadosService;
         this.resultadoServico = resultadoServico;
         this.context = context;

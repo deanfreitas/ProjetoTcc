@@ -6,12 +6,13 @@ import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.interfaces.InterfacePessoa;
 import br.com.projetotcc.mensagem.ResultadoServico;
 
-public class Obter {
+public class Obter extends Http {
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
 
     public Obter(BancoDadosService bancoDadosService, ResultadoServico resultadoServico) {
+        super(resultadoServico);
         this.bancoDadosService = bancoDadosService;
         this.resultadoServico = resultadoServico;
     }
@@ -42,8 +43,8 @@ public class Obter {
         }
 
         resultadoServico.setMensagem(mensagem);
-        resultadoServico.setObjeto(interfacePessoa);
         resultadoServico.setCodigo(codigo);
+        resultadoServico.setObjeto(interfacePessoa);
 
         return resultadoServico;
     }

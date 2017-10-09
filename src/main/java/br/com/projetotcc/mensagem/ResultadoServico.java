@@ -1,5 +1,6 @@
 package br.com.projetotcc.mensagem;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -8,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Component
-//@Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = "prototype")
 public class ResultadoServico implements Serializable {
 
     private long codigo;
