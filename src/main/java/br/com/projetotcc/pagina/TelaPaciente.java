@@ -1,10 +1,11 @@
 package br.com.projetotcc.pagina;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.ServletContext;
-
+import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.cadastro.Deletar;
+import br.com.projetotcc.cadastro.Obter;
+import br.com.projetotcc.cadastro.Postar;
+import br.com.projetotcc.entidade.pessoa.Paciente;
+import br.com.projetotcc.mensagem.ResultadoServico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,105 +14,50 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.projetotcc.bancodados.BancoDadosService;
-import br.com.projetotcc.entidade.pessoa.Nutricionista;
-import br.com.projetotcc.entidade.pessoa.Paciente;
-import br.com.projetotcc.mensagem.ResultadoServico;
+import javax.servlet.ServletContext;
+import java.util.List;
 
 @Controller
 public class TelaPaciente {
 
-	@Autowired
-	private BancoDadosService bancoDadosService;
+    @Autowired
+    private BancoDadosService bancoDadosService;
 
-	@Autowired
-	private ResultadoServico resultadoServico;
+    @Autowired
+    private ResultadoServico resultadoServico;
 
-	@Autowired
-	private ServletContext context;
+    @Autowired
+    private ServletContext context;
 
-	@RequestMapping(value = "/telaPaciente", method = RequestMethod.GET)
-	public ModelAndView aparecerTelaPaciente() {
-		return new ModelAndView("TelaPaciente");
-	}
+    @RequestMapping(value = "/telaPaciente", method = RequestMethod.GET)
+    public ModelAndView aparecerTelaPaciente() {
+        return new ModelAndView("TelaPaciente");
+    }
 
-	@RequestMapping(value = "/cadastrarPaciente", method = RequestMethod.POST)
-	public @ResponseBody ResultadoServico addUser(@RequestBody Paciente paciente) {
-		String mensagem = null;
-		long codigo = 0;
-		
-		if(paciente != null) {
-			try {
-				
-				bancoDadosService.adicionarUsuario(paciente);
-				bancoDadosService.sincronizarBancoDados();
-			}catch (Exception e) {
-				System.out.println();
-				System.out.println(e);
-				mensagem = "Erro ao inserir medico ao paciente";
-				codigo = 1;
-			}
-		} else {
-			mensagem = "Não foi encontrado uma instancia do objeto";
-		}
+    @RequestMapping(value = "/cadastrarPaciente", method = RequestMethod.POST)
+    public @ResponseBody
+    ResultadoServico addUser(@RequestBody Paciente paciente) {
+        Postar postar = new Postar(bancoDadosService, resultadoServico, context);
+        resultadoServico = postar.adicionarPacienteNutricionista(paciente);
 
-		resultadoServico.setMensagem(mensagem);
-		resultadoServico.setCodigo(codigo);
-		resultadoServico.setObjeto(paciente.getId());
-		resultadoServico.setListaObjetos(null);
+        return resultadoServico;
+    }
 
-		return resultadoServico;
-	}
-	
-	@RequestMapping(value = "/getPacientesNutricionista", method = RequestMethod.GET)
-	public @ResponseBody ResultadoServico getPacientesNutricionista() {
-		String mensagem = null;
-		long codigo = 0;
-		List<Object> listaObjetos = new ArrayList<Object>();
-		
-		if(context.getAttribute("dadosCadastradosPessoa") instanceof Nutricionista) {
-			Nutricionista dadosCastradoPessoa = (Nutricionista) context.getAttribute("dadosCadastradosPessoa");
-			Nutricionista nutricionista = (Nutricionista) bancoDadosService.encontrarInformacaoPorId(dadosCastradoPessoa, dadosCastradoPessoa.getId());
-			if(nutricionista != null) {
-				for(Paciente paciente : nutricionista.getPacientes()) {
-					listaObjetos.add(paciente);
-				}
-			}
-		} else {
-			codigo = 2;
-			mensagem = "Erro no sistema";
-		}
-		
-		
-		resultadoServico.setMensagem(mensagem);
-		resultadoServico.setCodigo(codigo);
-		resultadoServico.setObjeto(null);
-		resultadoServico.setListaObjetos(listaObjetos);
+    @RequestMapping(value = "/getPacientesNutricionista", method = RequestMethod.GET)
+    public @ResponseBody
+    ResultadoServico getPacientesNutricionista() {
+        Obter obter = new Obter(bancoDadosService, resultadoServico, context);
+        resultadoServico = obter.pegarPacientesNutricionista();
 
-		return resultadoServico;
-	}
-	
-	@RequestMapping(value = "/detelarPacientes", method = RequestMethod.DELETE)
-	public @ResponseBody ResultadoServico detelarPacientes(@RequestBody List<Paciente> pacientes) {
-		String mensagem = null;
-		long codigo = 0;
-		List<Object> mensagens = new ArrayList<Object>();
-		
-		for(Paciente paciente : pacientes) {
-			try {
-				bancoDadosService.removerCadastroUsuario(paciente);
-			}catch (Exception e) {
-				codigo = 1;
-				mensagens.add("Erro ao remover o cadastro do paciente: " + paciente.getIdentificacao().getNome());
-			} 
-			mensagem = "Cadastros Revovidos com Sucesso";
-		}
+        return resultadoServico;
+    }
 
-		resultadoServico.setMensagem(mensagem);
-		resultadoServico.setCodigo(codigo);
-		resultadoServico.setObjeto(null);
-		resultadoServico.setListaObjetos(mensagens);
+    @RequestMapping(value = "/deletarPacientes", method = RequestMethod.DELETE)
+    public @ResponseBody
+    ResultadoServico deletarPacientes(@RequestBody List<Paciente> pacientes) {
+        Deletar deletar = new Deletar(bancoDadosService, resultadoServico);
+        resultadoServico = deletar.deletarPacientes(pacientes);
 
-		return resultadoServico;
-	}
+        return resultadoServico;
+    }
 }

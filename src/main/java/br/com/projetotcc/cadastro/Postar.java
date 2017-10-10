@@ -106,32 +106,51 @@ public class Postar extends Http {
         }
 
         Nutricionista nutricionista = (Nutricionista) bancoDadosService.encontrarInformacao(paciente.getNutricionista(), paciente.getNutricionista().getCrn());
-        if (nutricionista.getCrn().equals(paciente.getNutricionista().getCrn())) {
-            for (Paciente pacienteNutricionista : nutricionista.getPacientes()) {
-                if (pacienteNutricionista.getIdentificacao().getNome().equals(paciente.getIdentificacao().getNome())) {
-                    if (pacienteNutricionista.getIdentificacao().getSexo().equals(paciente.getIdentificacao().getSexo())) {
-                        try {
-                            paciente.getLogin().setPaciente(null);
-                            pacienteNutricionista.setResponsavel(paciente.getResponsavel());
-                            pacienteNutricionista.setLogin(paciente.getLogin());
-                            Role role = new Role("ROLE_paciente", pacienteNutricionista);
-                            bancoDadosService.atualizarCadastroUsuario(role);
-                            mensagem = "Usuario Cadastrado com sucesso";
-                        } catch (Exception e) {
-                            System.out.println(e);
-                            mensagem = "Erro ao fazer o cadastro";
-                            codigo = 1;
-                        }
-                        break;
-                    }
-                } else {
-                    mensagem = "Você não é paciente desse medico com esse Crn: " + paciente.getNutricionista().getCrn();
+        resultadoServico = usuario.checkPacientePertenceNutricionista(paciente, nutricionista);
+
+        if (resultadoServico.getCodigo() != 0) {
+            return resultadoServico;
+        }
+
+        for (Paciente pacienteNutricionista : nutricionista.getPacientes()) {
+            resultadoServico = usuario.checkIdentificacaoPaciente(paciente, pacienteNutricionista);
+            if (resultadoServico.getCodigo() == 0) {
+                try {
+                    paciente.getLogin().setPaciente(null);
+                    pacienteNutricionista.setResponsavel(paciente.getResponsavel());
+                    pacienteNutricionista.setLogin(paciente.getLogin());
+                    Role role = new Role("ROLE_paciente", pacienteNutricionista);
+                    bancoDadosService.atualizarCadastroUsuario(role);
+                    mensagem = "Usuario Cadastrado com sucesso";
+                    break;
+                } catch (Exception e) {
+                    System.err.println(e);
+                    mensagem = "Erro ao fazer o cadastro";
                     codigo = 1;
                 }
             }
+        }
+
+        resultadoServico.setMensagem(mensagem);
+        resultadoServico.setCodigo(codigo);
+
+        return resultadoServico;
+    }
+
+    public ResultadoServico adicionarPacienteNutricionista(Paciente paciente) {
+        if (paciente != null) {
+            try {
+                bancoDadosService.adicionarUsuario(paciente);
+                bancoDadosService.sincronizarBancoDados();
+                resultadoServico.setObjeto(paciente.getId());
+            } catch (Exception e) {
+                System.err.println(e);
+                mensagem = "Erro ao inserir medico ao paciente";
+                codigo = 1;
+            }
         } else {
-            mensagem = "Esse Crn " + paciente.getNutricionista().getCrn() + " não esta cadastrado no sistema";
-            codigo = 1;
+            mensagem = "Erro no sistema";
+            codigo = 2;
         }
 
         resultadoServico.setMensagem(mensagem);

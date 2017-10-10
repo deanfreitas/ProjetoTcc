@@ -68,7 +68,7 @@ public class TelaCadastro {
     @RequestMapping(value = "/pegarCadastroUsuario/{tipoPessoa}/{idUsuario}", method = RequestMethod.GET)
     public @ResponseBody
     ResultadoServico pegarCadastroUsuario(@PathVariable(value = "idUsuario") Long id, @PathVariable(value = "tipoPessoa") String tipoPessoa) {
-        Obter obter = new Obter(bancoDadosService, resultadoServico);
+        Obter obter = new Obter(bancoDadosService, resultadoServico, context);
         resultadoServico = obter.obterCadastro(id, tipoPessoa);
 
         return resultadoServico;

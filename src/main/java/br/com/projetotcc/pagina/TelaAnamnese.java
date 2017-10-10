@@ -56,7 +56,7 @@ public class TelaAnamnese {
     @RequestMapping(value = "/pegarDadosPaciente/{idUsuario}", method = RequestMethod.GET)
     public @ResponseBody
     ResultadoServico pegarCadastroUsuario(@PathVariable(value = "idUsuario") Long id) {
-        Obter obter = new Obter(bancoDadosService, resultadoServico);
+        Obter obter = new Obter(bancoDadosService, resultadoServico, context);
         resultadoServico = obter.obterCadastro(id, "paciente");
 
         return resultadoServico;

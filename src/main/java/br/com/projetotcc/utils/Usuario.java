@@ -3,7 +3,6 @@ package br.com.projetotcc.utils;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
-import br.com.projetotcc.interfaces.InterfacePessoa;
 import br.com.projetotcc.mensagem.ResultadoServico;
 
 public class Usuario {
@@ -70,6 +69,29 @@ public class Usuario {
         }
 
         resultadoServico.setMensagem(mensagem);
+
+        return resultadoServico;
+    }
+
+    public ResultadoServico checkPacientePertenceNutricionista(Paciente paciente, Nutricionista nutricionista) {
+        if (!nutricionista.getCrn().equals(paciente.getNutricionista().getCrn())) {
+            mensagem = "Esse Crn " + paciente.getNutricionista().getCrn() + " não esta cadastrado no sistema";
+        }
+
+        resultadoServico.setCodigo(codigo);
+        resultadoServico.setMensagem(mensagem);
+
+        return resultadoServico;
+    }
+
+    public ResultadoServico checkIdentificacaoPaciente(Paciente paciente, Paciente pacienteNutricionista) {
+        if (!pacienteNutricionista.getIdentificacao().getNome().equals(paciente.getIdentificacao().getNome())) {
+            mensagem = "Você não é paciente desse medico com esse Crn: " + paciente.getNutricionista().getCrn();
+        } else if (!pacienteNutricionista.getIdentificacao().getSexo().equals(paciente.getIdentificacao().getSexo())) {
+            mensagem = "O paciente cadastrado para esse medico esta errado";
+        } else {
+            codigo = 0;
+        }
 
         return resultadoServico;
     }
