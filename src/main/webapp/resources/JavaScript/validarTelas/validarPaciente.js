@@ -161,11 +161,6 @@ $(document).ready(function () {
         });
     }
 
-    /**
-     * Precisa errumar essa função pois, quando aperta o botão "Gerar relatório".
-     * Esta pegando apenas o primero paciente da lista, não o paciente da flag selecionada
-     * @param fields
-     */
     function gerarRelatorio(fields) {
         fields.click(function () {
             if (listIdPaciente.length === 1) {
@@ -178,11 +173,6 @@ $(document).ready(function () {
         });
     }
 
-    /**
-     * Precisa errumar essa função pois, quando aperta o botão "acompanhamento".
-     * Esta pegando apenas o primero paciente da lista, não o paciente da flag selecionada
-     * @param fields
-     */
     function telaAcompanhamento(fields) {
         fields.click(function () {
             if (listIdPaciente.length === 1) {
