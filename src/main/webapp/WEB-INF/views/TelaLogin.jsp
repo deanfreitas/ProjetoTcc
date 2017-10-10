@@ -2,9 +2,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
-
 <!DOCTYPE html>
-<html lang="pt-br" ng-app="validarLoginApp">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,25 +27,21 @@
         <img src="<c:url value = '/resources/Imagens/imagensTelas/novologotransp.png'  />"
              class="img-responsive center-block"/>
     </div>
-    <form class="form-login" ng-controller="validarLogin">
+    <form class="form-login">
         <h2 class="form-login-heading"></h2>
         <div class="form-group label-floating">
             <label class="control-label" for="focusedInput1">Usuário</label>
-            <input class="form-control" id="usuario" name="usuario" type="text" ng-model="usuario" required>
+            <input class="form-control" id="usuario" name="usuario" type="text" required>
         </div>
         <div class="form-group label-floating">
             <label class="control-label" for="focusedInput1">Senha</label>
-            <input class="form-control" id="senha" name="senha" type="password" ng-model="senha" required>
+            <input class="form-control" id="senha" name="senha" type="password" required>
         </div>
         <div class="row" id="botoes">
-            <a type="button" class="btn btn-raised btn-primary btn-lg" id="btnEntrar" name="btnEntrar"
-               ng-click="btnEntrar()">Entrar</a>
+            <a type="button" class="btn btn-raised btn-primary btn-lg" id="btnEntrar" name="btnEntrar">Entrar</a>
             <a type="button" class="btn btn-raised btn-primary btn-lg" id="btnCadastrar" name="btnCadastrar">Cadastrar-se</a>
         </div>
     </form>
 </div>
-
-
 </body>
-
 </html>

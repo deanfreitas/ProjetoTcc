@@ -88,12 +88,12 @@ $(document).ready(function () {
     }
 
     function onlyNumber(fields) {
-        fields.unbind('keyup').bind('keyup', function (e) {
+        fields.unbind('keyup').bind('keyup', function () {
             const thisVal = $(this).val();
             let tempVal = "";
 
             for (let i = 0; i < thisVal.length; i++) {
-                if (RegExp(/^[0-9]$/).test(thisVal.charAt(i))) {
+                if (new RegExp(/^[0-9]$/).test(thisVal.charAt(i))) {
                     tempVal += thisVal.charAt(i);
                 }
             }
@@ -248,7 +248,7 @@ $(document).ready(function () {
     }
 
     function validarCamposDigitados(fields) {
-        fields.unbind('keyup').bind('keyup', function (e) {
+        fields.unbind('keyup').bind('keyup', function () {
             let thisVal = $(this).val();
             /*
              * Essa função de se o campo esta vazio. No if valida se o campo
@@ -260,14 +260,11 @@ $(document).ready(function () {
 
             if (!thisVal || thisVal === "") {
                 $(this).css("border-color", "#FF0000");
-                $(this).css("color", "#FF0000");
             } else {
                 $(this).css("border-color", "#FFFFFF");
-                $(this).css("color", "#000000");
             }
         });
     }
-
 
     function validarData(fields) {
         fields.blur(function () {
@@ -721,7 +718,7 @@ $(document).ready(function () {
                 }
             });
         }
-    };
+    }
 
     function verificarSenha(fields) {
         fields.click(function () {

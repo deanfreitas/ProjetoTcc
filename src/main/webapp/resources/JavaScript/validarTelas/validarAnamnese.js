@@ -249,12 +249,12 @@ $(document).ready(function () {
     }
 
     function onlyNumber(fields) {
-        fields.unbind('keyup').bind('keyup', function (e) {
+        fields.unbind('keyup').bind('keyup', function () {
             const thisVal = $(this).val();
             let tempVal = "";
 
             for (let i = 0; i < thisVal.length; i++) {
-                if (RegExp(/^[0-9]$/).test(thisVal.charAt(i))) {
+                if (new RegExp(/^[0-9]$/).test(thisVal.charAt(i))) {
                     tempVal += thisVal.charAt(i);
                 }
             }
@@ -1201,7 +1201,8 @@ $(document).ready(function () {
                             porcaoSucoArtificial.prop("disabled", true);
                             porcaoCafe.prop("disabled", true);
                             porcaoCha.prop("disabled", true);
-                            salvar.toggle();
+
+                            btnSalvar.toggle();
                         }
                         return true;
                     }
