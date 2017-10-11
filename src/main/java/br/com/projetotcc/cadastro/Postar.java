@@ -158,4 +158,36 @@ public class Postar extends Http {
 
         return resultadoServico;
     }
+
+    public ResultadoServico pegarIdUsuarioLogado(Login login) {
+        long id = 0;
+
+        Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, context.getAttribute("loginUsuario").toString());
+
+        if (loginCadastrado != null) {
+            if (loginCadastrado.getNutricionista() != null) {
+                context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getNutricionista());
+                mensagem = "nutricionista";
+                id = loginCadastrado.getNutricionista().getId();
+
+            } else if (loginCadastrado.getPaciente() != null) {
+                context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getPaciente());
+                mensagem = "paciente";
+                id = loginCadastrado.getPaciente().getId();
+
+            } else {
+                mensagem = "Erro no sistema";
+                codigo = 2;
+            }
+        } else {
+            mensagem = "Erro no sistema";
+            codigo = 2;
+        }
+
+        resultadoServico.setMensagem(mensagem);
+        resultadoServico.setCodigo(codigo);
+        resultadoServico.setObjeto(id);
+
+        return resultadoServico;
+    }
 }

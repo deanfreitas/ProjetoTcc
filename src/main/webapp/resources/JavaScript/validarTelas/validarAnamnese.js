@@ -287,8 +287,8 @@ $(document).ready(function () {
     function validarData(fields) {
         fields.blur(function () {
             let data = $(this).val();
-            let tamanhoData = data.length;
             let dataCerta = true;
+            const tamanhoData = data.length;
 
             if (data === "") {
                 return false;
@@ -302,11 +302,14 @@ $(document).ready(function () {
 
             data = data.replace(/\W/g, "");
 
-            let dia = data.substr(0, 2);
-            let mes = data.substr(2, 2);
-            let ano = data.substr(4, 4);
+            const dia = data.substr(0, 2);
+            const mes = data.substr(2, 2);
+            const ano = data.substr(4, 4);
 
-            if (ano < 1900 || ano > 2018) {
+            const now = new Date;
+            const yyyy = now.getFullYear();
+
+            if (ano < 1900 || ano > yyyy) {
                 dataCerta = false;
             }
 

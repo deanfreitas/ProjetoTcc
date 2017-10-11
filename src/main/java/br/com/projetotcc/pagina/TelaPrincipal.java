@@ -1,7 +1,9 @@
 package br.com.projetotcc.pagina;
 
-import javax.servlet.ServletContext;
-
+import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.cadastro.Postar;
+import br.com.projetotcc.entidade.pessoa.informacao.Login;
+import br.com.projetotcc.mensagem.ResultadoServico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,58 +12,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.projetotcc.bancodados.BancoDadosService;
-import br.com.projetotcc.entidade.pessoa.informacao.Login;
-import br.com.projetotcc.mensagem.ResultadoServico;
+import javax.servlet.ServletContext;
 
 @Controller
 public class TelaPrincipal {
 
-	@Autowired
-	private BancoDadosService bancoDadosService;
-	
-	@Autowired
-	private ResultadoServico resultadoServico;
-	
-	@Autowired
+    @Autowired
+    private BancoDadosService bancoDadosService;
+
+    @Autowired
+    private ResultadoServico resultadoServico;
+
+    @Autowired
     private ServletContext context;
-	
-	@RequestMapping(value = "/telaPrincipal", method = RequestMethod.GET)
-	public ModelAndView aparecerTelaPrincipal() {
-		return new ModelAndView("TelaPrincipal");
-	}
-	
-	@RequestMapping(value = "/pegarIdUsuarioCadastrado", method = RequestMethod.POST)
-	public @ResponseBody ResultadoServico atualizarCadastroUsuario(@RequestBody Login login) {
-		String mensagem = null;
-		long codigo = 0;
-		Object object = null;
-		
-		Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, context.getAttribute("loginUsuario").toString());
-		
-		if(loginCadastrado != null) {
-			if(loginCadastrado.getNutricionista() != null) {
-				context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getNutricionista());
-				mensagem = "nutricionista";
-				
-				object = loginCadastrado.getNutricionista().getId();
-			} else 
-				if(loginCadastrado.getPaciente() != null) {
-					context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getPaciente());
-					mensagem = "paciente";
-					
-					object = loginCadastrado.getPaciente().getId();
-				}
-		} else {
-			mensagem = "Erro no sistema";
-			codigo = 2;
-		}
-		
-		resultadoServico.setMensagem(mensagem);
-		resultadoServico.setCodigo(codigo);
-		resultadoServico.setObjeto(object);
-		resultadoServico.setListaObjetos(null);
-		
-		return resultadoServico;
-	}
+
+    @RequestMapping(value = "/telaPrincipal", method = RequestMethod.GET)
+    public ModelAndView aparecerTelaPrincipal() {
+        return new ModelAndView("TelaPrincipal");
+    }
+
+    @RequestMapping(value = "/pegarIdUsuarioLogado", method = RequestMethod.POST)
+    public @ResponseBody
+    ResultadoServico pegarCadastroUsuario(@RequestBody Login login) {
+        Postar postar = new Postar(bancoDadosService, resultadoServico, context);
+        resultadoServico = postar.pegarIdUsuarioLogado(login);
+
+        return resultadoServico;
+    }
 }

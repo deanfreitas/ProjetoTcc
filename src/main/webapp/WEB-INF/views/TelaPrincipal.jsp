@@ -17,11 +17,11 @@
           href="<c:url value ='/resources/Css/estiloTelas/estiloTelaPrincipal.css' />"/>
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />"/>
-    <script src = "<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />" ></script>
+    <script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />"></script>
-    <script src = "<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" ></script>
+    <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />"></script>
-    <script src = "<c:url value ='/resources/JavaScript/validarTelas/validarTelaPrincipal.js' />" ></script>
+    <script src="<c:url value ='/resources/JavaScript/validarTelas/validarTelaPrincipal.js' />"></script>
 
 </head>
 <body>
