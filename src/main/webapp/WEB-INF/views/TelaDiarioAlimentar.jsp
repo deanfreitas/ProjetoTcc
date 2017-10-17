@@ -64,51 +64,51 @@
             <tbody>
             <tr class="success">
                 <td>CAFÉ DA MANHÃ:</td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control" id="CM-horario"></td>
+                <td><input type="text" class="form-control" id="CM-humor"></td>
+                <td><input type="text" class="form-control" id="CM-local"></td>
+                <td><input type="text" class="form-control" id="CM-alimento"></td>
+                <td><input type="text" class="form-control" id="CM-quant"></td>
             </tr>
             <tr>
                 <td>LANCHE DA MANHÃ:</td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control" id="LM-horario"></td>
+                <td><input type="text" class="form-control" id="LM-humor"></td>
+                <td><input type="text" class="form-control" id="LM-local"></td>
+                <td><input type="text" class="form-control" id="LM-alimento"></td>
+                <td><input type="text" class="form-control" id="LM-quant"></td>
             </tr>
             <tr class="success">
                 <td>ALMOÇO:</td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control" id="ALM-horario"></td>
+                <td><input type="text" class="form-control" id="ALM-humor"></td>
+                <td><input type="text" class="form-control" id="ALM-local"></td>
+                <td><input type="text" class="form-control" id="ALM-alimento"></td>
+                <td><input type="text" class="form-control" id="ALM-quant"></td>
             </tr>
             <tr>
                 <td>LANCHE DA TARDE:</td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control" id="LT-horario"></td>
+                <td><input type="text" class="form-control" id="LT-humor"></td>
+                <td><input type="text" class="form-control" id="LT-local"></td>
+                <td><input type="text" class="form-control" id="LT-alimento"></td>
+                <td><input type="text" class="form-control" id="LT-quant"></td>
             </tr>
             <tr class="success">
                 <td>JANTAR:</td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control" id="JAN-horario"></td>
+                <td><input type="text" class="form-control" id="JAN-humor"></td>
+                <td><input type="text" class="form-control" id="JAN-local"></td>
+                <td><input type="text" class="form-control" id="JAN-alimento"></td>
+                <td><input type="text" class="form-control" id="JAN-quant"></td>
             </tr>
             <tr>
                 <td>CEIA:</td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
-                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control" id="CE-horario"></td>
+                <td><input type="text" class="form-control" id="CE-humor"></td>
+                <td><input type="text" class="form-control" id="CE-local"></td>
+                <td><input type="text" class="form-control" id="CE-alimento"></td>
+                <td><input type="text" class="form-control" id="CE-quant"></td>
             </tr>
             </tbody>
         </table>
