@@ -16,7 +16,7 @@
           href="<c:url value ='/resources/Css/bootstrap/bootstrap-material-design.min.css' />"/>
     <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/ripples.min.css' />"/>
     <link rel="stylesheet" type="text/css"
-          href="<c:url value ='/resources/Css/estiloTelas/estiloDiarioAlimentar.css' />"/>
+          href="<c:url value ='/resources/Css/estiloTelas/estiloDiarioAlimentarHome.css' />"/>
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />"/>
     <script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />"></script>
@@ -25,7 +25,7 @@
     <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />"></script>
-    <script src="<c:url value ='/resources/JavaScript/validarTelas/validarDiarioAlimentar.js' />"></script>
+    <script src="<c:url value ='/resources/JavaScript/validarTelas/validarDiarioAlimentarHome.js' />"></script>
 </head>
 
 <body>
