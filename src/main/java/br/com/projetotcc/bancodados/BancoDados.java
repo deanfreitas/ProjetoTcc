@@ -52,8 +52,8 @@ public class BancoDados {
         }
     }
 
-    void altera(InterfaceEntidade interfaceEntidade) {
-        entityManager.merge(interfaceEntidade);
+    <T> void altera(T aClass) {
+        entityManager.merge(aClass);
     }
 
     InterfaceEntidade buscaPorId(InterfaceEntidade interfaceEntidade, Long id) {

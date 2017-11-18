@@ -2,6 +2,7 @@ package br.com.projetotcc.bancodados;
 
 import java.util.List;
 
+import br.com.projetotcc.entidade.paciente.alimentacao.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,8 +20,8 @@ public class BancoDadosService {
     }
 
     @Transactional
-    public void adicionarUsuario(InterfaceEntidade entidadeGererica) {
-        bancoDados.adiciona(entidadeGererica);
+    public void adicionarUsuario(InterfaceEntidade interfaceEntidade) {
+        bancoDados.adiciona(interfaceEntidade);
     }
 
     @Transactional(readOnly = true)
@@ -46,6 +47,11 @@ public class BancoDadosService {
     @Transactional
     public void atualizarCadastroUsuario(InterfaceEntidade interfaceEntidade) {
         bancoDados.altera(interfaceEntidade);
+    }
+
+    @Transactional
+    public void atualizarDiarioAlimentar(Data data) {
+        bancoDados.altera(data);
     }
 
     @Transactional

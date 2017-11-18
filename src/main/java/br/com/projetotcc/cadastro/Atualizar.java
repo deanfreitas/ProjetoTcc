@@ -1,6 +1,7 @@
 package br.com.projetotcc.cadastro;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.entidade.paciente.alimentacao.Data;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.interfaces.InterfacePessoa;
@@ -45,16 +46,11 @@ public class Atualizar extends Http {
         }
 
         try {
-            if (context.getAttribute("dadosCadastradosPessoa") instanceof Nutricionista) {
+            if (validTypeUser("nutricionista")) {
                 Nutricionista dadosCastradoPessoa = (Nutricionista) context.getAttribute("dadosCadastradosPessoa");
-                if (dadosCastradoPessoa != null) {
-                    paciente.setNutricionista(dadosCastradoPessoa);
-                    bancoDadosService.atualizarCadastroUsuario(paciente);
-                    mensagem = "Anamnese Cadastrada com sucesso";
-                } else {
-                    mensagem = "Erro Sistema";
-                    codigo = 2;
-                }
+                paciente.setNutricionista(dadosCastradoPessoa);
+                bancoDadosService.atualizarCadastroUsuario(paciente);
+                mensagem = "Anamnese Cadastrada com sucesso";
             } else {
                 mensagem = "Erro no sistema";
                 codigo = 2;
@@ -85,7 +81,31 @@ public class Atualizar extends Http {
                 codigo = 2;
             }
         } catch (Exception e) {
+            System.err.println(e);
             mensagem = "Erro ao atualizar o cadastro";
+            codigo = 1;
+        }
+
+        resultadoServico.setMensagem(mensagem);
+        resultadoServico.setCodigo(codigo);
+
+        return resultadoServico;
+    }
+
+    public ResultadoServico atualizarDiarioAlimentar(Data data) {
+        try {
+            if (validTypeUser("paciente")) {
+                Paciente paciente = (Paciente) context.getAttribute("dadosCadastradosPessoa");
+                data.setPaciente(paciente);
+                bancoDadosService.atualizarDiarioAlimentar(data);
+                mensagem = "Diario alimetar atualizado com sucesso";
+            } else {
+                mensagem = "Erro no sistema";
+                codigo = 2;
+            }
+        } catch (Exception e) {
+            System.err.println(e);
+            mensagem = "Erro ao atualizar o diario alimentar";
             codigo = 1;
         }
 
