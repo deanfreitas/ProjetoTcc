@@ -8,13 +8,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TelaDiarioAlimentar {
 
-	@RequestMapping(value = "/telaDiarioAlimentar", method = RequestMethod.GET)
-	public ModelAndView aparecerTelaDiarioAlimentar() {
-		return new ModelAndView("TelaDiarioAlimentar");
-	}
-	
-	@RequestMapping(value = "/telaDiarioAlimentar/{dia}/{mes}/{ano}", method = RequestMethod.GET)
-	public ModelAndView aparecerTelaDiarioAlimentarComData() {
-		return new ModelAndView("TelaDiarioAlimentar");
-	}
+    private static final String tela = "TelaDiarioAlimentar";
+    private static final String rota = "/telaDiarioAlimentar";
+
+    @RequestMapping(value = rota, method = RequestMethod.GET)
+    public ModelAndView aparecerTelaDiarioAlimentar() {
+        return new ModelAndView(tela);
+    }
+
+    @RequestMapping(value = rota + "/{dia}/{mes}/{ano}", method = RequestMethod.GET)
+    public ModelAndView aparecerTelaDiarioAlimentarComData() {
+        return new ModelAndView(tela);
+    }
 }
