@@ -18,31 +18,35 @@ import javax.servlet.ServletContext;
 @Controller
 public class TelaLogin {
 
-    @Autowired
+    private static final String tela = "TelaLogin";
+    private static final String rotaTela = "/telaLogin";
+
     private BancoDadosService bancoDadosService;
-
-    @Autowired
     private ResultadoServico resultadoServico;
-
-    @Autowired
     private SegurancaSistema segurancaSistema;
+    private ServletContext context;
 
     @Autowired
-    private ServletContext context;
+    public TelaLogin(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, SegurancaSistema segurancaSistema, ServletContext context) {
+        this.bancoDadosService = bancoDadosService;
+        this.resultadoServico = resultadoServico;
+        this.segurancaSistema = segurancaSistema;
+        this.context = context;
+    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView aparecerTelaLoginComBarra() {
-        return new ModelAndView("TelaLogin");
+        return new ModelAndView(tela);
     }
 
-    @RequestMapping(value = "/telaLogin", method = RequestMethod.GET)
+    @RequestMapping(value = rotaTela, method = RequestMethod.GET)
     public ModelAndView aparecerTelaLogin() {
-        return new ModelAndView("TelaLogin");
+        return new ModelAndView(tela);
     }
 
     @RequestMapping(value = "/sairSistema", method = RequestMethod.GET)
     public ModelAndView sairSistema() {
-        return new ModelAndView("TelaLogin");
+        return new ModelAndView(tela);
     }
 
     @RequestMapping(value = "/entrarTelaPrincipal", method = RequestMethod.POST)

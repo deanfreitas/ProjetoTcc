@@ -9,14 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class TelaDiarioAlimentar {
 
     private static final String tela = "TelaDiarioAlimentar";
-    private static final String rota = "/telaDiarioAlimentar";
+    private static final String rotaTela = "/telaDiarioAlimentar";
 
-    @RequestMapping(value = rota, method = RequestMethod.GET)
+    @RequestMapping(value = rotaTela, method = RequestMethod.GET)
     public ModelAndView aparecerTelaDiarioAlimentar() {
         return new ModelAndView(tela);
     }
 
-    @RequestMapping(value = rota + "/{dia}/{mes}/{ano}", method = RequestMethod.GET)
+    @RequestMapping(value = rotaTela + "/{dia}/{mes}/{ano}", method = RequestMethod.GET)
     public ModelAndView aparecerTelaDiarioAlimentarComData() {
         return new ModelAndView(tela);
     }

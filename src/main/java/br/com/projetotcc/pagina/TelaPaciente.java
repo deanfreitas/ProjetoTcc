@@ -20,18 +20,23 @@ import java.util.List;
 @Controller
 public class TelaPaciente {
 
-    @Autowired
+    private static final String tela = "TelaPaciente";
+    private static final String rotaTela = "/telaPaciente";
+
     private BancoDadosService bancoDadosService;
-
-    @Autowired
     private ResultadoServico resultadoServico;
-
-    @Autowired
     private ServletContext context;
 
-    @RequestMapping(value = "/telaPaciente", method = RequestMethod.GET)
+    @Autowired
+    public TelaPaciente(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
+        this.bancoDadosService = bancoDadosService;
+        this.resultadoServico = resultadoServico;
+        this.context = context;
+    }
+
+    @RequestMapping(value = rotaTela, method = RequestMethod.GET)
     public ModelAndView aparecerTelaPaciente() {
-        return new ModelAndView("TelaPaciente");
+        return new ModelAndView(tela);
     }
 
     @RequestMapping(value = "/cadastrarPaciente", method = RequestMethod.POST)

@@ -9,9 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class TelaAcompanhamento {
 
     private static final String tela = "TelaAcompanhamento";
-    private static final String rota = "/telaAcompanhamento";
+    private static final String rotaTela = "/telaAcompanhamento";
 
-    @RequestMapping(value = rota + "/{idPaciente}", method = RequestMethod.GET)
+    @RequestMapping(value = rotaTela + "/{idPaciente}", method = RequestMethod.GET)
     public ModelAndView aparecerTelaAcompanhamento() {
         return new ModelAndView(tela);
     }

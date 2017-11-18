@@ -38,7 +38,7 @@ public class Obter extends Http {
                 codigo = 2;
             }
         } else {
-            mensagem = "Não foi encontrado Nenhum tipo de pessoa";
+            mensagem = "NÃ£o foi encontrado Nenhum tipo de pessoa";
             codigo = 1;
         }
 
@@ -50,7 +50,7 @@ public class Obter extends Http {
     }
 
     public ResultadoServico pegarPacientesNutricionista() {
-        List<Object> listaObjetos = new ArrayList<Object>();
+        List<Object> listaObjetos = new ArrayList<>();
 
         if (context.getAttribute("dadosCadastradosPessoa") instanceof Nutricionista) {
             Nutricionista dadosCastradoPessoa = (Nutricionista) context.getAttribute("dadosCadastradosPessoa");

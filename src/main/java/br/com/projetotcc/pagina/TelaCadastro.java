@@ -19,23 +19,27 @@ import javax.servlet.ServletContext;
 @Controller
 public class TelaCadastro {
 
-    @Autowired
+    private static final String tela = "TelaCadastro";
+
     private BancoDadosService bancoDadosService;
-
-    @Autowired
     private ResultadoServico resultadoServico;
+    private ServletContext context;
 
     @Autowired
-    private ServletContext context;
+    public TelaCadastro(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
+        this.bancoDadosService = bancoDadosService;
+        this.resultadoServico = resultadoServico;
+        this.context = context;
+    }
 
     @RequestMapping(value = "/telaCadastrarUsuario/{tipoPessoa}", method = RequestMethod.GET)
     public ModelAndView cadastrarUsuario() {
-        return new ModelAndView("TelaCadastro");
+        return new ModelAndView(tela);
     }
 
     @RequestMapping(value = "/telaUpdateCadastro/{tipoPessoa}/{idUsuario}", method = RequestMethod.GET)
     public ModelAndView entrarTelaUpdateCadastro() {
-        return new ModelAndView("TelaCadastro");
+        return new ModelAndView(tela);
     }
 
     @RequestMapping(value = "/salvarUsuario/nutricionista", method = RequestMethod.POST)

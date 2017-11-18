@@ -20,28 +20,33 @@ import br.com.projetotcc.mensagem.ResultadoServico;
 @Controller
 public class TelaAnamnese {
 
-    @Autowired
+    private static final String tela = "TelaAnamnese";
+    private static final String rotaTela = "/telaAnamnese";
+
     private BancoDadosService bancoDadosService;
-
-    @Autowired
     private ResultadoServico resultadoServico;
-
-    @Autowired
     private ServletContext context;
 
-    @RequestMapping(value = "/telaAnamnese/cadastrar/{idPaciente}", method = RequestMethod.GET)
+    @Autowired
+    public TelaAnamnese(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
+        this.bancoDadosService = bancoDadosService;
+        this.resultadoServico = resultadoServico;
+        this.context = context;
+    }
+
+    @RequestMapping(value = rotaTela + "/cadastrar/{idPaciente}", method = RequestMethod.GET)
     public ModelAndView cadastrarAnamnese() {
-        return new ModelAndView("TelaAnamnese");
+        return new ModelAndView(tela);
     }
 
-    @RequestMapping(value = "/telaAnamnese/atualizar/{idPaciente}", method = RequestMethod.GET)
+    @RequestMapping(value = rotaTela + "/atualizar/{idPaciente}", method = RequestMethod.GET)
     public ModelAndView atualizarAnamnese() {
-        return new ModelAndView("TelaAnamnese");
+        return new ModelAndView(tela);
     }
 
-    @RequestMapping(value = "/telaAnamnese/visualizar/{idPaciente}", method = RequestMethod.GET)
+    @RequestMapping(value = rotaTela + "/visualizar/{idPaciente}", method = RequestMethod.GET)
     public ModelAndView visualizarAnamnese() {
-        return new ModelAndView("TelaAnamnese");
+        return new ModelAndView(tela);
     }
 
     @RequestMapping(value = "/cadastrarInformacoesPaciente", method = RequestMethod.PUT)

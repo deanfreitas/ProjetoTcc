@@ -17,18 +17,23 @@ import javax.servlet.ServletContext;
 @Controller
 public class TelaPrincipal {
 
-    @Autowired
+    private static final String tela = "TelaPrincipal";
+    private static final String rotaTela = "/telaPrincipal";
+
     private BancoDadosService bancoDadosService;
-
-    @Autowired
     private ResultadoServico resultadoServico;
-
-    @Autowired
     private ServletContext context;
 
-    @RequestMapping(value = "/telaPrincipal", method = RequestMethod.GET)
+    @Autowired
+    public TelaPrincipal(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
+        this.bancoDadosService = bancoDadosService;
+        this.resultadoServico = resultadoServico;
+        this.context = context;
+    }
+
+    @RequestMapping(value = rotaTela, method = RequestMethod.GET)
     public ModelAndView aparecerTelaPrincipal() {
-        return new ModelAndView("TelaPrincipal");
+        return new ModelAndView(tela);
     }
 
     @RequestMapping(value = "/pegarIdUsuarioLogado", method = RequestMethod.POST)

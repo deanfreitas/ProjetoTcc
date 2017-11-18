@@ -19,41 +19,42 @@ import br.com.projetotcc.entidade.pessoa.informacao.Role;
 import br.com.projetotcc.interfaces.InterfacePessoa;
 
 public class AutenticacaoLogin implements UserDetailsService {
-	
-	@Autowired
-	private BancoDadosService bancoDadosService;
-	
-	@Override
-	@Transactional(readOnly = true)
-	public UserDetails loadUserByUsername(String nomeUsuario) {
-		Login login = new Login();
-		login = (Login) bancoDadosService.encontrarInformacao(login, nomeUsuario);
-		InterfacePessoa interfacePessoa = null;
 
-		if(login.getNutricionista() != null) {
-			interfacePessoa = login.getNutricionista();
-		} else
-			if(login.getPaciente() != null) {
-				interfacePessoa = login.getPaciente();
-			}
+    private BancoDadosService bancoDadosService;
 
-		List<GrantedAuthority> autoridades = construirAutoridade(interfacePessoa);
-		return construirUsuarioAutenticacao(interfacePessoa, autoridades);
-	}
-	
-	private UserDetails construirUsuarioAutenticacao(InterfacePessoa interfacePessoa, List<GrantedAuthority> autoridades) {
+    @Autowired
+    public AutenticacaoLogin(BancoDadosService bancoDadosService) {
+        this.bancoDadosService = bancoDadosService;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public UserDetails loadUserByUsername(String nomeUsuario) {
+        Login login = new Login();
+        login = (Login) bancoDadosService.encontrarInformacao(login, nomeUsuario);
+        InterfacePessoa interfacePessoa = null;
+
+        if (login.getNutricionista() != null) {
+            interfacePessoa = login.getNutricionista();
+        } else if (login.getPaciente() != null) {
+            interfacePessoa = login.getPaciente();
+        }
+
+        List<GrantedAuthority> autoridades = construirAutoridade(interfacePessoa);
+        return construirUsuarioAutenticacao(interfacePessoa, autoridades);
+    }
+
+    private UserDetails construirUsuarioAutenticacao(InterfacePessoa interfacePessoa, List<GrantedAuthority> autoridades) {
         return new User(interfacePessoa.getLogin().getUsuario(), interfacePessoa.getLogin().getSenha(), true, true, true, true, autoridades);
     }
-	
-	private List<GrantedAuthority> construirAutoridade(InterfacePessoa interfacePessoa) {
-		Set<GrantedAuthority> setAutoridades = new HashSet<GrantedAuthority>();
 
-		for(Role role : interfacePessoa.getRoles()){
-			setAutoridades.add(new SimpleGrantedAuthority(role.getNameRole()));
-		}
+    private List<GrantedAuthority> construirAutoridade(InterfacePessoa interfacePessoa) {
+        Set<GrantedAuthority> setAutoridades = new HashSet<>();
 
-		List<GrantedAuthority> resultado = new ArrayList<GrantedAuthority>(setAutoridades);
+        for (Role role : interfacePessoa.getRoles()) {
+            setAutoridades.add(new SimpleGrantedAuthority(role.getNameRole()));
+        }
 
-		return resultado;
-	}
+        return new ArrayList<>(setAutoridades);
+    }
 }
