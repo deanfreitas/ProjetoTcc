@@ -1,3 +1,5 @@
+let tipoUsuario;
+
 $(document).ready(function () {
     $.material.init();
 
@@ -9,9 +11,9 @@ $(document).ready(function () {
     const btnPaciente = $('#btnPaciente');
     const btnAlterarDados = $('#btnAlterarDados');
     const btnCalcularImc = $('#btnCalcular');
+    const btndiarioAlimentarHome = $('#btnDiarioAlimentar');
 
     let idUsuario;
-    let tipoUsuario;
 
     function onlyNumber(fields) {
         fields.unbind('keyup').bind('keyup', function (e) {
@@ -46,6 +48,7 @@ $(document).ready(function () {
 
                     if (tipoUsuario === 'nutricionista') {
                         btnPerfil.toggle();
+                        btndiarioAlimentarHome.toggle();
                     } else if (tipoUsuario === 'paciente') {
                         btnPaciente.toggle();
                     }
@@ -64,6 +67,12 @@ $(document).ready(function () {
         fields.click(function () {
             location.href = '/ProjetoTcc/telaUpdateCadastro/' + tipoUsuario + '/' + idUsuario;
         });
+    }
+
+    function telaDiarioAlimentarHome(fields) {
+        fields.click(function () {
+            location.href = '/ProjetoTcc/telaDiarioAlimentarHome';
+        })
     }
 
     function calcularImc(fields) {
@@ -99,6 +108,7 @@ $(document).ready(function () {
 
     telaAlterarDados(btnAlterarDados);
     telaPerfil(btnPerfil);
+    telaDiarioAlimentarHome(btndiarioAlimentarHome);
 });
 
 function maxDays(mm, yyyy) {
@@ -123,7 +133,20 @@ function maxDays(mm, yyyy) {
 function changeBg(id) {
     if (eval(id).style.backgroundColor !== "yellow") {
         eval(id).style.backgroundColor = "yellow";
-        location.href = '/ProjetoTcc/telaDiarioAlimentar/' + $('#' + id).text() + '/' + $('#selMonth').val() + '/' + $('#selYear').val();
+        if (tipoUsuario === 'paciente') {
+            let dia = $('#' + id).text();
+            let mes = parseInt($('#selMonth').val()) + 1;
+
+            if (dia < 2) {
+                dia = "0" + dia;
+            }
+
+            if (mes.length < 2) {
+                mes = "0" + mes;
+            }
+
+            location.href = '/ProjetoTcc/telaDiarioAlimentar/cadastrar/' + $('#selYear').val() + mes + dia;
+        }
     }
     else {
         eval(id).style.backgroundColor = "#ffffff"

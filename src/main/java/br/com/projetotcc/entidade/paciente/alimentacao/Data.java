@@ -16,43 +16,43 @@ public class Data {
     private Long id;
 
     @JsonManagedReference(value = "data-ceia")
-    @OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Ceia.class)
-    @JoinColumn(name = "Id_Ceia", insertable = true, updatable = true)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Ceia.class)
+    @JoinColumn(name = "Id_Ceia")
     private Ceia ceia;
 
     @JsonManagedReference(value = "data-colacao")
-    @OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Colacao.class)
-    @JoinColumn(name = "Id_Colacao", insertable = true, updatable = true)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Colacao.class)
+    @JoinColumn(name = "Id_Colacao")
     private Colacao colacao;
 
     @JsonManagedReference(value = "data-jantar")
-    @OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Jantar.class)
-    @JoinColumn(name = "Id_Jant", insertable = true, updatable = true)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Jantar.class)
+    @JoinColumn(name = "Id_Jant")
     private Jantar jantar;
 
     @JsonManagedReference(value = "data-lanche")
-    @OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Lanche.class)
-    @JoinColumn(name = "Id_Lanche", insertable = true, updatable = true)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Lanche.class)
+    @JoinColumn(name = "Id_Lanche")
     private Lanche lanche;
 
     @JsonManagedReference(value = "data-almoco")
-    @OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Almoco.class)
-    @JoinColumn(name = "Id_Almoco", insertable = true, updatable = true)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Almoco.class)
+    @JoinColumn(name = "Id_Almoco")
     private Almoco almoco;
 
     @JsonManagedReference(value = "data-desjejum")
-    @OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Desjejum.class)
-    @JoinColumn(name = "Id_Desj", insertable = true, updatable = true)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Desjejum.class)
+    @JoinColumn(name = "Id_Desj")
     private Desjejum desjejum;
 
     @JsonManagedReference(value = "data-foraHora")
-    @OneToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = ForaHora.class)
-    @JoinColumn(name = "Id_Foradehora", insertable = true, updatable = true)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = ForaHora.class)
+    @JoinColumn(name = "Id_Foradehora")
     private ForaHora foraHora;
 
     @JsonBackReference(value = "paciente-data")
     @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Paciente.class)
-    @JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
+    @JoinColumn(name = "id_Paciente")
     private Paciente paciente;
 
     public Long getId() {
@@ -109,6 +109,14 @@ public class Data {
 
     public void setDesjejum(Desjejum desjejum) {
         this.desjejum = desjejum;
+    }
+
+    public ForaHora getForaHora() {
+        return foraHora;
+    }
+
+    public void setForaHora(ForaHora foraHora) {
+        this.foraHora = foraHora;
     }
 
     public Paciente getPaciente() {

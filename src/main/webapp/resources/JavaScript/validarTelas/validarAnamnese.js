@@ -692,20 +692,10 @@ $(document).ready(function () {
                         contentType: "application/json",
                         dataType: 'json',
                         success: function (data) {
+                            alert(data.mensagem);
                             if (data.codigo !== 0) {
-                                /*
-                                 *  Uanderson a mensagem que você vai que aparece no alert está na variavel "data.mensagem"
-                                 *  Essa mensagem está escrito "Já tem um login Igual a esse", que aparece quando o usuario coloca um email que já foi colocado.
-                                 */
-
-                                alert(data.mensagem);
-
-                                /*
-                                 *  Dar um jeito de aparecer a mensagem antes do "return false"
-                                 */
                                 return false;
                             } else {
-                                alert(data.mensagem);
                                 window.location.href = '/ProjetoTcc/telaPaciente';
                                 return true;
                             }

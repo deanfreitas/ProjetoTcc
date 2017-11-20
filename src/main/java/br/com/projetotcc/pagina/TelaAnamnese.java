@@ -34,18 +34,8 @@ public class TelaAnamnese {
         this.context = context;
     }
 
-    @RequestMapping(value = rotaTela + "/cadastrar/{idPaciente}", method = RequestMethod.GET)
+    @RequestMapping(value = rotaTela + "/{tipoPagina}/{idPaciente}", method = RequestMethod.GET)
     public ModelAndView cadastrarAnamnese() {
-        return new ModelAndView(tela);
-    }
-
-    @RequestMapping(value = rotaTela + "/atualizar/{idPaciente}", method = RequestMethod.GET)
-    public ModelAndView atualizarAnamnese() {
-        return new ModelAndView(tela);
-    }
-
-    @RequestMapping(value = rotaTela + "/visualizar/{idPaciente}", method = RequestMethod.GET)
-    public ModelAndView visualizarAnamnese() {
         return new ModelAndView(tela);
     }
 

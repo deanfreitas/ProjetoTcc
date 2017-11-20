@@ -28,9 +28,9 @@ public class Atualizar extends Http {
     private boolean validTypeUser(String typeUser) {
         boolean trueUser = false;
 
-        if (typeUser.equals("nutricionista")) {
+        if (typeUser.equalsIgnoreCase("nutricionista")) {
             trueUser = context.getAttribute("dadosCadastradosPessoa") instanceof Nutricionista;
-        } else if (typeUser.equals("paciente")) {
+        } else if (typeUser.equalsIgnoreCase("paciente")) {
             trueUser = context.getAttribute("dadosCadastradosPessoa") instanceof Paciente;
         }
 

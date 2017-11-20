@@ -36,7 +36,7 @@ public class TelaDiarioAlimentar {
         return new ModelAndView(tela);
     }
 
-    @RequestMapping(value = rotaTela + "/{dia}/{mes}/{ano}", method = RequestMethod.GET)
+    @RequestMapping(value = rotaTela + "/{tipoPagina}/{data}", method = RequestMethod.GET)
     public ModelAndView aparecerTelaDiarioAlimentarComData() {
         return new ModelAndView(tela);
     }

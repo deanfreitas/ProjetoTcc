@@ -1,6 +1,9 @@
 $(document).ready(function () {
     $.material.init();
 
+    const url = window.location.href;
+    const data = url.replace(/(\/)(\d{1,})/, "$1 $2").replace(/(^[^ ]*)/, "").trim();
+
     //Cafe da manha
     const horarioCafeManha = $('#CM-horario');
     const humorCafeManha = $('#CM-humor');
@@ -43,5 +46,84 @@ $(document).ready(function () {
     const alimentoCeia = $('#CE-alimento');
     const quantidadeCeia = $('#CE-quant');
 
+    let tipoAcaoDiarioAlimentar = null;
 
+    if (url.indexOf("cadastrar") > -1) {
+        tipoAcaoDiarioAlimentar = "cadastrar";
+    } else if (url.indexOf("atualizar") > -1) {
+        tipoAcaoDiarioAlimentar = "atualizar";
+    } else if (url.indexOf("visualizar") > -1) {
+        tipoAcaoDiarioAlimentar = "visualizar";
+    }
+
+    function cadastrarDiarioAlimentar(fields) {
+        fields.click(function () {
+            let object = {
+                id: data,
+                ceia: {
+                    horario: horarioCeia.val(),
+                    local: localCeia.val(),
+                    humor: humorCeia.val(),
+                    alimentos: alimentoCeia.val(),
+                    quantidade: quantidadeCeia.val(),
+                },
+                colacao: {
+                    horario: horarioLancheManha.val(),
+                    local: localLancheManha.val(),
+                    humor: humorLancheManha.val(),
+                    alimentos: alimentoLancheManha.val(),
+                    quantidade: quantidadeLancheManha.val(),
+                },
+                jantar: {
+                    horario: horarioJantar.val(),
+                    local: localJantar.val(),
+                    humor: humorJantar.val(),
+                    alimentos: alimentoJantar.val(),
+                    quantidade: quantidadeJantar.val(),
+                },
+                lanche: {
+                    horario: horarioLancheTarde.val(),
+                    local: localLancheTarde.val(),
+                    humor: humorLancheTarde.val(),
+                    alimentos: alimentoLancheTarde.val(),
+                    quantidade: quantidadeLancheTarde.val(),
+                },
+                almoco: {
+                    horario: horarioAlmoco.val(),
+                    local: localAlmoco.val(),
+                    humor: humorAlmoco.val(),
+                    alimentos: alimentoAlmoco.val(),
+                    quantidade: quantidadeAlmoco.val(),
+                },
+                desjejum: {
+                    horario: horarioCafeManha.val(),
+                    local: localCafeManha.val(),
+                    humor: humorCafeManha.val(),
+                    alimentos: alimentoCafeManha.val(),
+                    quantidade: quantidadeCafeManha.val(),
+                },
+                foraHora: {
+                    horario: "",
+                    local: "",
+                    humor: "",
+                    alimentos: "",
+                    quantidade: "",
+                }
+            };
+
+            $.ajax({
+                url: "/ProjetoTcc/cadastrarDiarioAlimentar",
+                type: 'PUT',
+                data: JSON.stringify(object),
+                contentType: "application/json",
+                dataType: 'json',
+                success: function (data) {
+                    alert(data.mensagem);
+                    return data.codigo === 0;
+                }
+            });
+        })
+    }
+
+    cadastrarDiarioAlimentar();
 });
