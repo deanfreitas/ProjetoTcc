@@ -21,7 +21,7 @@ public class Deletar extends Http {
     }
 
     public ResultadoServico deletarPacientes(List<Paciente> pacientes) {
-        List<Object> mensagens = new ArrayList<Object>();
+        List<Object> mensagens = new ArrayList<>();
 
         for (Paciente paciente : pacientes) {
             try {

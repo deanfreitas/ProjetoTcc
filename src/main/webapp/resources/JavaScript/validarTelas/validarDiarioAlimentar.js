@@ -46,6 +46,14 @@ $(document).ready(function () {
     const alimentoCeia = $('#CE-alimento');
     const quantidadeCeia = $('#CE-quant');
 
+    //Botões
+    const btnSalvar = $('#btnSalvar');
+    const btnLimpar = $('#btnLimpar');
+    const btnCancelar = $('#btnCancelar');
+
+    //tabela
+    const tabelaDiarioAlimentar = $('#diarioAlimentar');
+
     let tipoAcaoDiarioAlimentar = null;
 
     if (url.indexOf("cadastrar") > -1) {
@@ -125,5 +133,21 @@ $(document).ready(function () {
         })
     }
 
-    cadastrarDiarioAlimentar();
+    function limparDiarioAlimentar(fields) {
+        fields.click(function () {
+            tabelaDiarioAlimentar.find('tbody').find('input[type=text]').each(function () {
+                $(this).val('');
+            })
+        })
+    }
+
+    function cancelar(fields) {
+        fields.click(function () {
+            location.href = '/ProjetoTcc/telaDiarioAlimentarHome';
+        })
+    }
+
+    cadastrarDiarioAlimentar(btnSalvar);
+    limparDiarioAlimentar(btnLimpar);
+    cancelar(btnCancelar);
 });

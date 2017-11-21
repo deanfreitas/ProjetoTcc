@@ -49,8 +49,7 @@
 </div>
 <div class="container-fluid col-md-12">
     <div class="jumbotron">
-
-        <table class="table table-striped table-hover ">
+        <table id="diarioAlimentar" class="table table-striped table-hover ">
             <thead>
             <tr>
                 <th>REFEIÇÃO</th>
