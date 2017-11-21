@@ -52,16 +52,23 @@
         <a class="btn btn-lg btn-success " href="#" id="adicionarItem">Adicionar</a>
         <a class="btn btn-lg btn-danger" href="#" id="apagarItem">Apagar</a>
 
+
     </div>
     <div class="jumbotron">
+       
+                    <p>Selecione a data:</p>
+                    <input type="date" class="form-control" id="tData" placeholder="dd/mm/aaaa" data-toggle="tooltip"
+                           title="Digite a data corretamente">
+<a href="javascript:void(0)" class="btn btn-primary">Buscar</a>
+                
         <table id="pacientes" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
                 <th></th>
-                <th>NOME</th>
-                <th>DATA</th>
-                <th>LOCAL</th>
                 <th>HORÁRIO</th>
+                <th>ALIMENTOS</th>
+                <th>LOCAL</th>
+                <th>QUANTIDADE</th>
             </tr>
             <tr>
             <th></th>
