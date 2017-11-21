@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+	<meta http-equiv="Content-Language" content="pt-br">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,15 +18,20 @@
     <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/ripples.min.css' />"/>
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='/resources/Css/estiloTelas/estiloDiarioAlimentarHome.css' />"/>
+        <link rel="stylesheet" type="text/css"
+          href="<c:url value ='/resources/Css/estiloTelas/estiloCalendario.css' />"/>
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
     <script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />"></script>
-    <script src="<c:url value ='/resources/JavaScript/jquery/dataTables/jquery.dataTables.min.js' />"></script>
-    <script src="<c:url value ='/resources/JavaScript/bootstrap/dataTables/dataTables.bootstrap.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />"></script>
+    <script src="<c:url value ='/resources/JavaScript/validarTelas/JsCalendario.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/validarTelas/validarDiarioAlimentarHome.js' />"></script>
+
 </head>
 
 <body>
@@ -48,48 +54,16 @@
     </div>
 </div>
 <div class="container-fluid col-md-12">
-    <div class="btn-group btn-group-justified btn-group-raised" id="menuDiario">
-        <a class="btn btn-lg btn-success " href="#" id="adicionarItem">Adicionar</a>
-        <a class="btn btn-lg btn-danger" href="#" id="apagarItem">Apagar</a>
 
-
-    </div>
     <div class="jumbotron">
        
-                    <p>Selecione a data:</p>
-                    <input type="date" class="form-control" id="tData" placeholder="dd/mm/aaaa" data-toggle="tooltip"
-                           title="Digite a data corretamente">
-<a href="javascript:void(0)" class="btn btn-primary">Buscar</a>
-                
-        <table id="pacientes" class="table table-striped table-bordered" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                <th></th>
-                <th>HORÁRIO</th>
-                <th>ALIMENTOS</th>
-                <th>LOCAL</th>
-                <th>QUANTIDADE</th>
-            </tr>
-            <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            </tr>
-            <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            </tr>
-            
-            </thead>
-            <tbody>
-            <!-- O corpo da tabela está sendo renderizada no javaScript -->
-            </tbody>
-        </table>
+       <div id='wrap'>
+
+<div id='calendar'></div>
+
+<div style='clear:both'></div>
+</div>
+                   
         
         
     </div>
