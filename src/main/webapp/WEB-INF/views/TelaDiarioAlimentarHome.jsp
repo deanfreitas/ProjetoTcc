@@ -48,9 +48,43 @@
     </div>
 </div>
 <div class="container-fluid col-md-12">
-    <div class="jumbotron">
+    <div class="btn-group btn-group-justified btn-group-raised" id="menuDiario">
+        <a class="btn btn-lg btn-success " href="#" id="adicionarItem">Adicionar</a>
+        <a class="btn btn-lg btn-danger" href="#" id="apagarItem">Apagar</a>
 
-        <h1>Página em construção</h1>
+    </div>
+    <div class="jumbotron">
+        <table id="pacientes" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th></th>
+                <th>NOME</th>
+                <th>DATA</th>
+                <th>LOCAL</th>
+                <th>HORÁRIO</th>
+            </tr>
+            <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            </tr>
+            <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            </tr>
+            
+            </thead>
+            <tbody>
+            <!-- O corpo da tabela está sendo renderizada no javaScript -->
+            </tbody>
+        </table>
+        
+        
     </div>
 </div>
 </body>

@@ -10,6 +10,7 @@ $(document).ready(function () {
     const btnApagarPaciente = $("#apagarPaciente");
     const btnGerarRelatorio = $("#gerarRelatorio");
     const brnTelaAcompanhamento = $("#telaAcompanhamento");
+    const brnTelaDiarioAlimentar = $("#telaDiarioAlimentar");
 
     function getPacientes() {
         let object;

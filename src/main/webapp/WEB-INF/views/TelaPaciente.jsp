@@ -53,6 +53,7 @@
         <a class="btn btn-lg btn-success" href="#" id="apagarPaciente">Apagar</a>
         <a class="btn btn-lg btn-success" href="#" id="gerarRelatorio">Gerar relatório</a>
         <a class="btn btn-lg btn-success" href="#" id="telaAcompanhamento">Acompanhamento</a>
+        <a class="btn btn-lg btn-success" href="#" id="telaDiarioAlimentar">Diário Alimentar</a>
     </div>
     <div class="jumbotron">
         <table id="pacientes" class="table table-striped table-bordered" cellspacing="0" width="100%">

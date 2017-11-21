@@ -112,6 +112,12 @@
             </tr>
             </tbody>
         </table>
+            <div class="btn-group btn-group-justified btn-group-raised" id="menuDiarioAlimentar">
+        <a class="btn btn-lg btn-success " href="#" id="btnSalvar">Salvar</a>
+        <a class="btn btn-lg btn-warning " href="#" id="btnLimpar">Limpar</a>
+        <a class="btn btn-lg btn-danger " href="#" id="btnCancelar">Cancelar</a>
+
+    </div>
     </div>
 </div>
 </body>
