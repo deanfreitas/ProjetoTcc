@@ -297,7 +297,36 @@
             <fieldset>
                 <legend> Dados Antropométricos</legend>
 
-                <div id="jsGrid"></div>
+                 <div class="jumbotron">
+        <table id="dadosAntro" class="table table-striped table-hover ">
+            <thead>
+            <tr>
+            	<th></th>
+                <th>DATA</th>
+                <th>PA</th>
+                <th>PESO(KG)</th>
+                <th>ALTURA(CM)</th>
+                <th>IMC</th>
+                <th>PCT</th>
+                <th>PCB</th>
+                <th>PC SE</th>
+                <th>PCPEITORAL</th>
+                <th>PCAB</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            <!-- O corpo da tabela está sendo renderizada no javaScript -->
+            
+            
+            </tbody>
+        </table>
+            <div class="btn-group btn-group-justified btn-group-raised" id="menuDadosAnt">
+        <a class="btn btn-lg btn-success " href="#" id="btnAdicionar">Adicionar</a>
+        <a class="btn btn-lg btn-warning " href="#" id="btnLimpar">Limpar</a>
+
+    </div>
+    </div>
 
                 <div class="form-group col-md-6">
                     <label for="tPusual"> Peso atual: </label>
@@ -712,7 +741,49 @@
             <fieldset>
                 <legend> Exames Bioquímicos</legend>
 
-                <div id="jsGrid2"></div>
+                                 <div class="jumbotron">
+        <table id="examesBio" class="table table-striped table-hover ">
+            <thead>
+
+<tr><td></td></tr>
+<tr><td>DATA</td></tr>
+<tr><td>GLI</td></tr>
+<tr><td>HG</td></tr>
+<tr><td>TG</td></tr>
+<tr><td>CT</td></tr>
+<tr><td>LDL</td></tr>
+<tr><td>HDL</td></tr>
+<tr><td>SÓDIO</td></tr>
+<tr><td>POTÁSSIO</td></tr>
+<tr><td>CREATININA</td></tr>
+<tr><td>TGO</td></tr>
+<tr><td>TGP</td></tr>
+<tr><td>GGT</td></tr>
+<tr><td>FERRITINA</td></tr>
+<tr><td>VITAMINA B12</td></tr>
+<tr><td>ÁCIDO FÓLICO</td></tr>
+<tr><td>NÃO HDL</td></tr>
+<tr><td>VLDL</td></tr>
+<tr><td>UREIA</td></tr>
+<tr><td>FÓSFORO</td></tr>
+<tr><td>CÁLCIO</td></tr>
+<tr><td>ÁCIDO ÚRICO</td></tr>
+
+
+            </thead>
+            <tbody>
+            
+            <!-- O corpo da tabela está sendo renderizada no javaScript -->
+            <!-- Aqui Gilberto ao invés de adicionar linhas, vc vai adicionar colunas a tabela -->
+            
+            </tbody>
+        </table>
+            <div class="btn-group btn-group-justified btn-group-raised" id="menuexamesBio">
+        <a class="btn btn-lg btn-success " href="#" id="btnAdicionar">Adicionar</a>
+        <a class="btn btn-lg btn-warning " href="#" id="btnLimpar">Limpar</a>
+
+    </div>
+    </div>
 
 
             </fieldset>
@@ -723,8 +794,33 @@
         <form id="formUsoMedicamentos">
             <fieldset>
                 <legend> Faz uso de medicamentos?</legend>
-                <div id="jsGrid3"></div>
+                <div class="jumbotron">
+        <table id="usoMedicamentos" class="table table-striped table-hover ">
+            <thead>
+            <tr>
+            	<th></th>
+                <th>NOME</th>
+                <th>DOSE</th>
+                <th>HORÁRIO</th>
+                <th>MOTIVO</th>
+                <th>INTER. DROGA x NUTR.</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            <!-- O corpo da tabela está sendo renderizada no javaScript -->
+            
+            
+            </tbody>
+        </table>
+            <div class="btn-group btn-group-justified btn-group-raised" id="menuusoMedicamentos">
+        <a class="btn btn-lg btn-success " href="#" id="btnAdicionar">Adicionar</a>
+        <a class="btn btn-lg btn-warning " href="#" id="btnLimpar">Limpar</a>
+
+    </div>
+    </div>
             </fieldset>
+            
         </form>
     </div>
 
