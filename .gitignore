@@ -5,3 +5,5 @@ target/
 .springBeans
 .settings/
 projetotcc.iml
+src/main/webapp/resources/nodeDependency/package-lock.json
+src/main/webapp/resources/nodeDependency/node_modules/

@@ -1,0 +1,26 @@
+{
+  "name": "projetotcc",
+  "version": "1.0.0",
+  "description": "ProjetoTcc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deanfreitas/ProjetoTcc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deanfreitas/ProjetoTcc/issues"
+  },
+  "homepage": "https://github.com/deanfreitas/ProjetoTcc#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "fullcalendar": "^3.7.0",
+    "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1",
+    "moment": "^2.19.2"
+  }
+}

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta http-equiv="Content-Language" content="pt-br">
+    <meta http-equiv="Content-Language" content="pt-br">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,23 +17,28 @@
           href="<c:url value ='/resources/Css/bootstrap/bootstrap-material-design.min.css' />"/>
     <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/ripples.min.css' />"/>
     <link rel="stylesheet" type="text/css"
-          href="<c:url value ='/resources/Css/estiloTelas/estiloDiarioAlimentarHome.css' />"/>
-        <link rel="stylesheet" type="text/css"
-          href="<c:url value ='/resources/Css/estiloTelas/estiloCalendario.css' />"/>
-    <link rel="stylesheet" type="text/css"
           href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    
-    <script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i'
+          rel="stylesheet">
+    <link href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css' rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+          href="<c:url value ='/resources/nodeDependency/node_modules/fullcalendar/dist/fullcalendar.min.css' />">
+    <link rel="stylesheet" type="text/css" media='print'
+          href="<c:url value ='/resources/nodeDependency/node_modules/fullcalendar/dist/fullcalendar.print.min.css' />">
+    <link rel="stylesheet" type="text/css"
+          href="<c:url value ='/resources/Css/estiloTelas/estiloDiarioAlimentarHome.css' />"/>
+
+    <script src="<c:url value='/resources/nodeDependency/node_modules/moment/moment.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/jquery/dist/jquery.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />"></script>
-    <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />"></script>
-    <script src="<c:url value ='/resources/JavaScript/validarTelas/JsCalendario.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/bootstrap/dist/js/bootstrap.min.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/fullcalendar/dist/fullcalendar.min.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/fullcalendar/dist/locale-all.js' />"></script>
+    <script src="<c:url value='/resources/nodeDependency/node_modules/fullcalendar/dist/gcal.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/validarTelas/validarDiarioAlimentarHome.js' />"></script>
 
 </head>
-
 <body>
 <div class="navbar navbar-default">
     <div class="col-md-12">
@@ -54,18 +59,11 @@
     </div>
 </div>
 <div class="container-fluid col-md-12">
-
     <div class="jumbotron">
-       
-       <div id='wrap'>
-
-<div id='calendar'></div>
-
-<div style='clear:both'></div>
-</div>
-                   
-        
-        
+        <div id='wrap'>
+            <div id='calendar'></div>
+            <div style='clear:both'></div>
+        </div>
     </div>
 </div>
 </body>
