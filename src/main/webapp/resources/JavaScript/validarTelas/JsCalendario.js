@@ -828,6 +828,8 @@ $(document).ready(function () {
         function renderSection(position) {
             const e = $("<td class='fc-header-" + position + "'/>");
             const buttonStr = options.header[position];
+            let button;
+
             if (buttonStr) {
                 $.each(buttonStr.split(' '), function (i) {
                     if (i > 0) {
@@ -855,7 +857,7 @@ $(document).ready(function () {
                             if (buttonClick) {
                                 const icon = options.theme ? smartProperty(options.buttonIcons, buttonName) : null; // why are we using smartProperty here?
                                 const text = smartProperty(options.buttonText, buttonName); // why are we using smartProperty here?
-                                const button = $(
+                                button = $(
                                     "<span class='fc-button fc-button-" + buttonName + " " + tm + "-state-default'>" +
                                     (icon ?
                                             "<span class='fc-icon-wrap'>" +
@@ -4210,12 +4212,13 @@ function enableTextSelection(element) {
     function buildSlotSegLevels(segs) {
         const levels = [];
         let seg;
+        let j;
 
         for (let i = 0; i < segs.length; i++) {
             seg = segs[i];
 
             // go through all the levels and stop on the first level where there are no collisions
-            for (let j = 0; j < levels.length; j++) {
+            for (j = 0; j < levels.length; j++) {
                 if (!computeSlotSegCollisions(seg, levels[j]).length) {
                     break;
                 }
@@ -5644,7 +5647,7 @@ function enableTextSelection(element) {
                 $(document).one('mouseup', function (ev) {
                     hoverListener.stop();
                     if (dates) {
-                        if (+dates[0] == +dates[1]) {
+                        if (+dates[0] === +dates[1]) {
                             reportDayClick(dates[0], true, ev);
                         }
                         reportSelection(dates[0], dates[1], true, ev);
