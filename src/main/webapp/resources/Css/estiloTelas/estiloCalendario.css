@@ -19,7 +19,7 @@ td.fc-today {
 
 .fc-first th{
 	font-family: 'Roboto', sans-serif;
-    background:#9675ce !important;
+    background:#009688 !important;
 	color:#FFF;
 	font-size:14px !important;
 	font-weight:500 !important;
@@ -97,11 +97,11 @@ html .fc,
 }
 	span.fc-button {
     font-family: 'Roboto', sans-serif;
-    border-color: #9675ce;
-	color: #9675ce;
+    border-color: #009688;
+	color: #006057;
 }
 .fc-state-down, .fc-state-active {
-    background-color: #9675ce !important;
+    background-color: #009688 !important;
 	color: #FFF !important;
 }
 .fc .fc-header-space {
@@ -288,10 +288,10 @@ html .fc,
 .fc-state-disabled {
 	cursor: default;
 	background-image: none;
-	background-color: #FFE3E3;
+	background-color: #ffffff;
 	filter: alpha(opacity=65);
 	box-shadow: none;
-	border:1px solid #FFE3E3;
+	border:1px solid #ffffff;
 	color: #ff3b30;
 	}
 
@@ -323,7 +323,7 @@ html .fc,
     background-color: #c6ebfe;
 }
 .fc-event.important{
-    background-color: #FFBEBE;
+    background-color: #ffffff;
 }
 .fc-event.success{
     background-color: #BEFFBF;
@@ -760,7 +760,7 @@ table.fc-header{
 	.external-event { /* try to mimick the look of a real event */
 		margin: 10px 0;
 		padding: 2px 4px;
-		background: #3366CC;
+		background: #ff5722;
 		color: #fff;
 		font-size: .85em;
 		cursor: pointer;
