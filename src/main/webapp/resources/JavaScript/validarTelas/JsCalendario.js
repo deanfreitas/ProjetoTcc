@@ -828,7 +828,6 @@ $(document).ready(function () {
         function renderSection(position) {
             const e = $("<td class='fc-header-" + position + "'/>");
             const buttonStr = options.header[position];
-            let button;
 
             if (buttonStr) {
                 $.each(buttonStr.split(' '), function (i) {
@@ -857,7 +856,7 @@ $(document).ready(function () {
                             if (buttonClick) {
                                 const icon = options.theme ? smartProperty(options.buttonIcons, buttonName) : null; // why are we using smartProperty here?
                                 const text = smartProperty(options.buttonText, buttonName); // why are we using smartProperty here?
-                                button = $(
+                                var button = $(
                                     "<span class='fc-button fc-button-" + buttonName + " " + tm + "-state-default'>" +
                                     (icon ?
                                             "<span class='fc-icon-wrap'>" +
