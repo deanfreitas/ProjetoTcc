@@ -313,6 +313,34 @@
                 <th>PCPEITORAL</th>
                 <th>PCAB</th>
             </tr>
+            <tr>
+           			 <th><div class="checkbox"><label><input type="checkbox"></label></div></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+            </tr>
+           
+                <tr>
+           			 <th><div class="checkbox"><label><input type="checkbox"></label></div></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+           			 <th><input type="text" class="form-control"></th>
+            </tr>
+           
             </thead>
             <tbody>
             
@@ -322,7 +350,7 @@
             </tbody>
         </table>
             <div class="btn-group btn-group-justified btn-group-raised" id="menuDadosAnt">
-        <a class="btn btn-lg btn-success " href="#" id="btnAdicionar">Adicionar</a>
+        <a class="btn btn-lg btn-info " href="#" id="btnAdicionar">Adicionar</a>
         <a class="btn btn-lg btn-warning " href="#" id="btnLimpar">Limpar</a>
 
     </div>
