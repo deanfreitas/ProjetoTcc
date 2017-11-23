@@ -9,6 +9,8 @@ import javax.persistence.*;
 @Table(name = "Ceia")
 public class Ceia implements InterfaceAlimentaresPaciente {
 
+    private static final long serialVersionUID = -1810814840567148267L;
+
     @Id
     @GeneratedValue
     @Column(name = "Id_Ceia", nullable = false)

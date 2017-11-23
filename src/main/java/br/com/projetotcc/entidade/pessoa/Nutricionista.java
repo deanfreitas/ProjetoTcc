@@ -14,6 +14,8 @@ import java.util.Set;
 @Table(name = "Nutricionista")
 public class Nutricionista implements InterfacePessoa {
 
+    private static final long serialVersionUID = -8634552110783655814L;
+
     @Id
     @GeneratedValue
     @Column(name = "id_nutricionista", nullable = false)

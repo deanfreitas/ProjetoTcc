@@ -10,6 +10,8 @@ import javax.persistence.*;
 @Table(name = "Atividade_Fisica")
 public class AtividadeFisica implements InterfaceDadosPaciente {
 
+    private static final long serialVersionUID = -5313156125251588114L;
+
     @Id
     @GeneratedValue
     @Column(name = "Id_AtividadeFisica", nullable = false)

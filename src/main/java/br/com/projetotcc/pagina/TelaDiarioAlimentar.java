@@ -17,8 +17,8 @@ import javax.servlet.ServletContext;
 @Controller
 public class TelaDiarioAlimentar {
 
-    private static final String tela = "TelaDiarioAlimentar";
-    private static final String rotaTela = "/telaDiarioAlimentar";
+    private static final String TELA = "TelaDiarioAlimentar";
+    private static final String ROTA_TELA = "/telaDiarioAlimentar";
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
@@ -31,14 +31,14 @@ public class TelaDiarioAlimentar {
         this.context = context;
     }
 
-    @RequestMapping(value = rotaTela, method = RequestMethod.GET)
+    @RequestMapping(value = ROTA_TELA, method = RequestMethod.GET)
     public ModelAndView aparecerTelaDiarioAlimentar() {
-        return new ModelAndView(tela);
+        return new ModelAndView(TELA);
     }
 
-    @RequestMapping(value = rotaTela + "/{tipoPagina}/{data}", method = RequestMethod.GET)
+    @RequestMapping(value = ROTA_TELA + "/{tipoPagina}/{data}", method = RequestMethod.GET)
     public ModelAndView aparecerTelaDiarioAlimentarComData() {
-        return new ModelAndView(tela);
+        return new ModelAndView(TELA);
     }
 
     @RequestMapping(value = "/cadastrarDiarioAlimentar", method = RequestMethod.PUT)

@@ -12,6 +12,8 @@ import java.util.Set;
 @Scope(value = "prototype")
 public class ResultadoServico implements Serializable {
 
+    private static final long serialVersionUID = 2195763076812051435L;
+
     private long codigo;
     private String mensagem;
     private Object objeto;
@@ -35,7 +37,7 @@ public class ResultadoServico implements Serializable {
         super();
         this.codigo = codigo;
         this.mensagem = mensagem;
-        this.listaObjetos = new ArrayList<Object>();
+        this.listaObjetos = new ArrayList<>();
         this.listaObjetos.add(objeto);
     }
 
@@ -46,7 +48,7 @@ public class ResultadoServico implements Serializable {
 
     public ResultadoServico(Object objeto) {
         super();
-        listaObjetos = new ArrayList<Object>();
+        listaObjetos = new ArrayList<>();
         this.listaObjetos.add(objeto);
     }
 

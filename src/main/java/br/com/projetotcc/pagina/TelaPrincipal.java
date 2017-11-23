@@ -17,8 +17,8 @@ import javax.servlet.ServletContext;
 @Controller
 public class TelaPrincipal {
 
-    private static final String tela = "TelaPrincipal";
-    private static final String rotaTela = "/telaPrincipal";
+    private static final String TELA = "TelaPrincipal";
+    private static final String ROTA_TELA = "/telaPrincipal";
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
@@ -31,9 +31,9 @@ public class TelaPrincipal {
         this.context = context;
     }
 
-    @RequestMapping(value = rotaTela, method = RequestMethod.GET)
+    @RequestMapping(value = ROTA_TELA, method = RequestMethod.GET)
     public ModelAndView aparecerTelaPrincipal() {
-        return new ModelAndView(tela);
+        return new ModelAndView(TELA);
     }
 
     @RequestMapping(value = "/pegarIdUsuarioLogado", method = RequestMethod.POST)

@@ -10,289 +10,291 @@ import javax.persistence.*;
 @Table(name = "Dados_Antropometricos")
 public class DadosAntropometricos implements InterfaceDadosPaciente {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "Id_DadosAntropometricos", nullable = false)
-	private Long id;
-	
-	@Column(name = "Ant_Data")
-	private String data;
-	
-	@Column(name = "Ant_PA")
-	private String pa;
-	
-	@Column(name = "Ant_Peso")
-	private Double peso;
-	
-	@Column(name = "Ant_Altura")
-	private Double altura; 
-	
-	@Column(name = "Ant_IMC")
-	private Double imc;
-	
-	@Column(name = "Ant_PCT")
-	private Double pct;
-	
-	@Column(name = "Ant_PCB")
-	private Double pcb;
-	
-	@Column(name = "Ant_PCSE")
-	private Double pcse;
-	
-	@Column(name = "Ant_Peitoral")
-	private Double peitoral;
-	
-	@Column(name = "Ant_PCAB")
-	private Double pcab;
-	
-	@Column(name = "Ant_PCSI")
-	private Double pcsi;
-	
-	@Column(name = "Ant_PCCOXA")
-	private Double pcCoxa;
-	
-	@Column(name = "Ant_PCpant")
-	private Double pcPant;
-	
-	@Column(name = "Ant_Braco")
-	private Double braco;
-	
-	@Column(name = "Ant_Antebraco")
-	private Double antebraco;
-	
-	@Column(name = "Ant_punho")
-	private Double punho;
-	
-	@Column(name = "Ant_Torax")
-	private Double torax;
-	
-	@Column(name = "Ant_Cintura")
-	private Double cintura;
-	
-	@Column(name = "Ant_Coxa")
-	private Double coxa;
-	
-	@Column(name = "Ant_Panturrilha")
-	private Double panturrilha;
-	
-	@Column(name = "Ant_Comple")
-	private Double comple;
-	
-	@Column(name = "Ant_EM")
-	private Double em;
-	
-	@Column(name = "Ant_porcentG")
-	private Double g;
-	
-	@Column(name = "Ant_porcentMM")
-	private Double mm;
-	
-	@JsonBackReference(value = "paciente-dadosAntropometricos")
-	@ManyToOne(optional = true, fetch = FetchType.LAZY, targetEntity = Paciente.class)
-	@JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
-	private Paciente paciente;
+    private static final long serialVersionUID = 8271919709731934755L;
 
-	public DadosAntropometricos() {
-		super();
-	}
-	
-	public Long getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue
+    @Column(name = "Id_DadosAntropometricos", nullable = false)
+    private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(name = "Ant_Data")
+    private String data;
 
-	public String getData() {
-		return data;
-	}
+    @Column(name = "Ant_PA")
+    private String pa;
 
-	public void setData(String data) {
-		this.data = data;
-	}
+    @Column(name = "Ant_Peso")
+    private Double peso;
 
-	public String getPa() {
-		return pa;
-	}
+    @Column(name = "Ant_Altura")
+    private Double altura;
 
-	public void setPa(String pa) {
-		this.pa = pa;
-	}
+    @Column(name = "Ant_IMC")
+    private Double imc;
 
-	public Double getPeso() {
-		return peso;
-	}
+    @Column(name = "Ant_PCT")
+    private Double pct;
 
-	public void setPeso(Double peso) {
-		this.peso = peso;
-	}
+    @Column(name = "Ant_PCB")
+    private Double pcb;
 
-	public Double getAltura() {
-		return altura;
-	}
+    @Column(name = "Ant_PCSE")
+    private Double pcse;
 
-	public void setAltura(Double altura) {
-		this.altura = altura;
-	}
+    @Column(name = "Ant_Peitoral")
+    private Double peitoral;
 
-	public Double getImc() {
-		return imc;
-	}
+    @Column(name = "Ant_PCAB")
+    private Double pcab;
 
-	public void setImc(Double imc) {
-		this.imc = imc;
-	}
+    @Column(name = "Ant_PCSI")
+    private Double pcsi;
 
-	public Double getPct() {
-		return pct;
-	}
+    @Column(name = "Ant_PCCOXA")
+    private Double pcCoxa;
 
-	public void setPct(Double pct) {
-		this.pct = pct;
-	}
+    @Column(name = "Ant_PCpant")
+    private Double pcPant;
 
-	public Double getPcb() {
-		return pcb;
-	}
+    @Column(name = "Ant_Braco")
+    private Double braco;
 
-	public void setPcb(Double pcb) {
-		this.pcb = pcb;
-	}
+    @Column(name = "Ant_Antebraco")
+    private Double antebraco;
 
-	public Double getPcse() {
-		return pcse;
-	}
+    @Column(name = "Ant_punho")
+    private Double punho;
 
-	public void setPcse(Double pcse) {
-		this.pcse = pcse;
-	}
+    @Column(name = "Ant_Torax")
+    private Double torax;
 
-	public Double getPeitoral() {
-		return peitoral;
-	}
+    @Column(name = "Ant_Cintura")
+    private Double cintura;
 
-	public void setPeitoral(Double peitoral) {
-		this.peitoral = peitoral;
-	}
+    @Column(name = "Ant_Coxa")
+    private Double coxa;
 
-	public Double getPcab() {
-		return pcab;
-	}
+    @Column(name = "Ant_Panturrilha")
+    private Double panturrilha;
 
-	public void setPcab(Double pcab) {
-		this.pcab = pcab;
-	}
+    @Column(name = "Ant_Comple")
+    private Double comple;
 
-	public Double getPcsi() {
-		return pcsi;
-	}
+    @Column(name = "Ant_EM")
+    private Double em;
 
-	public void setPcsi(Double pcsi) {
-		this.pcsi = pcsi;
-	}
+    @Column(name = "Ant_porcentG")
+    private Double g;
 
-	public Double getPcCoxa() {
-		return pcCoxa;
-	}
+    @Column(name = "Ant_porcentMM")
+    private Double mm;
 
-	public void setPcCoxa(Double pcCoxa) {
-		this.pcCoxa = pcCoxa;
-	}
+    @JsonBackReference(value = "paciente-dadosAntropometricos")
+    @ManyToOne(optional = true, fetch = FetchType.LAZY, targetEntity = Paciente.class)
+    @JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
+    private Paciente paciente;
 
-	public Double getPcPant() {
-		return pcPant;
-	}
+    public DadosAntropometricos() {
+        super();
+    }
 
-	public void setPcPant(Double pcPant) {
-		this.pcPant = pcPant;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public Double getBraco() {
-		return braco;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setBraco(Double braco) {
-		this.braco = braco;
-	}
+    public String getData() {
+        return data;
+    }
 
-	public Double getAntebraco() {
-		return antebraco;
-	}
+    public void setData(String data) {
+        this.data = data;
+    }
 
-	public void setAntebraco(Double antebraco) {
-		this.antebraco = antebraco;
-	}
+    public String getPa() {
+        return pa;
+    }
 
-	public Double getPunho() {
-		return punho;
-	}
+    public void setPa(String pa) {
+        this.pa = pa;
+    }
 
-	public void setPunho(Double punho) {
-		this.punho = punho;
-	}
+    public Double getPeso() {
+        return peso;
+    }
 
-	public Double getTorax() {
-		return torax;
-	}
+    public void setPeso(Double peso) {
+        this.peso = peso;
+    }
 
-	public void setTorax(Double torax) {
-		this.torax = torax;
-	}
+    public Double getAltura() {
+        return altura;
+    }
 
-	public Double getCintura() {
-		return cintura;
-	}
+    public void setAltura(Double altura) {
+        this.altura = altura;
+    }
 
-	public void setCintura(Double cintura) {
-		this.cintura = cintura;
-	}
+    public Double getImc() {
+        return imc;
+    }
 
-	public Double getPanturrilha() {
-		return panturrilha;
-	}
+    public void setImc(Double imc) {
+        this.imc = imc;
+    }
 
-	public void setPanturrilha(Double panturrilha) {
-		this.panturrilha = panturrilha;
-	}
+    public Double getPct() {
+        return pct;
+    }
 
-	public Double getComple() {
-		return comple;
-	}
+    public void setPct(Double pct) {
+        this.pct = pct;
+    }
 
-	public void setComple(Double comple) {
-		this.comple = comple;
-	}
+    public Double getPcb() {
+        return pcb;
+    }
 
-	public Double getEm() {
-		return em;
-	}
+    public void setPcb(Double pcb) {
+        this.pcb = pcb;
+    }
 
-	public void setEm(Double em) {
-		this.em = em;
-	}
+    public Double getPcse() {
+        return pcse;
+    }
 
-	public Double getG() {
-		return g;
-	}
+    public void setPcse(Double pcse) {
+        this.pcse = pcse;
+    }
 
-	public void setG(Double g) {
-		this.g = g;
-	}
+    public Double getPeitoral() {
+        return peitoral;
+    }
 
-	public Double getMm() {
-		return mm;
-	}
+    public void setPeitoral(Double peitoral) {
+        this.peitoral = peitoral;
+    }
 
-	public void setMm(Double mm) {
-		this.mm = mm;
-	}
-	
-	public Paciente getPaciente() {
-		return paciente;
-	}
+    public Double getPcab() {
+        return pcab;
+    }
 
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
+    public void setPcab(Double pcab) {
+        this.pcab = pcab;
+    }
+
+    public Double getPcsi() {
+        return pcsi;
+    }
+
+    public void setPcsi(Double pcsi) {
+        this.pcsi = pcsi;
+    }
+
+    public Double getPcCoxa() {
+        return pcCoxa;
+    }
+
+    public void setPcCoxa(Double pcCoxa) {
+        this.pcCoxa = pcCoxa;
+    }
+
+    public Double getPcPant() {
+        return pcPant;
+    }
+
+    public void setPcPant(Double pcPant) {
+        this.pcPant = pcPant;
+    }
+
+    public Double getBraco() {
+        return braco;
+    }
+
+    public void setBraco(Double braco) {
+        this.braco = braco;
+    }
+
+    public Double getAntebraco() {
+        return antebraco;
+    }
+
+    public void setAntebraco(Double antebraco) {
+        this.antebraco = antebraco;
+    }
+
+    public Double getPunho() {
+        return punho;
+    }
+
+    public void setPunho(Double punho) {
+        this.punho = punho;
+    }
+
+    public Double getTorax() {
+        return torax;
+    }
+
+    public void setTorax(Double torax) {
+        this.torax = torax;
+    }
+
+    public Double getCintura() {
+        return cintura;
+    }
+
+    public void setCintura(Double cintura) {
+        this.cintura = cintura;
+    }
+
+    public Double getPanturrilha() {
+        return panturrilha;
+    }
+
+    public void setPanturrilha(Double panturrilha) {
+        this.panturrilha = panturrilha;
+    }
+
+    public Double getComple() {
+        return comple;
+    }
+
+    public void setComple(Double comple) {
+        this.comple = comple;
+    }
+
+    public Double getEm() {
+        return em;
+    }
+
+    public void setEm(Double em) {
+        this.em = em;
+    }
+
+    public Double getG() {
+        return g;
+    }
+
+    public void setG(Double g) {
+        this.g = g;
+    }
+
+    public Double getMm() {
+        return mm;
+    }
+
+    public void setMm(Double mm) {
+        this.mm = mm;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
 }

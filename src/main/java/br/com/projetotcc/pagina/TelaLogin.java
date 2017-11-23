@@ -18,8 +18,8 @@ import javax.servlet.ServletContext;
 @Controller
 public class TelaLogin {
 
-    private static final String tela = "TelaLogin";
-    private static final String rotaTela = "/telaLogin";
+    private static final String TELA = "TelaLogin";
+    private static final String ROTA_TELA = "/telaLogin";
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
@@ -36,17 +36,17 @@ public class TelaLogin {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView aparecerTelaLoginComBarra() {
-        return new ModelAndView(tela);
+        return new ModelAndView(TELA);
     }
 
-    @RequestMapping(value = rotaTela, method = RequestMethod.GET)
+    @RequestMapping(value = ROTA_TELA, method = RequestMethod.GET)
     public ModelAndView aparecerTelaLogin() {
-        return new ModelAndView(tela);
+        return new ModelAndView(TELA);
     }
 
     @RequestMapping(value = "/sairSistema", method = RequestMethod.GET)
     public ModelAndView sairSistema() {
-        return new ModelAndView(tela);
+        return new ModelAndView(TELA);
     }
 
     @RequestMapping(value = "/entrarTelaPrincipal", method = RequestMethod.POST)

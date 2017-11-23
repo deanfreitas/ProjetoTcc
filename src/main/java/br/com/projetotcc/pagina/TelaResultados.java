@@ -12,14 +12,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
-import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.mensagem.ResultadoServico;
 
 @Controller
 public class TelaResultados {
 
-    private static final String tela = "TelaResultados";
-    private static final String rotaTela = "/telaResultados";
+    private static final String TELA = "TelaResultados";
+    private static final String ROTA_TELA = "/telaResultados";
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
@@ -32,9 +31,9 @@ public class TelaResultados {
         this.context = context;
     }
 
-    @RequestMapping(value = rotaTela + "/{idUsuario}", method = RequestMethod.GET)
+    @RequestMapping(value = ROTA_TELA + "/{idUsuario}", method = RequestMethod.GET)
     public ModelAndView aparecerTelaResultados() {
-        return new ModelAndView(tela);
+        return new ModelAndView(TELA);
     }
 
     @RequestMapping(value = "/getResultadosPaciente/{idUsuario}", method = RequestMethod.GET)

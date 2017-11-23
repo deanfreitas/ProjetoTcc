@@ -20,8 +20,8 @@ import br.com.projetotcc.mensagem.ResultadoServico;
 @Controller
 public class TelaAnamnese {
 
-    private static final String tela = "TelaAnamnese";
-    private static final String rotaTela = "/telaAnamnese";
+    private static final String TELA = "TelaAnamnese";
+    private static final String ROTA_TELA = "/telaAnamnese";
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
@@ -34,9 +34,9 @@ public class TelaAnamnese {
         this.context = context;
     }
 
-    @RequestMapping(value = rotaTela + "/{tipoPagina}/{idPaciente}", method = RequestMethod.GET)
+    @RequestMapping(value = ROTA_TELA + "/{tipoPagina}/{idPaciente}", method = RequestMethod.GET)
     public ModelAndView cadastrarAnamnese() {
-        return new ModelAndView(tela);
+        return new ModelAndView(TELA);
     }
 
     @RequestMapping(value = "/cadastrarInformacoesPaciente", method = RequestMethod.PUT)

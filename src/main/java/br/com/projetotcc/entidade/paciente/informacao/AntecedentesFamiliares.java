@@ -10,53 +10,55 @@ import javax.persistence.*;
 @Table(name = "Antecedentes_Familiares")
 public class AntecedentesFamiliares implements InterfaceDadosPaciente {
 
+	private static final long serialVersionUID = -7801606692567245617L;
+
 	@Id
 	@GeneratedValue
 	@Column(name = "Id_AntecedentesFamiliares", nullable = false)
 	private Long id;
-	
+
 	@Column(name = "Ant_Dm")
 	private boolean dm;
-	
+
 	@Column(name = "Ant_Ha")
 	private boolean ha;
-	
+
 	@Column(name = "Ant_Ca")
 	private boolean ca;
-	
+
 	@Column(name = "Ant_Dislipidemia")
 	private boolean dislipidemia;
-	
+
 	@Column(name = "Ant_Obesidade")
 	private boolean obesidade;
-	
+
 	@Column(name = "Ant_Magreza")
 	private boolean magreza;
-	
+
 	@Column(name = "Ant_Outros")
 	private boolean outros;
-	
+
 	@Column(name = "Ant_OBSDm")
 	private String observacaoDm;
-	
+
 	@Column(name = "Ant_OBSHa")
 	private String observacaoHa;
-	
+
 	@Column(name = "Ant_OBSCa")
 	private String observacaoCa;
-	
+
 	@Column(name = "Ant_OBSDislipedemia")
 	private String observacaoDislipedemia;
-	
+
 	@Column(name = "Ant_OBSObesidade")
 	private String observacaoObesidade;
-	
+
 	@Column(name = "Ant_OBSMagreza")
 	private String observacaoMagreza;
-	
+
 	@Column(name = "Ant_OBSOutros")
 	private String observacaoOutros;
-	
+
 	@JsonBackReference(value = "paciente-antecedentesFamiliares")
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "antecedentesFamiliares")
 	private Paciente paciente;
@@ -71,63 +73,10 @@ public class AntecedentesFamiliares implements InterfaceDadosPaciente {
 		this.magreza = magreza;
 		this.outros = outros;
 	}
-	
-	public AntecedentesFamiliares(Long id, boolean dm, boolean ha, boolean ca, boolean dislipidemia, boolean obesidade, boolean magreza, boolean outros) {
-		super();
-		this.id = id;
-		this.dm = dm;
-		this.ha = ha;
-		this.ca = ca;
-		this.dislipidemia = dislipidemia;
-		this.obesidade = obesidade;
-		this.magreza = magreza;
-		this.outros = outros;
-	}
-	
-	public AntecedentesFamiliares(boolean dm, boolean ha, boolean ca, boolean dislipidemia, boolean obesidade, boolean magreza, boolean outros, 
-			String observacaoDm, String observacaoHa, String observacaoCa, String observacaoDislipedemia, String observacaoObesidade, String observacaoMagreza, 
-			String observacaoOutros) {
-		super();
-		this.dm = dm;
-		this.ha = ha;
-		this.ca = ca;
-		this.dislipidemia = dislipidemia;
-		this.obesidade = obesidade;
-		this.magreza = magreza;
-		this.outros = outros;
-		this.observacaoDm = observacaoDm;
-		this.observacaoHa = observacaoHa;
-		this.observacaoCa = observacaoCa;
-		this.observacaoDislipedemia = observacaoDislipedemia;
-		this.observacaoObesidade = observacaoObesidade;
-		this.observacaoMagreza = observacaoMagreza;
-		this.observacaoOutros = observacaoOutros;
-	}
-	
-	public AntecedentesFamiliares(Long id, boolean dm, boolean ha, boolean ca, boolean dislipidemia, boolean obesidade, boolean magreza, boolean outros, 
-			String observacaoDm, String observacaoHa, String observacaoCa, String observacaoDislipedemia, String observacaoObesidade, String observacaoMagreza, 
-			String observacaoOutros) {
-		super();
-		this.id = id;
-		this.dm = dm;
-		this.ha = ha;
-		this.ca = ca;
-		this.dislipidemia = dislipidemia;
-		this.obesidade = obesidade;
-		this.magreza = magreza;
-		this.outros = outros;
-		this.observacaoDm = observacaoDm;
-		this.observacaoHa = observacaoHa;
-		this.observacaoCa = observacaoCa;
-		this.observacaoDislipedemia = observacaoDislipedemia;
-		this.observacaoObesidade = observacaoObesidade;
-		this.observacaoMagreza = observacaoMagreza;
-		this.observacaoOutros = observacaoOutros;
-	}
-	
+
 	public AntecedentesFamiliares() {
 	}
-	
+
 	public Long getId() {
 		return id;
 	}

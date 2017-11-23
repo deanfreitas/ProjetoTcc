@@ -2,9 +2,14 @@ package br.com.projetotcc.cadastro;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
+import br.com.projetotcc.enums.Code;
+import br.com.projetotcc.enums.Context;
+import br.com.projetotcc.enums.Pessoa;
+import br.com.projetotcc.enums.Response;
 import br.com.projetotcc.factory.FactoryUser;
 import br.com.projetotcc.interfaces.InterfacePessoa;
 import br.com.projetotcc.mensagem.ResultadoServico;
+import br.com.projetotcc.utils.Utils;
 
 import javax.servlet.ServletContext;
 import java.util.ArrayList;
@@ -16,7 +21,7 @@ public class Obter extends Http {
     private ResultadoServico resultadoServico;
     private ServletContext context;
     private String mensagem = null;
-    private long codigo = 0;
+    private long codigo = Code.SUCCESS.getTypeCode();
 
     public Obter(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
         super(resultadoServico);
@@ -34,12 +39,12 @@ public class Obter extends Http {
                 mensagem = tipoPessoa;
                 interfacePessoa = (InterfacePessoa) bancoDadosService.encontrarInformacaoPorId(interfacePessoa, id);
             } catch (Exception e) {
-                mensagem = "Erro no sistema";
-                codigo = 2;
+                mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+                codigo = Code.ERROR_SYSTEM.getTypeCode();
             }
         } else {
             mensagem = "Não foi encontrado Nenhum tipo de pessoa";
-            codigo = 1;
+            codigo = Code.ERROR.getTypeCode();
         }
 
         resultadoServico.setMensagem(mensagem);
@@ -52,18 +57,18 @@ public class Obter extends Http {
     public ResultadoServico pegarPacientesNutricionista() {
         List<Object> listaObjetos = new ArrayList<>();
 
-        if (context.getAttribute("dadosCadastradosPessoa") instanceof Nutricionista) {
-            Nutricionista dadosCastradoPessoa = (Nutricionista) context.getAttribute("dadosCadastradosPessoa");
+        if (Utils.validTypeUser(context, Pessoa.NUTRICIONISTA.getTypePessoa())) {
+            Nutricionista dadosCastradoPessoa = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
             Nutricionista nutricionista = (Nutricionista) bancoDadosService.encontrarInformacaoPorId(dadosCastradoPessoa, dadosCastradoPessoa.getId());
             if (nutricionista != null) {
                 listaObjetos.addAll(nutricionista.getPacientes());
             } else {
-                codigo = 2;
-                mensagem = "Erro no sistema";
+                codigo = Code.ERROR_SYSTEM.getTypeCode();
+                mensagem = Response.ERROR_SISTEMA.getTypeResponse();
             }
         } else {
-            codigo = 2;
-            mensagem = "Erro no sistema";
+            codigo = Code.ERROR_SYSTEM.getTypeCode();
+            mensagem = Response.ERROR_SISTEMA.getTypeResponse();
         }
 
         resultadoServico.setMensagem(mensagem);

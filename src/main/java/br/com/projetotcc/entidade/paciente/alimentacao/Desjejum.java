@@ -9,6 +9,8 @@ import javax.persistence.*;
 @Table(name = "Desjejum")
 public class Desjejum implements InterfaceAlimentaresPaciente {
 
+    private static final long serialVersionUID = 8226825756604355543L;
+
     @Id
     @GeneratedValue
     @Column(name = "Id_Desj", nullable = false)

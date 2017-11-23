@@ -3,13 +3,18 @@ package br.com.projetotcc.utils;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
+import br.com.projetotcc.enums.Code;
+import br.com.projetotcc.enums.Context;
+import br.com.projetotcc.enums.Pessoa;
 import br.com.projetotcc.mensagem.ResultadoServico;
+
+import javax.servlet.ServletContext;
 
 public class Usuario {
 
     private ResultadoServico resultadoServico;
     private String mensagem = null;
-    private long codigo = 1;
+    private long codigo = Code.ERROR.getTypeCode();
 
     public Usuario(ResultadoServico resultadoServico) {
         this.resultadoServico = resultadoServico;
@@ -21,7 +26,7 @@ public class Usuario {
         } else if (login.getSenha() == null || login.getSenha().equals("")) {
             mensagem = "Digite uma senha";
         } else {
-            codigo = 0;
+            codigo = Code.SUCCESS.getTypeCode();
         }
 
         resultadoServico.setMensagem(mensagem);
@@ -40,7 +45,7 @@ public class Usuario {
         } else if (paciente.getIdentificacao().getSexo() == null || paciente.getIdentificacao().getSexo().equals("")) {
             mensagem = "O campo de sexo precisa ser inserido na identificação";
         } else {
-            codigo = 0;
+            codigo = Code.SUCCESS.getTypeCode();
         }
 
         resultadoServico.setMensagem(mensagem);
@@ -90,7 +95,7 @@ public class Usuario {
         } else if (!pacienteNutricionista.getIdentificacao().getSexo().equals(paciente.getIdentificacao().getSexo())) {
             mensagem = "O paciente cadastrado para esse medico esta errado";
         } else {
-            codigo = 0;
+            codigo = Code.SUCCESS.getTypeCode();
         }
 
         return resultadoServico;

@@ -19,7 +19,7 @@ import javax.servlet.ServletContext;
 @Controller
 public class TelaCadastro {
 
-    private static final String tela = "TelaCadastro";
+    private static final String TELA = "TelaCadastro";
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
@@ -34,12 +34,12 @@ public class TelaCadastro {
 
     @RequestMapping(value = "/telaCadastrarUsuario/{tipoPessoa}", method = RequestMethod.GET)
     public ModelAndView cadastrarUsuario() {
-        return new ModelAndView(tela);
+        return new ModelAndView(TELA);
     }
 
     @RequestMapping(value = "/telaUpdateCadastro/{tipoPessoa}/{idUsuario}", method = RequestMethod.GET)
     public ModelAndView entrarTelaUpdateCadastro() {
-        return new ModelAndView(tela);
+        return new ModelAndView(TELA);
     }
 
     @RequestMapping(value = "/salvarUsuario/nutricionista", method = RequestMethod.POST)

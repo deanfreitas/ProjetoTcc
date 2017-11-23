@@ -11,79 +11,81 @@ import javax.persistence.*;
 @Table(name = "login")
 public class Login implements InterfaceDadosPessoa {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "Id_Login", nullable = false)
-	private Long id;
-	
-	@Column(name = "Log_Usuario")
-	private String usuario;
+    private static final long serialVersionUID = -2231602918807648218L;
 
-	@Column(name = "Log_Senha")
-	private String senha;
-	
-	@JsonBackReference(value = "nutricionista-login")
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "login")
-	private Nutricionista nutricionista;
-	
-	@JsonBackReference(value = "paciente-login")
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "login")
-	private Paciente paciente;
-	
-	public Login(String usuario, String senha) {
-		super();
-		this.usuario = usuario;
-		this.senha = senha;
-	}
-	
-	public Login(Long id, String usuario, String senha) {
-		super();
-		this.id = id;
-		this.usuario = usuario;
-		this.senha = senha;
-	}
-	
-	public Login() {
-		super();
-	}
+    @Id
+    @GeneratedValue
+    @Column(name = "Id_Login", nullable = false)
+    private Long id;
 
-	public Long getId() {
-		return id;
-	}
+    @Column(name = "Log_Usuario")
+    private String usuario;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(name = "Log_Senha")
+    private String senha;
 
-	public String getUsuario() {
-		return usuario;
-	}
+    @JsonBackReference(value = "nutricionista-login")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "login")
+    private Nutricionista nutricionista;
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario.trim();
-	}
+    @JsonBackReference(value = "paciente-login")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "login")
+    private Paciente paciente;
 
-	public String getSenha() {
-		return senha;
-	}
+    public Login(String usuario, String senha) {
+        super();
+        this.usuario = usuario;
+        this.senha = senha;
+    }
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+    public Login(Long id, String usuario, String senha) {
+        super();
+        this.id = id;
+        this.usuario = usuario;
+        this.senha = senha;
+    }
 
-	public Nutricionista getNutricionista() {
-		return nutricionista;
-	}
+    public Login() {
+        super();
+    }
 
-	public void setNutricionista(Nutricionista nutricionista) {
-		this.nutricionista = nutricionista;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public Paciente getPaciente() {
-		return paciente;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario.trim();
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Nutricionista getNutricionista() {
+        return nutricionista;
+    }
+
+    public void setNutricionista(Nutricionista nutricionista) {
+        this.nutricionista = nutricionista;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
 }

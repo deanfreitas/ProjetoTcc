@@ -11,6 +11,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
@@ -19,6 +21,8 @@ import br.com.projetotcc.interfaces.InterfaceEntidade;
 
 @Repository
 public class BancoDados {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BancoDados.class);
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -79,7 +83,7 @@ public class BancoDados {
         try {
             return typedQuery.getSingleResult();
         } catch (NoResultException e) {
-            System.err.println(e);
+            LOGGER.error(e.getMessage(), e);
             return null;
         }
     }

@@ -20,8 +20,8 @@ import java.util.List;
 @Controller
 public class TelaPaciente {
 
-    private static final String tela = "TelaPaciente";
-    private static final String rotaTela = "/telaPaciente";
+    private static final String TELA = "TelaPaciente";
+    private static final String ROTA_TELA = "/telaPaciente";
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
@@ -34,9 +34,9 @@ public class TelaPaciente {
         this.context = context;
     }
 
-    @RequestMapping(value = rotaTela, method = RequestMethod.GET)
+    @RequestMapping(value = ROTA_TELA, method = RequestMethod.GET)
     public ModelAndView aparecerTelaPaciente() {
-        return new ModelAndView(tela);
+        return new ModelAndView(TELA);
     }
 
     @RequestMapping(value = "/cadastrarPaciente", method = RequestMethod.POST)

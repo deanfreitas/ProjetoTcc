@@ -10,160 +10,162 @@ import javax.persistence.*;
 @Table(name = "Historico_Social_e_Familiar")
 public class HistoricoSocialFamiliar implements InterfaceDadosPaciente {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "Id_HistoricoSocialeFamiliar", nullable = false)
-	private Long id;
-	
-	@Column(name = "Hist_Profissao")
-	private String profissao;
-	
-	@Column(name = "Hist_CargaHoraria")
-	private String cargaHoraria;
-	
-	@Column(name = "Hist_ComposicaoFamiliar")
-	private String composicaoFamiliar;
-	
-	@Column(name = "Hist_QuemCompraOsAlimentos")
-	private String quemCompraAlimentos;
-	
-	@Column(name = "Hist_ACompraFeita")
-	private String compraFeita;
-	
-	@Column(name = "Hist_QuemPreparaRefeicoes")
-	private String quemPreparaRefeicoes;
-	
-	@Column(name = "Hist_FazUsoDeBebidasAlcoolicas")
-	private String fazUsoDeBebidasAlcoolicas;
-	
-	@Column(name = "Hist_FumaOuJaFumou")
-	private String fuma;
-	
-	@Column(name = "Hist_ComQuemRealizaRefeicoes")
-	private String comQuemRealizaRefeicoes;
-	
-	@JsonBackReference(value = "paciente-historicoSocialFamiliar")
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "historicoSocialFamiliar")
-	private Paciente paciente;
-	
-	public HistoricoSocialFamiliar(String profissao, String cargaHoraria, String composicaoFamiliar, String quemCompraAlimentos, String compraFeita, 
-			String quemPreparaRefeicoes, String fazUsoDeBebidasAlcoolicas, String fuma, String comQuemRealizaRefeicoes) {
-		super();
-		this.profissao = profissao;
-		this.cargaHoraria = cargaHoraria;
-		this.composicaoFamiliar = composicaoFamiliar;
-		this.quemCompraAlimentos = quemCompraAlimentos;
-		this.compraFeita = compraFeita;
-		this.quemPreparaRefeicoes = quemPreparaRefeicoes;
-		this.fazUsoDeBebidasAlcoolicas = fazUsoDeBebidasAlcoolicas;
-		this.fuma = fuma;
-		this.comQuemRealizaRefeicoes = comQuemRealizaRefeicoes;
-	}
-	
-	public HistoricoSocialFamiliar(Long id, String profissao, String cargaHoraria, String composicaoFamiliar, String quemCompraAlimentos, String compraFeita, 
-			String quemPreparaRefeicoes, String fazUsoDeBebidasAlcoolicas, String fuma, String comQuemRealizaRefeicoes) {
-		super();
-		this.id = id;
-		this.profissao = profissao;
-		this.cargaHoraria = cargaHoraria;
-		this.composicaoFamiliar = composicaoFamiliar;
-		this.quemCompraAlimentos = quemCompraAlimentos;
-		this.compraFeita = compraFeita;
-		this.quemPreparaRefeicoes = quemPreparaRefeicoes;
-		this.fazUsoDeBebidasAlcoolicas = fazUsoDeBebidasAlcoolicas;
-		this.fuma = fuma;
-		this.comQuemRealizaRefeicoes = comQuemRealizaRefeicoes;
-	}
-	
-	public HistoricoSocialFamiliar() {
-		super();
-	}
+    private static final long serialVersionUID = -9086007664783496464L;
 
-	public Long getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue
+    @Column(name = "Id_HistoricoSocialeFamiliar", nullable = false)
+    private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(name = "Hist_Profissao")
+    private String profissao;
 
-	public String getProfissao() {
-		return profissao;
-	}
+    @Column(name = "Hist_CargaHoraria")
+    private String cargaHoraria;
 
-	public void setProfissao(String profissao) {
-		this.profissao = profissao;
-	}
+    @Column(name = "Hist_ComposicaoFamiliar")
+    private String composicaoFamiliar;
 
-	public String getCargaHoraria() {
-		return cargaHoraria;
-	}
+    @Column(name = "Hist_QuemCompraOsAlimentos")
+    private String quemCompraAlimentos;
 
-	public void setCargaHoraria(String cargaHoraria) {
-		this.cargaHoraria = cargaHoraria;
-	}
+    @Column(name = "Hist_ACompraFeita")
+    private String compraFeita;
 
-	public String getComposicaoFamiliar() {
-		return composicaoFamiliar;
-	}
+    @Column(name = "Hist_QuemPreparaRefeicoes")
+    private String quemPreparaRefeicoes;
 
-	public void setComposicaoFamiliar(String composicaoFamiliar) {
-		this.composicaoFamiliar = composicaoFamiliar;
-	}
+    @Column(name = "Hist_FazUsoDeBebidasAlcoolicas")
+    private String fazUsoDeBebidasAlcoolicas;
 
-	public String getQuemCompraAlimentos() {
-		return quemCompraAlimentos;
-	}
+    @Column(name = "Hist_FumaOuJaFumou")
+    private String fuma;
 
-	public void setQuemCompraAlimentos(String quemCompraAlimentos) {
-		this.quemCompraAlimentos = quemCompraAlimentos;
-	}
+    @Column(name = "Hist_ComQuemRealizaRefeicoes")
+    private String comQuemRealizaRefeicoes;
 
-	public String getCompraFeita() {
-		return compraFeita;
-	}
+    @JsonBackReference(value = "paciente-historicoSocialFamiliar")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "historicoSocialFamiliar")
+    private Paciente paciente;
 
-	public void setCompraFeita(String compraFeita) {
-		this.compraFeita = compraFeita;
-	}
+    public HistoricoSocialFamiliar(String profissao, String cargaHoraria, String composicaoFamiliar, String quemCompraAlimentos, String compraFeita,
+                                   String quemPreparaRefeicoes, String fazUsoDeBebidasAlcoolicas, String fuma, String comQuemRealizaRefeicoes) {
+        super();
+        this.profissao = profissao;
+        this.cargaHoraria = cargaHoraria;
+        this.composicaoFamiliar = composicaoFamiliar;
+        this.quemCompraAlimentos = quemCompraAlimentos;
+        this.compraFeita = compraFeita;
+        this.quemPreparaRefeicoes = quemPreparaRefeicoes;
+        this.fazUsoDeBebidasAlcoolicas = fazUsoDeBebidasAlcoolicas;
+        this.fuma = fuma;
+        this.comQuemRealizaRefeicoes = comQuemRealizaRefeicoes;
+    }
 
-	public String getQuemPreparaRefeicoes() {
-		return quemPreparaRefeicoes;
-	}
+    public HistoricoSocialFamiliar(Long id, String profissao, String cargaHoraria, String composicaoFamiliar, String quemCompraAlimentos, String compraFeita,
+                                   String quemPreparaRefeicoes, String fazUsoDeBebidasAlcoolicas, String fuma, String comQuemRealizaRefeicoes) {
+        super();
+        this.id = id;
+        this.profissao = profissao;
+        this.cargaHoraria = cargaHoraria;
+        this.composicaoFamiliar = composicaoFamiliar;
+        this.quemCompraAlimentos = quemCompraAlimentos;
+        this.compraFeita = compraFeita;
+        this.quemPreparaRefeicoes = quemPreparaRefeicoes;
+        this.fazUsoDeBebidasAlcoolicas = fazUsoDeBebidasAlcoolicas;
+        this.fuma = fuma;
+        this.comQuemRealizaRefeicoes = comQuemRealizaRefeicoes;
+    }
 
-	public void setQuemPreparaRefeicoes(String quemPreparaRefeicoes) {
-		this.quemPreparaRefeicoes = quemPreparaRefeicoes;
-	}
+    public HistoricoSocialFamiliar() {
+        super();
+    }
 
-	public String getFazUsoDeBebidasAlcoolicas() {
-		return fazUsoDeBebidasAlcoolicas;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setFazUsoDeBebidasAlcoolicas(String fazUsoDeBebidasAlcoolicas) {
-		this.fazUsoDeBebidasAlcoolicas = fazUsoDeBebidasAlcoolicas;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getFuma() {
-		return fuma;
-	}
+    public String getProfissao() {
+        return profissao;
+    }
 
-	public void setFuma(String fuma) {
-		this.fuma = fuma;
-	}
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
+    }
 
-	public String getComQuemRealizaRefeicoes() {
-		return comQuemRealizaRefeicoes;
-	}
+    public String getCargaHoraria() {
+        return cargaHoraria;
+    }
 
-	public void setComQuemRealizaRefeicoes(String comQuemRealizaRefeicoes) {
-		this.comQuemRealizaRefeicoes = comQuemRealizaRefeicoes;
-	}
+    public void setCargaHoraria(String cargaHoraria) {
+        this.cargaHoraria = cargaHoraria;
+    }
 
-	public Paciente getPaciente() {
-		return paciente;
-	}
+    public String getComposicaoFamiliar() {
+        return composicaoFamiliar;
+    }
 
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
+    public void setComposicaoFamiliar(String composicaoFamiliar) {
+        this.composicaoFamiliar = composicaoFamiliar;
+    }
+
+    public String getQuemCompraAlimentos() {
+        return quemCompraAlimentos;
+    }
+
+    public void setQuemCompraAlimentos(String quemCompraAlimentos) {
+        this.quemCompraAlimentos = quemCompraAlimentos;
+    }
+
+    public String getCompraFeita() {
+        return compraFeita;
+    }
+
+    public void setCompraFeita(String compraFeita) {
+        this.compraFeita = compraFeita;
+    }
+
+    public String getQuemPreparaRefeicoes() {
+        return quemPreparaRefeicoes;
+    }
+
+    public void setQuemPreparaRefeicoes(String quemPreparaRefeicoes) {
+        this.quemPreparaRefeicoes = quemPreparaRefeicoes;
+    }
+
+    public String getFazUsoDeBebidasAlcoolicas() {
+        return fazUsoDeBebidasAlcoolicas;
+    }
+
+    public void setFazUsoDeBebidasAlcoolicas(String fazUsoDeBebidasAlcoolicas) {
+        this.fazUsoDeBebidasAlcoolicas = fazUsoDeBebidasAlcoolicas;
+    }
+
+    public String getFuma() {
+        return fuma;
+    }
+
+    public void setFuma(String fuma) {
+        this.fuma = fuma;
+    }
+
+    public String getComQuemRealizaRefeicoes() {
+        return comQuemRealizaRefeicoes;
+    }
+
+    public void setComQuemRealizaRefeicoes(String comQuemRealizaRefeicoes) {
+        this.comQuemRealizaRefeicoes = comQuemRealizaRefeicoes;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
 }

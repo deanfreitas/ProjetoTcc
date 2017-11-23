@@ -5,10 +5,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Data")
-public class Data {
+public class Data implements Serializable {
 
     @Id
     @GeneratedValue

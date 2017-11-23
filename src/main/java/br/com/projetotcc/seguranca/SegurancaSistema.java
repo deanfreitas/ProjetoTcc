@@ -14,22 +14,25 @@ import org.springframework.stereotype.Service;
 @Service
 public class SegurancaSistema {
 
-	private static final Logger logger = LoggerFactory.getLogger(SegurancaSistema.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(SegurancaSistema.class);
 
-	@Autowired
     private AuthenticationManager authenticationManager;
-
-	@Autowired
 	private UserDetailsService userDetailsService;
 
-	public void autenticarlogin(Login login) {
+	@Autowired
+    public SegurancaSistema(AuthenticationManager authenticationManager, UserDetailsService userDetailsService) {
+        this.authenticationManager = authenticationManager;
+        this.userDetailsService = userDetailsService;
+    }
+
+    public void autenticarlogin(Login login) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(login.getUsuario());
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, login.getSenha(), userDetails.getAuthorities());
         authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 
         if (usernamePasswordAuthenticationToken.isAuthenticated()) {
             SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-            logger.debug(String.format("Auto login %s successfully!", login.getUsuario()));
+            LOGGER.debug(String.format("Auto login %s successfully!", login.getUsuario()));
         }
     }
 }

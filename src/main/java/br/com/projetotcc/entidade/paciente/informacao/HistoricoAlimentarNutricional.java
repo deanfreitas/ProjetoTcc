@@ -10,201 +10,203 @@ import javax.persistence.*;
 @Table(name = "Historico_Alimentar_Nutricional")
 public class HistoricoAlimentarNutricional implements InterfaceDadosPaciente {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "Id_HistoricoAlimentarNutricional", nullable = false)
-	private Long id;
-	
-	@Column(name = "Hist_IntoleranciaAlimentar")
-	private String intoleranciaAlimentar;
-	
-	@Column(name = "Hist_PreferenciaAlimentar")
-	private String preferenciaAlimentar;
-	
-	@Column(name = "Hist_AlteracoesDoApetite")
-	private String alteracoesDoApetite;
-	
-	@Column(name = "Hist_OBSAlteracoesDoApetite")
-	private String observacaoAlteracoesDoApetite;
-	
-	@Column(name = "Hist_IniciouObesidadePerdaDePeso")
-	private String iniciouObesidadePerdaPeso;
-	
-	@Column(name = "Hist_SegueDietaEspecial")
-	private String segueDietaEspecial;
-	
-	@Column(name = "Hist_RefeicoesPorDia")
-	private String refeicoesDia;
-	
-	@Column(name = "Hist_ConsumoDeAgua")
-	private String consumoAgua;
-	
-	@Column(name = "Hist_ConsumoDeSal")
-	private String consumoSal;
-	
-	@Column(name = "Hist_ConsumoDeOleo")
-	private String consumoOleo;
-	
-	@Column(name = "Hist_FazUsoDeSuplemento")
-	private String fazUsoSuplemento;
+    private static final long serialVersionUID = 5784622663152388836L;
 
-	@Column(name = "Hist_QuemIndicou")
-	private String quemInidicou;
-	
-	@JsonBackReference(value = "paciente-historicoAlimentarNutricional")
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "historicoAlimentarNutricional")
-	private Paciente paciente;
-	
-	public HistoricoAlimentarNutricional(String intoleranciaAlimentar, String preferenciaAlimentar, String alteracoesDoApetite, String observacaoAlteracoesDoApetite, 
-			String iniciouObesidadePerdaPeso, String segueDietaEspecial, String refeicoesDia, String consumoAgua, String consumoSal, String consumoOleo, 
-			String fazUsoSuplemento, String quemInidicou) {
-		super();
-		this.intoleranciaAlimentar = intoleranciaAlimentar;
-		this.preferenciaAlimentar = preferenciaAlimentar;
-		this.alteracoesDoApetite = alteracoesDoApetite;
-		this.observacaoAlteracoesDoApetite = observacaoAlteracoesDoApetite;
-		this.iniciouObesidadePerdaPeso = iniciouObesidadePerdaPeso;
-		this.segueDietaEspecial = segueDietaEspecial;
-		this.refeicoesDia = refeicoesDia;
-		this.consumoAgua = consumoAgua;
-		this.consumoSal = consumoSal;
-		this.consumoOleo = consumoOleo;
-		this.fazUsoSuplemento = fazUsoSuplemento;
-		this.quemInidicou = quemInidicou;
-	}
-	
-	public HistoricoAlimentarNutricional(Long id, String intoleranciaAlimentar, String preferenciaAlimentar, String alteracoesDoApetite, String observacaoAlteracoesDoApetite, 
-			String iniciouObesidadePerdaPeso, String segueDietaEspecial, String refeicoesDia, String consumoAgua, String consumoSal, String consumoOleo, 
-			String fazUsoSuplemento, String quemInidicou) {
-		super();
-		this.id = id;
-		this.intoleranciaAlimentar = intoleranciaAlimentar;
-		this.preferenciaAlimentar = preferenciaAlimentar;
-		this.alteracoesDoApetite = alteracoesDoApetite;
-		this.observacaoAlteracoesDoApetite = observacaoAlteracoesDoApetite;
-		this.iniciouObesidadePerdaPeso = iniciouObesidadePerdaPeso;
-		this.segueDietaEspecial = segueDietaEspecial;
-		this.refeicoesDia = refeicoesDia;
-		this.consumoAgua = consumoAgua;
-		this.consumoSal = consumoSal;
-		this.consumoOleo = consumoOleo;
-		this.fazUsoSuplemento = fazUsoSuplemento;
-		this.quemInidicou = quemInidicou;
-	}
-	
-	public HistoricoAlimentarNutricional() {
-		super();
-	}
+    @Id
+    @GeneratedValue
+    @Column(name = "Id_HistoricoAlimentarNutricional", nullable = false)
+    private Long id;
 
-	public Long getId() {
-		return id;
-	}
+    @Column(name = "Hist_IntoleranciaAlimentar")
+    private String intoleranciaAlimentar;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(name = "Hist_PreferenciaAlimentar")
+    private String preferenciaAlimentar;
 
-	public String getIntoleranciaAlimentar() {
-		return intoleranciaAlimentar;
-	}
+    @Column(name = "Hist_AlteracoesDoApetite")
+    private String alteracoesDoApetite;
 
-	public void setIntoleranciaAlimentar(String intoleranciaAlimentar) {
-		this.intoleranciaAlimentar = intoleranciaAlimentar;
-	}
+    @Column(name = "Hist_OBSAlteracoesDoApetite")
+    private String observacaoAlteracoesDoApetite;
 
-	public String getPreferenciaAlimentar() {
-		return preferenciaAlimentar;
-	}
+    @Column(name = "Hist_IniciouObesidadePerdaDePeso")
+    private String iniciouObesidadePerdaPeso;
 
-	public void setPreferenciaAlimentar(String preferenciaAlimentar) {
-		this.preferenciaAlimentar = preferenciaAlimentar;
-	}
+    @Column(name = "Hist_SegueDietaEspecial")
+    private String segueDietaEspecial;
 
-	public String getObservacaoAlteracoesDoApetite() {
-		return observacaoAlteracoesDoApetite;
-	}
+    @Column(name = "Hist_RefeicoesPorDia")
+    private String refeicoesDia;
 
-	public void setObservacaoAlteracoesDoApetite(String observacaoAlteracoesDoApetite) {
-		this.observacaoAlteracoesDoApetite = observacaoAlteracoesDoApetite;
-	}
+    @Column(name = "Hist_ConsumoDeAgua")
+    private String consumoAgua;
 
-	public String getIniciouObesidadePerdaPeso() {
-		return iniciouObesidadePerdaPeso;
-	}
+    @Column(name = "Hist_ConsumoDeSal")
+    private String consumoSal;
 
-	public void setIniciouObesidadePerdaPeso(String iniciouObesidadePerdaPeso) {
-		this.iniciouObesidadePerdaPeso = iniciouObesidadePerdaPeso;
-	}
+    @Column(name = "Hist_ConsumoDeOleo")
+    private String consumoOleo;
 
-	public String getSegueDietaEspecial() {
-		return segueDietaEspecial;
-	}
+    @Column(name = "Hist_FazUsoDeSuplemento")
+    private String fazUsoSuplemento;
 
-	public void setSegueDietaEspecial(String segueDietaEspecial) {
-		this.segueDietaEspecial = segueDietaEspecial;
-	}
+    @Column(name = "Hist_QuemIndicou")
+    private String quemInidicou;
 
-	public String getRefeicoesDia() {
-		return refeicoesDia;
-	}
+    @JsonBackReference(value = "paciente-historicoAlimentarNutricional")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "historicoAlimentarNutricional")
+    private Paciente paciente;
 
-	public void setRefeicoesDia(String refeicoesDia) {
-		this.refeicoesDia = refeicoesDia;
-	}
+    public HistoricoAlimentarNutricional(String intoleranciaAlimentar, String preferenciaAlimentar, String alteracoesDoApetite, String observacaoAlteracoesDoApetite,
+                                         String iniciouObesidadePerdaPeso, String segueDietaEspecial, String refeicoesDia, String consumoAgua, String consumoSal, String consumoOleo,
+                                         String fazUsoSuplemento, String quemInidicou) {
+        super();
+        this.intoleranciaAlimentar = intoleranciaAlimentar;
+        this.preferenciaAlimentar = preferenciaAlimentar;
+        this.alteracoesDoApetite = alteracoesDoApetite;
+        this.observacaoAlteracoesDoApetite = observacaoAlteracoesDoApetite;
+        this.iniciouObesidadePerdaPeso = iniciouObesidadePerdaPeso;
+        this.segueDietaEspecial = segueDietaEspecial;
+        this.refeicoesDia = refeicoesDia;
+        this.consumoAgua = consumoAgua;
+        this.consumoSal = consumoSal;
+        this.consumoOleo = consumoOleo;
+        this.fazUsoSuplemento = fazUsoSuplemento;
+        this.quemInidicou = quemInidicou;
+    }
 
-	public String getConsumoAgua() {
-		return consumoAgua;
-	}
+    public HistoricoAlimentarNutricional(Long id, String intoleranciaAlimentar, String preferenciaAlimentar, String alteracoesDoApetite, String observacaoAlteracoesDoApetite,
+                                         String iniciouObesidadePerdaPeso, String segueDietaEspecial, String refeicoesDia, String consumoAgua, String consumoSal, String consumoOleo,
+                                         String fazUsoSuplemento, String quemInidicou) {
+        super();
+        this.id = id;
+        this.intoleranciaAlimentar = intoleranciaAlimentar;
+        this.preferenciaAlimentar = preferenciaAlimentar;
+        this.alteracoesDoApetite = alteracoesDoApetite;
+        this.observacaoAlteracoesDoApetite = observacaoAlteracoesDoApetite;
+        this.iniciouObesidadePerdaPeso = iniciouObesidadePerdaPeso;
+        this.segueDietaEspecial = segueDietaEspecial;
+        this.refeicoesDia = refeicoesDia;
+        this.consumoAgua = consumoAgua;
+        this.consumoSal = consumoSal;
+        this.consumoOleo = consumoOleo;
+        this.fazUsoSuplemento = fazUsoSuplemento;
+        this.quemInidicou = quemInidicou;
+    }
 
-	public void setConsumoAgua(String consumoAgua) {
-		this.consumoAgua = consumoAgua;
-	}
+    public HistoricoAlimentarNutricional() {
+        super();
+    }
 
-	public String getConsumoSal() {
-		return consumoSal;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setConsumoSal(String consumoSal) {
-		this.consumoSal = consumoSal;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getConsumoOleo() {
-		return consumoOleo;
-	}
+    public String getIntoleranciaAlimentar() {
+        return intoleranciaAlimentar;
+    }
 
-	public void setConsumoOleo(String consumoOleo) {
-		this.consumoOleo = consumoOleo;
-	}
+    public void setIntoleranciaAlimentar(String intoleranciaAlimentar) {
+        this.intoleranciaAlimentar = intoleranciaAlimentar;
+    }
 
-	public String getFazUsoSuplemento() {
-		return fazUsoSuplemento;
-	}
+    public String getPreferenciaAlimentar() {
+        return preferenciaAlimentar;
+    }
 
-	public void setFazUsoSuplemento(String fazUsoSuplemento) {
-		this.fazUsoSuplemento = fazUsoSuplemento;
-	}
+    public void setPreferenciaAlimentar(String preferenciaAlimentar) {
+        this.preferenciaAlimentar = preferenciaAlimentar;
+    }
 
-	public String getQuemInidicou() {
-		return quemInidicou;
-	}
+    public String getObservacaoAlteracoesDoApetite() {
+        return observacaoAlteracoesDoApetite;
+    }
 
-	public void setQuemInidicou(String quemInidicou) {
-		this.quemInidicou = quemInidicou;
-	}
+    public void setObservacaoAlteracoesDoApetite(String observacaoAlteracoesDoApetite) {
+        this.observacaoAlteracoesDoApetite = observacaoAlteracoesDoApetite;
+    }
 
-	public Paciente getPaciente() {
-		return paciente;
-	}
+    public String getIniciouObesidadePerdaPeso() {
+        return iniciouObesidadePerdaPeso;
+    }
 
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
+    public void setIniciouObesidadePerdaPeso(String iniciouObesidadePerdaPeso) {
+        this.iniciouObesidadePerdaPeso = iniciouObesidadePerdaPeso;
+    }
 
-	public String getAlteracoesDoApetite() {
-		return alteracoesDoApetite;
-	}
+    public String getSegueDietaEspecial() {
+        return segueDietaEspecial;
+    }
 
-	public void setAlteracoesDoApetite(String alteracoesDoApetite) {
-		this.alteracoesDoApetite = alteracoesDoApetite;
-	}
+    public void setSegueDietaEspecial(String segueDietaEspecial) {
+        this.segueDietaEspecial = segueDietaEspecial;
+    }
+
+    public String getRefeicoesDia() {
+        return refeicoesDia;
+    }
+
+    public void setRefeicoesDia(String refeicoesDia) {
+        this.refeicoesDia = refeicoesDia;
+    }
+
+    public String getConsumoAgua() {
+        return consumoAgua;
+    }
+
+    public void setConsumoAgua(String consumoAgua) {
+        this.consumoAgua = consumoAgua;
+    }
+
+    public String getConsumoSal() {
+        return consumoSal;
+    }
+
+    public void setConsumoSal(String consumoSal) {
+        this.consumoSal = consumoSal;
+    }
+
+    public String getConsumoOleo() {
+        return consumoOleo;
+    }
+
+    public void setConsumoOleo(String consumoOleo) {
+        this.consumoOleo = consumoOleo;
+    }
+
+    public String getFazUsoSuplemento() {
+        return fazUsoSuplemento;
+    }
+
+    public void setFazUsoSuplemento(String fazUsoSuplemento) {
+        this.fazUsoSuplemento = fazUsoSuplemento;
+    }
+
+    public String getQuemInidicou() {
+        return quemInidicou;
+    }
+
+    public void setQuemInidicou(String quemInidicou) {
+        this.quemInidicou = quemInidicou;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    public String getAlteracoesDoApetite() {
+        return alteracoesDoApetite;
+    }
+
+    public void setAlteracoesDoApetite(String alteracoesDoApetite) {
+        this.alteracoesDoApetite = alteracoesDoApetite;
+    }
 }

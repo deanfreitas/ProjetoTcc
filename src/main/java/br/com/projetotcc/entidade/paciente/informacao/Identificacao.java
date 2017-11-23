@@ -10,219 +10,221 @@ import javax.persistence.*;
 @Table(name = "Identificacao")
 public class Identificacao implements InterfaceDadosPaciente {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "Id_identificacao", nullable = false)
-	private Long id;
-	
-	@Column(name = "Ident_DATADAPRIMEIRACONSULTA")
-	private String dataPrimeiraConsuta;
-	
-	@Column(name = "Ident_Nome")
-	private String nome;
-	
-	@Column(name = "Ident_Email")
-	private String email;
-	
-	@Column(name = "Ident_Datanascimento")
-	private String dataNascimento;
-	
-	@Column(name = "Ident_Idade")
-	private Long idade;
-	
-	@Column(name = "Ident_MotivodaConsulta")
-	private String motivoConsulta;
-	
-	@Column(name = "Ident_Obs")
-	private String observacao;
-	
-	@Column(name = "Ident_TelefoneResidencial")
-	private String telefoneResidencial;
-	
-	@Column(name = "Ident_Celular")
-	private String celular;
-	
-	@Column(name = "Ident_Endereco")
-	private String endereco;
-	
-	@Column(name = "Ident_Bairro")
-	private String bairro;
+    private static final long serialVersionUID = -1423783880166347334L;
 
-	@Column(name = "Ident_Cidade")
-	private String cidade;
-	
-	@Column(name = "Ident_Sexo")
-	private String sexo;
-	
-	@Column(name = "Ident_EstadoCivil")
-	private String estadoCivil;
+    @Id
+    @GeneratedValue
+    @Column(name = "Id_identificacao", nullable = false)
+    private Long id;
 
-	@Column(name = "Ident_Raca")
-	private String raca;
-	
-	@Column(name = "Ident_Numero")
-	private String numero;
-	
-	@Column(name = "Ident_Estado")
-	private String estado;
-	
-	@JsonBackReference(value = "paciente-identificacao")
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "identificacao")
-	private Paciente paciente;
-	
-	public Identificacao() {
-		super();
-	}
+    @Column(name = "Ident_DATADAPRIMEIRACONSULTA")
+    private String dataPrimeiraConsuta;
 
-	public Long getId() {
-		return id;
-	}
+    @Column(name = "Ident_Nome")
+    private String nome;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(name = "Ident_Email")
+    private String email;
 
-	public String getDataPrimeiraConsuta() {
-		return dataPrimeiraConsuta;
-	}
+    @Column(name = "Ident_Datanascimento")
+    private String dataNascimento;
 
-	public void setDataPrimeiraConsuta(String dataPrimeiraConsuta) {
-		this.dataPrimeiraConsuta = dataPrimeiraConsuta;
-	}
+    @Column(name = "Ident_Idade")
+    private Long idade;
 
-	public String getNome() {
-		return nome;
-	}
+    @Column(name = "Ident_MotivodaConsulta")
+    private String motivoConsulta;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    @Column(name = "Ident_Obs")
+    private String observacao;
 
-	public String getEmail() {
-		return email;
-	}
+    @Column(name = "Ident_TelefoneResidencial")
+    private String telefoneResidencial;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    @Column(name = "Ident_Celular")
+    private String celular;
 
-	public String getDataNascimento() {
-		return dataNascimento;
-	}
+    @Column(name = "Ident_Endereco")
+    private String endereco;
 
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+    @Column(name = "Ident_Bairro")
+    private String bairro;
 
-	public Long getIdade() {
-		return idade;
-	}
+    @Column(name = "Ident_Cidade")
+    private String cidade;
 
-	public void setIdade(Long idade) {
-		this.idade = idade;
-	}
+    @Column(name = "Ident_Sexo")
+    private String sexo;
 
-	public String getMotivoConsulta() {
-		return motivoConsulta;
-	}
+    @Column(name = "Ident_EstadoCivil")
+    private String estadoCivil;
 
-	public void setMotivoConsulta(String motivoConsulta) {
-		this.motivoConsulta = motivoConsulta;
-	}
+    @Column(name = "Ident_Raca")
+    private String raca;
 
-	public String getObservacao() {
-		return observacao;
-	}
+    @Column(name = "Ident_Numero")
+    private String numero;
 
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
-	}
+    @Column(name = "Ident_Estado")
+    private String estado;
 
-	public String getTelefoneResidencial() {
-		return telefoneResidencial;
-	}
+    @JsonBackReference(value = "paciente-identificacao")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "identificacao")
+    private Paciente paciente;
 
-	public void setTelefoneResidencial(String telefoneResidencial) {
-		this.telefoneResidencial = telefoneResidencial;
-	}
+    public Identificacao() {
+        super();
+    }
 
-	public String getCelular() {
-		return celular;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setCelular(String celular) {
-		this.celular = celular;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getEndereco() {
-		return endereco;
-	}
+    public String getDataPrimeiraConsuta() {
+        return dataPrimeiraConsuta;
+    }
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+    public void setDataPrimeiraConsuta(String dataPrimeiraConsuta) {
+        this.dataPrimeiraConsuta = dataPrimeiraConsuta;
+    }
 
-	public String getBairro() {
-		return bairro;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public String getCidade() {
-		return cidade;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getSexo() {
-		return sexo;
-	}
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
 
-	public String getEstadoCivil() {
-		return estadoCivil;
-	}
+    public Long getIdade() {
+        return idade;
+    }
 
-	public void setEstadoCivil(String estadoCivil) {
-		this.estadoCivil = estadoCivil;
-	}
+    public void setIdade(Long idade) {
+        this.idade = idade;
+    }
 
-	public String getRaca() {
-		return raca;
-	}
+    public String getMotivoConsulta() {
+        return motivoConsulta;
+    }
 
-	public void setRaca(String raca) {
-		this.raca = raca;
-	}
+    public void setMotivoConsulta(String motivoConsulta) {
+        this.motivoConsulta = motivoConsulta;
+    }
 
-	public String getNumero() {
-		return numero;
-	}
+    public String getObservacao() {
+        return observacao;
+    }
 
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
 
-	public String getEstado() {
-		return estado;
-	}
+    public String getTelefoneResidencial() {
+        return telefoneResidencial;
+    }
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+    public void setTelefoneResidencial(String telefoneResidencial) {
+        this.telefoneResidencial = telefoneResidencial;
+    }
 
-	public Paciente getPaciente() {
-		return paciente;
-	}
+    public String getCelular() {
+        return celular;
+    }
 
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    public String getRaca() {
+        return raca;
+    }
+
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
 }

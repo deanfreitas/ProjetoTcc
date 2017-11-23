@@ -5,21 +5,29 @@ import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
 import br.com.projetotcc.entidade.pessoa.informacao.Role;
+import br.com.projetotcc.enums.Code;
+import br.com.projetotcc.enums.Context;
+import br.com.projetotcc.enums.Pessoa;
+import br.com.projetotcc.enums.Response;
 import br.com.projetotcc.mensagem.ResultadoServico;
 import br.com.projetotcc.seguranca.SegurancaSistema;
 import br.com.projetotcc.utils.BancoDadosUtils;
 import br.com.projetotcc.utils.Usuario;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.BadCredentialsException;
 
 import javax.servlet.ServletContext;
 
 public class Postar extends Http {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(Postar.class);
+
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
     private ServletContext context;
     private String mensagem = null;
-    private long codigo = 0;
+    private long codigo = Code.SUCCESS.getTypeCode();
 
     public Postar(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
         super(resultadoServico);
@@ -32,25 +40,25 @@ public class Postar extends Http {
         Usuario usuario = new Usuario(resultadoServico);
         resultadoServico = usuario.validarLogin(login);
 
-        if (resultadoServico.getCodigo() != 0) {
+        if (resultadoServico.getCodigo() != Code.SUCCESS.getTypeCode()) {
             return resultadoServico;
         }
 
         try {
             segurancaSistema.autenticarlogin(login);
-            context.setAttribute("loginUsuario", login.getUsuario());
+            context.setAttribute(Context.LOGIN_USUARIO.getTypeContext(), login.getUsuario());
         } catch (NullPointerException e) {
-            System.err.println(e);
+            LOGGER.error(e.getMessage(), e);
             mensagem = "Não Existe esse usuario";
-            codigo = 1;
+            codigo = Code.ERROR.getTypeCode();
         } catch (BadCredentialsException e) {
-            System.err.println(e);
+            LOGGER.error(e.getMessage(), e);
             mensagem = "Usuário e/ou senha inválidos";
-            codigo = 1;
+            codigo = Code.ERROR.getTypeCode();
         } catch (Exception e) {
-            System.err.println(e);
+            LOGGER.error(e.getMessage(), e);
             mensagem = "Error Sistema";
-            codigo = 2;
+            codigo = Code.ERROR_SYSTEM.getTypeCode();
         }
 
         resultadoServico.setMensagem(mensagem);
@@ -63,14 +71,14 @@ public class Postar extends Http {
         Usuario usuario = new Usuario(resultadoServico);
         resultadoServico = usuario.parametrosObrigatoriosSalvarNutricionista(nutricionista);
 
-        if (resultadoServico.getCodigo() != 0) {
+        if (resultadoServico.getCodigo() != Code.SUCCESS.getTypeCode()) {
             return resultadoServico;
         }
 
         BancoDadosUtils bancoDadosUtils = new BancoDadosUtils(bancoDadosService, resultadoServico);
         resultadoServico = bancoDadosUtils.checkLoginIgual(nutricionista.getLogin());
 
-        if (resultadoServico.getCodigo() != 0) {
+        if (resultadoServico.getCodigo() != Code.SUCCESS.getTypeCode()) {
             return resultadoServico;
         }
 
@@ -79,9 +87,9 @@ public class Postar extends Http {
             bancoDadosService.adicionarUsuario(role);
             mensagem = "Usuario Cadastrado com sucesso";
         } catch (Exception e) {
-            System.err.println(e);
+            LOGGER.error(e.getMessage(), e);
             mensagem = "Erro ao fazer o cadastro";
-            codigo = 1;
+            codigo = Code.ERROR.getTypeCode();
         }
 
         resultadoServico.setMensagem(mensagem);
@@ -94,27 +102,27 @@ public class Postar extends Http {
         Usuario usuario = new Usuario(resultadoServico);
         resultadoServico = usuario.parametrosObrigatoriosSalvarPaciente(paciente);
 
-        if (resultadoServico.getCodigo() != 0) {
+        if (resultadoServico.getCodigo() != Code.SUCCESS.getTypeCode()) {
             return resultadoServico;
         }
 
         BancoDadosUtils bancoDadosUtils = new BancoDadosUtils(bancoDadosService, resultadoServico);
         resultadoServico = bancoDadosUtils.checkLoginIgual(paciente.getLogin());
 
-        if (resultadoServico.getCodigo() != 0) {
+        if (resultadoServico.getCodigo() != Code.SUCCESS.getTypeCode()) {
             return resultadoServico;
         }
 
         Nutricionista nutricionista = (Nutricionista) bancoDadosService.encontrarInformacao(paciente.getNutricionista(), paciente.getNutricionista().getCrn());
         resultadoServico = usuario.checkPacientePertenceNutricionista(paciente, nutricionista);
 
-        if (resultadoServico.getCodigo() != 0) {
+        if (resultadoServico.getCodigo() != Code.SUCCESS.getTypeCode()) {
             return resultadoServico;
         }
 
         for (Paciente pacienteNutricionista : nutricionista.getPacientes()) {
             resultadoServico = usuario.checkIdentificacaoPaciente(paciente, pacienteNutricionista);
-            if (resultadoServico.getCodigo() == 0) {
+            if (resultadoServico.getCodigo() == Code.SUCCESS.getTypeCode()) {
                 try {
                     paciente.getLogin().setPaciente(null);
                     pacienteNutricionista.setResponsavel(paciente.getResponsavel());
@@ -124,9 +132,9 @@ public class Postar extends Http {
                     mensagem = "Usuario Cadastrado com sucesso";
                     break;
                 } catch (Exception e) {
-                    System.err.println(e);
+                    LOGGER.error(e.getMessage(), e);
                     mensagem = "Erro ao fazer o cadastro";
-                    codigo = 1;
+                    codigo = Code.ERROR.getTypeCode();
                 }
             }
         }
@@ -144,13 +152,13 @@ public class Postar extends Http {
                 bancoDadosService.sincronizarBancoDados();
                 resultadoServico.setObjeto(paciente.getId());
             } catch (Exception e) {
-                System.err.println(e);
+                LOGGER.error(e.getMessage(), e);
                 mensagem = "Erro ao inserir medico ao paciente";
-                codigo = 1;
+                codigo = Code.ERROR.getTypeCode();
             }
         } else {
-            mensagem = "Erro no sistema";
-            codigo = 2;
+            mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+            codigo = Code.ERROR_SYSTEM.getTypeCode();
         }
 
         resultadoServico.setMensagem(mensagem);
@@ -162,26 +170,26 @@ public class Postar extends Http {
     public ResultadoServico pegarIdUsuarioLogado(Login login) {
         long id = 0;
 
-        Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, context.getAttribute("loginUsuario").toString());
+        Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, context.getAttribute(Context.LOGIN_USUARIO.getTypeContext()).toString());
 
         if (loginCadastrado != null) {
             if (loginCadastrado.getNutricionista() != null) {
-                context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getNutricionista());
-                mensagem = "nutricionista";
+                context.setAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext(), loginCadastrado.getNutricionista());
+                mensagem = Pessoa.NUTRICIONISTA.getTypePessoa();
                 id = loginCadastrado.getNutricionista().getId();
 
             } else if (loginCadastrado.getPaciente() != null) {
-                context.setAttribute("dadosCadastradosPessoa", loginCadastrado.getPaciente());
-                mensagem = "paciente";
+                context.setAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext(), loginCadastrado.getPaciente());
+                mensagem = Pessoa.PACIENTE.getTypePessoa();
                 id = loginCadastrado.getPaciente().getId();
 
             } else {
-                mensagem = "Erro no sistema";
-                codigo = 2;
+                mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+                codigo = Code.ERROR_SYSTEM.getTypeCode();
             }
         } else {
-            mensagem = "Erro no sistema";
-            codigo = 2;
+            mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+            codigo = Code.ERROR_SYSTEM.getTypeCode();
         }
 
         resultadoServico.setMensagem(mensagem);

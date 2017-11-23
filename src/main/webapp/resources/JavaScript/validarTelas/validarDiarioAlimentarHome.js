@@ -1,7 +1,7 @@
 $(document).ready(function() {
     const initialLocaleCode = 'pt-br';
 
-    $('#calendar').fullCalendar({
+    const calendar = $('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',
             center: 'title',
@@ -13,7 +13,28 @@ $(document).ready(function() {
         weekNumbers: true,
         navLinks: true, // can click day/week names to navigate views
         editable: true,
+        firstDay: 0,
+        defaultView: 'month',
         eventLimit: true, // allow "more" link when too many events
+        selectable: true,
+        selectHelper: true,
+        select: (start, end, allDay) => {
+            const data = end.toDate();
+
+            const ano = data.getFullYear();
+            let dia = data.getDate();
+            let mes = parseInt(data.getMonth()) + 1;
+
+            if(dia.toString().length < 2) {
+                dia = "0" + dia;
+            }
+
+            if(mes.toString().length < 2) {
+                mes = "0" + mes;
+            }
+
+            location.href = '/ProjetoTcc/telaDiarioAlimentar/cadastrar/' + ano + mes + dia;
+        },
         events: [
             {
                 title: 'All Day Event',
@@ -69,7 +90,7 @@ $(document).ready(function() {
                 url: 'http://google.com/',
                 start: '2017-11-28'
             }
-        ]
+        ],
     });
 
     // build the locale selector's options

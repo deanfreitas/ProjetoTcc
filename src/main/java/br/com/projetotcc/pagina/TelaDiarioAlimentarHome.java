@@ -8,11 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TelaDiarioAlimentarHome {
 
-    private static final String tela = "TelaDiarioAlimentarHome";
-    private static final String rotaTela = "/telaDiarioAlimentarHome";
+    private static final String TELA = "TelaDiarioAlimentarHome";
+    private static final String ROTA_TELA = "/telaDiarioAlimentarHome";
 
-    @RequestMapping(value = rotaTela, method = RequestMethod.GET)
+    @RequestMapping(value = ROTA_TELA, method = RequestMethod.GET)
     public ModelAndView aparecerTelaDiarioAlimentarHome() {
-        return new ModelAndView(tela);
+        return new ModelAndView(TELA);
     }
 }
