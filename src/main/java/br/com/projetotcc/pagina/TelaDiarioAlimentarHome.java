@@ -31,7 +31,7 @@ public class TelaDiarioAlimentarHome {
         this.context = context;
     }
 
-    @RequestMapping(value = ROTA_TELA + "{idPaciente}", method = RequestMethod.GET)
+    @RequestMapping(value = ROTA_TELA + "/{idPaciente}", method = RequestMethod.GET)
     public ModelAndView aparecerTelaDiarioAlimentarHome() {
         return new ModelAndView(TELA);
     }

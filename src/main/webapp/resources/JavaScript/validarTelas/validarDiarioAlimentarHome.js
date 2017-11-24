@@ -53,64 +53,6 @@ $(document).ready(function () {
         }
     ];
 
-    const test = () => {
-        const listEvents = [];
-
-        for (let i in listDiarioAlimentar) {
-            listEvents.push({
-                id: listDiarioAlimentar[i].id,
-                title: 'Desjejum',
-                start: colocarMascaraData(listDiarioAlimentar[i]),
-                end: colocarMascaraData(listDiarioAlimentar[i]),
-                url: '',
-            });
-            listEvents.push({
-                id: listDiarioAlimentar[i].id,
-                title: 'Colacao',
-                start: colocarMascaraData(listDiarioAlimentar[i]),
-                end: colocarMascaraData(listDiarioAlimentar[i]),
-                url: '',
-            });
-            listEvents.push({
-                id: listDiarioAlimentar[i].id,
-                title: 'Almoço',
-                start: colocarMascaraData(listDiarioAlimentar[i]),
-                end: colocarMascaraData(listDiarioAlimentar[i]),
-                url: '',
-            });
-            listEvents.push({
-                id: listDiarioAlimentar[i].id,
-                title: 'Lanche',
-                start: colocarMascaraData(listDiarioAlimentar[i]),
-                end: colocarMascaraData(listDiarioAlimentar[i]),
-                url: '',
-            });
-            listEvents.push({
-                id: listDiarioAlimentar[i].id,
-                title: 'Jantar',
-                start: colocarMascaraData(listDiarioAlimentar[i]),
-                end: colocarMascaraData(listDiarioAlimentar[i]),
-                url: '',
-            });
-            listEvents.push({
-                id: listDiarioAlimentar[i].id,
-                title: 'Ceia',
-                start: colocarMascaraData(listDiarioAlimentar[i]),
-                end: colocarMascaraData(listDiarioAlimentar[i]),
-                url: '',
-            });
-            listEvents.push({
-                id: listDiarioAlimentar[i].id,
-                title: 'Fora de Hora',
-                start: colocarMascaraData(listDiarioAlimentar[i]),
-                end: colocarMascaraData(listDiarioAlimentar[i]),
-                url: '',
-            });
-        }
-
-        return listEvents;
-    };
-
     const initialLocaleCode = 'pt-br';
 
     const calendar = $('#calendar').fullCalendar({
@@ -150,7 +92,63 @@ $(document).ready(function () {
 
             location.href = '/ProjetoTcc/telaDiarioAlimentar/cadastrar/' + ano + mes + dia;
         },
-        events: listDiarioAlimentar,
+        events: (start, end, timezone, callback) => {
+            const listEvents = [];
+
+            for (let i in listDiarioAlimentar) {
+                listEvents.push({
+                    id: listDiarioAlimentar[i].id,
+                    title: 'Desjejum',
+                    start: colocarMascaraData(listDiarioAlimentar[i].start),
+                    end: colocarMascaraData(listDiarioAlimentar[i].end),
+                    url: '',
+                });
+                listEvents.push({
+                    id: listDiarioAlimentar[i].id,
+                    title: 'Colacao',
+                    start: colocarMascaraData(listDiarioAlimentar[i].start),
+                    end: colocarMascaraData(listDiarioAlimentar[i].end),
+                    url: '',
+                });
+                listEvents.push({
+                    id: listDiarioAlimentar[i].id,
+                    title: 'Almoço',
+                    start: colocarMascaraData(listDiarioAlimentar[i].start),
+                    end: colocarMascaraData(listDiarioAlimentar[i].end),
+                    url: '',
+                });
+                listEvents.push({
+                    id: listDiarioAlimentar[i].id,
+                    title: 'Lanche',
+                    start: colocarMascaraData(listDiarioAlimentar[i].start),
+                    end: colocarMascaraData(listDiarioAlimentar[i].end),
+                    url: '',
+                });
+                listEvents.push({
+                    id: listDiarioAlimentar[i].id,
+                    title: 'Jantar',
+                    start: colocarMascaraData(listDiarioAlimentar[i].start),
+                    end: colocarMascaraData(listDiarioAlimentar[i].end),
+                    url: '',
+                });
+                listEvents.push({
+                    id: listDiarioAlimentar[i].id,
+                    title: 'Ceia',
+                    start: colocarMascaraData(listDiarioAlimentar[i].start),
+                    end: colocarMascaraData(listDiarioAlimentar[i].end),
+                    url: '',
+                });
+                listEvents.push({
+                    id: listDiarioAlimentar[i].id,
+                    title: 'Fora de Hora',
+                    start: colocarMascaraData(listDiarioAlimentar[i].start),
+                    end: colocarMascaraData(listDiarioAlimentar[i].end),
+                    url: '',
+                });
+            }
+
+            callback(listEvents);
+        },
     });
 
     // build the locale selector's options
@@ -171,17 +169,16 @@ $(document).ready(function () {
     });
 
     function colocarMascaraData(data) {
-        const ano = data.substring(0, 3);
-        const mes = data.substring(4, 5);
-        const dia = data.substring(6, 7);
-
-        data = ano + '-' + mes + '-' + dia;
+        // const ano = data.substring(0, 3);
+        // const mes = data.substring(4, 5);
+        // const dia = data.substring(6, 7);
+        //
+        // data = ano + '-' + mes + '-' + dia;
 
         return data;
     }
 
     function getAllDiarioAlimentar() {
-
         $.ajax({
             url: '/ProjetoTcc/getAllDiarioAlimentar/{idDiarioAlimentar}',
             type: 'GET',
@@ -194,7 +191,6 @@ $(document).ready(function () {
                     return false;
                 } else {
                     return data.listaObjetos;
-                    ;
                 }
             }
         });
