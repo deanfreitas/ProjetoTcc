@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Acompanhamento</title>
+
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='/resources/nodeDependency/node_modules/bootstrap/dist/css/bootstrap.min.css' />"/>
     <link rel="stylesheet" type="text/css"
@@ -19,6 +20,7 @@
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />"/>
     <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelas/estiloTelaPaciente.css' />"/>
+
     <script src="<c:url value ='/resources/nodeDependency/node_modules/jquery/dist/jquery.min.js' />"></script>
     <script src="<c:url value ='/resources/nodeDependency/node_modules/popper.js/dist/umd/popper.min.js' />"></script>
     <script src="<c:url value ='/resources/nodeDependency/node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js' />"></script>
