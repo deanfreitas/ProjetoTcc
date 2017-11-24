@@ -71,7 +71,7 @@ $(document).ready(function () {
 
     function telaDiarioAlimentarHome(fields) {
         fields.click(function () {
-            location.href = '/ProjetoTcc/telaDiarioAlimentarHome';
+            location.href = '/ProjetoTcc/telaDiarioAlimentarHome' + idUsuario;
         })
     }
 

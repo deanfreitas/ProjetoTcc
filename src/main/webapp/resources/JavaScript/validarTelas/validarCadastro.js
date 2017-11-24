@@ -293,81 +293,19 @@ $(document).ready(function () {
 
             if (ano < 1900 || ano > yyyy) {
                 dataCerta = false;
-            }
-
-            else if (mes === '01') {
+            } else if (mes === '01' || mes === '03' || mes === '05' || mes === '07' || mes === '08' || mes === '10' || mes === '12') {
                 if (dia > 31) {
                     dataCerta = false;
                 }
-            }
-
-            else if (mes === '02') {
+            } else if (mes === '02') {
                 if (dia > 28) {
                     dataCerta = false;
                 }
-            }
-
-            else if (mes === '03') {
-                if (dia > 31) {
-                    dataCerta = false;
-                }
-            }
-
-            else if (mes === '04') {
+            } else if (mes === '04' || mes === '06' || mes === '09' || mes === '11') {
                 if (dia > 30) {
                     dataCerta = false;
                 }
-            }
-
-            else if (mes === '05') {
-                if (dia > 31) {
-                    dataCerta = false;
-                }
-            }
-
-            else if (mes === '06') {
-                if (dia > 30) {
-                    dataCerta = false;
-                }
-            }
-
-            else if (mes === '07') {
-                if (dia > 31) {
-                    dataCerta = false;
-                }
-            }
-
-            else if (mes === '08') {
-                if (dia > 31) {
-                    dataCerta = false;
-                }
-            }
-
-            else if (mes === '09') {
-                if (dia > 30) {
-                    dataCerta = false;
-                }
-            }
-
-            else if (mes === '10') {
-                if (dia > 31) {
-                    dataCerta = false;
-                }
-            }
-
-            else if (mes === '11') {
-                if (dia > 30) {
-                    dataCerta = false;
-                }
-            }
-
-            else if (mes === '12') {
-                if (dia > 31) {
-                    dataCerta = false;
-                }
-            }
-
-            else if (mes > 12) {
+            } else if (mes > 12) {
                 dataCerta = false
             }
 
@@ -774,7 +712,7 @@ $(document).ready(function () {
         });
     }
 
-    carregarDadosUsuario(btnCancelar);
+    carregarDadosUsuario();
     limparFormulario(btnLimparFormulario);
     salvarUsuario(btnSalvarUsuario);
     checkLogin(apelido);

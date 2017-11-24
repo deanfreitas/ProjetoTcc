@@ -49,7 +49,7 @@ public class Atualizar extends Http {
                 bancoDadosService.atualizarCadastroUsuario(paciente);
                 mensagem = "Anamnese Cadastrada com sucesso";
             } else {
-                mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+                mensagem = Response.ERROR_SYSTEM.getTypeResponse();
                 codigo = Code.ERROR_SYSTEM.getTypeCode();
             }
         } catch (Exception e) {
@@ -74,7 +74,7 @@ public class Atualizar extends Http {
                 mensagem = "Cadastro atualizado com sucesso";
                 context.setAttribute(Context.LOGIN_USUARIO.getTypeContext(), pessoa.getLogin().getUsuario());
             } else {
-                mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+                mensagem = Response.ERROR_SYSTEM.getTypeResponse();
                 codigo = Code.ERROR_SYSTEM.getTypeCode();
             }
         } catch (Exception e) {
@@ -97,7 +97,7 @@ public class Atualizar extends Http {
                 bancoDadosService.atualizarDiarioAlimentar(data);
                 mensagem = "Diario alimetar atualizado com sucesso";
             } else {
-                mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+                mensagem = Response.ERROR_SYSTEM.getTypeResponse();
                 codigo = Code.ERROR_SYSTEM.getTypeCode();
             }
         } catch (Exception e) {

@@ -2,6 +2,7 @@ package br.com.projetotcc.cadastro;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
+import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.enums.Code;
 import br.com.projetotcc.enums.Context;
 import br.com.projetotcc.enums.Pessoa;
@@ -39,7 +40,7 @@ public class Obter extends Http {
                 mensagem = tipoPessoa;
                 interfacePessoa = (InterfacePessoa) bancoDadosService.encontrarInformacaoPorId(interfacePessoa, id);
             } catch (Exception e) {
-                mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+                mensagem = Response.ERROR_SYSTEM.getTypeResponse();
                 codigo = Code.ERROR_SYSTEM.getTypeCode();
             }
         } else {
@@ -64,11 +65,37 @@ public class Obter extends Http {
                 listaObjetos.addAll(nutricionista.getPacientes());
             } else {
                 codigo = Code.ERROR_SYSTEM.getTypeCode();
-                mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+                mensagem = Response.ERROR_SYSTEM.getTypeResponse();
             }
         } else {
             codigo = Code.ERROR_SYSTEM.getTypeCode();
-            mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+            mensagem = Response.ERROR_SYSTEM.getTypeResponse();
+        }
+
+        resultadoServico.setMensagem(mensagem);
+        resultadoServico.setCodigo(codigo);
+        resultadoServico.setListaObjetos(listaObjetos);
+
+        return resultadoServico;
+    }
+
+    public ResultadoServico getAllDiarioAlimentar(Long id) {
+        List<Object> listaObjetos = new ArrayList<>();
+
+        if (Utils.validTypeUser(context, Pessoa.NUTRICIONISTA.getTypePessoa())) {
+            Nutricionista nutricionista = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
+            listaObjetos.addAll(nutricionista.getPacientes().get(id.intValue()).getData());
+        } else if (Utils.validTypeUser(context, Pessoa.PACIENTE.getTypePessoa())) {
+            Paciente paciente = (Paciente) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
+            if (paciente.getId().equals(id)) {
+                listaObjetos.addAll(paciente.getData());
+            } else {
+                codigo = Code.ERROR_SYSTEM.getTypeCode();
+                mensagem = Response.ERROR_SYSTEM.getTypeResponse();
+            }
+        } else {
+            codigo = Code.ERROR_SYSTEM.getTypeCode();
+            mensagem = Response.ERROR_SYSTEM.getTypeResponse();
         }
 
         resultadoServico.setMensagem(mensagem);

@@ -157,7 +157,7 @@ public class Postar extends Http {
                 codigo = Code.ERROR.getTypeCode();
             }
         } else {
-            mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+            mensagem = Response.ERROR_SYSTEM.getTypeResponse();
             codigo = Code.ERROR_SYSTEM.getTypeCode();
         }
 
@@ -184,11 +184,11 @@ public class Postar extends Http {
                 id = loginCadastrado.getPaciente().getId();
 
             } else {
-                mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+                mensagem = Response.ERROR_SYSTEM.getTypeResponse();
                 codigo = Code.ERROR_SYSTEM.getTypeCode();
             }
         } else {
-            mensagem = Response.ERROR_SISTEMA.getTypeResponse();
+            mensagem = Response.ERROR_SYSTEM.getTypeResponse();
             codigo = Code.ERROR_SYSTEM.getTypeCode();
         }
 

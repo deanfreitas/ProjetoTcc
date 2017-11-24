@@ -3,6 +3,7 @@ package br.com.projetotcc.pagina;
 import javax.servlet.ServletContext;
 
 import br.com.projetotcc.cadastro.Obter;
+import br.com.projetotcc.enums.Pessoa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,7 +41,7 @@ public class TelaResultados {
     public @ResponseBody
     ResultadoServico getResultadosPaciente(@PathVariable(value = "idUsuario") Long id) {
         Obter obter = new Obter(bancoDadosService, resultadoServico, context);
-        resultadoServico = obter.obterCadastro(id, "paciente");
+        resultadoServico = obter.obterCadastro(id, Pessoa.PACIENTE.getTypePessoa());
 
         return resultadoServico;
     }

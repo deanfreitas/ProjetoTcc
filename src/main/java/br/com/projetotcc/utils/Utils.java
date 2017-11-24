@@ -19,4 +19,7 @@ public class Utils {
 
         return trueUser;
     }
+
+    private Utils() {
+    }
 }

@@ -1,7 +1,7 @@
 package br.com.projetotcc.enums;
 
 public enum Response {
-    ERROR_SISTEMA("Erro no sistema");
+    ERROR_SYSTEM("Erro no sistema");
 
     private String typeResponse;
 

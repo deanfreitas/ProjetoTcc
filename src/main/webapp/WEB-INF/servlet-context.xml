@@ -103,7 +103,7 @@
                                 access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
         <security:intercept-url pattern="/pegarCadastroUsuario/**"
                                 access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
-        <security:intercept-url pattern="/telaDiarioAlimentarHome"
+        <security:intercept-url pattern="/telaDiarioAlimentarHome/**"
                                 access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
         <security:intercept-url pattern="/sairSistema"
                                 access="hasAnyRole('ROLE_administrador', 'ROLE_paciente', 'ROLE_nutricionista')"/>
