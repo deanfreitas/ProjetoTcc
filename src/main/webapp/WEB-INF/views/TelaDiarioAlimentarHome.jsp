@@ -28,14 +28,14 @@
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='/resources/Css/estiloTelas/estiloDiarioAlimentarHome.css' />"/>
 
-    <script src="<c:url value='/resources/nodeDependency/node_modules/moment/moment.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/moment/moment.js' />"></script>
     <script src="<c:url value ='/resources/nodeDependency/node_modules/jquery/dist/jquery.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />"></script>
     <script src="<c:url value ='/resources/nodeDependency/node_modules/bootstrap/dist/js/bootstrap.min.js' />"></script>
     <script src="<c:url value ='/resources/nodeDependency/node_modules/fullcalendar/dist/fullcalendar.min.js' />"></script>
     <script src="<c:url value ='/resources/nodeDependency/node_modules/fullcalendar/dist/locale-all.js' />"></script>
-    <script src="<c:url value='/resources/nodeDependency/node_modules/fullcalendar/dist/gcal.min.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/fullcalendar/dist/gcal.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/validarTelas/validarDiarioAlimentarHome.js' />"></script>
 
 </head>

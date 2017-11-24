@@ -9,21 +9,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Acompanhamento</title>
-    <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/bootstrap.min.css' />"/>
     <link rel="stylesheet" type="text/css"
-          href="<c:url value ='/resources/Css/bootstrap/bootstrap-material-design.min.css' />"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/ripples.min.css' />"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/chartist/chartist.css' />"/>
+          href="<c:url value ='/resources/nodeDependency/node_modules/bootstrap/dist/css/bootstrap.min.css' />"/>
+    <link rel="stylesheet" type="text/css"
+          href="<c:url value ='/resources/nodeDependency/node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min.css' />"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/nodeDependency/node_modules/material-ripple/dist/ripple.min.css' />"/>
+    <link rel="stylesheet" type="text/css"
+          href="<c:url value ='/resources/nodeDependency/node_modules/chartist/dist/chartist.min.css' />"/>
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />"/>
     <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelas/estiloTelaPaciente.css' />"/>
-    <script src="<c:url value ='/resources/JavaScript/angular/angular.min.js' />"></script>
-    <script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />"></script>
-    <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />"></script>
-    <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />"></script>
-    <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-    <script src="<c:url value ='/resources/JavaScript/chartist/chartist.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/jquery/dist/jquery.min.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/popper.js/dist/umd/popper.min.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/material-ripple/dist/ripple.min.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/bootstrap/dist/js/bootstrap.min.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/chart.js/dist/Chart.min.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/chartist/dist/chartist.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/validarTelas/validarTelaAcompanhamento.js' />"></script>
 </head>
 
