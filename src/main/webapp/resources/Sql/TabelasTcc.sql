@@ -128,7 +128,7 @@ CREATE TABLE Atividade_Fisica
   Ativ_Frequencia              VARCHAR(50)  NULL,
   Ativ_Duracao                 VARCHAR(20)  NULL,
   Ativ_VocePraticaAsAtividades ENUM ('Alimentado', 'Jejum', ''),
-  Ativ_HoraPreferido           VARCHAR(20)  NOT NULL,
+  Ativ_HoraPreferido           TIME  NOT NULL,
 
   PRIMARY KEY (Id_AtividadeFisica)
 );
@@ -240,8 +240,8 @@ CREATE TABLE Frequencia_Alimentar
 CREATE TABLE Login
 (
   Id_Login    INTEGER      NOT NULL AUTO_INCREMENT,
-  Log_Usuario VARCHAR(100) NULL     UNIQUE,
-  Log_Senha   VARCHAR(100) NULL,
+  Log_Usuario VARCHAR(100) NOT NULL UNIQUE,
+  Log_Senha   VARCHAR(100) NOT NULL,
 
   PRIMARY KEY (Id_Login)
 );
@@ -336,7 +336,7 @@ CREATE TABLE Role
 CREATE TABLE Ceia
 (
   Id_Ceia         INTEGER     NOT NULL AUTO_INCREMENT,
-  Ceia_Horario    VARCHAR(10) NULL,
+  Ceia_Horario    TIME        NOT NULL,
   Ceia_Local      VARCHAR(50) NULL,
   Ceia_Humor      VARCHAR(20) NULL,
   Ceia_Alimento   VARCHAR(20) NULL,
@@ -348,7 +348,7 @@ CREATE TABLE Ceia
 CREATE TABLE Colacao
 (
   Id_Colacao       INTEGER     NOT NULL AUTO_INCREMENT,
-  Colac_Horario    VARCHAR(10) NULL,
+  Colac_Horario    TIME        NOT NULL,
   Colac_Local      VARCHAR(50) NULL,
   Colac_Humor      VARCHAR(20) NULL,
   Colac_Alimento   VARCHAR(20) NULL,
@@ -360,7 +360,7 @@ CREATE TABLE Colacao
 CREATE TABLE Jantar
 (
   Id_Jant         INTEGER     NOT NULL AUTO_INCREMENT,
-  Jant_Horario    VARCHAR(10) NULL,
+  Jant_Horario    TIME        NOT NULL,
   Jant_Local      VARCHAR(50) NULL,
   Jant_Humor      VARCHAR(20) NULL,
   Jant_Alimento   VARCHAR(20) NULL,
@@ -372,7 +372,7 @@ CREATE TABLE Jantar
 CREATE TABLE Lanche
 (
   Id_Lanche      INTEGER     NOT NULL AUTO_INCREMENT,
-  Lan_Horario    VARCHAR(10) NULL,
+  Lan_Horario    TIME        NOT NULL,
   Lan_Local      VARCHAR(50) NULL,
   Lan_Humor      VARCHAR(20) NULL,
   Lan_Alimento   VARCHAR(20) NULL,
@@ -384,7 +384,7 @@ CREATE TABLE Lanche
 CREATE TABLE Almoco
 (
   Id_Almoco      INTEGER     NOT NULL AUTO_INCREMENT,
-  Alm_Horario    VARCHAR(10) NULL,
+  Alm_Horario    TIME        NOT NULL,
   Alm_Local      VARCHAR(50) NULL,
   Alm_Humor      VARCHAR(20) NULL,
   Alm_Alimento   VARCHAR(20) NULL,
@@ -396,7 +396,7 @@ CREATE TABLE Almoco
 CREATE TABLE Desjejum
 (
   Id_Desj         INTEGER     NOT NULL AUTO_INCREMENT,
-  Desj_Horario    VARCHAR(10) NULL,
+  Desj_Horario    TIME        NOT NULL,
   Desj_Local      VARCHAR(50) NULL,
   Desj_Humor      VARCHAR(20) NULL,
   Desj_Alimento   VARCHAR(20) NULL,
@@ -408,7 +408,7 @@ CREATE TABLE Desjejum
 CREATE TABLE Fora_de_Hora
 (
   Id_Foradehora  INTEGER     NOT NULL AUTO_INCREMENT,
-  For_Horario    VARCHAR(10) NULL,
+  For_Horario    TIME        NOT NULL,
   For_Local      VARCHAR(20) NULL,
   For_Humor      VARCHAR(20) NULL,
   For_Alimento   VARCHAR(50) NULL,
@@ -420,6 +420,7 @@ CREATE TABLE Fora_de_Hora
 CREATE TABLE Data
 (
   id_data       INTEGER NOT NULL AUTO_INCREMENT,
+  d_data        DATE    NOT NULL UNIQUE,
   Id_Ceia       INTEGER NULL     UNIQUE,
   Id_Colacao    INTEGER NULL     UNIQUE,
   Id_Jant       INTEGER NULL     UNIQUE,
@@ -462,7 +463,7 @@ CREATE TABLE Faz_uso_de_medicamento
   Id_FazUsodeMedicamento INTEGER     NOT NULL AUTO_INCREMENT,
   Med_Nome               VARCHAR(50) NULL,
   Med_Dose               VARCHAR(20) NULL,
-  Med_Horario            VARCHAR(10) NULL,
+  Med_Horario            TIME        NOT NULL,
   Med_Motivo             VARCHAR(20) NULL,
   Med_Inter              VARCHAR(20) NULL,
   id_Paciente            INTEGER     NOT NULL,
@@ -478,7 +479,7 @@ CREATE TABLE Exames_Bioquimicos
 (
   Id_ExamesBioquimicos INTEGER     NOT NULL AUTO_INCREMENT,
   id_Paciente          INTEGER     NOT NULL,
-  Bio_Data             VARCHAR(10) NULL,
+  Bio_Data             DATE        NOT NULL UNIQUE,
   Bio_Vlrderefe        VARCHAR(20) NULL,
   Bio_GLI              VARCHAR(20) NULL,
   Bio_Hg               VARCHAR(20) NULL,

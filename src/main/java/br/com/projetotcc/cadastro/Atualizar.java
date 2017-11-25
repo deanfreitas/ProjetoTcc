@@ -1,7 +1,6 @@
 package br.com.projetotcc.cadastro;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
-import br.com.projetotcc.entidade.paciente.alimentacao.Data;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.enums.Code;
@@ -80,29 +79,6 @@ public class Atualizar extends Http {
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
             mensagem = "Erro ao atualizar o cadastro";
-            codigo = Code.ERROR.getTypeCode();
-        }
-
-        resultadoServico.setMensagem(mensagem);
-        resultadoServico.setCodigo(codigo);
-
-        return resultadoServico;
-    }
-
-    public ResultadoServico atualizarDiarioAlimentar(Data data) {
-        try {
-            if (Utils.validTypeUser(context, Pessoa.PACIENTE.getTypePessoa())) {
-                Paciente paciente = (Paciente) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
-                data.setPaciente(paciente);
-                bancoDadosService.atualizarDiarioAlimentar(data);
-                mensagem = "Diario alimetar atualizado com sucesso";
-            } else {
-                mensagem = Response.ERROR_SYSTEM.getTypeResponse();
-                codigo = Code.ERROR_SYSTEM.getTypeCode();
-            }
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage(), e);
-            mensagem = "Erro ao atualizar o diario alimentar";
             codigo = Code.ERROR.getTypeCode();
         }
 

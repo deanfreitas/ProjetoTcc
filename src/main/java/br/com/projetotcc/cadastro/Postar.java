@@ -1,6 +1,7 @@
 package br.com.projetotcc.cadastro;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.entidade.paciente.alimentacao.Data;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
@@ -13,6 +14,7 @@ import br.com.projetotcc.mensagem.ResultadoServico;
 import br.com.projetotcc.seguranca.SegurancaSistema;
 import br.com.projetotcc.utils.BancoDadosUtils;
 import br.com.projetotcc.utils.Usuario;
+import br.com.projetotcc.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -195,6 +197,29 @@ public class Postar extends Http {
         resultadoServico.setMensagem(mensagem);
         resultadoServico.setCodigo(codigo);
         resultadoServico.setObjeto(id);
+
+        return resultadoServico;
+    }
+
+    public ResultadoServico atualizarDiarioAlimentar(Data data) {
+        try {
+            if (Utils.validTypeUser(context, Pessoa.PACIENTE.getTypePessoa())) {
+                Paciente paciente = (Paciente) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
+                data.setPaciente(paciente);
+                bancoDadosService.atualizarDiarioAlimentar(data);
+                mensagem = "Diario alimetar cadastrado com sucesso";
+            } else {
+                mensagem = Response.ERROR_SYSTEM.getTypeResponse();
+                codigo = Code.ERROR_SYSTEM.getTypeCode();
+            }
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            mensagem = "Erro ao cadastrado o diario alimentar";
+            codigo = Code.ERROR.getTypeCode();
+        }
+
+        resultadoServico.setMensagem(mensagem);
+        resultadoServico.setCodigo(codigo);
 
         return resultadoServico;
     }

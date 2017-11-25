@@ -2,11 +2,7 @@ $(document).ready(function () {
 
     const listIdPaciente = [];
     const listNomePaciente = [];
-
-    //tabela
     const tabelaPacientes = $('#pacientes');
-
-    //botoes
     const btnAdicionarPaciente = $('#adicionarPaciente');
     const btnApagarPaciente = $("#apagarPaciente");
     const btnGerarRelatorio = $("#gerarRelatorio");
@@ -29,7 +25,6 @@ $(document).ready(function () {
                     if (data.codigo === 2) {
                         location.href = '/ProjetoTcc/sairSistema';
                     }
-
                     return false;
                 }
 
@@ -165,7 +160,7 @@ $(document).ready(function () {
     function telaDiarioAlimentar(fields) {
         fields.click(function () {
             if (listIdPaciente.length === 1) {
-                location.href = '/ProjetoTcc/telaDiarioAlimentarHome' + listIdPaciente[0];
+                location.href = '/ProjetoTcc/telaDiarioAlimentarHome/' + listIdPaciente[0];
             } else if (listIdPaciente.length === 0) {
                 alert('Selecione um Paciente para var o Diário Alimentar');
             } else {

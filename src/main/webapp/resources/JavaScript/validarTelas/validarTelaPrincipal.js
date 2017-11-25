@@ -145,7 +145,7 @@ function changeBg(id) {
                 mes = "0" + mes;
             }
 
-            location.href = '/ProjetoTcc/telaDiarioAlimentar/cadastrar/' + $('#selYear').val() + mes + dia;
+            location.href = '/ProjetoTcc/telaDiarioAlimentar/cadastrar/' + $('#selYear').val() + '-' + mes + '-' + dia;
         }
     }
     else {

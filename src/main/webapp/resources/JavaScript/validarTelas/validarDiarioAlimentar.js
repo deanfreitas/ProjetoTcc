@@ -67,7 +67,7 @@ $(document).ready(function () {
     function cadastrarDiarioAlimentar(fields) {
         fields.click(function () {
             let object = {
-                id: data,
+                dData: data,
                 ceia: {
                     horario: horarioCeia.val(),
                     local: localCeia.val(),
@@ -121,7 +121,7 @@ $(document).ready(function () {
 
             $.ajax({
                 url: "/ProjetoTcc/cadastrarDiarioAlimentar",
-                type: 'PUT',
+                type: 'POST',
                 data: JSON.stringify(object),
                 contentType: "application/json",
                 dataType: 'json',

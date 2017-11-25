@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 @Table(name = "Data")
@@ -15,6 +16,9 @@ public class Data implements Serializable {
     @GeneratedValue
     @Column(name = "id_data", nullable = false)
     private Long id;
+
+    @Column(name = "d_data")
+    private Date dData;
 
     @JsonManagedReference(value = "data-ceia")
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, targetEntity = Ceia.class)
@@ -62,6 +66,14 @@ public class Data implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Date getdData() {
+        return dData;
+    }
+
+    public void setdData(Date dData) {
+        this.dData = dData;
     }
 
     public Ceia getCeia() {

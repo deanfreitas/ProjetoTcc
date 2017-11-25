@@ -1,7 +1,7 @@
 package br.com.projetotcc.pagina;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
-import br.com.projetotcc.cadastro.Atualizar;
+import br.com.projetotcc.cadastro.Postar;
 import br.com.projetotcc.entidade.paciente.alimentacao.Data;
 import br.com.projetotcc.mensagem.ResultadoServico;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,11 +41,11 @@ public class TelaDiarioAlimentar {
         return new ModelAndView(TELA);
     }
 
-    @RequestMapping(value = "/cadastrarDiarioAlimentar", method = RequestMethod.PUT)
+    @RequestMapping(value = "/cadastrarDiarioAlimentar", method = RequestMethod.POST)
     public @ResponseBody
     ResultadoServico cadastrarDiarioAlimentar(@RequestBody Data data) {
-        Atualizar atualizar = new Atualizar(bancoDadosService, resultadoServico, context);
-        resultadoServico = atualizar.atualizarDiarioAlimentar(data);
+        Postar postar = new Postar(bancoDadosService, resultadoServico, context);
+        resultadoServico = postar.atualizarDiarioAlimentar(data);
 
         return resultadoServico;
     }
