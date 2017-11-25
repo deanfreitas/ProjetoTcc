@@ -11,17 +11,14 @@
     <title>Diário Alimentar</title>
     <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/bootstrap.min.css' />"/>
     <link rel="stylesheet" type="text/css"
-          href="<c:url value ='/resources/Css/bootstrap/dataTables/dataTables.bootstrap.min.css' />"/>
-    <link rel="stylesheet" type="text/css"
           href="<c:url value ='/resources/Css/bootstrap/bootstrap-material-design.min.css' />"/>
     <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/ripples.min.css' />"/>
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='/resources/Css/estiloTelas/estiloDiarioAlimentar.css' />"/>
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />"/>
+
     <script src="<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />"></script>
-    <script src="<c:url value ='/resources/JavaScript/jquery/dataTables/jquery.dataTables.min.js' />"></script>
-    <script src="<c:url value ='/resources/JavaScript/bootstrap/dataTables/dataTables.bootstrap.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />"></script>
     <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />"></script>
@@ -111,12 +108,11 @@
             </tr>
             </tbody>
         </table>
-            <div class="btn-group btn-group-justified btn-group-raised" id="menuDiarioAlimentar">
-        <a class="btn btn-lg btn-success " href="#" id="btnSalvar">Salvar</a>
-        <a class="btn btn-lg btn-warning " href="#" id="btnLimpar">Limpar</a>
-        <a class="btn btn-lg btn-danger " href="#" id="btnCancelar">Cancelar</a>
-
-    </div>
+        <div class="btn-group btn-group-justified btn-group-raised" id="menuDiarioAlimentar">
+            <a class="btn btn-lg btn-success " href="#" id="btnSalvar">Salvar</a>
+            <a class="btn btn-lg btn-warning " href="#" id="btnLimpar">Limpar</a>
+            <a class="btn btn-lg btn-danger " href="#" id="btnCancelar">Cancelar</a>
+        </div>
     </div>
 </div>
 </body>

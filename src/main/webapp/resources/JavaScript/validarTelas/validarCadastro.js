@@ -134,33 +134,35 @@ $(document).ready(function () {
                 || cpf === "88888888888"
                 || cpf === "99999999999") {
                 cpfValid = false;
-            }
+            } else {
 
-            soma = 0;
-            for (i = 0; i < 9; i++) {
-                soma += parseInt(cpf.charAt(i)) * (10 - i);
-            }
+                soma = 0;
+                for (i = 0; i < 9; i++) {
+                    soma += parseInt(cpf.charAt(i)) * (10 - i);
+                }
 
-            resto = 11 - (soma % 11);
-            if (resto === 10 || resto === 11) {
-                resto = 0;
-            }
-            if (resto !== parseInt(cpf.charAt(9))) {
-                cpfValid = false;
-            }
+                resto = 11 - (soma % 11);
+                if (resto === 10 || resto === 11) {
+                    resto = 0;
+                }
+                if (resto !== parseInt(cpf.charAt(9))) {
+                    cpfValid = false;
+                } else {
 
-            soma = 0;
-            for (i = 0; i < 10; i++) {
-                soma += parseInt(cpf.charAt(i))
-                    * (11 - i);
-            }
-            resto = 11 - (soma % 11);
-            if (resto === 10 || resto === 11) {
-                resto = 0;
-            }
+                    soma = 0;
+                    for (i = 0; i < 10; i++) {
+                        soma += parseInt(cpf.charAt(i))
+                            * (11 - i);
+                    }
+                    resto = 11 - (soma % 11);
+                    if (resto === 10 || resto === 11) {
+                        resto = 0;
+                    }
 
-            if (resto !== parseInt(cpf.charAt(10))) {
-                cpfValid = false;
+                    if (resto !== parseInt(cpf.charAt(10))) {
+                        cpfValid = false;
+                    }
+                }
             }
 
             cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
@@ -204,19 +206,20 @@ $(document).ready(function () {
                 || rg === "88888888888"
                 || rg === "99999999999") {
                 rgValid = false;
-            }
+            } else {
 
-            soma = 0;
-            for (i = 0; i < 8; i++) {
-                soma += parseInt(rg.charAt(i)) * (2 + i);
-            }
+                soma = 0;
+                for (i = 0; i < 8; i++) {
+                    soma += parseInt(rg.charAt(i)) * (2 + i);
+                }
 
-            resto = 11 - (soma % 11);
-            if (resto === 10 || resto === 11) {
-                resto = 0;
-            }
-            if (resto !== parseInt(rg.charAt(8))) {
-                rgValid = false;
+                resto = 11 - (soma % 11);
+                if (resto === 10 || resto === 11) {
+                    resto = 0;
+                }
+                if (resto !== parseInt(rg.charAt(8))) {
+                    rgValid = false;
+                }
             }
 
             rg = rg.replace(/(\d{2})(\d)/, "$1.$2");

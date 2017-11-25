@@ -21,7 +21,7 @@ $(document).ready(function () {
         buttonIcons: false, // show the prev/next text
         weekNumbers: true,
         navLinks: true, // can click day/week names to navigate views
-        editable: true,
+        editable: false,
         firstDay: 0,
         defaultView: 'month',
         eventLimit: true, // allow "more" link when too many events
@@ -51,7 +51,10 @@ $(document).ready(function () {
             getAllDiarioAlimentar.done(function (data) {
                 if (data.codigo !== 0) {
                     alert(data.mensagem);
-                    location.href = '/ProjetoTcc/sairSistema';
+
+                    if(data.codigo === 2) {
+                        location.href = '/ProjetoTcc/sairSistema';
+                    }
                     return false;
                 }
 

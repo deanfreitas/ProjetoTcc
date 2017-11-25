@@ -111,11 +111,11 @@ $(document).ready(function () {
                     quantidade: quantidadeCafeManha.val(),
                 },
                 foraHora: {
-                    horario: "",
+                    horario: new Date,
                     local: "",
                     humor: "",
                     alimentos: "",
-                    quantidade: "",
+                    quantidade: 0,
                 }
             };
 
@@ -146,6 +146,72 @@ $(document).ready(function () {
             location.href = '/ProjetoTcc/telaDiarioAlimentarHome';
         })
     }
+
+    function onlyNumber(fields) {
+        fields.unbind('keyup').bind('keyup', function () {
+            const thisVal = $(this).val();
+            let tempVal = "";
+
+            for (let i = 0; i < thisVal.length; i++) {
+                if (new RegExp(/^[0-9]$/).test(thisVal.charAt(i))) {
+                    tempVal += thisVal.charAt(i);
+                }
+            }
+            $(this).val(tempVal);
+        });
+    }
+
+    function colocarMascaraHorario(fields) {
+        fields.blur(function () {
+            let horario = $(this).val();
+            let isHorarioValid = true;
+
+            horario = horario.replace(/\W/g, "");
+
+            if (horario.length !== 4 && horario.length !== 3) {
+                isHorarioValid = false;
+            } else {
+
+                if (horario.length === 3) {
+                    horario = '0' + horario;
+                }
+
+                const hora = horario.substring(0, 2);
+                const minutos = horario.substring(2, 4);
+
+                if ((hora < 0 ) || (hora > 23) || ( minutos < 0) || ( minutos > 59)) {
+                    isHorarioValid = false;
+                }
+            }
+
+            horario = horario.replace(/(\d{2})(\d)/, "$1:$2");
+            $(this).val(horario);
+
+            if (isHorarioValid) {
+                $(this).css("border-color", "#FFFFFF");
+                $(this).css("color", "#000000");
+                return true;
+            } else {
+                $(this).css("border-color", "#FF0000");
+                $(this).css("color", "#FF0000");
+                return false;
+            }
+        });
+    }
+
+    onlyNumber(horarioAlmoco);
+    onlyNumber(horarioCafeManha);
+    onlyNumber(horarioCeia);
+    onlyNumber(horarioJantar);
+    onlyNumber(horarioLancheManha);
+    onlyNumber(horarioLancheTarde);
+
+    colocarMascaraHorario(horarioAlmoco);
+    colocarMascaraHorario(horarioCafeManha);
+    colocarMascaraHorario(horarioCeia);
+    colocarMascaraHorario(horarioJantar);
+    colocarMascaraHorario(horarioLancheManha);
+    colocarMascaraHorario(horarioLancheTarde);
 
     cadastrarDiarioAlimentar(btnSalvar);
     limparDiarioAlimentar(btnLimpar);
