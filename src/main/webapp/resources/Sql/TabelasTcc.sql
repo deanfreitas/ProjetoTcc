@@ -1,3 +1,6 @@
+DROP DATABASE projetotcc;
+CREATE DATABASE projetotcc;
+
 USE projetotcc;
 
 CREATE TABLE Identificacao
