@@ -1,6 +1,8 @@
 $(document).ready(function () {
     $.material.init();
 
+    const nowData = new Date();
+
     const url = window.location.href;
     const data = url.replace(/(\/)(\d{1,})/, "$1 $2").replace(/(^[^ ]*)/, "").trim();
 
@@ -111,7 +113,7 @@ $(document).ready(function () {
                     quantidade: quantidadeCafeManha.val(),
                 },
                 foraHora: {
-                    horario: new Date,
+                    horario: nowData.getHours() + ':' + nowData.getMinutes(),
                     local: "",
                     humor: "",
                     alimentos: "",
@@ -127,17 +129,22 @@ $(document).ready(function () {
                 dataType: 'json',
                 success: function (data) {
                     alert(data.mensagem);
+                    limparTodosCampos();
                     return data.codigo === 0;
                 }
             });
         })
     }
 
+    function limparTodosCampos() {
+        tabelaDiarioAlimentar.find('tbody').find('input[type=text]').each(function () {
+            $(this).val('');
+        })
+    }
+
     function limparDiarioAlimentar(fields) {
         fields.click(function () {
-            tabelaDiarioAlimentar.find('tbody').find('input[type=text]').each(function () {
-                $(this).val('');
-            })
+            limparTodosCampos();
         })
     }
 
@@ -205,6 +212,13 @@ $(document).ready(function () {
     onlyNumber(horarioJantar);
     onlyNumber(horarioLancheManha);
     onlyNumber(horarioLancheTarde);
+
+    onlyNumber(quantidadeAlmoco);
+    onlyNumber(quantidadeCafeManha);
+    onlyNumber(quantidadeCeia);
+    onlyNumber(quantidadeJantar);
+    onlyNumber(quantidadeLancheManha);
+    onlyNumber(quantidadeLancheTarde);
 
     colocarMascaraHorario(horarioAlmoco);
     colocarMascaraHorario(horarioCafeManha);

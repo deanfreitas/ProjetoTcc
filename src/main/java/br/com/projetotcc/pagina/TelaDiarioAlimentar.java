@@ -45,7 +45,7 @@ public class TelaDiarioAlimentar {
     public @ResponseBody
     ResultadoServico cadastrarDiarioAlimentar(@RequestBody Data data) {
         Postar postar = new Postar(bancoDadosService, resultadoServico, context);
-        resultadoServico = postar.atualizarDiarioAlimentar(data);
+        resultadoServico = postar.cadastrarDiarioAlimentar(data);
 
         return resultadoServico;
     }

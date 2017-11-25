@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.BadCredentialsException;
 
 import javax.servlet.ServletContext;
+import java.util.List;
 
 public class Postar extends Http {
 
@@ -201,12 +202,16 @@ public class Postar extends Http {
         return resultadoServico;
     }
 
-    public ResultadoServico atualizarDiarioAlimentar(Data data) {
+    public ResultadoServico cadastrarDiarioAlimentar(Data data) {
         try {
             if (Utils.validTypeUser(context, Pessoa.PACIENTE.getTypePessoa())) {
                 Paciente paciente = (Paciente) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
                 data.setPaciente(paciente);
                 bancoDadosService.atualizarDiarioAlimentar(data);
+                List<Data> listData = paciente.getData();
+                listData.add(data);
+                paciente.setData(listData);
+                context.setAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext(), paciente);
                 mensagem = "Diario alimetar cadastrado com sucesso";
             } else {
                 mensagem = Response.ERROR_SYSTEM.getTypeResponse();
