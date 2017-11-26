@@ -81,10 +81,12 @@ public class Obter extends Http {
 
     public ResultadoServico getAllDiarioAlimentar(Long id) {
         List<Object> listaObjetos = new ArrayList<>();
+        String typePessoa = null;
 
         if (Utils.validTypeUser(context, Pessoa.NUTRICIONISTA.getTypePessoa())) {
             Nutricionista nutricionista = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
             listaObjetos.addAll(nutricionista.getPacientes().get(id.intValue() - 1).getData());
+            typePessoa = Pessoa.NUTRICIONISTA.getTypePessoa();
         } else if (Utils.validTypeUser(context, Pessoa.PACIENTE.getTypePessoa())) {
             Paciente paciente = (Paciente) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
             if (paciente.getId().equals(id)) {
@@ -93,6 +95,7 @@ public class Obter extends Http {
                 codigo = Code.ERROR_SYSTEM.getTypeCode();
                 mensagem = Response.ERROR_SYSTEM.getTypeResponse();
             }
+            typePessoa = Pessoa.PACIENTE.getTypePessoa();
         } else {
             codigo = Code.ERROR_SYSTEM.getTypeCode();
             mensagem = Response.ERROR_SYSTEM.getTypeResponse();
@@ -100,6 +103,7 @@ public class Obter extends Http {
 
         resultadoServico.setMensagem(mensagem);
         resultadoServico.setCodigo(codigo);
+        resultadoServico.setObjeto(typePessoa);
         resultadoServico.setListaObjetos(listaObjetos);
 
         return resultadoServico;

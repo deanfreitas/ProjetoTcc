@@ -28,7 +28,6 @@ $(document).ready(function () {
         selectable: true,
         selectHelper: true,
         eventClick: (event, jsEvent, view) => {
-
         },
         select: (start, end, allDay) => {
             const data = end.toDate();
@@ -60,9 +59,16 @@ $(document).ready(function () {
 
                 const listDiarioAlimentar = data.listaObjetos;
                 const listEvents = [];
+                let typeAcao;
 
                 if (listDiarioAlimentar.length <= 0) {
                     callback(listEvents);
+                }
+
+                if(data.objeto === 'paciente') {
+                    typeAcao = 'atualizar';
+                } else if(data.objeto === 'nutricionista') {
+                    typeAcao = 'visualizar';
                 }
 
                 for (let i in listDiarioAlimentar) {
@@ -71,49 +77,49 @@ $(document).ready(function () {
                         title: 'Desjejum',
                         start: colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].desjejum.horario),
                         end: somarMinutos(colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].desjejum.horario)),
-                        url: '',
+                        url: '/ProjetoTcc/telaDiarioAlimentar/' + typeAcao + '/' + listDiarioAlimentar[i].dData,
                     });
                     listEvents.push({
                         id: listDiarioAlimentar[i].colacao.id,
                         title: 'Colacao',
                         start: colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].colacao.horario),
                         end: somarMinutos(colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].colacao.horario)),
-                        url: '',
+                        url: '/ProjetoTcc/telaDiarioAlimentar/' + typeAcao + '/' + listDiarioAlimentar[i].dData,
                     });
                     listEvents.push({
                         id: listDiarioAlimentar[i].almoco.id,
                         title: 'Almoço',
                         start: colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].almoco.horario),
                         end: somarMinutos(colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].almoco.horario)),
-                        url: '',
+                        url: '/ProjetoTcc/telaDiarioAlimentar/' + typeAcao + '/' + listDiarioAlimentar[i].dData,
                     });
                     listEvents.push({
                         id: listDiarioAlimentar[i].lanche.id,
                         title: 'Lanche',
                         start: colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].lanche.horario),
                         end: somarMinutos(colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].lanche.horario)),
-                        url: '',
+                        url: '/ProjetoTcc/telaDiarioAlimentar/' + typeAcao + '/' + listDiarioAlimentar[i].dData,
                     });
                     listEvents.push({
                         id: listDiarioAlimentar[i].jantar.id,
                         title: 'Jantar',
                         start: colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].jantar.horario),
                         end: somarMinutos(colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].jantar.horario)),
-                        url: '',
+                        url: '/ProjetoTcc/telaDiarioAlimentar/' + typeAcao + '/' + listDiarioAlimentar[i].dData,
                     });
                     listEvents.push({
                         id: listDiarioAlimentar[i].ceia.id,
                         title: 'Ceia',
                         start: colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].ceia.horario),
                         end: somarMinutos(colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].ceia.horario)),
-                        url: '',
+                        url: '/ProjetoTcc/telaDiarioAlimentar/' + typeAcao + '/' + listDiarioAlimentar[i].dData,
                     });
                     listEvents.push({
                         id: listDiarioAlimentar[i].foraHora.id,
                         title: 'Fora de Hora',
                         start: colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].foraHora.horario),
                         end: somarMinutos(colocarMascaraData(listDiarioAlimentar[i].dData) + 'T' + colocarMascaraHora(listDiarioAlimentar[i].foraHora.horario)),
-                        url: '',
+                        url: '/ProjetoTcc/telaDiarioAlimentar/' + typeAcao + '/' + listDiarioAlimentar[i].dData,
                     });
                 }
                 callback(listEvents);
