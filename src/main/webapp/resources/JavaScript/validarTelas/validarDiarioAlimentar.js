@@ -4,7 +4,9 @@ $(document).ready(function () {
     const nowData = new Date();
 
     const url = window.location.href;
-    const data = url.replace(/(\/)(\d{1,})/, "$1 $2").replace(/(^[^ ]*)/, "").trim();
+    const data = url.substring(url.lastIndexOf('/') + 1);
+    const urlWithoutDate = url.replace('/' + data, '');
+    const idPaciente = urlWithoutDate.substring(urlWithoutDate.lastIndexOf('/') + 1);
 
     //Cafe da manha
     const horarioCafeManha = $('#CM-horario');
@@ -67,6 +69,10 @@ $(document).ready(function () {
     }
 
     function cadastrarDiarioAlimentar(fields) {
+        if (tipoAcaoDiarioAlimentar === 'visualizar') {
+            return false;
+        }
+
         fields.click(function () {
             let object = {
                 dData: data,
@@ -121,19 +127,111 @@ $(document).ready(function () {
                 }
             };
 
-            $.ajax({
-                url: "/ProjetoTcc/cadastrarDiarioAlimentar",
-                type: 'POST',
-                data: JSON.stringify(object),
-                contentType: "application/json",
-                dataType: 'json',
-                success: function (data) {
-                    alert(data.mensagem);
-                    limparTodosCampos();
-                    return data.codigo === 0;
-                }
-            });
+            if (tipoAcaoDiarioAlimentar === 'cadastrar') {
+                $.ajax({
+                    url: "/ProjetoTcc/cadastrarDiarioAlimentar",
+                    type: 'POST',
+                    data: JSON.stringify(object),
+                    contentType: "application/json",
+                    dataType: 'json',
+                    success: function (data) {
+                        alert(data.mensagem);
+                        if (data.codigo === 0) {
+                            return true;
+                        } else {
+                            limparTodosCampos();
+                            if (data.codigo === 2) {
+                                location.href = '/ProjetoTcc/sairSistema';
+                            }
+                            return false;
+                        }
+                    }
+                });
+            }
         })
+    }
+
+    function getDiarioAlimentar() {
+        $.ajax({
+            url: "/ProjetoTcc/getDiarioAlimentar/" + idPaciente + '/' + data,
+            type: 'GET',
+            contentType: "application/json",
+            dataType: 'json',
+            success: function (data) {
+                if (data.codigo !== 0) {
+                    alert(data.mensagem);
+
+                    if (data.codigo === 2) {
+                        location.href = '/ProjetoTcc/sairSistema';
+                    }
+                    return false;
+                } else {
+                    if (tipoAcaoDiarioAlimentar === 'cadastrar') {
+                        return false;
+                    }
+
+                    if (data.objeto.desjejum) {
+                        horarioCafeManha.val(retirarSegundosHorario(data.objeto.desjejum.horario));
+                        humorCafeManha.val(data.objeto.desjejum.humor);
+                        localCafeManha.val(data.objeto.desjejum.local);
+                        alimentoCafeManha.val(data.objeto.desjejum.alimentos);
+                        quantidadeCafeManha.val(data.objeto.desjejum.quantidade);
+                    }
+
+                    if (data.objeto.colacao) {
+                        horarioLancheManha.val(retirarSegundosHorario(data.objeto.colacao.horario));
+                        humorLancheManha.val(data.objeto.colacao.humor);
+                        localLancheManha.val(data.objeto.colacao.local);
+                        alimentoLancheManha.val(data.objeto.colacao.alimentos);
+                        quantidadeLancheManha.val(data.objeto.colacao.quantidade);
+                    }
+
+                    if (data.objeto.almoco) {
+                        horarioAlmoco.val(retirarSegundosHorario(data.objeto.almoco.horario));
+                        humorAlmoco.val(data.objeto.almoco.humor);
+                        localAlmoco.val(data.objeto.almoco.local);
+                        alimentoAlmoco.val(data.objeto.almoco.alimentos);
+                        quantidadeAlmoco.val(data.objeto.almoco.quantidade);
+                    }
+
+                    if (data.objeto.lanche) {
+                        horarioLancheTarde.val(retirarSegundosHorario(data.objeto.lanche.horario));
+                        humorLancheTarde.val(data.objeto.lanche.humor);
+                        localLancheTarde.val(data.objeto.lanche.local);
+                        alimentoLancheTarde.val(data.objeto.lanche.alimentos);
+                        quantidadeLancheTarde.val(data.objeto.lanche.quantidade);
+                    }
+
+                    if (data.objeto.jantar) {
+                        horarioJantar.val(retirarSegundosHorario(data.objeto.jantar.horario));
+                        humorJantar.val(data.objeto.jantar.humor);
+                        localJantar.val(data.objeto.jantar.local);
+                        alimentoJantar.val(data.objeto.jantar.alimentos);
+                        quantidadeJantar.val(data.objeto.jantar.quantidade);
+                    }
+
+                    if (data.objeto.ceia) {
+                        horarioCeia.val(retirarSegundosHorario(data.objeto.ceia.horario));
+                        humorCeia.val(data.objeto.ceia.humor);
+                        localCeia.val(data.objeto.ceia.local);
+                        alimentoCeia.val(data.objeto.ceia.alimentos);
+                        quantidadeCeia.val(data.objeto.ceia.quantidade);
+                    }
+
+                    if (tipoAcaoDiarioAlimentar === 'visualizar') {
+                        btnSalvar.toggle();
+                        btnLimpar.toggle();
+                        btnCancelar.toggle();
+
+                        tabelaDiarioAlimentar.find('tbody').find('input[type=text]').each(function () {
+                            $(this).prop('disabled', true);
+                        })
+                    }
+
+                    return true;
+                }
+            }
+        });
     }
 
     function limparTodosCampos() {
@@ -166,6 +264,10 @@ $(document).ready(function () {
             }
             $(this).val(tempVal);
         });
+    }
+
+    function retirarSegundosHorario(fields) {
+        return fields.substring(0, fields.lastIndexOf(':'));
     }
 
     function colocarMascaraHorario(fields) {
@@ -205,6 +307,8 @@ $(document).ready(function () {
             }
         });
     }
+
+    getDiarioAlimentar();
 
     onlyNumber(horarioAlmoco);
     onlyNumber(horarioCafeManha);

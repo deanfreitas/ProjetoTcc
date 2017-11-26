@@ -1,18 +1,17 @@
 package br.com.projetotcc.pagina;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.cadastro.Obter;
 import br.com.projetotcc.cadastro.Postar;
 import br.com.projetotcc.entidade.paciente.alimentacao.Data;
 import br.com.projetotcc.mensagem.ResultadoServico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletContext;
+import java.sql.Date;
 
 @Controller
 public class TelaDiarioAlimentar {
@@ -31,14 +30,18 @@ public class TelaDiarioAlimentar {
         this.context = context;
     }
 
-    @RequestMapping(value = ROTA_TELA, method = RequestMethod.GET)
-    public ModelAndView aparecerTelaDiarioAlimentar() {
+    @RequestMapping(value = ROTA_TELA + "/{tipoPagina}/{idPaciente}/{data}", method = RequestMethod.GET)
+    public ModelAndView aparecerTelaDiarioAlimentarComData() {
         return new ModelAndView(TELA);
     }
 
-    @RequestMapping(value = ROTA_TELA + "/{tipoPagina}/{data}", method = RequestMethod.GET)
-    public ModelAndView aparecerTelaDiarioAlimentarComData() {
-        return new ModelAndView(TELA);
+    @RequestMapping(value = "/getDiarioAlimentar/{idPaciente}/{dataDiarioAlimentar}", method = RequestMethod.GET)
+    public @ResponseBody
+    ResultadoServico getDiarioAlimentar(@PathVariable(value = "idPaciente") Long idPaciente, @PathVariable(value = "dataDiarioAlimentar") Date date) {
+        Obter obter = new Obter(bancoDadosService, resultadoServico, context);
+        resultadoServico = obter.getDiarioAlimentar(idPaciente, date);
+
+        return resultadoServico;
     }
 
     @RequestMapping(value = "/cadastrarDiarioAlimentar", method = RequestMethod.POST)

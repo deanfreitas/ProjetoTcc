@@ -1,6 +1,7 @@
 package br.com.projetotcc.cadastro;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.entidade.paciente.alimentacao.Data;
 import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.enums.Code;
@@ -13,6 +14,7 @@ import br.com.projetotcc.mensagem.ResultadoServico;
 import br.com.projetotcc.utils.Utils;
 
 import javax.servlet.ServletContext;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -105,6 +107,40 @@ public class Obter extends Http {
         resultadoServico.setCodigo(codigo);
         resultadoServico.setObjeto(typePessoa);
         resultadoServico.setListaObjetos(listaObjetos);
+
+        return resultadoServico;
+    }
+
+    public ResultadoServico getDiarioAlimentar(Long idPaciente, Date date) {
+        Paciente paciente = null;
+        Data data = null;
+
+        if (Utils.validTypeUser(context, Pessoa.NUTRICIONISTA.getTypePessoa())) {
+            Nutricionista nutricionista = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
+            for (Paciente pacienteNutricionista : nutricionista.getPacientes()) {
+                if (pacienteNutricionista.getId().equals(idPaciente)) {
+                    paciente = pacienteNutricionista;
+                    break;
+                }
+            }
+        } else if (Utils.validTypeUser(context, Pessoa.PACIENTE.getTypePessoa())) {
+            paciente = (Paciente) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
+        } else {
+            codigo = Code.ERROR_SYSTEM.getTypeCode();
+            mensagem = Response.ERROR_SYSTEM.getTypeResponse();
+        }
+
+        if(paciente != null) {
+            for (Data dataPaciente : paciente.getData()) {
+                if (dataPaciente.getdData().equals(date)) {
+                    data = dataPaciente;
+                }
+            }
+        }
+
+        resultadoServico.setMensagem(mensagem);
+        resultadoServico.setCodigo(codigo);
+        resultadoServico.setObjeto(data);
 
         return resultadoServico;
     }

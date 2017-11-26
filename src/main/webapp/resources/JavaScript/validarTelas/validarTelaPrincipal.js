@@ -1,4 +1,5 @@
 let tipoUsuario;
+let idUsuario;
 
 $(document).ready(function () {
     $.material.init();
@@ -12,8 +13,6 @@ $(document).ready(function () {
     const btnAlterarDados = $('#btnAlterarDados');
     const btnCalcularImc = $('#btnCalcular');
     const btndiarioAlimentarHome = $('#btnDiarioAlimentar');
-
-    let idUsuario;
 
     function onlyNumber(fields) {
         fields.unbind('keyup').bind('keyup', function (e) {
@@ -145,7 +144,7 @@ function changeBg(id) {
                 mes = "0" + mes;
             }
 
-            location.href = '/ProjetoTcc/telaDiarioAlimentar/cadastrar/' + $('#selYear').val() + '-' + mes + '-' + dia;
+            location.href = '/ProjetoTcc/telaDiarioAlimentar/cadastrar/' + idUsuario + '/' + $('#selYear').val() + '-' + mes + '-' + dia;
         }
     }
     else {
