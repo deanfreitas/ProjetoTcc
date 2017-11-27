@@ -43,10 +43,16 @@ public class Atualizar extends Http {
 
         try {
             if (Utils.validTypeUser(context, Pessoa.NUTRICIONISTA.getTypePessoa())) {
-                Nutricionista dadosCastradoPessoa = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
-                paciente.setNutricionista(dadosCastradoPessoa);
+                Nutricionista nutricionista = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
+                paciente.setNutricionista(nutricionista);
                 bancoDadosService.atualizarCadastroUsuario(paciente);
                 mensagem = "Anamnese Cadastrada com sucesso";
+                for (int i = 0; i < nutricionista.getPacientes().size(); i++) {
+                    if (nutricionista.getPacientes().get(i).getId().equals(paciente.getId())) {
+                        nutricionista.getPacientes().set(i, paciente);
+                    }
+                }
+                context.setAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext(), nutricionista);
             } else {
                 mensagem = Response.ERROR_SYSTEM.getTypeResponse();
                 codigo = Code.ERROR_SYSTEM.getTypeCode();

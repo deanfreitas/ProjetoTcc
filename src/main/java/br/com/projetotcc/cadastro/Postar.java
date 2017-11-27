@@ -153,7 +153,13 @@ public class Postar extends Http {
             try {
                 bancoDadosService.adicionarUsuario(paciente);
                 bancoDadosService.sincronizarBancoDados();
-                resultadoServico.setObjeto(paciente.getId());
+                if(Utils.validTypeUser(context, Pessoa.NUTRICIONISTA.getTypePessoa())) {
+                    Nutricionista nutricionista = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
+                    List<Paciente> listPacientes = nutricionista.getPacientes();
+                    listPacientes.add(paciente);
+                    nutricionista.setPacientes(listPacientes);
+                    context.setAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext(), nutricionista);
+                }
             } catch (Exception e) {
                 LOGGER.error(e.getMessage(), e);
                 mensagem = "Erro ao inserir medico ao paciente";
@@ -166,6 +172,7 @@ public class Postar extends Http {
 
         resultadoServico.setMensagem(mensagem);
         resultadoServico.setCodigo(codigo);
+        resultadoServico.setObjeto(paciente.getId());
 
         return resultadoServico;
     }

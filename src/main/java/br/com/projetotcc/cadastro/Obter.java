@@ -61,8 +61,7 @@ public class Obter extends Http {
         List<Object> listaObjetos = new ArrayList<>();
 
         if (Utils.validTypeUser(context, Pessoa.NUTRICIONISTA.getTypePessoa())) {
-            Nutricionista dadosCastradoPessoa = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
-            Nutricionista nutricionista = (Nutricionista) bancoDadosService.encontrarInformacaoPorId(dadosCastradoPessoa, dadosCastradoPessoa.getId());
+            Nutricionista nutricionista = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
             if (nutricionista != null) {
                 listaObjetos.addAll(nutricionista.getPacientes());
             } else {
