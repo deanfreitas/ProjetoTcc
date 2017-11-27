@@ -151,14 +151,18 @@ public class Postar extends Http {
     public ResultadoServico adicionarPacienteNutricionista(Paciente paciente) {
         if (paciente != null) {
             try {
-                bancoDadosService.adicionarCadastroBancoDados(paciente);
-                bancoDadosService.sincronizarBancoDados();
                 if (Utils.validTypeUser(context, Pessoa.NUTRICIONISTA.getTypePessoa())) {
+                    bancoDadosService.adicionarCadastroBancoDados(paciente);
+                    bancoDadosService.sincronizarBancoDados();
+
                     Nutricionista nutricionista = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
                     List<Paciente> listPacientes = nutricionista.getPacientes();
                     listPacientes.add(paciente);
                     nutricionista.setPacientes(listPacientes);
+
                     context.setAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext(), nutricionista);
+
+                    resultadoServico.setObjeto(paciente.getId());
                 }
             } catch (Exception e) {
                 LOGGER.error(e.getMessage(), e);
@@ -172,7 +176,6 @@ public class Postar extends Http {
 
         resultadoServico.setMensagem(mensagem);
         resultadoServico.setCodigo(codigo);
-        resultadoServico.setObjeto(paciente.getId());
 
         return resultadoServico;
     }
@@ -180,7 +183,7 @@ public class Postar extends Http {
     public ResultadoServico pegarIdUsuarioLogado(Login login) {
         long id = 0;
 
-        Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login,"usuario", context.getAttribute(Context.LOGIN_USUARIO.getTypeContext()).toString());
+        Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, "usuario", context.getAttribute(Context.LOGIN_USUARIO.getTypeContext()).toString());
 
         if (loginCadastrado != null) {
             if (loginCadastrado.getNutricionista() != null) {
@@ -212,12 +215,16 @@ public class Postar extends Http {
     public ResultadoServico cadastrarDiarioAlimentar(Data data) {
         try {
             if (Utils.validTypeUser(context, Pessoa.PACIENTE.getTypePessoa())) {
+
                 Paciente paciente = (Paciente) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
                 data.setPaciente(paciente);
                 bancoDadosService.adicionarCadastroBancoDados(data);
+                bancoDadosService.sincronizarBancoDados();
+
                 List<Data> listData = paciente.getData();
                 listData.add(data);
                 paciente.setData(listData);
+
                 context.setAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext(), paciente);
                 mensagem = "Diario alimetar cadastrado com sucesso";
             } else {

@@ -55,8 +55,10 @@ public class TelaDiarioAlimentar {
     }
 
     @RequestMapping(value = "/atualizarDiarioAlimentar", method = RequestMethod.PUT)
-    public @ResponseBody ResultadoServico atualizarDiarioAlimentar(@RequestBody Data data) {
-        Atualizar atualizar =  new Atualizar(bancoDadosService, resultadoServico, context);
+    public @ResponseBody
+    ResultadoServico atualizarDiarioAlimentar(@RequestBody Data data) {
+        Atualizar atualizar = new Atualizar(bancoDadosService, resultadoServico, context);
+        resultadoServico = atualizar.atualizarDiarioAlimentar(data);
 
         return resultadoServico;
     }
