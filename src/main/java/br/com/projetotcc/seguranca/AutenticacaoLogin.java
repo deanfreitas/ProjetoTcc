@@ -31,7 +31,7 @@ public class AutenticacaoLogin implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String nomeUsuario) {
         Login login = new Login();
-        login = (Login) bancoDadosService.encontrarInformacao(login, nomeUsuario);
+        login = (Login) bancoDadosService.encontrarInformacao(login, "usuario", nomeUsuario);
         InterfacePessoa interfacePessoa = null;
 
         if (login.getNutricionista() != null) {

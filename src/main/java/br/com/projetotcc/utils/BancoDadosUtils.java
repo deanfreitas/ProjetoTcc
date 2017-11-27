@@ -18,7 +18,7 @@ public class BancoDadosUtils {
     }
 
     public ResultadoServico checkLoginIgual(Login login) {
-        Login loginPessoa = (Login) bancoDadosService.encontrarInformacao(login, login.getUsuario());
+        Login loginPessoa = (Login) bancoDadosService.encontrarInformacao(login,"usuario", login.getUsuario());
 
         if (loginPessoa != null) {
             mensagem = "Já tem um login Igual a esse";
