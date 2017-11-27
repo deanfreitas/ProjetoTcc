@@ -107,6 +107,7 @@ public class Atualizar extends Http {
                         paciente.getData().set(i, data);
                     }
                 }
+                context.setAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext(), paciente);
             }
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);

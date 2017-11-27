@@ -58,7 +58,8 @@ $(document).ready(function () {
     //tabela
     const tabelaDiarioAlimentar = $('#diarioAlimentar');
 
-    let tipoAcaoDiarioAlimentar = null;
+    let idData;
+    let tipoAcaoDiarioAlimentar;
 
     if (url.indexOf("cadastrar") > -1) {
         tipoAcaoDiarioAlimentar = "cadastrar";
@@ -148,6 +149,8 @@ $(document).ready(function () {
                     }
                 });
             } else if(tipoAcaoDiarioAlimentar === 'atualizar') {
+                object.id = idData;
+
                 $.ajax({
                     url: "/ProjetoTcc/atualizarDiarioAlimentar",
                     type: 'PUT',
@@ -189,6 +192,8 @@ $(document).ready(function () {
                     if (tipoAcaoDiarioAlimentar === 'cadastrar') {
                         return false;
                     }
+
+                    idData = data.objeto.id;
 
                     if (data.objeto.desjejum) {
                         horarioCafeManha.val(retirarSegundosHorario(data.objeto.desjejum.horario));
