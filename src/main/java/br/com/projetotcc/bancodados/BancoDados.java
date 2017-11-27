@@ -27,17 +27,22 @@ public class BancoDados {
     @PersistenceContext
     private EntityManager entityManager;
 
-    List<InterfaceEntidade> listaInformacoesTabela(InterfaceEntidade interfaceEntidade) {
+    private CriteriaQuery<InterfaceEntidade> createCriteriaQuery(InterfaceEntidade interfaceEntidade) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<InterfaceEntidade> createQuery = (CriteriaQuery<InterfaceEntidade>) criteriaBuilder.createQuery(interfaceEntidade.getClass());
         Root<InterfaceEntidade> rootEntry = (Root<InterfaceEntidade>) createQuery.from(interfaceEntidade.getClass());
         createQuery.select(rootEntry);
-        TypedQuery<InterfaceEntidade> typedQuery = entityManager.createQuery(createQuery);
+
+        return createQuery;
+    }
+
+    List<InterfaceEntidade> listaInformacoesTabela(InterfaceEntidade interfaceEntidade) {
+        TypedQuery<InterfaceEntidade> typedQuery = entityManager.createQuery(createCriteriaQuery(interfaceEntidade));
         return typedQuery.getResultList();
     }
 
-    void adiciona(InterfaceEntidade entidadeGererica) {
-        entityManager.persist(entidadeGererica);
+    <T> void adiciona(T aClass) {
+        entityManager.persist(aClass);
     }
 
     void remove(InterfaceEntidade interfaceEntidade, Long id) {
@@ -64,18 +69,14 @@ public class BancoDados {
         return entityManager.find(interfaceEntidade.getClass(), id);
     }
 
-    InterfaceEntidade buscaPorAlgumaInformacao(InterfaceEntidade interfaceEntidade, String informacaoUsuario) {
+    InterfaceEntidade buscaPorAlgumaInformacao(InterfaceEntidade interfaceEntidade, String campo, String informacaoUsuario) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<InterfaceEntidade> createQuery = (CriteriaQuery<InterfaceEntidade>) criteriaBuilder.createQuery(interfaceEntidade.getClass());
         Root<InterfaceEntidade> rootEntry = (Root<InterfaceEntidade>) createQuery.from(interfaceEntidade.getClass());
         createQuery.select(rootEntry);
         ParameterExpression<String> parameterExpression = criteriaBuilder.parameter(String.class);
 
-        if (interfaceEntidade instanceof Login) {
-            createQuery.where(criteriaBuilder.equal(rootEntry.get("usuario"), parameterExpression));
-        } else if (interfaceEntidade instanceof Nutricionista) {
-            createQuery.where(criteriaBuilder.equal(rootEntry.get("crn"), parameterExpression));
-        }
+        createQuery.where(criteriaBuilder.equal(rootEntry.get(campo), parameterExpression));
 
         TypedQuery<InterfaceEntidade> typedQuery = entityManager.createQuery(createQuery);
         typedQuery.setParameter(parameterExpression, informacaoUsuario);
@@ -86,11 +87,6 @@ public class BancoDados {
             LOGGER.error(e.getMessage(), e);
             return null;
         }
-    }
-
-    void finaliza(InterfaceEntidade interfaceEntidade) {
-        InterfaceEntidade entidadeClassMerge = buscaPorId(interfaceEntidade, interfaceEntidade.getId());
-        entityManager.merge(entidadeClassMerge);
     }
 
     void sincronizarBancoDados() {

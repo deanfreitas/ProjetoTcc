@@ -1,6 +1,7 @@
 package br.com.projetotcc.pagina;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.cadastro.Atualizar;
 import br.com.projetotcc.cadastro.Obter;
 import br.com.projetotcc.cadastro.Postar;
 import br.com.projetotcc.entidade.paciente.alimentacao.Data;
@@ -49,6 +50,13 @@ public class TelaDiarioAlimentar {
     ResultadoServico cadastrarDiarioAlimentar(@RequestBody Data data) {
         Postar postar = new Postar(bancoDadosService, resultadoServico, context);
         resultadoServico = postar.cadastrarDiarioAlimentar(data);
+
+        return resultadoServico;
+    }
+
+    @RequestMapping(value = "/atualizarDiarioAlimentar", method = RequestMethod.PUT)
+    public @ResponseBody ResultadoServico atualizarDiarioAlimentar(@RequestBody Data data) {
+        Atualizar atualizar =  new Atualizar(bancoDadosService, resultadoServico, context);
 
         return resultadoServico;
     }

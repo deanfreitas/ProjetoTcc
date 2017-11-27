@@ -147,6 +147,26 @@ $(document).ready(function () {
                         }
                     }
                 });
+            } else if(tipoAcaoDiarioAlimentar === 'atualizar') {
+                $.ajax({
+                    url: "/ProjetoTcc/atualizarDiarioAlimentar",
+                    type: 'PUT',
+                    data: JSON.stringify(object),
+                    contentType: "application/json",
+                    dataType: 'json',
+                    success: function (data) {
+                        alert(data.mensagem);
+                        if (data.codigo === 0) {
+                            location.reload();
+                            return true;
+                        } else {
+                            if (data.codigo === 2) {
+                                location.href = '/ProjetoTcc/sairSistema';
+                            }
+                            return false;
+                        }
+                    }
+                });
             }
         })
     }

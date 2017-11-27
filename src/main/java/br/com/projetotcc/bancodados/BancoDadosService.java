@@ -20,14 +20,14 @@ public class BancoDadosService {
     }
 
     @Transactional
-    public void adicionarUsuario(InterfaceEntidade interfaceEntidade) {
-        bancoDados.adiciona(interfaceEntidade);
+    public <T> void adicionarCadastroBancoDados(T aClass) {
+        bancoDados.adiciona(aClass);
     }
 
     @Transactional(readOnly = true)
-    public InterfaceEntidade encontrarInformacao(InterfaceEntidade interfaceEntidade, String nomeUsuario) {
-        return bancoDados.buscaPorAlgumaInformacao(interfaceEntidade, nomeUsuario);
-    }
+    public InterfaceEntidade encontrarInformacao(InterfaceEntidade interfaceEntidade, String campo, String nomeUsuario) {
+        return bancoDados.buscaPorAlgumaInformacao(interfaceEntidade, campo, nomeUsuario);
+}
 
     @Transactional(readOnly = true)
     public InterfaceEntidade encontrarInformacaoPorId(InterfaceEntidade interfaceEntidade, Long id) {
@@ -45,13 +45,8 @@ public class BancoDadosService {
     }
 
     @Transactional
-    public void atualizarCadastroUsuario(InterfaceEntidade interfaceEntidade) {
-        bancoDados.altera(interfaceEntidade);
-    }
-
-    @Transactional
-    public void atualizarDiarioAlimentar(Data data) {
-        bancoDados.altera(data);
+    public <T> void atualizarCadastroBancoDados(T aClass) {
+        bancoDados.altera(aClass);
     }
 
     @Transactional

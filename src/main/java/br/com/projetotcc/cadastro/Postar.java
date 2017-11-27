@@ -87,7 +87,7 @@ public class Postar extends Http {
 
         try {
             Role role = new Role("ROLE_nutricionista", nutricionista);
-            bancoDadosService.adicionarUsuario(role);
+            bancoDadosService.adicionarCadastroBancoDados(role);
             mensagem = "Usuario Cadastrado com sucesso";
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
@@ -116,7 +116,7 @@ public class Postar extends Http {
             return resultadoServico;
         }
 
-        Nutricionista nutricionista = (Nutricionista) bancoDadosService.encontrarInformacao(paciente.getNutricionista(), paciente.getNutricionista().getCrn());
+        Nutricionista nutricionista = (Nutricionista) bancoDadosService.encontrarInformacao(paciente.getNutricionista(), "crn", paciente.getNutricionista().getCrn());
         resultadoServico = usuario.checkPacientePertenceNutricionista(paciente, nutricionista);
 
         if (resultadoServico.getCodigo() != Code.SUCCESS.getTypeCode()) {
@@ -131,7 +131,7 @@ public class Postar extends Http {
                     pacienteNutricionista.setResponsavel(paciente.getResponsavel());
                     pacienteNutricionista.setLogin(paciente.getLogin());
                     Role role = new Role("ROLE_paciente", pacienteNutricionista);
-                    bancoDadosService.atualizarCadastroUsuario(role);
+                    bancoDadosService.atualizarCadastroBancoDados(role);
                     mensagem = "Usuario Cadastrado com sucesso";
                     break;
                 } catch (Exception e) {
@@ -151,9 +151,9 @@ public class Postar extends Http {
     public ResultadoServico adicionarPacienteNutricionista(Paciente paciente) {
         if (paciente != null) {
             try {
-                bancoDadosService.adicionarUsuario(paciente);
+                bancoDadosService.adicionarCadastroBancoDados(paciente);
                 bancoDadosService.sincronizarBancoDados();
-                if(Utils.validTypeUser(context, Pessoa.NUTRICIONISTA.getTypePessoa())) {
+                if (Utils.validTypeUser(context, Pessoa.NUTRICIONISTA.getTypePessoa())) {
                     Nutricionista nutricionista = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
                     List<Paciente> listPacientes = nutricionista.getPacientes();
                     listPacientes.add(paciente);
@@ -180,7 +180,7 @@ public class Postar extends Http {
     public ResultadoServico pegarIdUsuarioLogado(Login login) {
         long id = 0;
 
-        Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login, context.getAttribute(Context.LOGIN_USUARIO.getTypeContext()).toString());
+        Login loginCadastrado = (Login) bancoDadosService.encontrarInformacao(login,"usuario", context.getAttribute(Context.LOGIN_USUARIO.getTypeContext()).toString());
 
         if (loginCadastrado != null) {
             if (loginCadastrado.getNutricionista() != null) {
@@ -214,7 +214,7 @@ public class Postar extends Http {
             if (Utils.validTypeUser(context, Pessoa.PACIENTE.getTypePessoa())) {
                 Paciente paciente = (Paciente) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
                 data.setPaciente(paciente);
-                bancoDadosService.atualizarDiarioAlimentar(data);
+                bancoDadosService.adicionarCadastroBancoDados(data);
                 List<Data> listData = paciente.getData();
                 listData.add(data);
                 paciente.setData(listData);
