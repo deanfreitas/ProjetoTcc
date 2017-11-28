@@ -1,8 +1,6 @@
 $(document).ready(function () {
     $.material.init();
 
-    const nowData = new Date();
-
     const url = window.location.href;
     const data = url.substring(url.lastIndexOf('/') + 1);
     const urlWithoutDate = url.replace('/' + data, '');
@@ -316,10 +314,14 @@ $(document).ready(function () {
     }
 
     function retirarSegundosHorario(fields) {
-        if(fields.length <= 5) {
+        const patternWithSeconds = /^([0-9]{2}):([0-9]{2}):([0-9]{2})$/;
+        const patternTimeWithoutSeconds = /^([0-9]{2}):([0-9]{2})$/;
+
+        if (patternTimeWithoutSeconds.test(fields)) {
             return fields;
+        } else if (patternWithSeconds.test(fields)) {
+            return fields.substring(0, fields.lastIndexOf(':'));
         }
-        return fields.substring(0, fields.lastIndexOf(':'));
     }
 
     function colocarMascaraHorario(fields) {

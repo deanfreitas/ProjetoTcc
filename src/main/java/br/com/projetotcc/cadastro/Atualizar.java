@@ -100,6 +100,7 @@ public class Atualizar extends Http {
         try {
             if(Utils.validTypeUser(context, Pessoa.PACIENTE.getTypePessoa())) {
                 Paciente paciente = (Paciente) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
+                data = Utils.addFeedData(data, paciente);
                 data.setPaciente(paciente);
                 bancoDadosService.atualizarCadastroBancoDados(data);
                 bancoDadosService.sincronizarBancoDados();
