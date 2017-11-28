@@ -70,63 +70,87 @@ $(document).ready(function () {
     }
 
     function cadastrarDiarioAlimentar(fields) {
+        let isAddDb = false;
+
         if (tipoAcaoDiarioAlimentar === 'visualizar') {
             return false;
         }
 
         fields.click(function () {
-            let object = {
-                dData: data,
-                ceia: {
+            const object = {};
+
+            object.dData = data.replace('#', '');
+
+            if (horarioCeia.val()) {
+                isAddDb = true;
+                object.ceia = {
                     horario: horarioCeia.val(),
                     local: localCeia.val(),
                     humor: humorCeia.val(),
                     alimentos: alimentoCeia.val(),
                     quantidade: quantidadeCeia.val(),
-                },
-                colacao: {
+                }
+            }
+
+            if (horarioLancheManha.val()) {
+                isAddDb = true;
+                object.colacao = {
                     horario: horarioLancheManha.val(),
                     local: localLancheManha.val(),
                     humor: humorLancheManha.val(),
                     alimentos: alimentoLancheManha.val(),
                     quantidade: quantidadeLancheManha.val(),
-                },
-                jantar: {
+                }
+            }
+
+            if (horarioJantar.val()) {
+                isAddDb = true;
+                object.jantar = {
                     horario: horarioJantar.val(),
                     local: localJantar.val(),
                     humor: humorJantar.val(),
                     alimentos: alimentoJantar.val(),
                     quantidade: quantidadeJantar.val(),
-                },
-                lanche: {
+                }
+            }
+
+            if (horarioLancheTarde.val()) {
+                isAddDb = true;
+                object.lanche = {
                     horario: horarioLancheTarde.val(),
                     local: localLancheTarde.val(),
                     humor: humorLancheTarde.val(),
                     alimentos: alimentoLancheTarde.val(),
                     quantidade: quantidadeLancheTarde.val(),
-                },
-                almoco: {
+                }
+            }
+
+            if (horarioAlmoco.val()) {
+                isAddDb = true;
+                object.almoco = {
                     horario: horarioAlmoco.val(),
                     local: localAlmoco.val(),
                     humor: humorAlmoco.val(),
                     alimentos: alimentoAlmoco.val(),
                     quantidade: quantidadeAlmoco.val(),
-                },
-                desjejum: {
+                }
+            }
+
+            if (horarioCafeManha.val()) {
+                isAddDb = true;
+                object.desjejum = {
                     horario: horarioCafeManha.val(),
                     local: localCafeManha.val(),
                     humor: humorCafeManha.val(),
                     alimentos: alimentoCafeManha.val(),
                     quantidade: quantidadeCafeManha.val(),
-                },
-                foraHora: {
-                    horario: nowData.getHours() + ':' + nowData.getMinutes(),
-                    local: "",
-                    humor: "",
-                    alimentos: "",
-                    quantidade: 0,
                 }
-            };
+            }
+
+            if (!isAddDb) {
+                alert('Precisa preencher alguma data');
+                return false;
+            }
 
             if (tipoAcaoDiarioAlimentar === 'cadastrar') {
                 $.ajax({
@@ -148,7 +172,7 @@ $(document).ready(function () {
                         }
                     }
                 });
-            } else if(tipoAcaoDiarioAlimentar === 'atualizar') {
+            } else if (tipoAcaoDiarioAlimentar === 'atualizar') {
                 object.id = idData;
 
                 $.ajax({

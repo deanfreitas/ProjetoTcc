@@ -118,6 +118,9 @@ public class Atualizar extends Http {
             codigo = Code.ERROR.getTypeCode();
         }
 
+        resultadoServico.setMensagem(mensagem);
+        resultadoServico.setCodigo(codigo);
+
         return resultadoServico;
     }
 }

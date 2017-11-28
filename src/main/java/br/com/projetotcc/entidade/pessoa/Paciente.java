@@ -85,7 +85,7 @@ public class Paciente implements InterfacePessoa {
     private List<ExamesBioquimicos> examesBioquimicos;
 
     @JsonManagedReference(value = "paciente-data")
-    @OneToMany(mappedBy = "paciente")
+    @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Data> data;
 

@@ -12,6 +12,8 @@ import java.sql.Date;
 @Table(name = "Data")
 public class Data implements Serializable {
 
+    private static final long serialVersionUID = 118309367788670594L;
+
     @Id
     @GeneratedValue
     @Column(name = "id_data", nullable = false)
@@ -56,8 +58,8 @@ public class Data implements Serializable {
     private ForaHora foraHora;
 
     @JsonBackReference(value = "paciente-data")
-    @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY, targetEntity = Paciente.class)
-    @JoinColumn(name = "id_Paciente")
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH}, optional = false, fetch = FetchType.LAZY, targetEntity = Paciente.class)
+    @JoinColumn(name = "id_Paciente", nullable = false)
     private Paciente paciente;
 
     public Long getId() {
