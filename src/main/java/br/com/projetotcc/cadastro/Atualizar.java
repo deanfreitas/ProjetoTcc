@@ -77,6 +77,7 @@ public class Atualizar extends Http {
                 pessoa.setId(dadosCastradoPessoa.getId());
                 pessoa.getLogin().setId(dadosCastradoPessoa.getLogin().getId());
                 bancoDadosService.atualizarCadastroBancoDados(pessoa);
+                bancoDadosService.sincronizarBancoDados();
                 mensagem = "Cadastro atualizado com sucesso";
                 context.setAttribute(Context.LOGIN_USUARIO.getTypeContext(), pessoa.getLogin().getUsuario());
             } else {
@@ -101,10 +102,12 @@ public class Atualizar extends Http {
                 Paciente paciente = (Paciente) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
                 data.setPaciente(paciente);
                 bancoDadosService.atualizarCadastroBancoDados(data);
+                bancoDadosService.sincronizarBancoDados();
                 mensagem = "Diário Alimentar atualizado com sucesso";
                 for (int i = 0; i < paciente.getData().size(); i++) {
                     if (paciente.getData().get(i).getdData().equals(data.getdData())) {
                         paciente.getData().set(i, data);
+                        break;
                     }
                 }
                 context.setAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext(), paciente);

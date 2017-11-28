@@ -316,6 +316,9 @@ $(document).ready(function () {
     }
 
     function retirarSegundosHorario(fields) {
+        if(fields.length <= 5) {
+            return fields;
+        }
         return fields.substring(0, fields.lastIndexOf(':'));
     }
 

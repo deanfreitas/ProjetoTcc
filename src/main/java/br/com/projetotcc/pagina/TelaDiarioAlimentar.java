@@ -6,6 +6,7 @@ import br.com.projetotcc.cadastro.Obter;
 import br.com.projetotcc.cadastro.Postar;
 import br.com.projetotcc.entidade.paciente.alimentacao.Data;
 import br.com.projetotcc.mensagem.ResultadoServico;
+import br.com.projetotcc.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +49,7 @@ public class TelaDiarioAlimentar {
     @RequestMapping(value = "/cadastrarDiarioAlimentar", method = RequestMethod.POST)
     public @ResponseBody
     ResultadoServico cadastrarDiarioAlimentar(@RequestBody Data data) {
+        data.setdData(Utils.addOneDay(data.getdData()));
         Postar postar = new Postar(bancoDadosService, resultadoServico, context);
         resultadoServico = postar.cadastrarDiarioAlimentar(data);
 
@@ -57,6 +59,7 @@ public class TelaDiarioAlimentar {
     @RequestMapping(value = "/atualizarDiarioAlimentar", method = RequestMethod.PUT)
     public @ResponseBody
     ResultadoServico atualizarDiarioAlimentar(@RequestBody Data data) {
+        data.setdData(Utils.addOneDay(data.getdData()));
         Atualizar atualizar = new Atualizar(bancoDadosService, resultadoServico, context);
         resultadoServico = atualizar.atualizarDiarioAlimentar(data);
 
