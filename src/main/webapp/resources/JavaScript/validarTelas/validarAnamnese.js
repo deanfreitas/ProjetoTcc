@@ -283,6 +283,27 @@ $(document).ready(function () {
         });
     }
 
+    function calculateAge(birthday) {
+        const date = new Date(birthday);
+        const ageDifMs = Date.now() - date.getTime();
+        const ageDate = new Date(ageDifMs);
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
+
+    function getAge(fields) {
+        fields.blur(function () {
+            const date = $(this).val().replace(/\W/g, "");
+            if(date.length === 8) {
+                const dia = date.substring(0, 2);
+                const mes = date.substring(2, 4);
+                const ano = date.substring(4);
+
+                const age = calculateAge(ano + '-' + mes + '-' + dia);
+                idade.val(age);
+            }
+        })
+    }
+
     //	Identificacao
     function validarData(fields) {
         fields.blur(function () {
@@ -1291,6 +1312,8 @@ $(document).ready(function () {
 
     colocarMascaraCelular(celular);
     colocarMascaraTelefoneResidencial(telefoneResidencial);
+
+    getAge(dataNascimento);
 
     validarEmail(email);
     validarData(dataPrimeiraConsulta);

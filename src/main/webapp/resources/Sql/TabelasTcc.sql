@@ -138,7 +138,7 @@ CREATE TABLE Atividade_Fisica
 
 CREATE TABLE Frequencia_Alimentar
 (
-  Id_FrequenciaAlimentar        INTEGER      NOT NULL,
+  Id_FrequenciaAlimentar        INTEGER      NOT NULL AUTO_INCREMENT,
   Freq_Arroz                    ENUM ('Nulo', 'Eventual', 'Semanal', 'Diária', ''),
   OBSFreq_Arroz                 VARCHAR(100),
   Freq_Macarrao                 ENUM ('Nulo', 'Eventual', 'Semanal', 'Diária', ''),
