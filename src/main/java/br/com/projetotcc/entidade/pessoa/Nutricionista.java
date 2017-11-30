@@ -68,6 +68,7 @@ public class Nutricionista implements InterfacePessoa {
 
     @JsonManagedReference(value = "nutricionista-paciente")
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "nutricionista")
+    @OrderBy(value = "id")
     private List<Paciente> pacientes;
 
     public Nutricionista() {

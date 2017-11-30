@@ -28,7 +28,7 @@ $(document).ready(function () {
                     return false;
                 }
 
-                for (let i in data.listaObjetos) {
+                for (let i = data.listaObjetos.length - 1; i >= 0; i--) {
                     tabelaPacientes.find('tbody').append(`<tr class="info" style="cursor: pointer;" id="tr` + i + `">
   															<td> <input type="checkbox" id="checkbox` + i + `" value="` + data.listaObjetos[i].id + `"></td>
     														<td id="idNome` + i + `">` + (data.listaObjetos[i].identificacao ? data.listaObjetos[i].identificacao.nome : listIdPaciente.push(data.listaObjetos[i].id)) + `</td> 
