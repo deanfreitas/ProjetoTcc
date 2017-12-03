@@ -293,7 +293,7 @@ $(document).ready(function () {
     function getAge(fields) {
         fields.blur(function () {
             const date = $(this).val().replace(/\W/g, "");
-            if(date.length === 8) {
+            if (date.length === 8) {
                 const dia = date.substring(0, 2);
                 const mes = date.substring(2, 4);
                 const ano = date.substring(4);
