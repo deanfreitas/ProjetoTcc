@@ -315,30 +315,30 @@
             </tr>
             <tr>
            			 <th><div class="checkbox"><label><input type="checkbox"></label></div></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
+           			 <th>10/08/2017</th>
+                     <th>65</th>
+                     <th>78</th>
+                     <th>180</th>
+                     <th>23</th>
+                     <th>10</th>
+                     <th>12</th>
+                     <th>7</th>
+                     <th>19</th>
+                     <th>20</th>
             </tr>
            
                 <tr>
-           			 <th><div class="checkbox"><label><input type="checkbox"></label></div></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
-           			 <th><input type="text" class="form-control"></th>
+                     <th><div class="checkbox"><label><input type="checkbox"></label></div></th>
+                     <th>11/08/2017</th>
+                     <th>65</th>
+                     <th>78</th>
+                     <th>180</th>
+                     <th>23</th>
+                     <th>10</th>
+                     <th>12</th>
+                     <th>7</th>
+                     <th>19</th>
+                     <th>20</th>
             </tr>
            
             </thead>
@@ -774,11 +774,36 @@
             <thead>
 
 <tr><td></td></tr>
-<tr><td>DATA</td></tr>
-<tr><td>GLI</td></tr>
-<tr><td>HG</td></tr>
-<tr><td>TG</td></tr>
-<tr><td>CT</td></tr>
+<tr>
+	<td>DATA</td>
+	<td>10/08/2017</td>
+	<td>11/08/2017</td>  <!-- Giba, esses dados que vc terá que inserir nas colunas -->
+	<td>12/08/2017</td>
+</tr>
+<tr>
+	<td>GLI</td>
+    <td>100</td>
+    <td>120</td>
+    <td>140</td>
+</tr>
+<tr>
+    <td>HG</td>
+    <td>76</td>
+    <td>65</td>
+    <td>89</td>
+</tr>
+<tr>
+    <td>TG</td>
+    <td>78</td>
+    <td>65</td>
+    <td>98</td>
+</tr>
+<tr>
+    <td>CT</td>
+    <td>45</td>
+    <td>54</td>
+    <td>77</td>
+</tr>
 <tr><td>LDL</td></tr>
 <tr><td>HDL</td></tr>
 <tr><td>SÓDIO</td></tr>
@@ -832,6 +857,22 @@
                 <th>HORÁRIO</th>
                 <th>MOTIVO</th>
                 <th>INTER. DROGA x NUTR.</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>dipirona</th>
+                <th>30 gotas</th>
+                <th>8 em 8 horas</th>
+                <th>dor</th>
+                <th>...</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>calmante</th>
+                <th>30 gotas</th>
+                <th>8 em 8 horas</th>
+                <th>depressão</th>
+                <th>...</th>
             </tr>
             </thead>
             <tbody>
