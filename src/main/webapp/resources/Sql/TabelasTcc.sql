@@ -8,7 +8,7 @@ CREATE TABLE Identificacao
   Id_identificacao             INTEGER      NOT NULL AUTO_INCREMENT,
   Ident_DATADAPRIMEIRACONSULTA VARCHAR(10)  NULL,
   Ident_Nome                   VARCHAR(50)  NOT NULL,
-  Ident_Email                  VARCHAR(50)  NULL     UNIQUE,
+  Ident_Email                  VARCHAR(50)  NULL,
   Ident_Datanascimento         VARCHAR(10)  NULL,
   Ident_Idade                  INTEGER      NOT NULL,
   Ident_MotivodaConsulta       VARCHAR(100) NULL,
@@ -131,7 +131,7 @@ CREATE TABLE Atividade_Fisica
   Ativ_Frequencia              VARCHAR(50)  NULL,
   Ativ_Duracao                 VARCHAR(20)  NULL,
   Ativ_VocePraticaAsAtividades ENUM ('Alimentado', 'Jejum', ''),
-  Ativ_HoraPreferido           TIME  NOT NULL,
+  Ativ_HoraPreferido           TIME         NOT NULL,
 
   PRIMARY KEY (Id_AtividadeFisica)
 );

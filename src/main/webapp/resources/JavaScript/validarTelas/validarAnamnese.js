@@ -655,23 +655,49 @@ $(document).ready(function () {
                             observacaoCha: porcaoCha.val()
                         }
                     };
-                    $.ajax({
-                        url: "/ProjetoTcc/cadastrarInformacoesPaciente",
-                        type: 'PUT',
-                        data: JSON.stringify(object),
-                        contentType: "application/json",
-                        dataType: 'json',
-                        success: function (data) {
-                            alert(data.mensagem);
-                            if (data.codigo !== 0) {
-                                return false;
-                            } else {
-                                window.location.href = '/ProjetoTcc/telaPaciente';
-                                return true;
-                            }
+                    if (tipoAcaoTelaAnamnese === 'cadastrar') {
+                        $.ajax({
+                            url: "/ProjetoTcc/cadastrarPaciente",
+                            type: 'POST',
+                            data: JSON.stringify(object),
+                            contentType: "application/json",
+                            dataType: 'json',
+                            success: function (data) {
+                                alert(data.mensagem);
 
-                        }
-                    });
+                                if (data.codigo !== 0) {
+                                    if (data.codigo === 2) {
+                                        location.href = '/ProjetoTcc/sairSistema';
+                                    }
+                                    return false;
+                                } else {
+                                    window.location.href = '/ProjetoTcc/telaPaciente';
+                                    return true;
+                                }
+                            }
+                        });
+                    } else if (tipoAcaoTelaAnamnese === 'atualizar') {
+                        $.ajax({
+                            url: "/ProjetoTcc/atualizarInformacoesPaciente",
+                            type: 'PUT',
+                            data: JSON.stringify(object),
+                            contentType: "application/json",
+                            dataType: 'json',
+                            success: function (data) {
+                                alert(data.mensagem);
+                                if (data.codigo !== 0) {
+                                    if (data.codigo === 2) {
+                                        location.href = '/ProjetoTcc/sairSistema';
+                                    }
+                                    return false;
+                                } else {
+                                    window.location.href = '/ProjetoTcc/telaPaciente';
+                                    return true;
+                                }
+
+                            }
+                        });
+                    }
                 }
             }
         });

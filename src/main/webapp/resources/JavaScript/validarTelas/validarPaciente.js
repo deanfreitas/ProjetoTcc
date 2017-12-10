@@ -19,7 +19,7 @@ $(document).ready(function () {
             contentType: "application/json",
             dataType: 'json',
             success: function (data) {
-                if(data.codigo !== 0) {
+                if (data.codigo !== 0) {
                     alert(data.mensagem);
 
                     if (data.codigo === 2) {
@@ -31,9 +31,9 @@ $(document).ready(function () {
                 for (let i = data.listaObjetos.length - 1; i >= 0; i--) {
                     tabelaPacientes.find('tbody').append(`<tr class="info" style="cursor: pointer;" id="tr` + i + `">
   															<td> <input type="checkbox" id="checkbox` + i + `" value="` + data.listaObjetos[i].id + `"></td>
-    														<td id="idNome` + i + `">` + (data.listaObjetos[i].identificacao ? data.listaObjetos[i].identificacao.nome : listIdPaciente.push(data.listaObjetos[i].id)) + `</td> 
-    														<td id="idIdade` + i + `">` + (data.listaObjetos[i].identificacao ? data.listaObjetos[i].identificacao.idade : 'null') + `</td>
-    														<td id="idSexo` + i + `">` + (data.listaObjetos[i].identificacao ? data.listaObjetos[i].identificacao.sexo : 'null') + `</td>
+    														<td id="idNome` + i + `">` + (data.listaObjetos[i].identificacao ? data.listaObjetos[i].identificacao.nome : '') + `</td> 
+    														<td id="idIdade` + i + `">` + (data.listaObjetos[i].identificacao ? data.listaObjetos[i].identificacao.idade : '') + `</td>
+    														<td id="idSexo` + i + `">` + (data.listaObjetos[i].identificacao ? data.listaObjetos[i].identificacao.sexo : '') + `</td>
   														</tr>`);
                     $("#idNome" + i).click(function () {
                         location.href = '/ProjetoTcc/telaAnamnese/atualizar/' + data.listaObjetos[i].id
@@ -57,7 +57,6 @@ $(document).ready(function () {
                         }
                     });
                 }
-                deletarPaciente();
                 tabelaPacientes.DataTable();
                 return true;
             }
@@ -78,55 +77,38 @@ $(document).ready(function () {
                 )
             }
 
-            $.ajax({
+            return $.ajax({
                 url: "/ProjetoTcc/deletarPacientes",
                 type: 'DELETE',
                 data: JSON.stringify(object),
                 contentType: "application/json",
                 dataType: 'json',
-                success: function (data) {
-                    if (data.codigo !== 0) {
-                        for (let i in data.listaObjetos) {
-                            alert(data.mensagem[i]);
-                        }
-                        return false;
-                    } else {
-                        alert(data.mensagem);
-                        return true;
-                    }
-                }
             });
         }
     }
 
     function adicionarPaciente(fields) {
         fields.click(function () {
-            let object = {};
-
-            $.ajax({
-                url: "/ProjetoTcc/cadastrarPaciente",
-                type: 'POST',
-                data: JSON.stringify(object),
-                contentType: "application/json",
-                dataType: 'json',
-                success: function (data) {
-                    if (data.codigo !== 0) {
-                        alert(data.mensagem);
-                        return false;
-                    } else {
-                        location.href = '/ProjetoTcc/telaAnamnese/cadastrar/' + data.objeto;
-                        return true;
-                    }
-                }
-            });
+            location.href = '/ProjetoTcc/telaAnamnese/cadastrar';
         });
     }
 
     function apagarPaciente(fields) {
         fields.click(function () {
             if (listIdPaciente.length > 0) {
-                deletarPaciente();
-                location.href = '/ProjetoTcc/telaPaciente';
+                deletarPaciente().done(function (data) {
+                    if (data.codigo !== 0) {
+                        for (let i in data.listaObjetos) {
+                            alert(data.mensagem[i]);
+                        }
+                        location.reload();
+                        return false;
+                    } else {
+                        alert(data.mensagem);
+                        location.reload();
+                        return true;
+                    }
+                })
             } else {
                 alert('Selecione um Paciente para deletar');
             }

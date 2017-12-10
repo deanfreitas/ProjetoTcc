@@ -152,10 +152,11 @@ public class Postar extends Http {
         if (paciente != null) {
             try {
                 if (Utils.validTypeUser(context, Pessoa.NUTRICIONISTA.getTypePessoa())) {
+                    Nutricionista nutricionista = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
+                    paciente.setNutricionista(nutricionista);
                     bancoDadosService.adicionarCadastroBancoDados(paciente);
                     bancoDadosService.sincronizarBancoDados();
 
-                    Nutricionista nutricionista = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
                     List<Paciente> listPacientes = nutricionista.getPacientes();
                     listPacientes.add(paciente);
                     nutricionista.setPacientes(listPacientes);
@@ -163,10 +164,14 @@ public class Postar extends Http {
                     context.setAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext(), nutricionista);
 
                     resultadoServico.setObjeto(paciente.getId());
+                    mensagem = "Anamnese cadastrada com sucesso";
+                } else {
+                    mensagem = Response.ERROR_SYSTEM.getTypeResponse();
+                    codigo = Code.ERROR_SYSTEM.getTypeCode();
                 }
             } catch (Exception e) {
                 LOGGER.error(e.getMessage(), e);
-                mensagem = "Erro ao inserir medico ao paciente";
+                mensagem = "Error ao cadastrar a anamnese";
                 codigo = Code.ERROR.getTypeCode();
             }
         } else {

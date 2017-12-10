@@ -1,21 +1,17 @@
 package br.com.projetotcc.pagina;
 
-import javax.servlet.ServletContext;
-
+import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.cadastro.Atualizar;
 import br.com.projetotcc.cadastro.Obter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
-import br.com.projetotcc.bancodados.BancoDadosService;
+import br.com.projetotcc.cadastro.Postar;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.mensagem.ResultadoServico;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.ServletContext;
 
 @Controller
 public class TelaAnamnese {
@@ -34,18 +30,15 @@ public class TelaAnamnese {
         this.context = context;
     }
 
-    @RequestMapping(value = ROTA_TELA + "/{tipoPagina}/{idPaciente}", method = RequestMethod.GET)
+    @RequestMapping(value = ROTA_TELA + "/{tipoPagina}", method = RequestMethod.GET)
     public ModelAndView cadastrarAnamnese() {
         return new ModelAndView(TELA);
     }
 
-    @RequestMapping(value = "/cadastrarInformacoesPaciente", method = RequestMethod.PUT)
-    public @ResponseBody
-    ResultadoServico cadastrarInformacoesPaciente(@RequestBody Paciente paciente) {
-        Atualizar atualizar = new Atualizar(bancoDadosService, resultadoServico, context);
-        resultadoServico = atualizar.atualizarAnamnesePaciente(paciente);
 
-        return resultadoServico;
+    @RequestMapping(value = ROTA_TELA + "/{tipoPagina}/{idPaciente}", method = RequestMethod.GET)
+    public ModelAndView atualizarVisualizarAnamnese() {
+        return new ModelAndView(TELA);
     }
 
     @RequestMapping(value = "/pegarDadosPaciente/{idUsuario}", method = RequestMethod.GET)
@@ -53,6 +46,24 @@ public class TelaAnamnese {
     ResultadoServico pegarCadastroUsuario(@PathVariable(value = "idUsuario") Long id) {
         Obter obter = new Obter(bancoDadosService, resultadoServico, context);
         resultadoServico = obter.obterCadastro(id, "paciente");
+
+        return resultadoServico;
+    }
+
+    @RequestMapping(value = "/cadastrarPaciente", method = RequestMethod.POST)
+    public @ResponseBody
+    ResultadoServico addUser(@RequestBody Paciente paciente) {
+        Postar postar = new Postar(bancoDadosService, resultadoServico, context);
+        resultadoServico = postar.adicionarPacienteNutricionista(paciente);
+
+        return resultadoServico;
+    }
+
+    @RequestMapping(value = "/atualizarInformacoesPaciente", method = RequestMethod.PUT)
+    public @ResponseBody
+    ResultadoServico atualizarInformacoesPaciente(@RequestBody Paciente paciente) {
+        Atualizar atualizar = new Atualizar(bancoDadosService, resultadoServico, context);
+        resultadoServico = atualizar.atualizarAnamnesePaciente(paciente);
 
         return resultadoServico;
     }

@@ -3,7 +3,6 @@ package br.com.projetotcc.pagina;
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.cadastro.Deletar;
 import br.com.projetotcc.cadastro.Obter;
-import br.com.projetotcc.cadastro.Postar;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.mensagem.ResultadoServico;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,15 +38,6 @@ public class TelaPaciente {
         return new ModelAndView(TELA);
     }
 
-    @RequestMapping(value = "/cadastrarPaciente", method = RequestMethod.POST)
-    public @ResponseBody
-    ResultadoServico addUser(@RequestBody Paciente paciente) {
-        Postar postar = new Postar(bancoDadosService, resultadoServico, context);
-        resultadoServico = postar.adicionarPacienteNutricionista(paciente);
-
-        return resultadoServico;
-    }
-
     @RequestMapping(value = "/getPacientesNutricionista", method = RequestMethod.GET)
     public @ResponseBody
     ResultadoServico getPacientesNutricionista() {
@@ -60,7 +50,7 @@ public class TelaPaciente {
     @RequestMapping(value = "/deletarPacientes", method = RequestMethod.DELETE)
     public @ResponseBody
     ResultadoServico deletarPacientes(@RequestBody List<Paciente> pacientes) {
-        Deletar deletar = new Deletar(bancoDadosService, resultadoServico);
+        Deletar deletar = new Deletar(bancoDadosService, resultadoServico, context);
         resultadoServico = deletar.deletarPacientes(pacientes);
 
         return resultadoServico;

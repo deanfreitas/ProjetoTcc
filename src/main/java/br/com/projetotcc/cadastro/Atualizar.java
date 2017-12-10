@@ -47,7 +47,7 @@ public class Atualizar extends Http {
                 Nutricionista nutricionista = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());
                 paciente.setNutricionista(nutricionista);
                 bancoDadosService.atualizarCadastroBancoDados(paciente);
-                mensagem = "Anamnese Cadastrada com sucesso";
+                mensagem = "Anamnese atualizada com sucesso";
                 for (int i = 0; i < nutricionista.getPacientes().size(); i++) {
                     if (nutricionista.getPacientes().get(i).getId().equals(paciente.getId())) {
                         nutricionista.getPacientes().set(i, paciente);
