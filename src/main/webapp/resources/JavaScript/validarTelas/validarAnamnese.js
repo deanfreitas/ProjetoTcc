@@ -234,6 +234,9 @@ $(document).ready(function () {
     const ocultoObservacaoFezes = $('#inputOculto2');
     const ocultoAlteracoesApetiteDesdeQuando = $('#inputOculto3');
 
+    // Tabelas
+    const tabelaExamesBioquimicos = $('#examesBio');
+
     let tipoAcaoTelaAnamnese = null;
 
     if (url.indexOf("cadastrar") > -1) {
@@ -864,6 +867,13 @@ $(document).ready(function () {
                             comsumoOleo.val(data.objeto.historicoAlimentarNutricional.consumoOleo);
                             fazUsoSupremento.val(data.objeto.historicoAlimentarNutricional.fazUsoSuplemento);
                             quemInicou.val(data.objeto.historicoAlimentarNutricional.quemInidicou);
+                        }
+
+                        if (data.objeto.examesBioquimicos) {
+                            for (let i = data.objeto.examesBioquimicos.length - 1; i >= 0; i--) {
+                                tabelaExamesBioquimicos.find('tbody').append(`<tr> <td id="idData` + i + `">` + data.objeto.examesBioquimicos[i].data + `</td> </tr>
+                                                                              <tr> <td id="idData` + i + `">` + data.objeto.examesBioquimicos[i].vlrderefe + `</td> </tr>`)
+                            }
                         }
 
                         if (data.objeto.frequenciaAlimentar) {

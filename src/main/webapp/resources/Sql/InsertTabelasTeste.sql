@@ -42,3 +42,16 @@ INSERT INTO fora_de_hora (For_Horario, For_Local, For_Humor, For_Alimento, For_Q
 VALUES ('20:30', 'Test1', 'Triste', 'Arroz', '2');
 INSERT INTO data (d_data, Id_Ceia, Id_Colacao, Id_Jant, Id_Lanche, Id_Almoco, Id_Desj, Id_Foradehora, id_Paciente)
 VALUES ('20171120', 2, 2, 2, 2, 2, 2, 2, 1);
+
+INSERT INTO Exames_Bioquimicos (id_Paciente, Bio_Data, Bio_Vlrderefe, Bio_GLI, Bio_Hg, Bio_Tg, Bio_Ct, Bio_Ldl, Bio_Hdl, Bio_Sodio, Bio_Potassio, Bio_Creatina, Bio_Tgo, Bio_Tgp, Bio_GGT, Bio_Ferritina, Bio_Vitaminab12, Bio_Acidofolico, Bio_Naohdl, Bio_Vldl, Bio_Ureia, Bio_Fosforo, Bio_Calcio, Bio_Acidourico)
+VALUES
+  (1, '20171120', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19',
+                                                                '20',
+   '21', '22', '23');
+
+INSERT INTO Exames_Bioquimicos (id_Paciente, Bio_Data, Bio_Vlrderefe, Bio_GLI, Bio_Hg, Bio_Tg, Bio_Ct, Bio_Ldl, Bio_Hdl, Bio_Sodio, Bio_Potassio, Bio_Creatina, Bio_Tgo, Bio_Tgp, Bio_GGT, Bio_Ferritina, Bio_Vitaminab12, Bio_Acidofolico, Bio_Naohdl, Bio_Vldl, Bio_Ureia, Bio_Fosforo, Bio_Calcio, Bio_Acidourico)
+VALUES
+  (1, '20171128', '20', '30', '40', '50', '60', '70', '80', '90', '100', '110', '120', '130', '140', '150', '160',
+                                                                         '170',
+                                                                         '180', '190', '200',
+   '210', '220', '230');

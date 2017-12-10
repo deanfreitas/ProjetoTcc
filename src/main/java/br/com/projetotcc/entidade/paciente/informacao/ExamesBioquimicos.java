@@ -87,8 +87,8 @@ public class ExamesBioquimicos implements InterfaceDadosPaciente {
     private String acidourico;
 
     @JsonBackReference(value = "paciente-examesBioquimicos")
-    @ManyToOne(optional = true, fetch = FetchType.LAZY, targetEntity = Paciente.class)
-    @JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH}, optional = false, fetch = FetchType.LAZY, targetEntity = Paciente.class)
+    @JoinColumn(name = "id_Paciente")
     private Paciente paciente;
 
     public ExamesBioquimicos() {

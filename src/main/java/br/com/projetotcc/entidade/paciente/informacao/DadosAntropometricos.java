@@ -90,8 +90,8 @@ public class DadosAntropometricos implements InterfaceDadosPaciente {
     private Double mm;
 
     @JsonBackReference(value = "paciente-dadosAntropometricos")
-    @ManyToOne(optional = true, fetch = FetchType.LAZY, targetEntity = Paciente.class)
-    @JoinColumn(name = "id_Paciente", insertable = true, updatable = true)
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH}, optional = false, fetch = FetchType.LAZY, targetEntity = Paciente.class)
+    @JoinColumn(name = "id_Paciente")
     private Paciente paciente;
 
     public DadosAntropometricos() {
