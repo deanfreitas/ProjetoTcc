@@ -1207,6 +1207,34 @@ $(document).ready(function () {
         }
     }
 
+    function checkEmail(fields) {
+        fields.blur(function () {
+            let object = {
+                email: $(this).val(),
+            };
+
+            $.ajax({
+                url: "/ProjetoTcc/validar/checkEmail",
+                type: 'POST',
+                data: JSON.stringify(object),
+                contentType: "application/json",
+                dataType: 'json',
+                success: function (data) {
+                    if (data.codigo !== 0) {
+                        alert(data.mensagem);
+                        fields.css("border-color", "#FF0000");
+                        fields.css("color", "#FF0000");
+                        return false;
+                    }
+
+                    fields.css("border-color", "#FFFFFF");
+                    fields.css("color", "#000000");
+                    return true;
+                }
+            });
+        })
+    }
+
     function aparecerCamposIdentificacao(fields) {
         fields.click(function () {
             divIdentificacao.show();
@@ -1366,6 +1394,8 @@ $(document).ready(function () {
     lettersOnly(endereco);
     lettersOnly(bairro);
     lettersOnly(cidade);
+
+    checkEmail(email);
 
     deixarDivsInvisiveis(divIdentificacao);
     deixarDivsInvisiveis(divHistoricoFamiliar);

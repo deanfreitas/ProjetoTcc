@@ -1,4 +1,4 @@
-package br.com.projetotcc.pagina;
+package br.com.projetotcc.controller.pagina;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.cadastro.Deletar;

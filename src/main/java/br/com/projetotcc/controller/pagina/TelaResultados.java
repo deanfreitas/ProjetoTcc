@@ -1,4 +1,4 @@
-package br.com.projetotcc.pagina;
+package br.com.projetotcc.controller.pagina;
 
 import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.cadastro.Obter;
@@ -15,32 +15,32 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.ServletContext;
 
 @Controller
-public class TelaDiarioAlimentarHome {
+public class TelaResultados {
 
-    private static final String TELA = "TelaDiarioAlimentarHome";
-    private static final String ROTA_TELA = "/telaDiarioAlimentarHome";
+    private static final String TELA = "TelaResultados";
+    private static final String ROTA_TELA = "/telaResultados";
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
     private ServletContext context;
 
     @Autowired
-    public TelaDiarioAlimentarHome(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
+    public TelaResultados(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
         this.bancoDadosService = bancoDadosService;
         this.resultadoServico = resultadoServico;
         this.context = context;
     }
 
-    @RequestMapping(value = ROTA_TELA + "/{idPaciente}", method = RequestMethod.GET)
-    public ModelAndView aparecerTelaDiarioAlimentarHome() {
+    @RequestMapping(value = ROTA_TELA + "/{idUsuario}", method = RequestMethod.GET)
+    public ModelAndView aparecerTelaResultados() {
         return new ModelAndView(TELA);
     }
 
-    @RequestMapping(value = "getAllDiarioAlimentar/{idDiarioAlimentar}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getResultadosPaciente/{idUsuario}", method = RequestMethod.GET)
     public @ResponseBody
-    ResultadoServico getAllDiarioAlimentar(@PathVariable(value = "idDiarioAlimentar") Long id) {
+    ResultadoServico getResultadosPaciente(@PathVariable(value = "idUsuario") Long id) {
         Obter obter = new Obter(bancoDadosService, resultadoServico, context);
-        resultadoServico = obter.getAllDiarioAlimentar(id);
+        resultadoServico = obter.obterCadastro(id, Pessoa.PACIENTE.getTypePessoa());
 
         return resultadoServico;
     }

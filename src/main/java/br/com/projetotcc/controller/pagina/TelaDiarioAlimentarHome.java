@@ -1,9 +1,8 @@
-package br.com.projetotcc.pagina;
+package br.com.projetotcc.controller.pagina;
 
-import javax.servlet.ServletContext;
-
+import br.com.projetotcc.bancodados.BancoDadosService;
 import br.com.projetotcc.cadastro.Obter;
-import br.com.projetotcc.enums.Pessoa;
+import br.com.projetotcc.mensagem.ResultadoServico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,36 +11,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.projetotcc.bancodados.BancoDadosService;
-import br.com.projetotcc.mensagem.ResultadoServico;
+import javax.servlet.ServletContext;
 
 @Controller
-public class TelaResultados {
+public class TelaDiarioAlimentarHome {
 
-    private static final String TELA = "TelaResultados";
-    private static final String ROTA_TELA = "/telaResultados";
+    private static final String TELA = "TelaDiarioAlimentarHome";
+    private static final String ROTA_TELA = "/telaDiarioAlimentarHome";
 
     private BancoDadosService bancoDadosService;
     private ResultadoServico resultadoServico;
     private ServletContext context;
 
     @Autowired
-    public TelaResultados(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
+    public TelaDiarioAlimentarHome(BancoDadosService bancoDadosService, ResultadoServico resultadoServico, ServletContext context) {
         this.bancoDadosService = bancoDadosService;
         this.resultadoServico = resultadoServico;
         this.context = context;
     }
 
-    @RequestMapping(value = ROTA_TELA + "/{idUsuario}", method = RequestMethod.GET)
-    public ModelAndView aparecerTelaResultados() {
+    @RequestMapping(value = ROTA_TELA + "/{idPaciente}", method = RequestMethod.GET)
+    public ModelAndView aparecerTelaDiarioAlimentarHome() {
         return new ModelAndView(TELA);
     }
 
-    @RequestMapping(value = "/getResultadosPaciente/{idUsuario}", method = RequestMethod.GET)
+    @RequestMapping(value = "getAllDiarioAlimentar/{idDiarioAlimentar}", method = RequestMethod.GET)
     public @ResponseBody
-    ResultadoServico getResultadosPaciente(@PathVariable(value = "idUsuario") Long id) {
+    ResultadoServico getAllDiarioAlimentar(@PathVariable(value = "idDiarioAlimentar") Long id) {
         Obter obter = new Obter(bancoDadosService, resultadoServico, context);
-        resultadoServico = obter.obterCadastro(id, Pessoa.PACIENTE.getTypePessoa());
+        resultadoServico = obter.getAllDiarioAlimentar(id);
 
         return resultadoServico;
     }

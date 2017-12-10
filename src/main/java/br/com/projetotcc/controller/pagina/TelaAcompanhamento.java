@@ -1,4 +1,4 @@
-package br.com.projetotcc.pagina;
+package br.com.projetotcc.controller.pagina;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

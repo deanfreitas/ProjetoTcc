@@ -1,6 +1,9 @@
 package br.com.projetotcc.bancodados;
 
-import java.util.List;
+import br.com.projetotcc.interfaces.InterfaceEntidade;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -10,14 +13,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Repository;
-
-import br.com.projetotcc.entidade.pessoa.Nutricionista;
-import br.com.projetotcc.entidade.pessoa.informacao.Login;
-import br.com.projetotcc.interfaces.InterfaceEntidade;
+import java.util.List;
 
 @Repository
 public class BancoDados {
@@ -36,8 +32,22 @@ public class BancoDados {
         return createQuery;
     }
 
+    private <T> CriteriaQuery<T> createCriteriaQuery(Class aClass, InterfaceEntidade interfaceEntidade, String campo) {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<T> createQuery = (CriteriaQuery<T>) criteriaBuilder.createQuery(aClass.getClass());
+        Root<InterfaceEntidade> rootEntry = (Root<InterfaceEntidade>) createQuery.from(interfaceEntidade.getClass());
+        createQuery.select(rootEntry.get(campo));
+
+        return createQuery;
+    }
+
     List<InterfaceEntidade> listaInformacoesTabela(InterfaceEntidade interfaceEntidade) {
         TypedQuery<InterfaceEntidade> typedQuery = entityManager.createQuery(createCriteriaQuery(interfaceEntidade));
+        return typedQuery.getResultList();
+    }
+
+    <T> List<T> listaInformacoesColuna(Class aClass, InterfaceEntidade interfaceEntidade, String campo) {
+        TypedQuery<T> typedQuery = entityManager.createQuery(createCriteriaQuery(aClass, interfaceEntidade, campo));
         return typedQuery.getResultList();
     }
 

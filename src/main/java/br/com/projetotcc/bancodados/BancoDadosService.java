@@ -1,13 +1,11 @@
 package br.com.projetotcc.bancodados;
 
-import java.util.List;
-
-import br.com.projetotcc.entidade.paciente.alimentacao.Data;
+import br.com.projetotcc.interfaces.InterfaceEntidade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.projetotcc.interfaces.InterfaceEntidade;
+import java.util.List;
 
 @Component
 public class BancoDadosService {
@@ -37,6 +35,11 @@ public class BancoDadosService {
     @Transactional(readOnly = true)
     public List<InterfaceEntidade> listaInformacoesTabela(InterfaceEntidade interfaceEntidade) {
         return bancoDados.listaInformacoesTabela(interfaceEntidade);
+    }
+
+    @Transactional(readOnly = true)
+    public <T> List<T> listaInformacoesColuna(Class aClass, InterfaceEntidade interfaceEntidade, String campo) {
+        return bancoDados.listaInformacoesColuna(aClass, interfaceEntidade, campo);
     }
 
     @Transactional
