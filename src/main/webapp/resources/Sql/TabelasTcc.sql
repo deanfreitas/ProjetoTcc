@@ -18,7 +18,7 @@ CREATE TABLE Identificacao
   Ident_Endereco               VARCHAR(50)  NULL,
   Ident_Bairro                 VARCHAR(50)  NULL,
   Ident_Cidade                 VARCHAR(30)  NULL,
-  Ident_Sexo                   ENUM ('Masculino', 'Feminino', ''),
+  Ident_Sexo                   ENUM ('Masculino', 'Feminino'),
   Ident_EstadoCivil            ENUM ('Casado(a)', 'Solteiro(a)', 'Divorciado(a)', 'viúvo(a)', ''),
   Ident_Raca                   ENUM ('Branca', 'Preta', 'Parda', 'Amarela', 'Indígena', ''),
   Ident_Numero                 VARCHAR(20)  NULL,

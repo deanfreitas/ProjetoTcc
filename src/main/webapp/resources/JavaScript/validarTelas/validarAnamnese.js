@@ -454,262 +454,270 @@ $(document).ready(function () {
 
     function salvarCadastro(fields) {
         fields.click(function () {
+            if (!nome.val() && nome.val().trim() === '' && nome.val().trim() === ' ') {
+                alert('Nome é um campo obrigatório');
+                return false;
+            }
+            if (!idade.val() && idade.val().trim() === '' && idade.val().trim() === ' ') {
+                alert('idade é um campo obrigatório');
+                return false;
+            }
+            if(!sexo.val() && sexo.val() !== 'Masculino' && sexo.val() !== 'Feminino') {
+                alert('sexo é um campo obrigatório')
+                return false;
+            }
             if (!isValidEmail) {
                 alert("Email Invalido");
                 return false;
             }
 
-            if (nome.val() && nome.val() !== '') {
-                if (idade.val() && idade.val() !== '') {
-                    let object = {
-                        id: idPaciente,
-                        identificacao: {
-                            dataPrimeiraConsuta: dataPrimeiraConsulta.val(),
-                            nome: nome.val(),
-                            email: email.val(),
-                            dataNascimento: dataNascimento.val(),
-                            idade: idade.val(),
-                            motivoConsulta: motivoConsulta.val(),
-                            observacao: observacoes.val(),
-                            telefoneResidencial: telefoneResidencial.val(),
-                            celular: celular.val(),
-                            endereco: endereco.val(),
-                            bairro: bairro.val(),
-                            cidade: cidade.val(),
-                            sexo: sexo.val(),
-                            estadoCivil: estadoCivil.val(),
-                            raca: corRaca.val(),
-                            numero: numero.val(),
-                            estado: estado.val()
-                        },
-                        historicoSocialFamiliar: {
-                            profissao: profissao.val(),
-                            cargaHoraria: cargaHoraria.val(),
-                            composicaoFamiliar: composicaoFamiliar.val(),
-                            quemCompraAlimentos: quemCompraAlimentos.val(),
-                            compraFeita: compraFeita.val(),
-                            quemPreparaRefeicoes: quemPreparaRefeicoes.val(),
-                            fazUsoDeBebidasAlcoolicas: fazUsoBedidasAlcoolicas.val(),
-                            fuma: fumaJaFumou.val(),
-                            comQuemRealizaRefeicoes: comQuemRealizaRefeicoes.val()
-                        },
-                        dadosClinicos: {
-                            vomito: vomito.is(":checked"),
-                            nausea: nausea.is(":checked"),
-                            mastigacao: mastigacao.is(":checked"),
-                            degluticao: degluticao.is(":checked"),
-                            digestao: digestao.is(":checked"),
-                            pirose: pirose.is(":checked"),
-                            refluxo: refluxo.is(":checked"),
-                            diarreia: diarreia.is(":checked"),
-                            obstipacao: obstipacao.is(":checked"),
-                            insonia: insonia.is(":checked"),
-                            estresse: estresse.is(":checked"),
-                            cancaso: cansaco.is(":checked"),
-                            ansiedade: ansiedade.is(":checked"),
-                            lesoesProblemasPele: lesoesProblemasPele.val(),
-                            cirurgia: cirurgia.val(),
-                            habitoIntestinal: habitoIntestinal.val(),
-                            fezes: fezes.val(),
-                            cor: diureseCor.val(),
-                            patologia: patologia.val(),
-                            observacaoHabitoIntestinal: observacaoHabitoIntestinal.val(),
-                            observacaoFezes: observacaoFezes.val(),
-                            observacaoVomito: observacoesVomito.val(),
-                            observacaoNausea: observacoesNausea.val(),
-                            observacaoMastigacao: observacoesMastigacao.val(),
-                            observacaoDegluticao: observacoesDegluticao.val(),
-                            observacaoDigestao: observacoesDigestao.val(),
-                            observacaoPirose: observacoesPirose.val(),
-                            observacaoRefluxo: observacoesRefluxo.val(),
-                            observacaoDiarreia: observacoesDiarreia.val(),
-                            observacaoObstipacao: observacoesObstipacao.val(),
-                            observacaoInsonia: observacoesInsonia.val(),
-                            observacaoEstresse: observacoesEstresse.val(),
-                            observacaoCancaso: observacoesCansaco.val(),
-                            observacaoAnsiedade: observacoesAnsiedade.val()
-                        },
-                        antecedentesFamiliares: {
-                            dm: dm.is(":checked"),
-                            ha: ha.is(":checked"),
-                            ca: ca.is(":checked"),
-                            dislipidemia: dislipidemia.is(":checked"),
-                            obesidade: obesidade.is(":checked"),
-                            magreza: magreza.is(":checked"),
-                            outros: outros.is(":checked"),
-                            observacaoDm: observacaoDm.val(),
-                            observacaoHa: observacaoHa.val(),
-                            observacaoCa: observacaoCa.val(),
-                            observacaoDislipedemia: observacaoDislipidemia.val(),
-                            observacaoObesidade: observacaoObesidade.val(),
-                            observacaoMagreza: observacaoMagreza.val(),
-                            observacaoOutros: observacaoOutros.val()
-                        },
-                        atividadeFisica: {
-                            tipo: tipoAtividadeFisica.val(),
-                            frequencia: frequencia.val(),
-                            duracao: duracao.val(),
-                            pratica: vocePraticaAtividades.val(),
-                            horaPreferida: horarioPreferido.val()
-                        },
-                        historicoAlimentarNutricional: {
-                            intoleranciaAlimentar: intoleranciaAlimentar.val(),
-                            preferenciaAlimentar: preferenciaAlimentar.val(),
-                            alteracoesDoApetite: alteracoesApetite.val(),
-                            observacaoAlteracoesDoApetite: desdeQuandoAlteracoesApetite.val(),
-                            iniciouObesidadePerdaPeso: faseQueIniciouObesidadePerdaPeso.val(),
-                            segueDietaEspecial: segueAlgumaDietaEspecial.val(),
-                            refeicoesDia: quantasRefeicoesDia.val(),
-                            consumoAgua: consumoAgua.val(),
-                            consumoSal: consumoSal.val(),
-                            consumoOleo: comsumoOleo.val(),
-                            fazUsoSuplemento: fazUsoSupremento.val(),
-                            quemInidicou: quemInicou.val()
-                        },
-                        frequenciaAlimentar: {
-                            arroz: opcaoArroz.val(),
-                            macarrao: opcaoMacarrao.val(),
-                            batataMandioca: opcaoBatataMandioca.val(),
-                            pao: opcaoPao.val(),
-                            paoQueijo: opcaoPaoQueijo.val(),
-                            farinhas: opcaoFarinhas.val(),
-                            cerealMatinal: opcaoCerealMatinal.val(),
-                            hortalicasCruas: opcaoHortalicasCruas.val(),
-                            hortalicasCozidas: opcaoHortalicasCozidas.val(),
-                            frutas: opcaoFrutas.val(),
-                            leiteIntegral: opcaoLeiteIntegral.val(),
-                            leiteDesnatado: opcaoLeiteDesnatado.val(),
-                            iorgurte: opcaoIogurte.val(),
-                            iorgurteDesnatado: opcaoIogurteDesnatado.val(),
-                            queijos: opcaoQueijos.val(),
-                            carneVermelha: opcaoCarneVermelha.val(),
-                            embutidos: opcaoEmbutidos.val(),
-                            enlatados: opcaoEnlatados.val(),
-                            ovos: opcaoOvos.val(),
-                            leguminosas: opcaoLeguminosas.val(),
-                            margarinaComum: opcaoMargarinaComum.val(),
-                            margarinaLight: opcaoMargarinaLight.val(),
-                            manteiga: opcaoManteiga.val(),
-                            requeijaoComum: opcaoRequeijaoComum.val(),
-                            requeijaoLight: opcaoRequeijaoLight.val(),
-                            maioneseComum: opcaoMaioneseComum.val(),
-                            maioneseLight: opcaoMaioneseLight.val(),
-                            cremeLeite: opcaoCremeLeite.val(),
-                            frituras: opcaoFrituras.val(),
-                            acucar: opcaoAcucar.val(),
-                            adocante: opcaoAdocante.val(),
-                            mel: opcaoMel.val(),
-                            barraCereal: opcaoBarraCereal.val(),
-                            doces: opcaoDoces.val(),
-                            bolachaRecheada: opcaoBolachaRecheada.val(),
-                            boloBiscoito: opcaoBolachaBoloBiscoito.val(),
-                            chicleteBalas: opcaoChicleteBalas.val(),
-                            chocolate: opcaoChocolate.val(),
-                            sanduichePizza: opcaoSanduichePizza.val(),
-                            salgadinhos: opcaoSalgadinhos.val(),
-                            salgadinhosPacote: opcaoSalgadinhoPacote.val(),
-                            refrigeranteComum: opcaoRefrigeranteComum.val(),
-                            refrigeranteDietLight: opcaoRefrigeranteDietLight.val(),
-                            sucoNatural: opcaoSucoNatural.val(),
-                            sucoArtificial: opcaoSucoArtificial.val(),
-                            cafe: opcaoCafe.val(),
-                            cha: opcaoCha.val(),
-                            diagnosticoNutricional: diagnosticoNutricional.val(),
-                            condutaDietoterapica: condutaDietoterapica.val(),
-                            relatosDeCaso: relatoOrientacoesNutricionaisEvolucao.val(),
-                            observacaoArroz: porcaoArroz.val(),
-                            observacaoMacarrao: porcaoMacarrao.val(),
-                            observacaoBatataMandioca: porcaoBatataMandioca.val(),
-                            observacaoPao: porcaoPao.val(),
-                            observacaoPaoQueijo: porcaoPaoQueijo.val(),
-                            observacaoFarinhas: porcaoFarinhas.val(),
-                            observacaoCerealMatinal: porcaoCerealMatinal.val(),
-                            observacaoHortalicasCruas: porcaoHortalicasCruas.val(),
-                            observacaoHortalicasCozidas: porcaoHortalicasCozidas.val(),
-                            observacaoFrutas: porcaoFrutas.val(),
-                            observacaoLeiteIntegral: porcaoLeiteIntegral.val(),
-                            observacaoLeiteDesnatado: porcaoLeiteDesnatado.val(),
-                            observacaoIorgute: porcaoIogurte.val(),
-                            observacaoIorguteDesnatado: porcaoIogurteDesnatado.val(),
-                            observacaoQueijos: porcaoQueijos.val(),
-                            observacaoCarneVermelha: porcaoCarneVermelha.val(),
-                            observacaoEmbutidos: porcaoEmbutidos.val(),
-                            observacaoEnlatados: porcaoEnlatados.val(),
-                            observacaoOvos: porcaoOvos.val(),
-                            observacaoLeguminosas: porcaoLeguminosas.val(),
-                            observacaoMargarinaComum: porcaoMargarinaComum.val(),
-                            observacaoMargarinaLight: porcaoMargarinaLight.val(),
-                            observacaoManteiga: porcaoManteiga.val(),
-                            observacaoRequeijaoComum: porcaoRequeijaoComum.val(),
-                            observacaoRequeijaoLight: porcaoRequeijaoLight.val(),
-                            observacaoMaioneseComum: porcaoMaioneseComum.val(),
-                            observacaoMaioneseLight: porcaoMaioneseLight.val(),
-                            observacaoCremeLeite: porcaoCremeLeite.val(),
-                            observacaoFrituras: porcaoFrituras.val(),
-                            observacaoAcucar: porcaoAcucar.val(),
-                            observacaoAdocante: porcaoAdocante.val(),
-                            observacaoMel: porcaoMel.val(),
-                            observacaoBarradeCereal: porcaoBarraCereal.val(),
-                            observacaoDoces: porcaoDoces.val(),
-                            observacaoBolachaRecheada: porcaoBolachaRecheada.val(),
-                            observacaoBoloBiscoito: porcaoBolachaBoloBiscoito.val(),
-                            observacaoChicleteBalas: porcaoChicleteBalas.val(),
-                            observacaoChocolate: porcaoChocolate.val(),
-                            observacaoSanduichepizza: porcaoSanduichePizza.val(),
-                            observacaoSalgadinhos: porcaoSalgadinhos.val(),
-                            observacaoSalgadinhosPacote: porcaoSalgadinhoPacote.val(),
-                            observacaoRefrigeranteComum: porcaoRefrigeranteComum.val(),
-                            observacaoRefrigeranteDietLight: porcaoRefrigeranteDietLight.val(),
-                            observacaoSucoNatural: porcaoSucoNatural.val(),
-                            observacaoSucoArtificial: porcaoSucoArtificial.val(),
-                            observacaoCafe: porcaoCafe.val(),
-                            observacaoCha: porcaoCha.val()
-                        }
-                    };
-                    if (tipoAcaoTelaAnamnese === 'cadastrar') {
-                        $.ajax({
-                            url: "/ProjetoTcc/cadastrarPaciente",
-                            type: 'POST',
-                            data: JSON.stringify(object),
-                            contentType: "application/json",
-                            dataType: 'json',
-                            success: function (data) {
-                                alert(data.mensagem);
-
-                                if (data.codigo !== 0) {
-                                    if (data.codigo === 2) {
-                                        location.href = '/ProjetoTcc/sairSistema';
-                                    }
-                                    return false;
-                                } else {
-                                    window.location.href = '/ProjetoTcc/telaPaciente';
-                                    return true;
-                                }
-                            }
-                        });
-                    } else if (tipoAcaoTelaAnamnese === 'atualizar') {
-                        $.ajax({
-                            url: "/ProjetoTcc/atualizarInformacoesPaciente",
-                            type: 'PUT',
-                            data: JSON.stringify(object),
-                            contentType: "application/json",
-                            dataType: 'json',
-                            success: function (data) {
-                                alert(data.mensagem);
-                                if (data.codigo !== 0) {
-                                    if (data.codigo === 2) {
-                                        location.href = '/ProjetoTcc/sairSistema';
-                                    }
-                                    return false;
-                                } else {
-                                    window.location.href = '/ProjetoTcc/telaPaciente';
-                                    return true;
-                                }
-
-                            }
-                        });
-                    }
+            let object = {
+                id: idPaciente,
+                identificacao: {
+                    dataPrimeiraConsuta: dataPrimeiraConsulta.val(),
+                    nome: nome.val(),
+                    email: email.val(),
+                    dataNascimento: dataNascimento.val(),
+                    idade: idade.val(),
+                    motivoConsulta: motivoConsulta.val(),
+                    observacao: observacoes.val(),
+                    telefoneResidencial: telefoneResidencial.val(),
+                    celular: celular.val(),
+                    endereco: endereco.val(),
+                    bairro: bairro.val(),
+                    cidade: cidade.val(),
+                    sexo: sexo.val(),
+                    estadoCivil: estadoCivil.val(),
+                    raca: corRaca.val(),
+                    numero: numero.val(),
+                    estado: estado.val()
+                },
+                historicoSocialFamiliar: {
+                    profissao: profissao.val(),
+                    cargaHoraria: cargaHoraria.val(),
+                    composicaoFamiliar: composicaoFamiliar.val(),
+                    quemCompraAlimentos: quemCompraAlimentos.val(),
+                    compraFeita: compraFeita.val(),
+                    quemPreparaRefeicoes: quemPreparaRefeicoes.val(),
+                    fazUsoDeBebidasAlcoolicas: fazUsoBedidasAlcoolicas.val(),
+                    fuma: fumaJaFumou.val(),
+                    comQuemRealizaRefeicoes: comQuemRealizaRefeicoes.val()
+                },
+                dadosClinicos: {
+                    vomito: vomito.is(":checked"),
+                    nausea: nausea.is(":checked"),
+                    mastigacao: mastigacao.is(":checked"),
+                    degluticao: degluticao.is(":checked"),
+                    digestao: digestao.is(":checked"),
+                    pirose: pirose.is(":checked"),
+                    refluxo: refluxo.is(":checked"),
+                    diarreia: diarreia.is(":checked"),
+                    obstipacao: obstipacao.is(":checked"),
+                    insonia: insonia.is(":checked"),
+                    estresse: estresse.is(":checked"),
+                    cancaso: cansaco.is(":checked"),
+                    ansiedade: ansiedade.is(":checked"),
+                    lesoesProblemasPele: lesoesProblemasPele.val(),
+                    cirurgia: cirurgia.val(),
+                    habitoIntestinal: habitoIntestinal.val(),
+                    fezes: fezes.val(),
+                    cor: diureseCor.val(),
+                    patologia: patologia.val(),
+                    observacaoHabitoIntestinal: observacaoHabitoIntestinal.val(),
+                    observacaoFezes: observacaoFezes.val(),
+                    observacaoVomito: observacoesVomito.val(),
+                    observacaoNausea: observacoesNausea.val(),
+                    observacaoMastigacao: observacoesMastigacao.val(),
+                    observacaoDegluticao: observacoesDegluticao.val(),
+                    observacaoDigestao: observacoesDigestao.val(),
+                    observacaoPirose: observacoesPirose.val(),
+                    observacaoRefluxo: observacoesRefluxo.val(),
+                    observacaoDiarreia: observacoesDiarreia.val(),
+                    observacaoObstipacao: observacoesObstipacao.val(),
+                    observacaoInsonia: observacoesInsonia.val(),
+                    observacaoEstresse: observacoesEstresse.val(),
+                    observacaoCancaso: observacoesCansaco.val(),
+                    observacaoAnsiedade: observacoesAnsiedade.val()
+                },
+                antecedentesFamiliares: {
+                    dm: dm.is(":checked"),
+                    ha: ha.is(":checked"),
+                    ca: ca.is(":checked"),
+                    dislipidemia: dislipidemia.is(":checked"),
+                    obesidade: obesidade.is(":checked"),
+                    magreza: magreza.is(":checked"),
+                    outros: outros.is(":checked"),
+                    observacaoDm: observacaoDm.val(),
+                    observacaoHa: observacaoHa.val(),
+                    observacaoCa: observacaoCa.val(),
+                    observacaoDislipedemia: observacaoDislipidemia.val(),
+                    observacaoObesidade: observacaoObesidade.val(),
+                    observacaoMagreza: observacaoMagreza.val(),
+                    observacaoOutros: observacaoOutros.val()
+                },
+                atividadeFisica: {
+                    tipo: tipoAtividadeFisica.val(),
+                    frequencia: frequencia.val(),
+                    duracao: duracao.val(),
+                    pratica: vocePraticaAtividades.val(),
+                    horaPreferida: horarioPreferido.val()
+                },
+                historicoAlimentarNutricional: {
+                    intoleranciaAlimentar: intoleranciaAlimentar.val(),
+                    preferenciaAlimentar: preferenciaAlimentar.val(),
+                    alteracoesDoApetite: alteracoesApetite.val(),
+                    observacaoAlteracoesDoApetite: desdeQuandoAlteracoesApetite.val(),
+                    iniciouObesidadePerdaPeso: faseQueIniciouObesidadePerdaPeso.val(),
+                    segueDietaEspecial: segueAlgumaDietaEspecial.val(),
+                    refeicoesDia: quantasRefeicoesDia.val(),
+                    consumoAgua: consumoAgua.val(),
+                    consumoSal: consumoSal.val(),
+                    consumoOleo: comsumoOleo.val(),
+                    fazUsoSuplemento: fazUsoSupremento.val(),
+                    quemInidicou: quemInicou.val()
+                },
+                frequenciaAlimentar: {
+                    arroz: opcaoArroz.val(),
+                    macarrao: opcaoMacarrao.val(),
+                    batataMandioca: opcaoBatataMandioca.val(),
+                    pao: opcaoPao.val(),
+                    paoQueijo: opcaoPaoQueijo.val(),
+                    farinhas: opcaoFarinhas.val(),
+                    cerealMatinal: opcaoCerealMatinal.val(),
+                    hortalicasCruas: opcaoHortalicasCruas.val(),
+                    hortalicasCozidas: opcaoHortalicasCozidas.val(),
+                    frutas: opcaoFrutas.val(),
+                    leiteIntegral: opcaoLeiteIntegral.val(),
+                    leiteDesnatado: opcaoLeiteDesnatado.val(),
+                    iorgurte: opcaoIogurte.val(),
+                    iorgurteDesnatado: opcaoIogurteDesnatado.val(),
+                    queijos: opcaoQueijos.val(),
+                    carneVermelha: opcaoCarneVermelha.val(),
+                    embutidos: opcaoEmbutidos.val(),
+                    enlatados: opcaoEnlatados.val(),
+                    ovos: opcaoOvos.val(),
+                    leguminosas: opcaoLeguminosas.val(),
+                    margarinaComum: opcaoMargarinaComum.val(),
+                    margarinaLight: opcaoMargarinaLight.val(),
+                    manteiga: opcaoManteiga.val(),
+                    requeijaoComum: opcaoRequeijaoComum.val(),
+                    requeijaoLight: opcaoRequeijaoLight.val(),
+                    maioneseComum: opcaoMaioneseComum.val(),
+                    maioneseLight: opcaoMaioneseLight.val(),
+                    cremeLeite: opcaoCremeLeite.val(),
+                    frituras: opcaoFrituras.val(),
+                    acucar: opcaoAcucar.val(),
+                    adocante: opcaoAdocante.val(),
+                    mel: opcaoMel.val(),
+                    barraCereal: opcaoBarraCereal.val(),
+                    doces: opcaoDoces.val(),
+                    bolachaRecheada: opcaoBolachaRecheada.val(),
+                    boloBiscoito: opcaoBolachaBoloBiscoito.val(),
+                    chicleteBalas: opcaoChicleteBalas.val(),
+                    chocolate: opcaoChocolate.val(),
+                    sanduichePizza: opcaoSanduichePizza.val(),
+                    salgadinhos: opcaoSalgadinhos.val(),
+                    salgadinhosPacote: opcaoSalgadinhoPacote.val(),
+                    refrigeranteComum: opcaoRefrigeranteComum.val(),
+                    refrigeranteDietLight: opcaoRefrigeranteDietLight.val(),
+                    sucoNatural: opcaoSucoNatural.val(),
+                    sucoArtificial: opcaoSucoArtificial.val(),
+                    cafe: opcaoCafe.val(),
+                    cha: opcaoCha.val(),
+                    diagnosticoNutricional: diagnosticoNutricional.val(),
+                    condutaDietoterapica: condutaDietoterapica.val(),
+                    relatosDeCaso: relatoOrientacoesNutricionaisEvolucao.val(),
+                    observacaoArroz: porcaoArroz.val(),
+                    observacaoMacarrao: porcaoMacarrao.val(),
+                    observacaoBatataMandioca: porcaoBatataMandioca.val(),
+                    observacaoPao: porcaoPao.val(),
+                    observacaoPaoQueijo: porcaoPaoQueijo.val(),
+                    observacaoFarinhas: porcaoFarinhas.val(),
+                    observacaoCerealMatinal: porcaoCerealMatinal.val(),
+                    observacaoHortalicasCruas: porcaoHortalicasCruas.val(),
+                    observacaoHortalicasCozidas: porcaoHortalicasCozidas.val(),
+                    observacaoFrutas: porcaoFrutas.val(),
+                    observacaoLeiteIntegral: porcaoLeiteIntegral.val(),
+                    observacaoLeiteDesnatado: porcaoLeiteDesnatado.val(),
+                    observacaoIorgute: porcaoIogurte.val(),
+                    observacaoIorguteDesnatado: porcaoIogurteDesnatado.val(),
+                    observacaoQueijos: porcaoQueijos.val(),
+                    observacaoCarneVermelha: porcaoCarneVermelha.val(),
+                    observacaoEmbutidos: porcaoEmbutidos.val(),
+                    observacaoEnlatados: porcaoEnlatados.val(),
+                    observacaoOvos: porcaoOvos.val(),
+                    observacaoLeguminosas: porcaoLeguminosas.val(),
+                    observacaoMargarinaComum: porcaoMargarinaComum.val(),
+                    observacaoMargarinaLight: porcaoMargarinaLight.val(),
+                    observacaoManteiga: porcaoManteiga.val(),
+                    observacaoRequeijaoComum: porcaoRequeijaoComum.val(),
+                    observacaoRequeijaoLight: porcaoRequeijaoLight.val(),
+                    observacaoMaioneseComum: porcaoMaioneseComum.val(),
+                    observacaoMaioneseLight: porcaoMaioneseLight.val(),
+                    observacaoCremeLeite: porcaoCremeLeite.val(),
+                    observacaoFrituras: porcaoFrituras.val(),
+                    observacaoAcucar: porcaoAcucar.val(),
+                    observacaoAdocante: porcaoAdocante.val(),
+                    observacaoMel: porcaoMel.val(),
+                    observacaoBarradeCereal: porcaoBarraCereal.val(),
+                    observacaoDoces: porcaoDoces.val(),
+                    observacaoBolachaRecheada: porcaoBolachaRecheada.val(),
+                    observacaoBoloBiscoito: porcaoBolachaBoloBiscoito.val(),
+                    observacaoChicleteBalas: porcaoChicleteBalas.val(),
+                    observacaoChocolate: porcaoChocolate.val(),
+                    observacaoSanduichepizza: porcaoSanduichePizza.val(),
+                    observacaoSalgadinhos: porcaoSalgadinhos.val(),
+                    observacaoSalgadinhosPacote: porcaoSalgadinhoPacote.val(),
+                    observacaoRefrigeranteComum: porcaoRefrigeranteComum.val(),
+                    observacaoRefrigeranteDietLight: porcaoRefrigeranteDietLight.val(),
+                    observacaoSucoNatural: porcaoSucoNatural.val(),
+                    observacaoSucoArtificial: porcaoSucoArtificial.val(),
+                    observacaoCafe: porcaoCafe.val(),
+                    observacaoCha: porcaoCha.val()
                 }
+            };
+            if (tipoAcaoTelaAnamnese === 'cadastrar') {
+                $.ajax({
+                    url: "/ProjetoTcc/cadastrarPaciente",
+                    type: 'POST',
+                    data: JSON.stringify(object),
+                    contentType: "application/json",
+                    dataType: 'json',
+                    success: function (data) {
+                        alert(data.mensagem);
+
+                        if (data.codigo !== 0) {
+                            if (data.codigo === 2) {
+                                location.href = '/ProjetoTcc/sairSistema';
+                            }
+                            return false;
+                        } else {
+                            window.location.href = '/ProjetoTcc/telaPaciente';
+                            return true;
+                        }
+                    }
+                });
+            } else if (tipoAcaoTelaAnamnese === 'atualizar') {
+                $.ajax({
+                    url: "/ProjetoTcc/atualizarInformacoesPaciente",
+                    type: 'PUT',
+                    data: JSON.stringify(object),
+                    contentType: "application/json",
+                    dataType: 'json',
+                    success: function (data) {
+                        alert(data.mensagem);
+                        if (data.codigo !== 0) {
+                            if (data.codigo === 2) {
+                                location.href = '/ProjetoTcc/sairSistema';
+                            }
+                            return false;
+                        } else {
+                            window.location.href = '/ProjetoTcc/telaPaciente';
+                            return true;
+                        }
+
+                    }
+                });
             }
         });
     }
