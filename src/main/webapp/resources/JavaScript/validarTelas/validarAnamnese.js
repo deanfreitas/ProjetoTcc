@@ -237,7 +237,7 @@ $(document).ready(function () {
     // Tabelas
     const tabelaExamesBioquimicos = $('#examesBio');
 
-    //Valida
+    //Validar
     let isValidEmail = true;
 
     let tipoAcaoTelaAnamnese = null;
@@ -454,16 +454,16 @@ $(document).ready(function () {
 
     function salvarCadastro(fields) {
         fields.click(function () {
-            if (!nome.val() && nome.val().trim() === '' && nome.val().trim() === ' ') {
+            if (!nome.val() || nome.val().trim() === '') {
                 alert('Nome é um campo obrigatório');
                 return false;
             }
-            if (!idade.val() && idade.val().trim() === '' && idade.val().trim() === ' ') {
+            if (!idade.val() || idade.val().trim() === '') {
                 alert('idade é um campo obrigatório');
                 return false;
             }
-            if(!sexo.val() && sexo.val() !== 'Masculino' && sexo.val() !== 'Feminino') {
-                alert('sexo é um campo obrigatório')
+            if (!sexo.val() || sexo.val() !== 'Masculino' || sexo.val() !== 'Feminino') {
+                alert('sexo é um campo obrigatório');
                 return false;
             }
             if (!isValidEmail) {

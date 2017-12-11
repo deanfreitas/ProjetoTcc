@@ -47,6 +47,8 @@ $(document).ready(function () {
     const btnCancelarVerificarSenha = $('#cancelarVerificarSenha');
     const validarSenha = $('#validarSenha');
 
+    // validar
+    let isValidEmail = false;
 
     let tipoPessoa = null;
 
@@ -379,15 +381,18 @@ $(document).ready(function () {
                 }
             }
 
-            if (emailInvalido === true) {
+            if (emailInvalido) {
+                isValidEmail = false;
                 $(this).css("border-color", "#FF0000");
                 $(this).css("color", "#FF0000");
                 $(this).tooltip("enable");
                 return false;
             } else {
+                isValidEmail = true;
                 $(this).css("border-color", "#FFFFFF");
                 $(this).css("color", "#000000");
                 $(this).tooltip("disable");
+                checkEmaiIsExist(fields);
                 return true;
             }
         });
@@ -460,50 +465,31 @@ $(document).ready(function () {
     function salvarUsuario(fields) {
         fields.click(function () {
             let display = false;
+            let menssage = 'Esses parametros são obrigatorios ';
 
-            if (!nome.val() || nome.val() === "") {
-                /*
-                 * Precisamos decidir oque vamos mostrar caso o o usuario não
-                 * digite o nome
-                 */
+            if (!nome.val() || nome.val().trim() === "") {
                 nome.css("border-color", "#DC143C");
-                /*
-                 * decide oque vamos mostrar antes desse comentario
-                 */
+                menssage = '\n Nome';
                 display = true;
-            } else if (!apelido.val() || apelido.val() === "") {
-                /*
-                 * Precisamos decidir oque vamos mostrar caso o o usuario
-                 * não digite o apelido
-                 */
+
+            } else if (!apelido.val() || apelido.val().trim() === "") {
                 apelido.css("border-color", "#DC143C");
-                /*
-                 * decide oque vamos mostrar antes desse comentario
-                 */
+                menssage = '\n Apelido';
                 display = true;
-            } else if (!email.val() || email.val() === "") {
-                /*
-                 * Precisamos decidir oque vamos mostrar caso o o
-                 * usuario não digite o email
-                 */
+
+            } else if (!isValidEmail) {
                 email.css("border-color", "#DC143C");
-                /*
-                 * decide oque vamos mostrar antes desse comentario
-                 */
+                menssage = '\n Email';
                 display = true;
+
             } else if (!senha.val() || senha.val() === "") {
-                /*
-                 * Precisamos decidir oque vamos mostrar caso o o
-                 * usuario não digite a senha
-                 */
                 senha.css("border-color", "#DC143C");
-                /*
-                 * decide oque vamos mostrar antes desse comentario
-                 */
+                menssage = '\n Senha';
                 display = true;
             }
 
             if (display) {
+                alert(menssage);
                 return false;
             } else {
                 let object;
@@ -711,6 +697,38 @@ $(document).ready(function () {
                 location.href = '/ProjetoTcc/telaLogin';
             } else {
                 location.href = '/ProjetoTcc/telaPrincipal';
+            }
+        });
+    }
+
+    function checkEmaiIsExist(fields) {
+        if (!isValidEmail) {
+            return false;
+        }
+
+        let object = {
+            email: fields.val(),
+        };
+
+        $.ajax({
+            url: "/ProjetoTcc/validar/checkEmail",
+            type: 'POST',
+            data: JSON.stringify(object),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function (data) {
+                if (data.codigo !== 0) {
+                    alert(data.mensagem);
+                    isValidEmail = false;
+                    fields.css("border-color", "#FF0000");
+                    fields.css("color", "#FF0000");
+                    return false;
+                }
+
+                isValidEmail = true;
+                fields.css("border-color", "#FFFFFF");
+                fields.css("color", "#000000");
+                return true;
             }
         });
     }
