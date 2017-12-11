@@ -237,6 +237,9 @@ $(document).ready(function () {
     // Tabelas
     const tabelaExamesBioquimicos = $('#examesBio');
 
+    //Valida
+    let isValidEmail = true;
+
     let tipoAcaoTelaAnamnese = null;
 
     if (url.indexOf("cadastrar") > -1) {
@@ -432,15 +435,18 @@ $(document).ready(function () {
                 }
             }
 
-            if (emailInvalido === true) {
+            if (emailInvalido) {
+                isValidEmail = false;
                 $(this).css("border-color", "#FF0000");
                 $(this).css("color", "#FF0000");
                 $(this).tooltip("enable");
                 return false;
             } else {
+                isValidEmail = true;
                 $(this).css("border-color", "#FFFFFF");
                 $(this).css("color", "#000000");
                 $(this).tooltip("disable");
+                checkEmaiIsExist(fields);
                 return true;
             }
         });
@@ -448,6 +454,11 @@ $(document).ready(function () {
 
     function salvarCadastro(fields) {
         fields.click(function () {
+            if (!isValidEmail) {
+                alert("Email Invalido");
+                return false;
+            }
+
             if (nome.val() && nome.val() !== '') {
                 if (idade.val() && idade.val() !== '') {
                     let object = {
@@ -1207,32 +1218,36 @@ $(document).ready(function () {
         }
     }
 
-    function checkEmail(fields) {
-        fields.blur(function () {
-            let object = {
-                email: $(this).val(),
-            };
+    function checkEmaiIsExist(fields) {
+        if (!isValidEmail) {
+            return false;
+        }
 
-            $.ajax({
-                url: "/ProjetoTcc/validar/checkEmail",
-                type: 'POST',
-                data: JSON.stringify(object),
-                contentType: "application/json",
-                dataType: 'json',
-                success: function (data) {
-                    if (data.codigo !== 0) {
-                        alert(data.mensagem);
-                        fields.css("border-color", "#FF0000");
-                        fields.css("color", "#FF0000");
-                        return false;
-                    }
+        let object = {
+            email: fields.val(),
+        };
 
-                    fields.css("border-color", "#FFFFFF");
-                    fields.css("color", "#000000");
-                    return true;
+        $.ajax({
+            url: "/ProjetoTcc/validar/checkEmail",
+            type: 'POST',
+            data: JSON.stringify(object),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function (data) {
+                if (data.codigo !== 0) {
+                    alert(data.mensagem);
+                    isValidEmail = false;
+                    fields.css("border-color", "#FF0000");
+                    fields.css("color", "#FF0000");
+                    return false;
                 }
-            });
-        })
+
+                isValidEmail = true;
+                fields.css("border-color", "#FFFFFF");
+                fields.css("color", "#000000");
+                return true;
+            }
+        });
     }
 
     function aparecerCamposIdentificacao(fields) {
@@ -1394,8 +1409,6 @@ $(document).ready(function () {
     lettersOnly(endereco);
     lettersOnly(bairro);
     lettersOnly(cidade);
-
-    checkEmail(email);
 
     deixarDivsInvisiveis(divIdentificacao);
     deixarDivsInvisiveis(divHistoricoFamiliar);
