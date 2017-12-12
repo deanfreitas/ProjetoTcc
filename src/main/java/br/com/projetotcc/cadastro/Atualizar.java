@@ -36,7 +36,7 @@ public class Atualizar extends Http {
 
     public ResultadoServico atualizarAnamnesePaciente(Paciente paciente) {
         Usuario usuario = new Usuario(resultadoServico);
-        resultadoServico = usuario.parametrosObrigatoriosAtualizacaoPaciente(paciente);
+        resultadoServico = usuario.parametrosObrigatoriosPaciente(paciente);
 
         if (resultadoServico.getCodigo() != Code.SUCCESS.getTypeCode()) {
             return resultadoServico;

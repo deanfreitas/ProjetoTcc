@@ -150,6 +150,13 @@ public class Postar extends Http {
 
     public ResultadoServico adicionarPacienteNutricionista(Paciente paciente) {
         if (paciente != null) {
+            Usuario usuario = new Usuario(resultadoServico);
+            resultadoServico = usuario.parametrosObrigatoriosPaciente(paciente);
+
+            if (resultadoServico.getCodigo() != Code.SUCCESS.getTypeCode()) {
+                return resultadoServico;
+            }
+
             try {
                 if (Utils.validTypeUser(context, Pessoa.NUTRICIONISTA.getTypePessoa())) {
                     Nutricionista nutricionista = (Nutricionista) context.getAttribute(Context.DADOS_CADASTRADOS_PESSOA.getTypeContext());

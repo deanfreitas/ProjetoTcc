@@ -31,7 +31,7 @@ public class Usuario {
         return resultadoServico;
     }
 
-    public ResultadoServico parametrosObrigatoriosAtualizacaoPaciente(Paciente paciente) {
+    public ResultadoServico parametrosObrigatoriosPaciente(Paciente paciente) {
         if (paciente == null) {
             mensagem = "Não foi encontrado uma instancia do objeto";
         } else if (paciente.getIdentificacao().getNome() == null || paciente.getIdentificacao().getNome().equals("")) {
@@ -53,6 +53,8 @@ public class Usuario {
     public ResultadoServico parametrosObrigatoriosSalvarNutricionista(Nutricionista nutricionista) {
         if (nutricionista.getNomeCompleto() == null || nutricionista.getNomeCompleto().equals("")) {
             mensagem = "Digite um nome";
+        } else if (nutricionista.getEmail() == null || nutricionista.getEmail().equals("")) {
+            mensagem = "Digite um email";
         } else {
             resultadoServico = validarLogin(nutricionista.getLogin());
         }
@@ -66,6 +68,8 @@ public class Usuario {
     public ResultadoServico parametrosObrigatoriosSalvarPaciente(Paciente paciente) {
         if (paciente.getIdentificacao().getNome() == null || paciente.getIdentificacao().getNome().equals("")) {
             mensagem = "Digite um nome";
+        } else if (paciente.getIdentificacao().getEmail() == null || paciente.getIdentificacao().getEmail().equals("")) {
+            mensagem = "Digite um email";
         } else {
             resultadoServico = validarLogin(paciente.getLogin());
         }
