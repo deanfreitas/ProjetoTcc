@@ -4,11 +4,7 @@ import br.com.projetotcc.entidade.pessoa.Nutricionista;
 import br.com.projetotcc.entidade.pessoa.Paciente;
 import br.com.projetotcc.entidade.pessoa.informacao.Login;
 import br.com.projetotcc.enums.Code;
-import br.com.projetotcc.enums.Context;
-import br.com.projetotcc.enums.Pessoa;
 import br.com.projetotcc.mensagem.ResultadoServico;
-
-import javax.servlet.ServletContext;
 
 public class Usuario {
 
@@ -29,8 +25,8 @@ public class Usuario {
             codigo = Code.SUCCESS.getTypeCode();
         }
 
-        resultadoServico.setMensagem(mensagem);
         resultadoServico.setCodigo(codigo);
+        resultadoServico.setMensagem(mensagem);
 
         return resultadoServico;
     }
@@ -48,8 +44,8 @@ public class Usuario {
             codigo = Code.SUCCESS.getTypeCode();
         }
 
-        resultadoServico.setMensagem(mensagem);
         resultadoServico.setCodigo(codigo);
+        resultadoServico.setMensagem(mensagem);
 
         return resultadoServico;
     }
@@ -61,6 +57,7 @@ public class Usuario {
             resultadoServico = validarLogin(nutricionista.getLogin());
         }
 
+        resultadoServico.setCodigo(codigo);
         resultadoServico.setMensagem(mensagem);
 
         return resultadoServico;
@@ -73,6 +70,7 @@ public class Usuario {
             resultadoServico = validarLogin(paciente.getLogin());
         }
 
+        resultadoServico.setCodigo(codigo);
         resultadoServico.setMensagem(mensagem);
 
         return resultadoServico;
@@ -97,6 +95,9 @@ public class Usuario {
         } else {
             codigo = Code.SUCCESS.getTypeCode();
         }
+
+        resultadoServico.setCodigo(codigo);
+        resultadoServico.setMensagem(mensagem);
 
         return resultadoServico;
     }
