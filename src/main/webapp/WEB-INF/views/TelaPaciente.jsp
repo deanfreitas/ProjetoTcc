@@ -9,21 +9,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Paciente</title>
-    <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/bootstrap.min.css' />"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/nodeDependency/node_modules/bootstrap/dist/css/bootstrap.min.css' />"/>
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='/resources/Css/bootstrap/dataTables/dataTables.bootstrap.min.css' />"/>
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='/resources/Css/bootstrap/bootstrap-material-design.min.css' />"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/bootstrap/ripples.min.css' />"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/nodeDependency/node_modules/material-ripple/dist/ripple.min.css' />"/>
     <link rel="stylesheet" type="text/css" href="<c:url value ='/resources/Css/estiloTelas/estiloTelaPaciente.css' />"/>
     <link rel="stylesheet" type="text/css"
           href="<c:url value ='https://fonts.googleapis.com/icon?family=Material+Icons' />"/>
-    <script src = "<c:url value ='/resources/JavaScript/jquery/jquery-2.1.4.js' />" ></script>
+    <script src = "<c:url value ='/resources/nodeDependency/node_modules/jquery/dist/jquery.js' />" ></script>
     <script src="<c:url value ='/resources/JavaScript/jquery/dataTables/jquery.dataTables.min.js' />"></script>
     <script src = "<c:url value ='/resources/JavaScript/bootstrap/dataTables/dataTables.bootstrap.min.js' />" ></script>
-    <script src="<c:url value ='/resources/JavaScript/bootstrap/material.min.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js' />"></script>
     <script src = "<c:url value ='/resources/JavaScript/bootstrap/ripples.min.js' />" ></script>
-    <script src="<c:url value ='/resources/JavaScript/bootstrap/bootstrap.min.js' />"></script>
+    <script src="<c:url value ='/resources/nodeDependency/node_modules/bootstrap/dist/js/bootstrap.min.js' />"></script>
     <script src = "<c:url value ='/resources/JavaScript/validarTelas/validarPaciente.js' />" ></script>
 </head>
 
