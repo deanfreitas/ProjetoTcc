@@ -7,3 +7,4 @@ target/
 projetotcc.iml
 src/main/webapp/resources/nodeDependency/package-lock.json
 src/main/webapp/resources/nodeDependency/node_modules/
+.DS_Store
